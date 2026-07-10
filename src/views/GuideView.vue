@@ -92,7 +92,7 @@ const milestones = [
       </div>
     </section>
 
-    <section id="characters" class="content-section routed-section" aria-labelledby="characters-title">
+    <section id="characters" class="content-section routed-section content-section--characters" aria-labelledby="characters-title">
       <SectionHeading title-id="characters-title" kicker="04 / Select player" title="Fourteen ways into the fray." intro="Choose a portrait to update the player file. Attributes are editorial impressions; move notation remains queued for gameplay verification." />
       <div class="character-select" role="list" aria-label="Playable characters">
         <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="store.selectCharacter(character.id)"><span class="portrait__avatar" aria-hidden="true">{{ character.name.slice(0, 2).toUpperCase() }}</span><span>{{ character.name }}</span></button>
@@ -129,7 +129,7 @@ const milestones = [
       </div>
     </section>
 
-    <section id="history" class="content-section routed-section" aria-labelledby="history-title">
+    <section id="history" class="content-section routed-section content-section--history" aria-labelledby="history-title">
       <SectionHeading title-id="history-title" kicker="08 / Archive" title="A bright streak through arcade history." intro="From Capcom’s first 3D arena experiment to a portable compilation and an enduring multiplayer legacy." />
       <ol class="timeline"><li v-for="(milestone, index) in milestones" :key="index"><time>{{ milestone[0] }}</time><span aria-hidden="true" /><p>{{ milestone[1] }}</p></li></ol>
     </section>
