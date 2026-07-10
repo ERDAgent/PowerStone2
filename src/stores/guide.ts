@@ -1,40 +1,61 @@
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
-import { characters, items, levels } from '@/data/content'
-import type { ItemRecord } from '@/data/types'
+import { essences, items, materials } from '@/data'
+import { characters, levels } from '@/data/content'
+import type { EntityId, EssenceRecord, ItemRecord, MaterialRecord } from '@/data/types'
 import type { CharacterRecord, LevelRecord } from '@/data/world'
+
+export type CatalogKind = 'all' | 'item' | 'material' | 'essence'
+export type CatalogEntity =
+  | { readonly kind: 'item'; readonly record: ItemRecord }
+  | { readonly kind: 'material'; readonly record: MaterialRecord }
+  | { readonly kind: 'essence'; readonly record: EssenceRecord }
+
+const catalog: readonly CatalogEntity[] = [
+  ...items.map(record => ({ kind: 'item', record }) as const),
+  ...materials.map(record => ({ kind: 'material', record }) as const),
+  ...essences.map(record => ({ kind: 'essence', record }) as const),
+]
 
 export const useGuideStore = defineStore('guide', () => {
   const selectedCharacterId = ref(characters[0].id)
-  const selectedItemId = ref(items[0].id)
+  const selectedEntityId = ref<EntityId | null>(items[0].id)
+  const catalogKind = ref<CatalogKind>('item')
   const itemCategory = ref('All')
   const itemQuery = ref('')
   const openLevelId = ref<LevelRecord['id'] | null>(null)
   const slideIndex = ref(0)
 
   const selectedCharacter = computed(() => characters.find(c => c.id === selectedCharacterId.value) ?? characters[0])
-  const selectedItem = computed(() => items.find(i => i.id === selectedItemId.value) ?? items[0])
-  const filteredItems = computed(() => {
+  const filteredEntities = computed(() => {
     const query = itemQuery.value.trim().toLocaleLowerCase()
-    return items.filter(item =>
-      (itemCategory.value === 'All' || (item.category ?? 'Uncategorized') === itemCategory.value)
-      && (!query || item.name.toLocaleLowerCase().includes(query) || item.number.includes(query)),
-    )
+    return catalog.filter(entity => {
+      if (catalogKind.value !== 'all' && entity.kind !== catalogKind.value) return false
+      if (entity.kind === 'item' && catalogKind.value === 'item' && itemCategory.value !== 'All' && (entity.record.category ?? 'Uncategorized') !== itemCategory.value) return false
+      const numericNumber = String(Number(entity.record.number))
+      return !query || entity.record.name.toLocaleLowerCase().includes(query) || entity.record.number === query || numericNumber === query
+    })
   })
+  const selectedEntity = computed(() => filteredEntities.value.find(entity => entity.record.id === selectedEntityId.value) ?? null)
   const openLevel = computed(() => levels.find(l => l.id === openLevelId.value) ?? null)
 
-  function selectCharacter(id: CharacterRecord['id']) { selectedCharacterId.value = id }
-  function selectItem(id: ItemRecord['id']) { selectedItemId.value = id }
-  function setCategory(category: string) {
-    itemCategory.value = category
-    const first = filteredItems.value[0]
-    if (first) selectedItemId.value = first.id
+  function reconcileSelection() {
+    if (!filteredEntities.value.some(entity => entity.record.id === selectedEntityId.value)) selectedEntityId.value = filteredEntities.value[0]?.record.id ?? null
   }
+  function selectCharacter(id: CharacterRecord['id']) { selectedCharacterId.value = id }
+  function selectEntity(id: EntityId) { selectedEntityId.value = id }
+  function setCatalogKind(kind: CatalogKind) {
+    catalogKind.value = kind
+    if (kind !== 'item') itemCategory.value = 'All'
+  }
+  function setCategory(category: string) { itemCategory.value = category }
   function setItemQuery(query: string) { itemQuery.value = query }
   function showLevel(id: LevelRecord['id']) { openLevelId.value = id; slideIndex.value = 0 }
   function closeLevel() { openLevelId.value = null; slideIndex.value = 0 }
   function nextSlide() { if (openLevel.value) slideIndex.value = (slideIndex.value + 1) % openLevel.value.slides.length }
   function previousSlide() { if (openLevel.value) slideIndex.value = (slideIndex.value - 1 + openLevel.value.slides.length) % openLevel.value.slides.length }
 
-  return { selectedCharacterId, selectedItemId, itemCategory, itemQuery, openLevelId, slideIndex, selectedCharacter, selectedItem, filteredItems, openLevel, selectCharacter, selectItem, setCategory, setItemQuery, showLevel, closeLevel, nextSlide, previousSlide }
+  watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
+
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, openLevelId, slideIndex, selectedCharacter, selectedEntity, filteredEntities, openLevel, selectCharacter, selectEntity, setCatalogKind, setCategory, setItemQuery, showLevel, closeLevel, nextSlide, previousSlide }
 })

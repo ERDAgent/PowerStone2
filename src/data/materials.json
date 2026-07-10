@@ -8,7 +8,7 @@
     "spreadsheetName": "Fire Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/01-oil-mat.svg",
+    "media": "/media/materials/png/01-oil-mat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -37,7 +37,7 @@
     "spreadsheetName": "Water Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/02-chemical-mat.svg",
+    "media": "/media/materials/png/02-chemical-mat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -66,7 +66,7 @@
     "spreadsheetName": "Electricity Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/03-cartwheel-mat.svg",
+    "media": "/media/materials/png/03-cartwheel-mat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -95,7 +95,7 @@
     "spreadsheetName": "Light Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/04-wood-mat.svg",
+    "media": "/media/materials/png/04-wood-mat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -124,7 +124,7 @@
     "spreadsheetName": "Magic Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/05-cloth-mat.svg",
+    "media": "/media/materials/png/05-cloth-mat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -153,7 +153,7 @@
     "spreadsheetName": "Trap Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/06-gunpowder-mat.svg",
+    "media": "/media/materials/png/06-gunpowder-mat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -182,7 +182,7 @@
     "spreadsheetName": "Oil",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/07-gold-mat.svg",
+    "media": "/media/materials/png/07-gold-mat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -240,7 +240,7 @@
     "spreadsheetName": "Wheel",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/09-flame-element.svg",
+    "media": "/media/materials/png/09-flame-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -269,7 +269,7 @@
     "spreadsheetName": "Wood Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/10-ice-element.svg",
+    "media": "/media/materials/png/10-ice-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -298,7 +298,7 @@
     "spreadsheetName": "Cloth",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/11-thunder-element.svg",
+    "media": "/media/materials/png/11-thunder-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -327,7 +327,7 @@
     "spreadsheetName": "Gunpowder",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/12-light-element.svg",
+    "media": "/media/materials/png/12-light-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -356,7 +356,7 @@
     "spreadsheetName": "Gold",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/13-magic-element.svg",
+    "media": "/media/materials/png/13-magic-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -385,7 +385,7 @@
     "spreadsheetName": "Iron",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/svg/14-trap-element.svg",
+    "media": "/media/materials/png/14-trap-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [

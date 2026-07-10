@@ -69,11 +69,16 @@ describe('canonical item data', () => {
   it('declares only media files that exist and preserves absent art as null', () => {
     const records = [...items, ...materials, ...essences]
     for (const record of records) {
-      if (record.media !== null) expect(existsSync(`${projectRoot}/public${record.media}`), record.media).toBe(true)
+      if (record.media !== null) {
+        expect(record.media.endsWith('.png'), record.media).toBe(true)
+        expect(existsSync(`${projectRoot}/public${record.media}`), record.media).toBe(true)
+      }
     }
     expect(items.filter(record => record.media === null)).toHaveLength(24)
     expect(materials.filter(record => record.media === null)).toHaveLength(9)
     expect(essences.every(record => record.media !== null)).toBe(true)
+    expect(items.filter(record => record.media === null).map(record => record.number)).toEqual(['037', '046', '047', '051', '065', '068', '077', '078', '079', '080', '089', '098', '099', '100', '101', '102', '103', '104', '105', '108', '113', '114', '118', '119'])
+    expect(materials.filter(record => record.media === null).map(record => record.number)).toEqual(['08', '15', '16', '17', '18', '19', '20', '21', '22'])
   })
 
   it('retains source disagreements in provenance', () => {
