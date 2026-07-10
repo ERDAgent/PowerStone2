@@ -40,7 +40,7 @@ describe('recipe lookup', () => {
     wrapper.unmount()
   })
 
-  it('shows every resolved alternative in canonical order with media and provenance', async () => {
+  it('shows every resolved alternative in canonical order with media and no provenance', async () => {
     const wrapper = mountLookup()
     await searchAndSelect(wrapper, 'Gun')
     const expected = getRecipesForResult('item-gun')
@@ -49,8 +49,10 @@ describe('recipe lookup', () => {
     expect(cards.map(card => card.find('h4').text())).toEqual(expected.map((_, index) => `Recipe ${index + 1}`))
     expect(cards[0].text()).toContain('Iron')
     expect(cards[0].text()).toContain('Flame Element')
-    expect(cards[0].text()).toContain('Iron + Flame Element')
-    expect(cards[0].text()).toContain('item-1|1|Iron + Flame Element')
+    expect(cards[0].text()).not.toContain('Iron + Flame Element')
+    expect(cards[0].text()).not.toContain('item-1|1|Iron + Flame Element')
+    expect(cards[0].text()).not.toContain('Source:')
+    expect(cards[0].find('.recipe-provenance').exists()).toBe(false)
     expect(cards[0].findAll('img').length).toBeGreaterThan(0)
     wrapper.unmount()
   })
@@ -64,12 +66,13 @@ describe('recipe lookup', () => {
     wrapper.unmount()
   })
 
-  it('surfaces a selected result provenance note alongside resolved source provenance', async () => {
+  it('keeps the selected result note while hiding resolved source provenance', async () => {
     const wrapper = mountLookup()
     await searchAndSelect(wrapper, 'Homing Missile')
     expect(wrapper.find('.recipe-result-note').text()).toContain('Marking Missile')
-    expect(wrapper.find('.recipe-provenance').text()).toContain('Source:')
-    expect(wrapper.find('.recipe-provenance').text()).toContain('item-8|')
+    expect(wrapper.text()).not.toContain('Source:')
+    expect(wrapper.text()).not.toContain('item-8|')
+    expect(wrapper.find('.recipe-provenance').exists()).toBe(false)
     wrapper.unmount()
   })
 
