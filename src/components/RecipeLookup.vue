@@ -11,7 +11,7 @@ const input = ref<HTMLInputElement | null>(null)
 const matches = computed(() => {
   const term = query.value.trim().toLocaleLowerCase()
   if (!term) return items
-  return items.filter(item => item.name.toLocaleLowerCase().includes(term) || item.number.includes(term))
+  return items.filter(item => item.name.toLocaleLowerCase().includes(term) || item.number === term || String(Number(item.number)) === term)
 })
 const selected = computed(() => items.find(item => item.id === selectedId.value) ?? null)
 const selectedRecipes = computed(() => selected.value
@@ -45,6 +45,12 @@ function onKeydown(event: KeyboardEvent) {
   }
 }
 
+function clearInput() {
+  query.value = ''
+  selectedId.value = null
+  nextTick(() => { activeIndex.value = -1; input.value?.focus() })
+}
+
 function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
 </script>
 
@@ -52,19 +58,22 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
   <div class="recipe-lookup">
     <div class="recipe-lookup__search">
       <label for="recipe-search">Find an item result</label>
-      <input
-        id="recipe-search"
-        ref="input"
-        v-model="query"
-        type="search"
-        role="combobox"
-        aria-autocomplete="list"
-        aria-controls="recipe-results"
-        :aria-activedescendant="activeIndex >= 0 && matches[activeIndex] ? optionId(matches[activeIndex]) : undefined"
-        :aria-expanded="matches.length > 0"
-        placeholder="Search 121 items by name or number"
-        @keydown="onKeydown"
-      />
+      <div class="recipe-search-controls">
+        <input
+          id="recipe-search"
+          ref="input"
+          v-model="query"
+          type="search"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-controls="recipe-results"
+          :aria-activedescendant="activeIndex >= 0 && matches[activeIndex] ? optionId(matches[activeIndex]) : undefined"
+          :aria-expanded="matches.length > 0"
+          placeholder="Search 121 items by name or number"
+          @keydown="onKeydown"
+        />
+        <button type="button" class="button button--ghost recipe-clear" @click="clearInput">Clear input</button>
+      </div>
       <p class="recipe-lookup__hint">Use ↑ and ↓ to browse; Enter selects. Materials and cards are ingredients only.</p>
       <div id="recipe-results" class="recipe-options" role="listbox" aria-label="Matching item results">
         <button
@@ -80,7 +89,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
         >
           <img v-if="item.media" :src="item.media" alt="" />
           <span v-else class="entity-fallback" aria-hidden="true">{{ item.name.slice(0, 2) }}</span>
-          <span><b>{{ item.name }}</b><small>#{{ item.number }} · {{ item.category ?? 'Uncategorized' }}</small></span>
+          <span><b>{{ item.name }}</b><small>Item {{ Number(item.number) }} · {{ item.category ?? 'Uncategorized' }}</small></span>
         </button>
         <p v-if="!matches.length" class="recipe-empty" role="status">No items match “{{ query }}”. Try another name or catalog number.</p>
       </div>
@@ -95,7 +104,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
         <header class="recipe-result-heading">
           <img v-if="selected.media" :src="selected.media" :alt="`${selected.name} artwork`" />
           <span v-else class="entity-fallback" aria-hidden="true">{{ selected.name.slice(0, 2) }}</span>
-          <div><p class="eyebrow">Selected result · #{{ selected.number }}</p><h3>{{ selected.name }}</h3></div>
+          <div><p class="eyebrow">{{ selected.category ?? 'Item' }} · #{{ selected.number }}</p><h3>{{ selected.name }}</h3></div>
         </header>
         <p v-if="selected.provenance.notes.length" class="data-note recipe-result-note">{{ selected.provenance.notes.join(' ') }}</p>
         <aside v-if="ambiguousRows.length" class="recipe-warning" role="note">
@@ -103,7 +112,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
         </aside>
         <div v-if="selectedRecipes.length" class="resolved-recipes">
           <article v-for="(recipe, index) in selectedRecipes" :key="recipe.id" class="resolved-recipe">
-            <h4>Alternative {{ index + 1 }}</h4>
+            <h4>Recipe {{ index + 1 }}</h4>
             <div class="resolved-recipe__formula">
               <template v-for="(ingredient, ingredientIndex) in recipe.ingredients" :key="`${recipe.id}-${ingredient.id}`">
                 <span v-if="ingredientIndex" class="formula-symbol" aria-hidden="true">+</span>

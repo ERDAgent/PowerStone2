@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
+import { readFileSync } from 'node:fs'
 import { mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
 import { createMemoryHistory, createRouter } from 'vue-router'
@@ -7,7 +8,7 @@ import GuideView from '@/views/GuideView.vue'
 import { routes } from '@/router'
 import { sections } from '@/data/content'
 import { bosses, characters, levels } from '@/data/world'
-import { items } from '@/data'
+import { essences, items, materials } from '@/data'
 
 const expectedSections = [
   ['overview', 'Overview'],
@@ -111,8 +112,87 @@ describe('guide interactions', () => {
     const machineGun = wrapper.findAll('.item-tile').find(button => button.text().includes('Machine Gun'))
     await machineGun!.trigger('click')
     expect(wrapper.find('.item-detail h3').text()).toBe('Machine Gun')
-    expect(wrapper.find('.item-detail').text()).toContain('#002')
+    expect(wrapper.find('.item-detail').text()).toContain('Item 2')
     wrapper.unmount()
+  })
+
+  it('provides ordered catalog tabs with Items selected and exact populations', async () => {
+    const { wrapper } = await mountGuide()
+    const tabs = wrapper.findAll('[role="tab"]')
+    expect(tabs.map(tab => tab.text())).toEqual(['All', 'Items', 'Materials', 'Essences'])
+    expect(tabs.map(tab => tab.attributes('aria-selected'))).toEqual(['false', 'true', 'false', 'false'])
+    expect(tabs.map(tab => tab.attributes('tabindex'))).toEqual(['-1', '0', '-1', '-1'])
+    expect(wrapper.findAll('.item-tile')).toHaveLength(121)
+    await tabs[0].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(152)
+    await tabs[2].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(22)
+    await tabs[3].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(9)
+    wrapper.unmount()
+  })
+
+  it('supports wrapped arrow and Home/End tab activation with focus', async () => {
+    const { wrapper } = await mountGuide()
+    let tabs = wrapper.findAll<HTMLButtonElement>('[role="tab"]')
+    tabs[1].element.focus()
+    await tabs[1].trigger('keydown', { key: 'ArrowLeft' })
+    tabs = wrapper.findAll('[role="tab"]')
+    expect(tabs[0].attributes('aria-selected')).toBe('true')
+    expect(document.activeElement).toBe(tabs[0].element)
+    await tabs[0].trigger('keydown', { key: 'ArrowLeft' })
+    tabs = wrapper.findAll('[role="tab"]')
+    expect(tabs[3].attributes('aria-selected')).toBe('true')
+    await tabs[3].trigger('keydown', { key: 'Home' })
+    expect(wrapper.findAll('[role="tab"]')[0].attributes('aria-selected')).toBe('true')
+    await wrapper.findAll('[role="tab"]')[0].trigger('keydown', { key: 'End' })
+    expect(wrapper.findAll('[role="tab"]')[3].attributes('aria-selected')).toBe('true')
+    wrapper.unmount()
+  })
+
+  it('searches padded and numeric numbers within each kind and clears stale selection', async () => {
+    const { wrapper } = await mountGuide()
+    await wrapper.find('#item-search').setValue('1')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(1)
+    expect(wrapper.find('.item-tile').text()).toContain('Gun')
+    await wrapper.findAll('[role="tab"]')[2].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(1)
+    expect(wrapper.find('.item-detail h3').text()).toBe('Oil')
+    expect(wrapper.find('.item-detail').text()).toContain('Material 1')
+    expect(wrapper.find('.filter-bar').exists()).toBe(false)
+    await wrapper.find('#item-search').setValue('not present')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(0)
+    expect(wrapper.find('.item-detail').text()).toContain('No catalog result selected')
+    await wrapper.findAll('[role="tab"]')[3].trigger('click')
+    await wrapper.find('#item-search').setValue('01')
+    expect(wrapper.find('.item-detail h3').text()).toBe('Horror Card')
+    expect(wrapper.find('.item-detail img').attributes('alt')).toContain('essence artwork')
+    wrapper.unmount()
+  })
+
+  it('resets category when leaving Items and renders kind-specific detail fields', async () => {
+    const { wrapper } = await mountGuide()
+    const category = wrapper.findAll('.chip').find(chip => chip.text() !== 'All')!
+    await category.trigger('click')
+    await wrapper.findAll('[role="tab"]')[2].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(materials.length)
+    expect(wrapper.find('.item-detail').text()).toContain('Material type')
+    await wrapper.findAll('[role="tab"]')[3].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(essences.length)
+    expect(wrapper.find('.item-detail').text()).toContain('Essence card')
+    await wrapper.findAll('[role="tab"]')[1].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(items.length)
+    expect(wrapper.findAll('.chip')[0].classes()).toContain('chip--active')
+    wrapper.unmount()
+  })
+
+  it('keeps new controls constrained at a 360px viewport without page-level overflow', () => {
+    const styles = readFileSync(`${process.cwd()}/src/assets/styles/main.scss`, 'utf8')
+    const mobileStyles = styles.slice(styles.indexOf('@media (max-width: 680px)'))
+    expect(mobileStyles).toContain('.catalog-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }')
+    expect(mobileStyles).toContain('.catalog-tabs [role="tab"] { min-width: 0; }')
+    expect(mobileStyles).toContain('.recipe-search-controls { flex-wrap: wrap; }')
+    expect(styles).toContain('.recipe-lookup__search { min-width: 0; }')
   })
 
   it('renders canonical boss, character, and level records', async () => {

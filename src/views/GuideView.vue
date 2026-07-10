@@ -1,15 +1,45 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import SectionHeading from '@/components/SectionHeading.vue'
 import LevelDialog from '@/components/LevelDialog.vue'
 import RecipeLookup from '@/components/RecipeLookup.vue'
 import { bosses, characters, items, levels } from '@/data/content'
 import { useGuideStore } from '@/stores/guide'
+import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedItem, filteredItems, itemCategory, itemQuery } = storeToRefs(store)
+const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery } = storeToRefs(store)
 const categories = computed(() => ['All', ...new Set(items.map(item => item.category ?? 'Uncategorized'))])
+const catalogTabs = [
+  { kind: 'all', label: 'All' },
+  { kind: 'item', label: 'Items' },
+  { kind: 'material', label: 'Materials' },
+  { kind: 'essence', label: 'Essences' },
+] as const
+const tabElements = ref<HTMLButtonElement[]>([])
+
+function entityKindLabel(entity: CatalogEntity) { return entity.kind[0].toUpperCase() + entity.kind.slice(1) }
+function entityNumberLabel(entity: CatalogEntity) { return `${entityKindLabel(entity)} ${Number(entity.record.number)}` }
+function entityContext(entity: CatalogEntity) {
+  if (entity.kind === 'item') return entity.record.category ?? 'Uncategorized'
+  if (entity.kind === 'material') return entity.record.type
+  return 'Card essence'
+}
+function activateCatalogTab(kind: CatalogKind, index: number) {
+  store.setCatalogKind(kind)
+  nextTick(() => tabElements.value[index]?.focus())
+}
+function onTabKeydown(event: KeyboardEvent, index: number) {
+  let next = index
+  if (event.key === 'ArrowRight') next = (index + 1) % catalogTabs.length
+  else if (event.key === 'ArrowLeft') next = (index - 1 + catalogTabs.length) % catalogTabs.length
+  else if (event.key === 'Home') next = 0
+  else if (event.key === 'End') next = catalogTabs.length - 1
+  else return
+  event.preventDefault()
+  activateCatalogTab(catalogTabs[next].kind, next)
+}
 
 const multiplayerSteps = [
   ['Prepare your game', 'Use your own legally obtained game files and confirm they launch locally before networking.'],
@@ -79,22 +109,26 @@ const milestones = [
     </section>
 
     <section id="items" class="content-section routed-section content-section--items" aria-labelledby="items-title">
-      <SectionHeading title-id="items-title" kicker="03 / Arsenal" title="Pick it up. Change the match." intro="Browse all 121 entries in the canonical item catalog." />
-      <label class="item-search" for="item-search">Search items <input id="item-search" v-model="itemQuery" type="search" placeholder="Name or catalog number" /></label>
-      <div class="filter-bar" aria-label="Filter items by category">
+      <SectionHeading title-id="items-title" kicker="03 / Arsenal" title="Pick it up. Change the match." intro="Browse items, crafting materials, and card essences in one canonical catalog." />
+      <div class="catalog-tabs" role="tablist" aria-label="Catalog entity kind">
+        <button v-for="(tab, index) in catalogTabs" :key="tab.kind" :ref="element => { if (element) tabElements[index] = element as HTMLButtonElement }" type="button" role="tab" :aria-selected="catalogKind === tab.kind" :tabindex="catalogKind === tab.kind ? 0 : -1" @click="activateCatalogTab(tab.kind, index)" @keydown="onTabKeydown($event, index)">{{ tab.label }}</button>
+      </div>
+      <label class="item-search" for="item-search">Search {{ catalogTabs.find(tab => tab.kind === catalogKind)?.label.toLowerCase() }} <input id="item-search" :value="itemQuery" type="search" placeholder="Name or catalog number" @input="store.setItemQuery(($event.target as HTMLInputElement).value)" /></label>
+      <div v-if="catalogKind === 'item'" class="filter-bar" aria-label="Filter items by category">
         <button v-for="category in categories" :key="category" type="button" :class="['chip', { 'chip--active': itemCategory === category }]" @click="store.setCategory(category)">{{ category }}</button>
       </div>
       <div class="item-browser">
-        <div class="item-browser__list" role="list" aria-label="Items">
-          <button v-for="item in filteredItems" :key="item.id" type="button" :class="['item-tile', { 'item-tile--active': selectedItem.id === item.id }]" @click="store.selectItem(item.id)">
-            <img v-if="item.media" :src="item.media" alt="" /><span v-else class="entity-fallback" aria-hidden="true">{{ item.name.slice(0, 2) }}</span><span><small>{{ item.category ?? 'Uncategorized' }} · #{{ item.number }}</small>{{ item.name }}</span><b aria-hidden="true">↗</b>
+        <div class="item-browser__list" role="list" :aria-label="`${catalogTabs.find(tab => tab.kind === catalogKind)?.label} catalog`">
+          <button v-for="entity in filteredEntities" :key="entity.record.id" type="button" :class="['item-tile', { 'item-tile--active': selectedEntity?.record.id === entity.record.id }]" @click="store.selectEntity(entity.record.id)">
+            <img v-if="entity.record.media" :src="entity.record.media" alt="" /><span v-else class="entity-fallback" aria-hidden="true">{{ entity.record.name.slice(0, 2) }}</span><span><small>{{ entityNumberLabel(entity) }} · {{ entityContext(entity) }}</small>{{ entity.record.name }}</span><b aria-hidden="true">↗</b>
           </button>
-          <p v-if="!filteredItems.length" class="recipe-empty" role="status">No catalog items match this filter.</p>
+          <p v-if="!filteredEntities.length" class="recipe-empty" role="status">No catalog entities match this search.</p>
         </div>
-        <article class="item-detail" aria-live="polite">
-          <div class="item-detail__visual"><img v-if="selectedItem.media" :src="selectedItem.media" :alt="`${selectedItem.name} item artwork`" /><span v-else class="entity-fallback" aria-hidden="true">{{ selectedItem.name.slice(0, 2) }}</span></div>
-          <div class="item-detail__copy"><p class="eyebrow">{{ selectedItem.category ?? 'Uncategorized' }} · #{{ selectedItem.number }}</p><h3>{{ selectedItem.name }}</h3><dl><div><dt>Function</dt><dd>{{ selectedItem.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedItem.level }}</dd></div></dl><p v-if="selectedItem.provenance.notes.length" class="data-note">{{ selectedItem.provenance.notes.join(' ') }}</p></div>
+        <article v-if="selectedEntity" class="item-detail" aria-live="polite">
+          <div class="item-detail__visual"><img v-if="selectedEntity.record.media" :src="selectedEntity.record.media" :alt="`${selectedEntity.record.name} ${selectedEntity.kind} artwork`" /><span v-else class="entity-fallback" aria-hidden="true">{{ selectedEntity.record.name.slice(0, 2) }}</span></div>
+          <div class="item-detail__copy"><p class="eyebrow">{{ entityNumberLabel(selectedEntity) }} · {{ entityContext(selectedEntity) }}</p><h3>{{ selectedEntity.record.name }}</h3><dl v-if="selectedEntity.kind === 'item'"><div><dt>Function</dt><dd>{{ selectedEntity.record.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedEntity.record.level }}</dd></div></dl><dl v-else-if="selectedEntity.kind === 'material'"><div><dt>Material type</dt><dd>{{ selectedEntity.record.type }}</dd></div><div><dt>Rarity</dt><dd>{{ selectedEntity.record.rarity ?? 'Unknown' }}</dd></div><div><dt>Worth</dt><dd>{{ selectedEntity.record.worth ?? 'Unknown' }}</dd></div></dl><dl v-else><div><dt>Entity kind</dt><dd>Essence card</dd></div></dl><p v-if="selectedEntity.record.provenance.notes.length" class="data-note">{{ selectedEntity.record.provenance.notes.join(' ') }}</p></div>
         </article>
+        <div v-else class="item-detail recipe-empty recipe-empty--detail" role="status"><div><h3>No catalog result selected</h3><p>Try another name or catalog number.</p></div></div>
       </div>
     </section>
 
