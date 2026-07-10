@@ -5,6 +5,21 @@ import { createMemoryHistory, createRouter } from 'vue-router'
 import App from '@/App.vue'
 import GuideView from '@/views/GuideView.vue'
 import { routes } from '@/router'
+import { sections } from '@/data/content'
+
+const expectedSections = [
+  ['overview', 'Overview'],
+  ['how-to-play', 'How to Play'],
+  ['multiplayer', 'Multiplayer'],
+  ['items', 'Items'],
+  ['combinations', 'Combinations'],
+  ['characters', 'Characters'],
+  ['levels', 'Levels'],
+  ['bosses', 'Bosses'],
+  ['unlocks', 'Unlocks'],
+  ['history', 'History'],
+  ['about', 'About Us'],
+] as const
 
 function testRouter() {
   return createRouter({ history: createMemoryHistory(), routes })
@@ -32,6 +47,28 @@ async function mountGuide() {
 }
 
 describe('section routing', () => {
+  it('keeps navigation, generated routes, and rendered sections in the requested order', async () => {
+    expect(sections.map(section => [section.id, section.label])).toEqual(expectedSections)
+    expect(routes.slice(0, expectedSections.length).map(route => route.path)).toEqual(expectedSections.map(([id]) => `/${id}`))
+
+    const { wrapper } = await mountAppAt('/overview')
+    expect(wrapper.findAll('#primary-navigation a').map(link => link.text())).toEqual(expectedSections.map(([, label]) => label))
+    expect(wrapper.findAll('.site-footer__nav a').map(link => link.text())).toEqual(expectedSections.map(([, label]) => label))
+    expect(wrapper.findAll('.routed-section').map(section => section.attributes('id'))).toEqual(expectedSections.map(([id]) => id))
+    wrapper.unmount()
+  })
+
+  it('routes How to Play by its accessible section id and keeps About Us at /about', async () => {
+    const { wrapper, router } = await mountAppAt('/how-to-play')
+    expect(router.currentRoute.value.meta.section).toBe('how-to-play')
+    expect(wrapper.find('#how-to-play').attributes('aria-labelledby')).toBe('how-to-play-title')
+    expect(wrapper.find('#how-to-play-title').text()).toBe('Learn the scramble.')
+    expect(wrapper.find('#primary-navigation a[aria-current="page"]').text()).toBe('How to Play')
+    const aboutLink = wrapper.findAll('#primary-navigation a').find(link => link.text() === 'About Us')
+    expect(aboutLink?.attributes('href')).toBe('/about')
+    wrapper.unmount()
+  })
+
   it('targets the initial section and updates active feedback after a route change', async () => {
     const { wrapper, router } = await mountAppAt('/levels')
     expect(wrapper.find('a[aria-current="page"]').text()).toBe('Levels')

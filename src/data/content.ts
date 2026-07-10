@@ -1,14 +1,15 @@
 export const sections = [
   { id: 'overview', label: 'Overview' },
+  { id: 'how-to-play', label: 'How to Play' },
+  { id: 'multiplayer', label: 'Multiplayer' },
   { id: 'items', label: 'Items' },
   { id: 'combinations', label: 'Combinations' },
-  { id: 'levels', label: 'Levels' },
   { id: 'characters', label: 'Characters' },
-  { id: 'unlocks', label: 'Unlocks' },
-  { id: 'multiplayer', label: 'Multiplayer' },
+  { id: 'levels', label: 'Levels' },
   { id: 'bosses', label: 'Bosses' },
+  { id: 'unlocks', label: 'Unlocks' },
   { id: 'history', label: 'History' },
-  { id: 'about', label: 'About' },
+  { id: 'about', label: 'About Us' },
 ] as const
 
 export type SectionId = typeof sections[number]['id']
@@ -18,10 +19,10 @@ export interface Item {
 }
 
 export const items: Item[] = [
-  { id: 'flame-sword', name: 'Flame Sword', category: 'Weapon', description: 'A close-range blade presented here as a browser test entry.', effect: 'Short-range attacks with a fiery visual treatment.', stat: 'Damage values: awaiting verification', image: '/media/item-flame-sword-placeholder.svg' },
-  { id: 'machine-gun', name: 'Machine Gun', category: 'Ranged', description: 'A rapid-fire pickup useful for testing ranged-item filtering.', effect: 'Fires a burst toward the wielder’s aim.', stat: 'Ammo and damage: awaiting verification', image: '/media/item-machine-gun-placeholder.svg' },
-  { id: 'power-shield', name: 'Power Shield', category: 'Defense', description: 'A defensive test entry with provisional documentation.', effect: 'Provides temporary frontal protection.', stat: 'Duration: awaiting verification', image: '/media/item-power-shield-placeholder.svg' },
-  { id: 'skateboard', name: 'Skateboard', category: 'Mobility', description: 'A rideable item used to demonstrate the mobility category.', effect: 'Changes traversal while held.', stat: 'Speed values: awaiting verification', image: '/media/item-skateboard-placeholder.svg' },
+  { id: 'flame-sword', name: 'Flame Sword', category: 'Weapon', description: 'A fiery close-range weapon for pressuring nearby rivals.', effect: 'Swings at close range and rewards committing when an opponent is within reach.', stat: 'Best used at close range', image: '/media/item-flame-sword.png' },
+  { id: 'machine-gun', name: 'Machine Gun', category: 'Ranged', description: 'A rapid-fire pickup that lets you pressure rivals from a safer distance.', effect: 'Fires repeated shots in the direction the wielder aims.', stat: 'Ranged rapid fire', image: '/media/item-machine-gun.png' },
+  { id: 'power-shield', name: 'Power Shield', category: 'Defense', description: 'A defensive pickup for weathering incoming pressure.', effect: 'Provides protection while equipped, creating room to reposition.', stat: 'Defensive utility', image: '/media/item-power-shield.png' },
+  { id: 'skateboard', name: 'Skateboard', category: 'Mobility', description: 'A rideable pickup that trades precise footing for quick traversal.', effect: 'Changes movement while ridden and helps cross an arena quickly.', stat: 'Mobility utility', image: '/media/item-skateboard.png' },
 ]
 
 export interface Character {
