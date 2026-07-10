@@ -150,7 +150,6 @@ img { display: block; max-width: 100%; }
 .recipe-entity { min-width: 110px; flex: 1 1 110px; display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .65rem; border: 1px dashed #9f8e78; text-align: center; }
 .recipe-entity--result { color: $ink; border-style: solid; background: #251447; }
 .formula-symbol { flex: 0 0 auto; color: #a63518; font-size: 1.4rem; font-weight: 900; }
-.recipe-provenance { margin: .8rem 0 0; color: #62596b; overflow-wrap: anywhere; font-size: .75rem; }
 .recipe-empty { margin: 0; padding: 1rem; color: #51475b; }
 .recipe-empty--detail { border: 1px dashed #9f8e78; background: rgba(255,255,255,.45); }
 .recipe-empty h3 { margin: 0 0 .3rem; }

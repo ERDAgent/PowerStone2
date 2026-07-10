@@ -49,6 +49,18 @@ async function mountGuide() {
   return { wrapper, router }
 }
 
+function setSectionPositions(activeIndex: number) {
+  document.querySelector<HTMLElement>('.site-header')!.getBoundingClientRect = () => ({ top: 0, bottom: 64 } as DOMRect)
+  document.querySelectorAll<HTMLElement>('.routed-section').forEach((section, index) => {
+    const top = (index - activeIndex) * 500 + 64
+    section.getBoundingClientRect = () => ({ top, bottom: top + 400 } as DOMRect)
+  })
+}
+
+function currentLinks(wrapper: Awaited<ReturnType<typeof mountAppAt>>['wrapper']) {
+  return wrapper.findAll('#primary-navigation a[aria-current="page"]')
+}
+
 describe('section routing', () => {
   it('keeps navigation, generated routes, and rendered sections in the requested order', async () => {
     expect(sections.map(section => [section.id, section.label])).toEqual(expectedSections)
@@ -81,6 +93,73 @@ describe('section routing', () => {
     expect(wrapper.find('a[aria-current="page"]').text()).toBe('Items')
     expect(router.currentRoute.value.meta.section).toBe('items')
     wrapper.unmount()
+  })
+
+  it('holds route feedback at the old viewport until the target reaches the header anchor', async () => {
+    const { wrapper, router } = await mountAppAt('/overview')
+    setSectionPositions(0)
+    window.dispatchEvent(new Event('scroll'))
+    await wrapper.vm.$nextTick()
+
+    await router.push('/levels')
+    await wrapper.vm.$nextTick()
+    window.dispatchEvent(new Event('scroll'))
+    await wrapper.vm.$nextTick()
+    expect(currentLinks(wrapper)).toHaveLength(1)
+    expect(currentLinks(wrapper)[0].text()).toBe('Levels')
+
+    setSectionPositions(6)
+    window.dispatchEvent(new Event('scroll'))
+    await wrapper.vm.$nextTick()
+    expect(currentLinks(wrapper)[0].text()).toBe('Levels')
+
+    setSectionPositions(3)
+    window.dispatchEvent(new Event('scroll'))
+    await wrapper.vm.$nextTick()
+    expect(currentLinks(wrapper)[0].text()).toBe('Items')
+    wrapper.unmount()
+  })
+
+  it('tracks manual scrolling across section boundaries without routing or history writes', async () => {
+    const { wrapper, router } = await mountAppAt('/overview')
+    const push = vi.spyOn(router, 'push')
+    const replace = vi.spyOn(router, 'replace')
+    const historyPush = vi.spyOn(window.history, 'pushState')
+    const historyReplace = vi.spyOn(window.history, 'replaceState')
+
+    for (const index of [0, 3, 6]) {
+      setSectionPositions(index)
+      window.dispatchEvent(new Event('scroll'))
+      await wrapper.vm.$nextTick()
+      expect(currentLinks(wrapper)).toHaveLength(1)
+      expect(currentLinks(wrapper)[0].text()).toBe(expectedSections[index][1])
+    }
+    expect(push).not.toHaveBeenCalled()
+    expect(replace).not.toHaveBeenCalled()
+    expect(historyPush).not.toHaveBeenCalled()
+    expect(historyReplace).not.toHaveBeenCalled()
+    wrapper.unmount()
+  })
+
+  it('activates the first and final sections at page boundaries and cleans up listeners', async () => {
+    const add = vi.spyOn(window, 'addEventListener')
+    const remove = vi.spyOn(window, 'removeEventListener')
+    const { wrapper } = await mountAppAt('/overview')
+    setSectionPositions(0)
+    window.dispatchEvent(new Event('scroll'))
+    await wrapper.vm.$nextTick()
+    expect(currentLinks(wrapper)[0].text()).toBe('Overview')
+
+    Object.defineProperty(document.documentElement, 'scrollHeight', { value: 4000, configurable: true })
+    Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true })
+    Object.defineProperty(window, 'scrollY', { value: 3200, configurable: true })
+    window.dispatchEvent(new Event('scroll'))
+    await wrapper.vm.$nextTick()
+    expect(currentLinks(wrapper)[0].text()).toBe('About Us')
+    wrapper.unmount()
+    expect(add).toHaveBeenCalledWith('scroll', expect.any(Function), { passive: true })
+    expect(remove).toHaveBeenCalledWith('scroll', expect.any(Function))
+    expect(remove).toHaveBeenCalledWith('resize', expect.any(Function))
   })
 
   it('recovers an unknown path to the overview route', async () => {

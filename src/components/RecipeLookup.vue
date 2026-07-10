@@ -129,7 +129,6 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
                 <b>{{ selected.name }}</b>
               </div>
             </div>
-            <p class="recipe-provenance"><b>Source:</b> {{ recipe.sourceFormula }} · {{ recipe.provenance.evidence[0]?.locator }}<template v-if="recipe.provenance.notes.length"> · {{ recipe.provenance.notes.join(' ') }}</template></p>
           </article>
         </div>
         <div v-else class="recipe-empty recipe-empty--detail">
