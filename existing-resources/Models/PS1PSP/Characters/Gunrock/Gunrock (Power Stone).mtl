@@ -1,0 +1,618 @@
+# Blender3D MTL File: Gunrock (Power Stone).blend
+# Material Count: 56
+newmtl material325_Image.040_Shoes(Tip).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes(Tip).png
+
+
+newmtl material325_Image.040_Skin2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Skin2.png
+
+
+newmtl material325_Image.040_Neck2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Neck2.png
+
+
+newmtl material325_Image.040_Pants(Back1).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Back1).png
+
+
+newmtl material325_Image.040_Gloves3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves3.png
+
+
+newmtl material325_Image.034_Neck1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Neck1.png
+
+
+newmtl material325_Image.040_Cloth2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Cloth2.png
+
+
+newmtl material325_Image.040_Shoes(Front).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes(Front).png
+
+
+newmtl material325_Image.040_Gloves4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves4.png
+
+
+newmtl material325_Image.005_Pants(Front).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Front).png
+
+
+newmtl material325_Image.023_Gloves8.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves8.png
+
+
+newmtl material325_Image.040_Pants(Side2).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Side2).png
+
+
+newmtl material325_Image.040_Bow2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Bow2.png
+
+
+newmtl material325_Image.040_Pants(Sides2).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Sides2).png
+
+
+newmtl material325_Image.040_Arms1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms1.png
+
+
+newmtl material547_Image0975_Cloth1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Cloth1.png
+
+
+newmtl material325_Image.040_Shoes(Back).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes(Back).png
+
+
+newmtl material325_Image.040_Shoes(Side2).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes(Side2).png
+
+
+newmtl material325_Image.040_Butt.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Butt.png
+
+
+newmtl material522_Image0977_Shoes(Soles).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes(Soles).png
+
+
+newmtl material325_Image.040_Cloth3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Cloth3.png
+
+
+newmtl material325_Image.040_Gloves7.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves7.png
+
+
+newmtl material325_Image.040_Pants(Front2).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Front2).png
+
+
+newmtl material325_Image.040_Pants(Back3).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Back3).png
+
+
+newmtl material325_Image.040_Arms3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms3.png
+
+
+newmtl material325_Image.028_Shoulder3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoulder3.png
+
+
+newmtl material325_Image.040_Cap2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Cap2.png
+
+
+newmtl material325_Image.040_Gloves1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves1.png
+
+
+newmtl material325_Image.009_Gloves2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves2.png
+
+
+newmtl material325_Image.040_Shoes(Soles).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes(Soles).png
+
+
+newmtl material325_Image.008_Groin.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Groin.png
+
+
+newmtl material325_Image.040_Skin4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Skin4.png
+
+
+newmtl material325_Image.040_Pants(Sides).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Sides).png
+
+
+newmtl material325_Image.031_Shoulder2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoulder2.png
+
+
+newmtl material325_Image.040_Skin3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Skin3.png
+
+
+newmtl material325_Image.039_Bow1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Bow1.png
+
+
+newmtl material325_Image.038_Pants(Back).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Back).png
+
+
+newmtl material325_Image.040_Cap1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Cap1.png
+
+
+newmtl material325_Image.040_Shoes(Side1).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes(Side1).png
+
+
+newmtl material325_Image.040_Gloves6.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves6.png
+
+
+newmtl material325_Image.040_Face1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Face1.png
+
+
+newmtl material325_Image.003_Sides.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Sides.png
+
+
+newmtl material325_Image.040_Pants(Front3).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Front3).png
+
+
+newmtl material325_Image.040_Chest.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Chest.png
+
+
+newmtl material325_Image.040_Skin.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Skin.png
+
+
+newmtl material325_Image.024_Pants(Back2).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Back2).png
+
+
+newmtl material325_Image.040_Shoulder1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoulder1.png
+
+
+newmtl material325_Image.040_Face2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Face2.png
+
+
+newmtl material325_Image.040_Gloves5.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Gloves5.png
+
+
+newmtl material325_Image.040_Pants(Side1).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Side1).png
+
+
+newmtl material325_Image.040_Cloth1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Cloth1.png
+
+
+newmtl material325_Image.049_Back.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Back.png
+
+
+newmtl material325_Image.040_Buckle2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Buckle2.png
+
+
+newmtl material325_Image.040_Arms2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms2.png
+
+
+newmtl material325_Image.040_Pants(Front4).png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants(Front4).png
+
+
+newmtl material325_Image.040_Buckle1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Buckle1.png
+
+

@@ -1,0 +1,750 @@
+# Blender3D MTL File: Ryoma (Power Stone).blend
+# Material Count: 68
+newmtl material746_Image.048_Hands1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hands1.png
+
+
+newmtl material746_Image.015_Katana5.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Katana5.png
+
+
+newmtl material746_Image.012_Bow.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Bow.png
+
+
+newmtl material746_Image.009_Ankles.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Ankles.png
+
+
+newmtl material746_Image.021_Hair6.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hair6.png
+
+
+newmtl material746_Image.044_Pants8.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants8.png
+
+
+newmtl material746_Image.055_Hands3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hands3.png
+
+
+newmtl material746_Image.025_Shirt5.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shirt5.png
+
+
+newmtl material746_Image.056_Hair2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hair2.png
+
+
+newmtl material746_Image.001_Shoes2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes2.png
+
+
+newmtl material746_Image.040_Shirt4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shirt4.png
+
+
+newmtl material746_Image.051_Holder.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Holder.png
+
+
+newmtl material746_Image.013_Shirt2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shirt2.png
+
+
+newmtl material746_Image.031_Pants1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants1.png
+
+
+newmtl material746_Image.019_Pants4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants4.png
+
+
+newmtl material746_Image0958_Hands4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hands4.png
+
+
+newmtl material746_Image.041_Hair4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hair4.png
+
+
+newmtl material746_Image.047_Shirt4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shirt4.png
+
+
+newmtl material746_Image.024_Hands6.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hands6.png
+
+
+newmtl material746_Image0956_Arms2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms2.png
+
+
+newmtl material746_Image.035_Shoes1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes1.png
+
+
+newmtl material746_Image.020_Katana1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Katana1.png
+
+
+newmtl material736_Image0957_Shoes1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes1.png
+
+
+newmtl material746_Image.045_Arms7.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms7.png
+
+
+newmtl material746_Image.022_Arms6.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms6.png
+
+
+newmtl material746_Image.023_Shirt3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shirt3.png
+
+
+newmtl material746_Image.026_Shirt1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shirt1.png
+
+
+newmtl material746_Image.036_Butt1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Butt1.png
+
+
+newmtl material746_Image.038_Arms4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms4.png
+
+
+newmtl material746_Image.003_Arms5.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms5.png
+
+
+newmtl material746_Image.011_Hair5.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hair5.png
+
+
+newmtl material937_Image0958_Hands1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hands1.png
+
+
+newmtl material746_Image.017_Arms3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms3.png
+
+
+newmtl material746_Image.050_Feet3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Feet3.png
+
+
+newmtl material673_Image0956_Bracers.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Bracers.png
+
+
+newmtl material775_Image0957_Feet1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Feet1.png
+
+
+newmtl material746_Image.014_Case.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Case.png
+
+
+newmtl material746_Image.032_Pants5.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants5.png
+
+
+newmtl material746_Image.033_Skin.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Skin.png
+
+
+newmtl material647_Image0956_Arms6.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms6.png
+
+
+newmtl material746_Image.039_Pants7.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants7.png
+
+
+newmtl material746_Image.028_Hair3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hair3.png
+
+
+newmtl material790_Image0957_Shoes1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shoes1.png
+
+
+newmtl material746_Image.043_Arms1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms1.png
+
+
+newmtl material746_Image.018_Feet1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Feet1.png
+
+
+newmtl material590_Image0956_Shirt2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Shirt2.png
+
+
+newmtl material774_Image0957_Feet1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Feet1.png
+
+
+newmtl material746_Image.034_Groin.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Groin.png
+
+
+newmtl material746_Image0957_Pants3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants3.png
+
+
+newmtl material746_Image.008_Feet2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Feet2.png
+
+
+newmtl material746_Image.053_Ears1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Ears1.png
+
+
+newmtl material746_Image.029_Face.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Face.png
+
+
+newmtl material746_Image.005_Chest.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Chest.png
+
+
+newmtl material746_Image.046_Ears2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Ears2.png
+
+
+newmtl material746_Image_Hair1.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hair1.png
+
+
+newmtl material746_Image.037_Arms6.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms6.png
+
+
+newmtl material746_Image.006_Butt2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Butt2.png
+
+
+newmtl material746_Image.002_Bracers.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Bracers.png
+
+
+newmtl material746_Image.004_Pants2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants2.png
+
+
+newmtl material746_Image.007_Hips.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hips.png
+
+
+newmtl material746_Image.027_Arms8.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Arms8.png
+
+
+newmtl material746_Image.052_Katana2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Katana2.png
+
+
+newmtl material746_Image.054_Knot.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Knot.png
+
+
+newmtl material746_Image.016_Hands5.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hands5.png
+
+
+newmtl material746_Image.010_Hands2.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Hands2.png
+
+
+newmtl material746_Image.042_Katana3.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Katana3.png
+
+
+newmtl material746_Image.049_Pants6.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Pants6.png
+
+
+newmtl material746_Image.030_Katana4.png
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.250000 0.250000 0.250000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd Textures/Katana4.png
+
+

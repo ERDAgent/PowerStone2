@@ -1,0 +1,34 @@
+{
+    "itemcatalog1" : {
+        "number" : "01",
+        "name" : "Item Catalog 1"
+    },
+    "itemcatalog2" : {
+        "number" : "02",
+        "name" : "Item Catalog 2"
+    },
+    "itemcatalog3" : {
+        "number" : "03",
+        "name" : "Item Catalog 3"
+    },
+    "itemcatalog4" : {
+        "number" : "04",
+        "name" : "Item Catalog 4"
+    },
+    "itemcatalog5" : {
+        "number" : "05",
+        "name" : "Item Catalog 5"
+    },
+    "rareitemcatalog" : {
+        "number" : "06",
+        "name" : "Rare Item Catalog"
+    },
+    "materialcatalog" : {
+        "number" : "07",
+        "name" : "Material Catalog"
+    },
+    "essensecatalog" : {
+        "number" : "08",
+        "name" : "Essence Catalog"
+    }
+}

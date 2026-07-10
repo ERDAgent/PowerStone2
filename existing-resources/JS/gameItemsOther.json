@@ -1,0 +1,16 @@
+{
+    "misc" : {
+        "horrorbook" : {
+            "number" : "01",
+            "name" : "Horror Book"
+        },
+        "bouquet" : {
+            "number" : "02",
+            "name" : "Bouquet"
+        },
+        "jackinthebox" : {
+            "number" : "03",
+            "name" : "Jack-In-The-Box"
+        }
+    }
+}

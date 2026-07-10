@@ -1,0 +1,880 @@
+{
+    "items" : {
+        "gun" : {
+            "number" : "001",
+            "name" : "Gun",
+            "level" : "1",
+            "function" : "Shoot"
+        },
+        "machinegun" : {
+            "number" : "002",
+            "name" : "Machine Gun",
+            "level" : "1",
+            "function" : "Shoot"
+        },
+        "bazooka" : {
+            "number" : "003",
+            "name" : "Bazooka",
+            "level" : "1",
+            "function" : "Shoot"
+        },
+        "flamethrower" : {
+            "number" : "004",
+            "name" : "FlameThrower",
+            "level" : "1",
+            "function" : "Shoot"
+        },
+        "raygun" : {
+            "number" : "005",
+            "name" : "Ray Gun",
+            "level" : "1",
+            "function" : "Shoot"
+        },
+        "soapbubblegun" : {
+            "number" : "006",
+            "name" : "SoapBubble Gun",
+            "level" : "2",
+            "function" : "Shoot"
+        },
+        "tranquilizergun" : {
+            "number" : "007",
+            "name" : "Tranquilizer Gun",
+            "level" : "3",
+            "function" : "Shoot"
+        },
+        "homingmissle" : {
+            "number" : "008",
+            "name" : "Homing Missile",
+            "level" : "4",
+            "function" : "Shoot"
+        },
+        "3wayshotgun" : {
+            "number" : "009",
+            "name" : "3-Way Shotgun",
+            "level" : "2",
+            "function" : "Shoot"
+        },
+        "5wayshotgun" : {
+            "number" : "010",
+            "name" : "5-Way Shotgun",
+            "level" : "4",
+            "function" : "Shoot"
+        },
+        "beamgun" : {
+            "number" : "011",
+            "name" : "Beam Gun",
+            "level" : "3",
+            "function" : "Shoot"
+        },
+        "powerfulbuster" : {
+            "number" : "012",
+            "name" : "Powerful Buster",
+            "level" : "6",
+            "function" : "Shoot"
+        },
+        "armgun" : {
+            "number" : "013",
+            "name" : "Arm Gun",
+            "level" : "6",
+            "function" : "Shoot"
+        },
+        "flamerod" : {
+            "number" : "014",
+            "name" : "Flame Rod",
+            "level" : "3",
+            "function" : "Shoot"
+        },
+        "icerod" : {
+            "number" : "015",
+            "name" : "Ice Rod",
+            "level" : "2",
+            "function" : "Shoot"
+        },
+        "thunderrod" : {
+            "number" : "016",
+            "name" : "Thunder Rod",
+            "level" : "5",
+            "function" : "Shoot"
+        },
+        "magicrod" : {
+            "number" : "017",
+            "name" : "Magic Rod",
+            "level" : "2",
+            "function" : "Shoot"
+        },
+        "mysticrod" : {
+            "number" : "018",
+            "name" : "Mystic Rod",
+            "level" : "3",
+            "function" : "Shoot"
+        },
+        "weirdrod" : {
+            "number" : "019",
+            "name" : "Weird Rod",
+            "level" : "4",
+            "function" : "Shoot"
+        },
+        "medusa" : {
+            "number" : "020",
+            "name" : "Medusa",
+            "level" : "6",
+            "function" : "Shoot/Shield"
+        },
+        "loudspeaker" : {
+            "number" : "021",
+            "name" : "Loudspeaker",
+            "level" : "2",
+            "function" : "Shoot"
+        },
+        "adhesivespray" : {
+            "number" : "022",
+            "name" : "Adhesive Spray",
+            "level" : "4",
+            "function" : "Shoot"
+        },
+        "trumpet" : {
+            "number" : "023",
+            "name" : "Trumpet",
+            "level" : "3",
+            "function" : "Shoot"
+        },
+        "firebottle" : {
+            "number" : "024",
+            "name" : "Fire-Bottle",
+            "level" : "1",
+            "function" : "Throw"
+        },
+        "smallbomb" : {
+            "number" : "025",
+            "name" : "Small Bomb",
+            "level" : "1",
+            "function" : "Throw"
+        },
+        "mediumbomb" : {
+            "number" : "026",
+            "name" : "Medium Bomb",
+            "level" : "1",
+            "function" : "Throw"
+        },
+        "largebomb" : {
+            "number" : "027",
+            "name" : "Large Bomb",
+            "level" : "1",
+            "function" : "Throw"
+        },
+        "legweight" : {
+            "number" : "028",
+            "name" : "Leg Weight",
+            "level" : "2",
+            "function" : "Throw"
+        },
+        "firecracker" : {
+            "number" : "029",
+            "name" : "Firecracker",
+            "level" : "3",
+            "function" : "Throw"
+        },
+        "handgrenade" : {
+            "number" : "030",
+            "name" : "Hand Grenade",
+            "level" : "3",
+            "function" : "Throw"
+        },
+        "ironpipe" : {
+            "number" : "031",
+            "name" : "Iron Pipe",
+            "level" : "1",
+            "function" : "Melee"
+        },
+        "harisen" : {
+            "number" : "032",
+            "name" : "Harisen",
+            "level" : "3",
+            "function" : "Melee"
+        },
+        "frozentuna" : {
+            "number" : "033",
+            "name" : "Frozen Tuna",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "metallicbat" : {
+            "number" : "034",
+            "name" : "Metallic Bat",
+            "level" : "3",
+            "function" : "Melee"
+        },
+        "bigracket" : {
+            "number" : "035",
+            "name" : "Big Racket",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "magicstick" : {
+            "number" : "036",
+            "name" : "Magic Stick",
+            "level" : "1",
+            "function" : "Melee"
+        },
+        "magmalance" : {
+            "number" : "037",
+            "name" : "Magma Lance",
+            "level" : "6",
+            "function" : "Melee"
+        },
+        "devilsickle" : {
+            "number" : "038",
+            "name" : "Devil Sickle",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "morningstar" : {
+            "number" : "039",
+            "name" : "Morning Star",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "sword" : {
+            "number" : "040",
+            "name" : "Sword",
+            "level" : "1",
+            "function" : "Melee"
+        },
+        "powersword" : {
+            "number" : "041",
+            "name" : "Power Sword",
+            "level" : "1",
+            "function" : "Melee"
+        },
+        "flamesword" : {
+            "number" : "042",
+            "name" : "Flame Sword",
+            "level" : "3",
+            "function" : "Melee"
+        },
+        "icesword" : {
+            "number" : "043",
+            "name" : "Ice Sword",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "thundersword" : {
+            "number" : "044",
+            "name" : "Thunder Sword",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "beamsword" : {
+            "number" : "045",
+            "name" : "Beam Sword",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "dragonslayersword" : {
+            "number" : "046",
+            "name" : "Dragon Slayer Sword",
+            "level" : "6",
+            "function" : "Melee"
+        },
+        "swordoflegend" : {
+            "number" : "047",
+            "name" : "Sword of Legend",
+            "level" : "6",
+            "function" : "Melee"
+        },
+        "hammer" : {
+            "number" : "048",
+            "name" : "Hammer",
+            "level" : "1",
+            "function" : "Melee"
+        },
+        "toyhammer" : {
+            "number" : "049",
+            "name" : "Toy Hammer",
+            "level" : "2",
+            "function" : "Melee"
+        },
+        "pickaxe" : {
+            "number" : "050",
+            "name" : "Pickaxe",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "magicmallet" : {
+            "number" : "051",
+            "name" : "Magical Mallet",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "gigantichammer" : {
+            "number" : "052",
+            "name" : "Gigantic Hammer",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "umbrella" : {
+            "number" : "053",
+            "name" : "Umbrella",
+            "level" : "2",
+            "function" : "Melee"
+        },
+        "deluxeumbrella" : {
+            "number" : "054",
+            "name" : "Deluxe Umbrella",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "cheapumbrella" : {
+            "number" : "055",
+            "name" : "Cheap Umbrella",
+            "level" : "3",
+            "function" : "Melee"
+        },
+        "spear" : {
+            "number" : "056",
+            "name" : "Spear",
+            "level" : "3",
+            "function" : "Melee"
+        },
+        "deluxespear" : {
+            "number" : "057",
+            "name" : "Deluxe Spear",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "trident" : {
+            "number" : "058",
+            "name" : "Trident",
+            "level" : "2",
+            "function" : "Melee"
+        },
+        "deluxetrident" : {
+            "number" : "059",
+            "name" : "Deluxe Trident",
+            "level" : "5",
+            "function" : "Melee"
+        },
+        "fork" : {
+            "number" : "060",
+            "name" : "Fork",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "spoon" : {
+            "number" : "061",
+            "name" : "Spoon",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "battlefieldaxe" : {
+            "number" : "062",
+            "name" : "Battlefield Axe",
+            "level" : "2",
+            "function" : "Melee"
+        },
+        "victoryaxe" : {
+            "number" : "063",
+            "name" : "Victory Axe",
+            "level" : "4",
+            "function" : "Melee"
+        },
+        "lumberjacksaxe" : {
+            "number" : "064",
+            "name" : "Lumberjack's Axe",
+            "level" : "3",
+            "function" : "Melee"
+        },
+        "heroaxe" : {
+            "number" : "065",
+            "name" : "Hero Axe",
+            "level" : "6",
+            "function" : "Melee"
+        },
+        "skateboard" : {
+            "number" : "066",
+            "name" : "Skateboard",
+            "level" : "2",
+            "function" : "Movement"
+        },
+        "inlineskate" : {
+            "number" : "067",
+            "name" : "Inline Skate",
+            "level" : "3",
+            "function" : "Movement"
+        },
+        "scooter" : {
+            "number" : "068",
+            "name" : "Scooter",
+            "level" : "6",
+            "function" : "Movement"
+        },
+        "apple" : {
+            "number" : "069",
+            "name" : "Apple",
+            "level" : "1",
+            "function" : "Food"
+        },
+        "shortcake" : {
+            "number" : "070",
+            "name" : "Shortcake",
+            "level" : "1",
+            "function" : "Food"
+        },
+        "meat" : {
+            "number" : "071",
+            "name" : "Meat",
+            "level" : "1",
+            "function" : "Food"
+        },
+        "riceball" : {
+            "number" : "072",
+            "name" : "Rice Ball",
+            "level" : "2",
+            "function" : "Food"
+        },
+        "bananna" : {
+            "number" : "073",
+            "name" : "Bananna",
+            "level" : "2",
+            "function" : "Food"
+        },
+        "hamburger" : {
+            "number" : "074",
+            "name" : "Hamburger",
+            "level" : "2",
+            "function" : "Food"
+        },
+        "cheese" : {
+            "number" : "075",
+            "name" : "Cheese",
+            "level" : "2",
+            "function" : "Food"
+        },
+        "roastchicken" : {
+            "number" : "076",
+            "name" : "Roast Chicken",
+            "level" : "4",
+            "function" : "Food"
+        },
+        "roastpork" : {
+            "number" : "077",
+            "name" : "Roast Pork",
+            "level" : "5",
+            "function" : "Food"
+        },
+        "weddingcake" : {
+            "number" : "078",
+            "name" : "Wedding Cake",
+            "level" : "5",
+            "function" : "Food"
+        },
+        "angelwings" : {
+            "number" : "079",
+            "name" : "Angel Wings",
+            "level" : "5",
+            "function" : "Unknown"
+        },
+        "devilwings" : {
+            "number" : "080",
+            "name" : "Devil Wings",
+            "level" : "6",
+            "function" : "Unknown"
+        },
+        "powershield" : {
+            "number" : "081",
+            "name" : "Power Shield",
+            "level" : "1",
+            "function" : "Shield"
+        },
+        "deluxeshield" : {
+            "number" : "082",
+            "name" : "Deluxe Shield",
+            "level" : "5",
+            "function" : "Shield"
+        },
+        "petrifier" : {
+            "number" : "083",
+            "name" : "Petrifier",
+            "level" : "3",
+            "function" : "Drink / Throw"
+        },
+        "transparentizer" : {
+            "number" : "084",
+            "name" : "Transparentizer",
+            "level" : "6",
+            "function" : "Drink"
+        },
+        "kitten" : {
+            "number" : "085",
+            "name" : "Kitten",
+            "level" : "2",
+            "function" : "Pet"
+        },
+        "panther" : {
+            "number" : "086",
+            "name" : "Panther",
+            "level" : "4",
+            "function" : "Pet"
+        },
+        "firedragon" : {
+            "number" : "087",
+            "name" : "Fire Dragon",
+            "level" : "4",
+            "function" : "Pet"
+        },
+        "icedragon" : {
+            "number" : "088",
+            "name" : "Ice Dragon",
+            "level" : "5",
+            "function" : "Pet"
+        },
+        "sanddragon" : {
+            "number" : "089",
+            "name" : "Sand Dragon",
+            "level" : "6",
+            "function" : "Pet"
+        },
+        "bambooshoot" : {
+            "number" : "090",
+            "name" : "Bamboo Shoot",
+            "level" : "6",
+            "function" : "Throw"
+        },
+        "thumbtack" : {
+            "number" : "091",
+            "name" : "Thumbtack",
+            "level" : "4",
+            "function" : "Throw"
+        },
+        "legtrap" : {
+            "number" : "092",
+            "name" : "Leg Trap",
+            "level" : "2",
+            "function" : "Throw"
+        },
+        "pitfall" : {
+            "number" : "093",
+            "name" : "Pitfall Hoop",
+            "level" : "5",
+            "function" : "Throw"
+        },
+        "beehive" : {
+            "number" : "094",
+            "name" : "Beehive",
+            "level" : "5",
+            "function" : "Throw"
+        },
+        "stickbomb" : {
+            "number" : "095",
+            "name" : "Stick Bomb",
+            "level" : "4",
+            "function" : "Throw"
+        },
+        "typhoon" : {
+            "number" : "096",
+            "name" : "Typhoon",
+            "level" : "3",
+            "function" : "Throw"
+        },
+        "fireworks" : {
+            "number" : "097",
+            "name" : "Fireworks",
+            "level" : "3",
+            "function" : "Throw"
+        },
+        "meteorite" : {
+            "number" : "098",
+            "name" : "Meteorite",
+            "level" : "6",
+            "function" : "Throw"
+        },
+        "adultmagazine" : {
+            "number" : "099",
+            "name" : "Adult Magazine",
+            "level" : "7",
+            "function" : "Misc"
+        },
+        "powerstonemagazine" : {
+            "number" : "100",
+            "name" : "Powerstone Magazine",
+            "level" : "6",
+            "function" : "Misc"
+        },
+        "rabbitears" : {
+            "number" : "101",
+            "name" : "Rabbit Ears",
+            "level" : "4",
+            "function" : "Clothing"
+        },
+        "catears" : {
+            "number" : "102",
+            "name" : "Cat Ears",
+            "level" : "5",
+            "function" : "Clothing"
+        },
+        "crown" : {
+            "number" : "103",
+            "name" : "Crown",
+            "level" : "6",
+            "function" : "Clothing"
+        },
+        "silkhat" : {
+            "number" : "104",
+            "name" : "Silk Hat",
+            "level" : "5",
+            "function" : "Clothing"
+        },
+        "strawhat" : {
+            "number" : "105",
+            "name" : "Straw Hat",
+            "level" : "3",
+            "function" : "Clothing"
+        },
+        "partyhat" : {
+            "number" : "106",
+            "name" : "Party Hat",
+            "level" : "4",
+            "function" : "Clothing"
+        },
+        "flower" : {
+            "number" : "107",
+            "name" : "Flower",
+            "level" : "3",
+            "function" : "Clothing"
+        },
+        "emperorscrown" : {
+            "number" : "108",
+            "name" : "Emperor's Crown",
+            "level" : "7",
+            "function" : "Clothing"
+        },
+        "rabbit arm" : {
+            "number" : "109",
+            "name" : "Rabbit Arm",
+            "level" : "4",
+            "function" : "Clothing"
+        },
+        "catarm" : {
+            "number" : "110",
+            "name" : "Cat Arm",
+            "level" : "5",
+            "function" : "Clothing"
+        },
+        "bracelet" : {
+            "number" : "111",
+            "name" : "Bracelet",
+            "level" : "6",
+            "function" : "Clothing"
+        },
+        "punchinggloves" : {
+            "number" : "112",
+            "name" : "Punching Gloves",
+            "level" : "3",
+            "function" : "Clothing"
+        },
+        "rabbittail" : {
+            "number" : "113",
+            "name" : "Rabbit Tail",
+            "level" : "4",
+            "function" : "Clothing"
+        },
+        "cattail" : {
+            "number" : "114",
+            "name" : "Cat Tail",
+            "level" : "5",
+            "function" : "Clothing"
+        },
+        "deviltail" : {
+            "number" : "115",
+            "name" : "Devil Tail",
+            "level" : "5",
+            "function" : "Clothing"
+        },
+        "windupkey" : {
+            "number" : "116",
+            "name" : "Windup Key",
+            "level" : "4",
+            "function" : "Clothing"
+        },
+        "rabbitpaw" : {
+            "number" : "117",
+            "name" : "Rabbit Paw",
+            "level" : "4",
+            "function" : "Clothing"
+        },
+        "catpaw" : {
+            "number" : "118",
+            "name" : "Cat Paw",
+            "level" : "5",
+            "function" : "Clothing"
+        },
+        "shoesofachilles" : {
+            "number" : "119",
+            "name" : "Shoes of Achilles",
+            "level" : "4",
+            "function" : "Clothing"
+        },
+        "plaster" : {
+            "number" : "120",
+            "name" : "Plaster",
+            "level" : "3",
+            "function" : "Clothing"
+        },
+        "lightstone" : {
+            "number" : "121",
+            "name" : "Light Stone",
+            "level" : "7",
+            "function" : "Unknown"
+        }
+    },
+    "materials" : {
+        "oil" : {
+            "number" : "01",
+            "name" : "Oil",
+            "type" : "basic"
+        },
+        "chemical" : {
+            "number" : "02",
+            "name" : "Chemical",
+            "type" : "basic"
+        },
+        "cartwheel" : {
+            "number" : "03",
+            "name" : "Cartwheel",
+            "type" : "basic"
+        },
+        "wood" : {
+            "number" : "04",
+            "name" : "Wood",
+            "type" : "basic"
+        },
+        "cloth" : {
+            "number" : "05",
+            "name" : "Cloth",
+            "type" : "basic"
+        },
+        "gunpowder" : {
+            "number" : "06",
+            "name" : "Gunpowder",
+            "type" : "basic"
+        },
+        "gold" : {
+            "number" : "07",
+            "name" : "Gold",
+            "type" : "basic"
+        },
+        "iron" : {
+            "number" : "08",
+            "name" : "Iron",
+            "type" : "basic"
+        },
+        "flame" : {
+            "number" : "09",
+            "name" : "Flame Element",
+            "type" : "element"
+        },
+        "ice" : {
+            "number" : "10",
+            "name" : "Ice Element",
+            "type" : "element"
+        },
+        "thunder" : {
+            "number" : "11",
+            "name" : "Thunder Element",
+            "type" : "element"
+        },
+        "light" : {
+            "number" : "12",
+            "name" : "Light Element",
+            "type" : "element"
+        },
+        "magic" : {
+            "number" : "13",
+            "name" : "Magic Element",
+            "type" : "element"
+        },
+        "trap" : {
+            "number" : "14",
+            "name" : "Trap Element",
+            "type" : "element"
+        },
+        "firedragon" : {
+            "number" : "15",
+            "name" : "Fire Dragon Element",
+            "type" : "dragon element"
+        },
+        "icedragon" : {
+            "number" : "16",
+            "name" : "Ice Dragon Element",
+            "type" : "dragon element"
+        },
+        "thunderdragon" : {
+            "number" : "17",
+            "name" : "Thunder Dragon Element",
+            "type" : "dragon element"
+        },
+        "scrap" : {
+            "number" : "18",
+            "name" : "Scrap",
+            "type" : "misc"
+        },
+        "driverslicence" : {
+            "number" : "19",
+            "name" : "Drivers Licence",
+            "type" : "misc"
+        },
+        "angelring" : {
+            "number" : "20",
+            "name" : "Angel Ring",
+            "type" : "misc"
+        },
+        "emblemofthebrave" : {
+            "number" : "21",
+            "name" : "Emblem of the Brave",
+            "type" : "misc"
+        },
+        "bookoflegend" : {
+            "number" : "22",
+            "name" : "Book of Legend",
+            "type" : "misc"
+        }
+    },
+    "essenses" : {
+        "horror" : {
+            "number" : "01",
+            "name" : "Horror Card"
+        },
+        "surprise" : {
+            "number" : "02",
+            "name" : "Surprise Card"
+        },
+        "affection" : {
+            "number" : "03",
+            "name" : "Affection Card"
+        },
+        "dressup" : {
+            "number" : "04",
+            "name" : "Dress-Up Card"
+        },
+        "food" : {
+            "number" : "05",
+            "name" : "Food Card"
+        },
+        "copy" : {
+            "number" : "06",
+            "name" : "Copy Card"
+        },
+        "profit" : {
+            "number" : "07",
+            "name" : "Profit Card"
+        },
+        "retry" : {
+            "number" : "08",
+            "name" : "Retry Card"
+        },
+        "special" : {
+            "number" : "09",
+            "name" : "Special Card"
+        }
+    }
+}

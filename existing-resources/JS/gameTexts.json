@@ -1,0 +1,42 @@
+{
+    "textofbeamsword" : {
+        "number" : "01",
+        "name" : "Text of Beam Sword"
+    },
+    "textofdeluxeshield" : {
+        "number" : "02",
+        "name" : "Text of Deluxe Shield"
+    },
+    "textofdeluxeumbrella" : {
+        "number" : "03",
+        "name" : "Text of Deluxe Umbrella"
+    },
+    "textofshotgun" : {
+        "number" : "04",
+        "name" : "Text of Shotgun"
+    },
+    "textofdeluxespear" : {
+        "number" : "05",
+        "name" : "Text of Deluxe Spear"
+    },
+    "textofdeluxetrident" : {
+        "number" : "06",
+        "name" : "Text of Deluxe Trident"
+    },
+    "textoftransparent" : {
+        "number" : "07",
+        "name" : "Text of Transparent"
+    },
+    "textofstickbomb" : {
+        "number" : "08",
+        "name" : "Text of Stick Bomb"
+    },
+    "textofmagicalmallet" : {
+        "number" : "09",
+        "name" : "Text of Magical Mallet"
+    },
+    "textofpitfall" : {
+        "number" : "10",
+        "name" : "Text of Pitfall"
+    }
+}
