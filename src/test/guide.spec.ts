@@ -6,6 +6,8 @@ import App from '@/App.vue'
 import GuideView from '@/views/GuideView.vue'
 import { routes } from '@/router'
 import { sections } from '@/data/content'
+import { bosses, characters, levels } from '@/data/world'
+import { items } from '@/data'
 
 const expectedSections = [
   ['overview', 'Overview'],
@@ -100,13 +102,25 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('updates item details when another item is selected', async () => {
+  it('renders and synchronously filters the full canonical item catalog', async () => {
     const { wrapper } = await mountGuide()
-    expect(wrapper.find('.item-detail h3').text()).toBe('Flame Sword')
+    expect(wrapper.find('.item-detail h3').text()).toBe('Gun')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(items.length)
+    await wrapper.find('#item-search').setValue('mAcHiNe GuN')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(1)
     const machineGun = wrapper.findAll('.item-tile').find(button => button.text().includes('Machine Gun'))
     await machineGun!.trigger('click')
     expect(wrapper.find('.item-detail h3').text()).toBe('Machine Gun')
-    expect(wrapper.find('.item-detail').text()).toContain('rapid-fire')
+    expect(wrapper.find('.item-detail').text()).toContain('#002')
+    wrapper.unmount()
+  })
+
+  it('renders canonical boss, character, and level records', async () => {
+    const { wrapper } = await mountGuide()
+    expect(wrapper.findAll('.portrait').map(node => node.findAll('span').at(-1)!.text())).toEqual(characters.map(record => record.name))
+    expect(wrapper.findAll('.level-card').map(node => node.text())).toEqual(levels.map((record, index) => `0${index + 1}${record.name}${record.description}Open arena file →`))
+    expect(wrapper.findAll('.boss-card h3').map(node => node.text())).toEqual(bosses.map(record => record.name))
+    expect(wrapper.findAll('.boss-card img').map(node => node.attributes('src'))).toEqual(bosses.map(record => record.media))
     wrapper.unmount()
   })
 

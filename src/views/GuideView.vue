@@ -3,18 +3,14 @@ import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import SectionHeading from '@/components/SectionHeading.vue'
 import LevelDialog from '@/components/LevelDialog.vue'
-import { characters, items, levels } from '@/data/content'
+import RecipeLookup from '@/components/RecipeLookup.vue'
+import { bosses, characters, items, levels } from '@/data/content'
 import { useGuideStore } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedItem, filteredItems, itemCategory } = storeToRefs(store)
-const categories = computed(() => ['All', ...new Set(items.map(item => item.category))])
+const { selectedCharacter, selectedItem, filteredItems, itemCategory, itemQuery } = storeToRefs(store)
+const categories = computed(() => ['All', ...new Set(items.map(item => item.category ?? 'Uncategorized'))])
 
-const combinations = [
-  { parts: 'Boots + Wing card', result: 'Mobility-focused result', note: 'Exact outcome to verify' },
-  { parts: 'Sword + Fire card', result: 'Flame-themed weapon result', note: 'Exact recipe to verify' },
-  { parts: 'Shield + Star card', result: 'Defensive modifier result', note: 'Exact behavior to verify' },
-]
 const multiplayerSteps = [
   ['Prepare your game', 'Use your own legally obtained game files and confirm they launch locally before networking.'],
   ['Get Flycast Dojo', 'Use the project’s current official documentation and release channel; avoid archived third-party bundles.'],
@@ -83,30 +79,28 @@ const milestones = [
     </section>
 
     <section id="items" class="content-section routed-section content-section--items" aria-labelledby="items-title">
-      <SectionHeading title-id="items-title" kicker="03 / Arsenal" title="Pick it up. Change the match." intro="Browse representative item entries from the field guide’s growing catalog." />
+      <SectionHeading title-id="items-title" kicker="03 / Arsenal" title="Pick it up. Change the match." intro="Browse all 121 entries in the canonical item catalog." />
+      <label class="item-search" for="item-search">Search items <input id="item-search" v-model="itemQuery" type="search" placeholder="Name or catalog number" /></label>
       <div class="filter-bar" aria-label="Filter items by category">
         <button v-for="category in categories" :key="category" type="button" :class="['chip', { 'chip--active': itemCategory === category }]" @click="store.setCategory(category)">{{ category }}</button>
       </div>
       <div class="item-browser">
         <div class="item-browser__list" role="list" aria-label="Items">
           <button v-for="item in filteredItems" :key="item.id" type="button" :class="['item-tile', { 'item-tile--active': selectedItem.id === item.id }]" @click="store.selectItem(item.id)">
-            <img :src="item.image" alt="" /><span><small>{{ item.category }}</small>{{ item.name }}</span><b aria-hidden="true">↗</b>
+            <img v-if="item.media" :src="item.media" alt="" /><span v-else class="entity-fallback" aria-hidden="true">{{ item.name.slice(0, 2) }}</span><span><small>{{ item.category ?? 'Uncategorized' }} · #{{ item.number }}</small>{{ item.name }}</span><b aria-hidden="true">↗</b>
           </button>
+          <p v-if="!filteredItems.length" class="recipe-empty" role="status">No catalog items match this filter.</p>
         </div>
         <article class="item-detail" aria-live="polite">
-          <div class="item-detail__visual"><img :src="selectedItem.image" :alt="`${selectedItem.name} item artwork`" /></div>
-          <div class="item-detail__copy"><p class="eyebrow">{{ selectedItem.category }}</p><h3>{{ selectedItem.name }}</h3><p>{{ selectedItem.description }}</p><dl><div><dt>Field effect</dt><dd>{{ selectedItem.effect }}</dd></div><div><dt>Best use</dt><dd>{{ selectedItem.stat }}</dd></div></dl></div>
+          <div class="item-detail__visual"><img v-if="selectedItem.media" :src="selectedItem.media" :alt="`${selectedItem.name} item artwork`" /><span v-else class="entity-fallback" aria-hidden="true">{{ selectedItem.name.slice(0, 2) }}</span></div>
+          <div class="item-detail__copy"><p class="eyebrow">{{ selectedItem.category ?? 'Uncategorized' }} · #{{ selectedItem.number }}</p><h3>{{ selectedItem.name }}</h3><dl><div><dt>Function</dt><dd>{{ selectedItem.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedItem.level }}</dd></div></dl><p v-if="selectedItem.provenance.notes.length" class="data-note">{{ selectedItem.provenance.notes.join(' ') }}</p></div>
         </article>
       </div>
     </section>
 
     <section id="combinations" class="content-section routed-section" aria-labelledby="combinations-title">
-      <SectionHeading title-id="combinations-title" kicker="04 / Workshop" title="Build beyond the pickup." intro="The sequel’s wider item loop includes combinations and card modifiers. This guide separates the system overview from unverified recipe specifics." />
-      <div class="system-note"><span aria-hidden="true">✦</span><div><h3>How the workshop is represented</h3><p>Collected materials can feed item creation, while cards can modify a recipe. Exact inputs, names, and outcomes below are deliberately illustrative until checked against primary gameplay evidence.</p></div></div>
-      <p class="sample-banner">V1 sample data · not a verified recipe list</p>
-      <div class="recipe-grid">
-        <article v-for="recipe in combinations" :key="recipe.parts" class="recipe-card"><div class="recipe-card__parts"><span>{{ recipe.parts.split(' + ')[0] }}</span><b>+</b><span>{{ recipe.parts.split(' + ')[1] }}</span></div><span class="recipe-card__arrow" aria-hidden="true">↓</span><div class="recipe-card__result"><small>Sample result</small><h3>{{ recipe.result }}</h3><p>{{ recipe.note }}</p></div></article>
-      </div>
+      <SectionHeading title-id="combinations-title" kicker="04 / Workshop" title="Build beyond the pickup." intro="Look up every resolved alternative recorded in the recipe database. Ambiguous source formulas stay visibly quarantined." />
+      <RecipeLookup />
     </section>
 
     <section id="characters" class="content-section routed-section content-section--characters" aria-labelledby="characters-title">
@@ -124,15 +118,14 @@ const milestones = [
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
       <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Open an arena file to inspect its replaceable visual study. Use the arrow keys inside the gallery to move between views." />
       <div class="level-grid">
-        <button v-for="(level, index) in levels" :key="level.id" class="level-card" type="button" @click="store.showLevel(level.id)"><img :src="level.image" :alt="`${level.name} replaceable level artwork`" /><span class="level-card__number">0{{ index + 1 }}</span><span class="level-card__copy"><b>{{ level.name }}</b><small>{{ level.description }}</small><em>Open arena file →</em></span></button>
+        <button v-for="(level, index) in levels" :key="level.id" class="level-card" type="button" @click="store.showLevel(level.id)"><img :src="level.media" :alt="`${level.name} replaceable level artwork`" /><span class="level-card__number">0{{ index + 1 }}</span><span class="level-card__copy"><b>{{ level.name }}</b><small>{{ level.description }}</small><em>Open arena file →</em></span></button>
       </div>
     </section>
 
     <section id="bosses" class="content-section routed-section content-section--bosses" aria-labelledby="bosses-title">
       <SectionHeading title-id="bosses-title" kicker="07 / Encounters" title="When the arena fights back." intro="Two established Power Stone 2 encounters, described cautiously and without padding the roster with uncertain names." />
       <div class="boss-grid">
-        <article class="boss-card"><img src="/media/boss-pharaoh-walker-placeholder.svg" alt="Pharaoh Walker replaceable boss artwork placeholder" /><div><p class="eyebrow">Encounter 01</p><h3>Pharaoh Walker</h3><p>A large mechanical, pharaoh-styled encounter. Its scale and changing attack space reward watching hazards before committing to an approach.</p><span class="status-tag">Strategy details pending verification</span></div></article>
-        <article class="boss-card"><img src="/media/boss-dr-erode-placeholder.svg" alt="Dr. Erode replaceable boss artwork placeholder" /><div><p class="eyebrow">Encounter 02</p><h3>Dr. Erode</h3><p>A climactic opponent associated with the game’s final stretch. This summary intentionally avoids asserting phase counts or exact patterns without verification.</p><span class="status-tag">Strategy details pending verification</span></div></article>
+        <article v-for="(boss, index) in bosses" :key="boss.id" class="boss-card"><img v-if="boss.media" :src="boss.media" :alt="`${boss.name} replaceable boss artwork placeholder`" /><div><p class="eyebrow">Encounter {{ String(index + 1).padStart(2, '0') }}</p><h3>{{ boss.name }}</h3><p>{{ boss.description }}</p><span class="status-tag">{{ boss.status }}</span></div></article>
       </div>
     </section>
 
