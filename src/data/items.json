@@ -1,0 +1,3385 @@
+[
+  {
+    "id": "item-gun",
+    "machineId": "gun",
+    "number": "001",
+    "name": "Gun",
+    "level": 1,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Gun",
+    "media": "/media/items/svg/001-gun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.gun",
+          "value": "Gun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 1",
+          "value": "Gun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-machinegun",
+    "machineId": "machinegun",
+    "number": "002",
+    "name": "Machine Gun",
+    "level": 1,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "MachineGun",
+    "media": "/media/items/svg/002-machinegun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.machinegun",
+          "value": "Machine Gun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 2",
+          "value": "MachineGun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-bazooka",
+    "machineId": "bazooka",
+    "number": "003",
+    "name": "Bazooka",
+    "level": 1,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Bazooka",
+    "media": "/media/items/svg/003-bazooka.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.bazooka",
+          "value": "Bazooka"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 3",
+          "value": "Bazooka"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-flamethrower",
+    "machineId": "flamethrower",
+    "number": "004",
+    "name": "FlameThrower",
+    "level": 1,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "FlameThrower",
+    "media": "/media/items/svg/004-flamethrower.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.flamethrower",
+          "value": "FlameThrower"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 4",
+          "value": "FlameThrower"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-raygun",
+    "machineId": "raygun",
+    "number": "005",
+    "name": "Ray Gun",
+    "level": 1,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Ray Gun",
+    "media": "/media/items/svg/005-raygun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.raygun",
+          "value": "Ray Gun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 5",
+          "value": "Ray Gun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-soapbubblegun",
+    "machineId": "soapbubblegun",
+    "number": "006",
+    "name": "SoapBubble Gun",
+    "level": 2,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "SoapBubbleGun",
+    "media": "/media/items/svg/006-soapbubblegun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.soapbubblegun",
+          "value": "SoapBubble Gun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 20",
+          "value": "SoapBubbleGun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-tranquilizergun",
+    "machineId": "tranquilizergun",
+    "number": "007",
+    "name": "Tranquilizer Gun",
+    "level": 3,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Tranquilizer Gun",
+    "media": "/media/items/svg/007-tranquilizergun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.tranquilizergun",
+          "value": "Tranquilizer Gun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 36",
+          "value": "Tranquilizer Gun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-homingmissle",
+    "machineId": "homingmissle",
+    "number": "008",
+    "name": "Homing Missile",
+    "level": 4,
+    "function": "Shoot",
+    "category": null,
+    "spreadsheetName": "Marking Missile",
+    "media": "/media/items/svg/008-homingmissle.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.homingmissle",
+          "value": "Homing Missile"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 57",
+          "value": "Marking Missile"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Homing Missile\"; Items.xlsx has \"Marking Missile\"."
+      ]
+    }
+  },
+  {
+    "id": "item-3wayshotgun",
+    "machineId": "3wayshotgun",
+    "number": "009",
+    "name": "3-Way Shotgun",
+    "level": 2,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "3-WayShotgun",
+    "media": "/media/items/svg/009-3wayshotgun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.3wayshotgun",
+          "value": "3-Way Shotgun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 21",
+          "value": "3-WayShotgun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-5wayshotgun",
+    "machineId": "5wayshotgun",
+    "number": "010",
+    "name": "5-Way Shotgun",
+    "level": 4,
+    "function": "Shoot",
+    "category": null,
+    "spreadsheetName": "5-Way Shotgun",
+    "media": "/media/items/svg/010-5wayshotgun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.5wayshotgun",
+          "value": "5-Way Shotgun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 58",
+          "value": "5-Way Shotgun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-beamgun",
+    "machineId": "beamgun",
+    "number": "011",
+    "name": "Beam Gun",
+    "level": 3,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Beam Gun",
+    "media": "/media/items/svg/011-beamgun.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.beamgun",
+          "value": "Beam Gun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 37",
+          "value": "Beam Gun"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-powerfulbuster",
+    "machineId": "powerfulbuster",
+    "number": "012",
+    "name": "Powerful Buster",
+    "level": 6,
+    "function": "Shoot",
+    "category": null,
+    "spreadsheetName": "Item #12 Powerful Buster",
+    "media": "/media/items/svg/012-powerfulblaster.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.powerfulbuster",
+          "value": "Powerful Buster"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 103",
+          "value": "Item #12 Powerful Buster"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Powerful Buster\"; Items.xlsx has \"Item #12 Powerful Buster\"."
+      ]
+    }
+  },
+  {
+    "id": "item-armgun",
+    "machineId": "armgun",
+    "number": "013",
+    "name": "Arm Gun",
+    "level": 6,
+    "function": "Shoot",
+    "category": null,
+    "spreadsheetName": "Item #13 Arm Gun",
+    "media": "/media/items/svg/013-armgun.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.armgun",
+          "value": "Arm Gun"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 104",
+          "value": "Item #13 Arm Gun"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Arm Gun\"; Items.xlsx has \"Item #13 Arm Gun\"."
+      ]
+    }
+  },
+  {
+    "id": "item-flamerod",
+    "machineId": "flamerod",
+    "number": "014",
+    "name": "Flame Rod",
+    "level": 3,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Fire Rod",
+    "media": "/media/items/svg/014-flamerod.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.flamerod",
+          "value": "Flame Rod"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 38",
+          "value": "Fire Rod"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Flame Rod\"; Items.xlsx has \"Fire Rod\"."
+      ]
+    }
+  },
+  {
+    "id": "item-icerod",
+    "machineId": "icerod",
+    "number": "015",
+    "name": "Ice Rod",
+    "level": 2,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Ice Rod",
+    "media": "/media/items/svg/015-icerod.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.icerod",
+          "value": "Ice Rod"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 22",
+          "value": "Ice Rod"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-thunderrod",
+    "machineId": "thunderrod",
+    "number": "016",
+    "name": "Thunder Rod",
+    "level": 5,
+    "function": "Shoot",
+    "category": null,
+    "spreadsheetName": "Thunder Rod",
+    "media": "/media/items/svg/016-thunderrod.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.thunderrod",
+          "value": "Thunder Rod"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 81",
+          "value": "Thunder Rod"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-magicrod",
+    "machineId": "magicrod",
+    "number": "017",
+    "name": "Magic Rod",
+    "level": 2,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Magic Rod",
+    "media": "/media/items/svg/017-magicrod.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.magicrod",
+          "value": "Magic Rod"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 23",
+          "value": "Magic Rod"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-mysticrod",
+    "machineId": "mysticrod",
+    "number": "018",
+    "name": "Mystic Rod",
+    "level": 3,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Mystic Rod",
+    "media": "/media/items/svg/018-mysticrod.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.mysticrod",
+          "value": "Mystic Rod"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 39",
+          "value": "Mystic Rod"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-weirdrod",
+    "machineId": "weirdrod",
+    "number": "019",
+    "name": "Weird Rod",
+    "level": 4,
+    "function": "Shoot",
+    "category": null,
+    "spreadsheetName": "Strange Rod",
+    "media": "/media/items/svg/019-weirdrod.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.weirdrod",
+          "value": "Weird Rod"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 59",
+          "value": "Strange Rod"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Weird Rod\"; Items.xlsx has \"Strange Rod\"."
+      ]
+    }
+  },
+  {
+    "id": "item-medusa",
+    "machineId": "medusa",
+    "number": "020",
+    "name": "Medusa",
+    "level": 6,
+    "function": "Shoot/Shield",
+    "category": null,
+    "spreadsheetName": "Item #20 Medusa",
+    "media": "/media/items/svg/020-medusa.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.medusa",
+          "value": "Medusa"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 105",
+          "value": "Item #20 Medusa"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Medusa\"; Items.xlsx has \"Item #20 Medusa\"."
+      ]
+    }
+  },
+  {
+    "id": "item-loudspeaker",
+    "machineId": "loudspeaker",
+    "number": "021",
+    "name": "Loudspeaker",
+    "level": 2,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Loudspeaker",
+    "media": "/media/items/svg/021-loudspeaker.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.loudspeaker",
+          "value": "Loudspeaker"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 6",
+          "value": "Loudspeaker"
+        }
+      ],
+      "notes": [
+        "Level differs: gameItems.json has \"2\"; Items.xlsx has \"1\"."
+      ]
+    }
+  },
+  {
+    "id": "item-adhesivespray",
+    "machineId": "adhesivespray",
+    "number": "022",
+    "name": "Adhesive Spray",
+    "level": 4,
+    "function": "Shoot",
+    "category": null,
+    "spreadsheetName": "Sticky Spray",
+    "media": "/media/items/svg/022-adhesivespray.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.adhesivespray",
+          "value": "Adhesive Spray"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 60",
+          "value": "Sticky Spray"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Adhesive Spray\"; Items.xlsx has \"Sticky Spray\"."
+      ]
+    }
+  },
+  {
+    "id": "item-trumpet",
+    "machineId": "trumpet",
+    "number": "023",
+    "name": "Trumpet",
+    "level": 3,
+    "function": "Shoot",
+    "category": "Shooting",
+    "spreadsheetName": "Trumpet",
+    "media": "/media/items/svg/023-trumpet.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.trumpet",
+          "value": "Trumpet"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 40",
+          "value": "Trumpet"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-firebottle",
+    "machineId": "firebottle",
+    "number": "024",
+    "name": "Fire-Bottle",
+    "level": 1,
+    "function": "Throw",
+    "category": "Throwing",
+    "spreadsheetName": "Fire-Bottle",
+    "media": "/media/items/svg/024-firebottle.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.firebottle",
+          "value": "Fire-Bottle"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 7",
+          "value": "Fire-Bottle"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-smallbomb",
+    "machineId": "smallbomb",
+    "number": "025",
+    "name": "Small Bomb",
+    "level": 1,
+    "function": "Throw",
+    "category": "Throwing",
+    "spreadsheetName": "Small Bomb",
+    "media": "/media/items/svg/025-smallbomb.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.smallbomb",
+          "value": "Small Bomb"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 8",
+          "value": "Small Bomb"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-mediumbomb",
+    "machineId": "mediumbomb",
+    "number": "026",
+    "name": "Medium Bomb",
+    "level": 1,
+    "function": "Throw",
+    "category": "Throwing",
+    "spreadsheetName": "MediumBomb",
+    "media": "/media/items/svg/026-mediumbomb.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.mediumbomb",
+          "value": "Medium Bomb"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 9",
+          "value": "MediumBomb"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-largebomb",
+    "machineId": "largebomb",
+    "number": "027",
+    "name": "Large Bomb",
+    "level": 1,
+    "function": "Throw",
+    "category": "Throwing",
+    "spreadsheetName": "LargeBomb",
+    "media": "/media/items/svg/027-largebomb.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.largebomb",
+          "value": "Large Bomb"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 10",
+          "value": "LargeBomb"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-legweight",
+    "machineId": "legweight",
+    "number": "028",
+    "name": "Leg Weight",
+    "level": 2,
+    "function": "Throw",
+    "category": "Throwing",
+    "spreadsheetName": "Leg Weight",
+    "media": "/media/items/svg/028-legweight.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.legweight",
+          "value": "Leg Weight"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 24",
+          "value": "Leg Weight"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-firecracker",
+    "machineId": "firecracker",
+    "number": "029",
+    "name": "Firecracker",
+    "level": 3,
+    "function": "Throw",
+    "category": "Throwing",
+    "spreadsheetName": "Firecracker",
+    "media": "/media/items/svg/029-firecracker.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.firecracker",
+          "value": "Firecracker"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 41",
+          "value": "Firecracker"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-handgrenade",
+    "machineId": "handgrenade",
+    "number": "030",
+    "name": "Hand Grenade",
+    "level": 3,
+    "function": "Throw",
+    "category": "Throwing",
+    "spreadsheetName": "Hand Grenade",
+    "media": "/media/items/svg/030-handgrenade.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.handgrenade",
+          "value": "Hand Grenade"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 42",
+          "value": "Hand Grenade"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-ironpipe",
+    "machineId": "ironpipe",
+    "number": "031",
+    "name": "Iron Pipe",
+    "level": 1,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Iron Pipe",
+    "media": "/media/items/svg/031-ironpipe.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.ironpipe",
+          "value": "Iron Pipe"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 11",
+          "value": "Iron Pipe"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-harisen",
+    "machineId": "harisen",
+    "number": "032",
+    "name": "Harisen",
+    "level": 3,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Harisen",
+    "media": "/media/items/svg/032-harisen.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.harisen",
+          "value": "Harisen"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 43",
+          "value": "Harisen"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-frozentuna",
+    "machineId": "frozentuna",
+    "number": "033",
+    "name": "Frozen Tuna",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Frozen Tuna",
+    "media": "/media/items/svg/033-frozentuna.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.frozentuna",
+          "value": "Frozen Tuna"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 61",
+          "value": "Frozen Tuna"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-metallicbat",
+    "machineId": "metallicbat",
+    "number": "034",
+    "name": "Metallic Bat",
+    "level": 3,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "MetallicBat",
+    "media": "/media/items/svg/034-metallicbat.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.metallicbat",
+          "value": "Metallic Bat"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 44",
+          "value": "MetallicBat"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-bigracket",
+    "machineId": "bigracket",
+    "number": "035",
+    "name": "Big Racket",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #35 Giant Racket",
+    "media": "/media/items/svg/035-bigracket.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.bigracket",
+          "value": "Big Racket"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 82",
+          "value": "Item #35 Giant Racket"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Big Racket\"; Items.xlsx has \"Item #35 Giant Racket\"."
+      ]
+    }
+  },
+  {
+    "id": "item-magicstick",
+    "machineId": "magicstick",
+    "number": "036",
+    "name": "Magic Stick",
+    "level": 1,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Magic Stick",
+    "media": "/media/items/svg/036-magicstick.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.magicstick",
+          "value": "Magic Stick"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 12",
+          "value": "Magic Stick"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-magmalance",
+    "machineId": "magmalance",
+    "number": "037",
+    "name": "Magma Lance",
+    "level": 6,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #37 Magma Lance",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.magmalance",
+          "value": "Magma Lance"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 106",
+          "value": "Item #37 Magma Lance"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Magma Lance\"; Items.xlsx has \"Item #37 Magma Lance\"."
+      ]
+    }
+  },
+  {
+    "id": "item-devilsickle",
+    "machineId": "devilsickle",
+    "number": "038",
+    "name": "Devil Sickle",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "DevilSickle",
+    "media": "/media/items/svg/038-devilsickle.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.devilsickle",
+          "value": "Devil Sickle"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 62",
+          "value": "DevilSickle"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-morningstar",
+    "machineId": "morningstar",
+    "number": "039",
+    "name": "Morning Star",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #39 Morning Star",
+    "media": "/media/items/svg/039-morningstar.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.morningstar",
+          "value": "Morning Star"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 83",
+          "value": "Item #39 Morning Star"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Morning Star\"; Items.xlsx has \"Item #39 Morning Star\"."
+      ]
+    }
+  },
+  {
+    "id": "item-sword",
+    "machineId": "sword",
+    "number": "040",
+    "name": "Sword",
+    "level": 1,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Sword",
+    "media": "/media/items/svg/040-sword.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.sword",
+          "value": "Sword"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 13",
+          "value": "Sword"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-powersword",
+    "machineId": "powersword",
+    "number": "041",
+    "name": "Power Sword",
+    "level": 1,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Power Sword",
+    "media": "/media/items/svg/041-powersword.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.powersword",
+          "value": "Power Sword"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 14",
+          "value": "Power Sword"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-flamesword",
+    "machineId": "flamesword",
+    "number": "042",
+    "name": "Flame Sword",
+    "level": 3,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Flame Sword",
+    "media": "/media/items/svg/042-flamesword.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.flamesword",
+          "value": "Flame Sword"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 45",
+          "value": "Flame Sword"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-icesword",
+    "machineId": "icesword",
+    "number": "043",
+    "name": "Ice Sword",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Ice Sword",
+    "media": "/media/items/svg/043-icesword.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.icesword",
+          "value": "Ice Sword"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 63",
+          "value": "Ice Sword"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-thundersword",
+    "machineId": "thundersword",
+    "number": "044",
+    "name": "Thunder Sword",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Thunder Sword",
+    "media": "/media/items/svg/044-thundersword.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.thundersword",
+          "value": "Thunder Sword"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 64",
+          "value": "Thunder Sword"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-beamsword",
+    "machineId": "beamsword",
+    "number": "045",
+    "name": "Beam Sword",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #45 Beam Sword",
+    "media": "/media/items/svg/045-beamsword.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.beamsword",
+          "value": "Beam Sword"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 84",
+          "value": "Item #45 Beam Sword"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Beam Sword\"; Items.xlsx has \"Item #45 Beam Sword\"."
+      ]
+    }
+  },
+  {
+    "id": "item-dragonslayersword",
+    "machineId": "dragonslayersword",
+    "number": "046",
+    "name": "Dragon Slayer Sword",
+    "level": 6,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #46 Dragon Slayer Sword",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.dragonslayersword",
+          "value": "Dragon Slayer Sword"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 107",
+          "value": "Item #46 Dragon Slayer Sword"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Dragon Slayer Sword\"; Items.xlsx has \"Item #46 Dragon Slayer Sword\"."
+      ]
+    }
+  },
+  {
+    "id": "item-swordoflegend",
+    "machineId": "swordoflegend",
+    "number": "047",
+    "name": "Sword of Legend",
+    "level": 6,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #47 Sword of Legend",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.swordoflegend",
+          "value": "Sword of Legend"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 108",
+          "value": "Item #47 Sword of Legend"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Sword of Legend\"; Items.xlsx has \"Item #47 Sword of Legend\"."
+      ]
+    }
+  },
+  {
+    "id": "item-hammer",
+    "machineId": "hammer",
+    "number": "048",
+    "name": "Hammer",
+    "level": 1,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Hammer",
+    "media": "/media/items/svg/048-hammer.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.hammer",
+          "value": "Hammer"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 15",
+          "value": "Hammer"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-toyhammer",
+    "machineId": "toyhammer",
+    "number": "049",
+    "name": "Toy Hammer",
+    "level": 2,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Toy Hammer",
+    "media": "/media/items/svg/049-toyhammer.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.toyhammer",
+          "value": "Toy Hammer"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 25",
+          "value": "Toy Hammer"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-pickaxe",
+    "machineId": "pickaxe",
+    "number": "050",
+    "name": "Pickaxe",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Pickaxe",
+    "media": "/media/items/svg/050-pickaxe.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.pickaxe",
+          "value": "Pickaxe"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 65",
+          "value": "Pickaxe"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-magicmallet",
+    "machineId": "magicmallet",
+    "number": "051",
+    "name": "Magical Mallet",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #51 Beating Mallet",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.magicmallet",
+          "value": "Magical Mallet"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 85",
+          "value": "Item #51 Beating Mallet"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Magical Mallet\"; Items.xlsx has \"Item #51 Beating Mallet\"."
+      ]
+    }
+  },
+  {
+    "id": "item-gigantichammer",
+    "machineId": "gigantichammer",
+    "number": "052",
+    "name": "Gigantic Hammer",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #52 100t Hammer",
+    "media": "/media/items/svg/052-gigantichammer.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.gigantichammer",
+          "value": "Gigantic Hammer"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 86",
+          "value": "Item #52 100t Hammer"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Gigantic Hammer\"; Items.xlsx has \"Item #52 100t Hammer\"."
+      ]
+    }
+  },
+  {
+    "id": "item-umbrella",
+    "machineId": "umbrella",
+    "number": "053",
+    "name": "Umbrella",
+    "level": 2,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Umbrella",
+    "media": "/media/items/svg/053-umbrella.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.umbrella",
+          "value": "Umbrella"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 26",
+          "value": "Umbrella"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-deluxeumbrella",
+    "machineId": "deluxeumbrella",
+    "number": "054",
+    "name": "Deluxe Umbrella",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #54 Splendid Umbrella",
+    "media": "/media/items/svg/054-deluxeumbrella.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.deluxeumbrella",
+          "value": "Deluxe Umbrella"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 87",
+          "value": "Item #54 Splendid Umbrella"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Deluxe Umbrella\"; Items.xlsx has \"Item #54 Splendid Umbrella\"."
+      ]
+    }
+  },
+  {
+    "id": "item-cheapumbrella",
+    "machineId": "cheapumbrella",
+    "number": "055",
+    "name": "Cheap Umbrella",
+    "level": 3,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Straw Umbrella",
+    "media": "/media/items/svg/055-cheapumbrella.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.cheapumbrella",
+          "value": "Cheap Umbrella"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 46",
+          "value": "Straw Umbrella"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Cheap Umbrella\"; Items.xlsx has \"Straw Umbrella\"."
+      ]
+    }
+  },
+  {
+    "id": "item-spear",
+    "machineId": "spear",
+    "number": "056",
+    "name": "Spear",
+    "level": 3,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Spear",
+    "media": "/media/items/svg/056-spear.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.spear",
+          "value": "Spear"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 47",
+          "value": "Spear"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-deluxespear",
+    "machineId": "deluxespear",
+    "number": "057",
+    "name": "Deluxe Spear",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #57 Splendid Spear",
+    "media": "/media/items/svg/057-deluxespear.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.deluxespear",
+          "value": "Deluxe Spear"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 88",
+          "value": "Item #57 Splendid Spear"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Deluxe Spear\"; Items.xlsx has \"Item #57 Splendid Spear\"."
+      ]
+    }
+  },
+  {
+    "id": "item-trident",
+    "machineId": "trident",
+    "number": "058",
+    "name": "Trident",
+    "level": 2,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Trident",
+    "media": "/media/items/svg/058-trident.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.trident",
+          "value": "Trident"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 27",
+          "value": "Trident"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-deluxetrident",
+    "machineId": "deluxetrident",
+    "number": "059",
+    "name": "Deluxe Trident",
+    "level": 5,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #59 Splendid Trident",
+    "media": "/media/items/svg/059-deluxetrident.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.deluxetrident",
+          "value": "Deluxe Trident"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 89",
+          "value": "Item #59 Splendid Trident"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Deluxe Trident\"; Items.xlsx has \"Item #59 Splendid Trident\"."
+      ]
+    }
+  },
+  {
+    "id": "item-fork",
+    "machineId": "fork",
+    "number": "060",
+    "name": "Fork",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Fork",
+    "media": "/media/items/svg/060-fork.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.fork",
+          "value": "Fork"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 66",
+          "value": "Fork"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-spoon",
+    "machineId": "spoon",
+    "number": "061",
+    "name": "Spoon",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Spoon",
+    "media": "/media/items/svg/061-spoon.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.spoon",
+          "value": "Spoon"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 67",
+          "value": "Spoon"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-battlefieldaxe",
+    "machineId": "battlefieldaxe",
+    "number": "062",
+    "name": "Battlefield Axe",
+    "level": 2,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Battle Axe",
+    "media": "/media/items/svg/062-battlefieldaxe.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.battlefieldaxe",
+          "value": "Battlefield Axe"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 28",
+          "value": "Battle Axe"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Battlefield Axe\"; Items.xlsx has \"Battle Axe\"."
+      ]
+    }
+  },
+  {
+    "id": "item-victoryaxe",
+    "machineId": "victoryaxe",
+    "number": "063",
+    "name": "Victory Axe",
+    "level": 4,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Victory Axe",
+    "media": "/media/items/svg/063-victoryaxe.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.victoryaxe",
+          "value": "Victory Axe"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 68",
+          "value": "Victory Axe"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-lumberjacksaxe",
+    "machineId": "lumberjacksaxe",
+    "number": "064",
+    "name": "Lumberjack's Axe",
+    "level": 3,
+    "function": "Melee",
+    "category": "Hitting",
+    "spreadsheetName": "Normal Axe",
+    "media": "/media/items/svg/064-lumberjacksaxe.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.lumberjacksaxe",
+          "value": "Lumberjack's Axe"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 48",
+          "value": "Normal Axe"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Lumberjack's Axe\"; Items.xlsx has \"Normal Axe\"."
+      ]
+    }
+  },
+  {
+    "id": "item-heroaxe",
+    "machineId": "heroaxe",
+    "number": "065",
+    "name": "Hero Axe",
+    "level": 6,
+    "function": "Melee",
+    "category": null,
+    "spreadsheetName": "Item #65 Hero Axe",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.heroaxe",
+          "value": "Hero Axe"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 109",
+          "value": "Item #65 Hero Axe"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Hero Axe\"; Items.xlsx has \"Item #65 Hero Axe\"."
+      ]
+    }
+  },
+  {
+    "id": "item-skateboard",
+    "machineId": "skateboard",
+    "number": "066",
+    "name": "Skateboard",
+    "level": 2,
+    "function": "Movement",
+    "category": "Movement",
+    "spreadsheetName": "Skateboard",
+    "media": "/media/items/svg/066-skateboard.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.skateboard",
+          "value": "Skateboard"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 29",
+          "value": "Skateboard"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-inlineskate",
+    "machineId": "inlineskate",
+    "number": "067",
+    "name": "Inline Skate",
+    "level": 3,
+    "function": "Movement",
+    "category": "Movement",
+    "spreadsheetName": "In-Line Skates",
+    "media": "/media/items/svg/067-inlineskate.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.inlineskate",
+          "value": "Inline Skate"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 49",
+          "value": "In-Line Skates"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Inline Skate\"; Items.xlsx has \"In-Line Skates\"."
+      ]
+    }
+  },
+  {
+    "id": "item-scooter",
+    "machineId": "scooter",
+    "number": "068",
+    "name": "Scooter",
+    "level": 6,
+    "function": "Movement",
+    "category": null,
+    "spreadsheetName": "Item #68 Scooter",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.scooter",
+          "value": "Scooter"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 110",
+          "value": "Item #68 Scooter"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Scooter\"; Items.xlsx has \"Item #68 Scooter\"."
+      ]
+    }
+  },
+  {
+    "id": "item-apple",
+    "machineId": "apple",
+    "number": "069",
+    "name": "Apple",
+    "level": 1,
+    "function": "Food",
+    "category": "Food",
+    "spreadsheetName": "Apple",
+    "media": "/media/items/svg/069-apple.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.apple",
+          "value": "Apple"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 16",
+          "value": "Apple"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-shortcake",
+    "machineId": "shortcake",
+    "number": "070",
+    "name": "Shortcake",
+    "level": 1,
+    "function": "Food",
+    "category": "Food",
+    "spreadsheetName": "Shortcake",
+    "media": "/media/items/svg/070-shortcake.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.shortcake",
+          "value": "Shortcake"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 17",
+          "value": "Shortcake"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-meat",
+    "machineId": "meat",
+    "number": "071",
+    "name": "Meat",
+    "level": 1,
+    "function": "Food",
+    "category": "Food",
+    "spreadsheetName": "Meat",
+    "media": "/media/items/svg/071-meat.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.meat",
+          "value": "Meat"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 18",
+          "value": "Meat"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-riceball",
+    "machineId": "riceball",
+    "number": "072",
+    "name": "Rice Ball",
+    "level": 2,
+    "function": "Food",
+    "category": "Food",
+    "spreadsheetName": "Rice Ball",
+    "media": "/media/items/svg/072-riceball.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.riceball",
+          "value": "Rice Ball"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 30",
+          "value": "Rice Ball"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-bananna",
+    "machineId": "bananna",
+    "number": "073",
+    "name": "Bananna",
+    "level": 2,
+    "function": "Food",
+    "category": "Food",
+    "spreadsheetName": "Banana",
+    "media": "/media/items/svg/073-bananna.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.bananna",
+          "value": "Bananna"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 31",
+          "value": "Banana"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Bananna\"; Items.xlsx has \"Banana\"."
+      ]
+    }
+  },
+  {
+    "id": "item-hamburger",
+    "machineId": "hamburger",
+    "number": "074",
+    "name": "Hamburger",
+    "level": 2,
+    "function": "Food",
+    "category": "Food",
+    "spreadsheetName": "Hamburger",
+    "media": "/media/items/svg/074-hamburger.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.hamburger",
+          "value": "Hamburger"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 32",
+          "value": "Hamburger"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-cheese",
+    "machineId": "cheese",
+    "number": "075",
+    "name": "Cheese",
+    "level": 2,
+    "function": "Food",
+    "category": "Food",
+    "spreadsheetName": "Cheese",
+    "media": "/media/items/svg/075-cheese.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.cheese",
+          "value": "Cheese"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 33",
+          "value": "Cheese"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-roastchicken",
+    "machineId": "roastchicken",
+    "number": "076",
+    "name": "Roast Chicken",
+    "level": 4,
+    "function": "Food",
+    "category": null,
+    "spreadsheetName": "Roast Chicken",
+    "media": "/media/items/svg/076-roastchicken.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.roastchicken",
+          "value": "Roast Chicken"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 69",
+          "value": "Roast Chicken"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-roastpork",
+    "machineId": "roastpork",
+    "number": "077",
+    "name": "Roast Pork",
+    "level": 5,
+    "function": "Food",
+    "category": null,
+    "spreadsheetName": "Item #77 Roast Pig",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.roastpork",
+          "value": "Roast Pork"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 90",
+          "value": "Item #77 Roast Pig"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Roast Pork\"; Items.xlsx has \"Item #77 Roast Pig\"."
+      ]
+    }
+  },
+  {
+    "id": "item-weddingcake",
+    "machineId": "weddingcake",
+    "number": "078",
+    "name": "Wedding Cake",
+    "level": 5,
+    "function": "Food",
+    "category": null,
+    "spreadsheetName": "Item #78 Wedding Cake",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.weddingcake",
+          "value": "Wedding Cake"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 91",
+          "value": "Item #78 Wedding Cake"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Wedding Cake\"; Items.xlsx has \"Item #78 Wedding Cake\"."
+      ]
+    }
+  },
+  {
+    "id": "item-angelwings",
+    "machineId": "angelwings",
+    "number": "079",
+    "name": "Angel Wings",
+    "level": 5,
+    "function": "Unknown",
+    "category": null,
+    "spreadsheetName": "Item #79 Angel Wings",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.angelwings",
+          "value": "Angel Wings"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 92",
+          "value": "Item #79 Angel Wings"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Angel Wings\"; Items.xlsx has \"Item #79 Angel Wings\"."
+      ]
+    }
+  },
+  {
+    "id": "item-devilwings",
+    "machineId": "devilwings",
+    "number": "080",
+    "name": "Devil Wings",
+    "level": 6,
+    "function": "Unknown",
+    "category": null,
+    "spreadsheetName": "Item #80 Devil Wings",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.devilwings",
+          "value": "Devil Wings"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 111",
+          "value": "Item #80 Devil Wings"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Devil Wings\"; Items.xlsx has \"Item #80 Devil Wings\"."
+      ]
+    }
+  },
+  {
+    "id": "item-powershield",
+    "machineId": "powershield",
+    "number": "081",
+    "name": "Power Shield",
+    "level": 1,
+    "function": "Shield",
+    "category": "Defense",
+    "spreadsheetName": "Power Shield",
+    "media": "/media/items/svg/081-powershield.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.powershield",
+          "value": "Power Shield"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 19",
+          "value": "Power Shield"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-deluxeshield",
+    "machineId": "deluxeshield",
+    "number": "082",
+    "name": "Deluxe Shield",
+    "level": 5,
+    "function": "Shield",
+    "category": null,
+    "spreadsheetName": "Item #82 Splendid Shield",
+    "media": "/media/items/svg/082-deluxeshield.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.deluxeshield",
+          "value": "Deluxe Shield"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 93",
+          "value": "Item #82 Splendid Shield"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Deluxe Shield\"; Items.xlsx has \"Item #82 Splendid Shield\"."
+      ]
+    }
+  },
+  {
+    "id": "item-petrifier",
+    "machineId": "petrifier",
+    "number": "083",
+    "name": "Petrifier",
+    "level": 3,
+    "function": "Drink / Throw",
+    "category": "Throwing",
+    "spreadsheetName": "Petrifier",
+    "media": "/media/items/svg/083-petrifier.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.petrifier",
+          "value": "Petrifier"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 50",
+          "value": "Petrifier"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-transparentizer",
+    "machineId": "transparentizer",
+    "number": "084",
+    "name": "Transparentizer",
+    "level": 6,
+    "function": "Drink",
+    "category": null,
+    "spreadsheetName": "Item #84 Invisibility Potion",
+    "media": "/media/items/svg/084-transparentizer.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.transparentizer",
+          "value": "Transparentizer"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 112",
+          "value": "Item #84 Invisibility Potion"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Transparentizer\"; Items.xlsx has \"Item #84 Invisibility Potion\"."
+      ]
+    }
+  },
+  {
+    "id": "item-kitten",
+    "machineId": "kitten",
+    "number": "085",
+    "name": "Kitten",
+    "level": 2,
+    "function": "Pet",
+    "category": "Pet",
+    "spreadsheetName": "Kitten",
+    "media": "/media/items/svg/085-kitten.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.kitten",
+          "value": "Kitten"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 34",
+          "value": "Kitten"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-panther",
+    "machineId": "panther",
+    "number": "086",
+    "name": "Panther",
+    "level": 4,
+    "function": "Pet",
+    "category": null,
+    "spreadsheetName": "Panther",
+    "media": "/media/items/svg/086-panther.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.panther",
+          "value": "Panther"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 70",
+          "value": "Panther"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-firedragon",
+    "machineId": "firedragon",
+    "number": "087",
+    "name": "Fire Dragon",
+    "level": 4,
+    "function": "Pet",
+    "category": null,
+    "spreadsheetName": "Fire Dragon",
+    "media": "/media/items/svg/087-firedragon.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.firedragon",
+          "value": "Fire Dragon"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 71",
+          "value": "Fire Dragon"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-icedragon",
+    "machineId": "icedragon",
+    "number": "088",
+    "name": "Ice Dragon",
+    "level": 5,
+    "function": "Pet",
+    "category": null,
+    "spreadsheetName": "Item #88 Ice Dragon",
+    "media": "/media/items/svg/088-icedragon.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.icedragon",
+          "value": "Ice Dragon"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 94",
+          "value": "Item #88 Ice Dragon"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Ice Dragon\"; Items.xlsx has \"Item #88 Ice Dragon\"."
+      ]
+    }
+  },
+  {
+    "id": "item-sanddragon",
+    "machineId": "sanddragon",
+    "number": "089",
+    "name": "Sand Dragon",
+    "level": 6,
+    "function": "Pet",
+    "category": null,
+    "spreadsheetName": "Item #89 Sand Dragon",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.sanddragon",
+          "value": "Sand Dragon"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 113",
+          "value": "Item #89 Sand Dragon"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Sand Dragon\"; Items.xlsx has \"Item #89 Sand Dragon\"."
+      ]
+    }
+  },
+  {
+    "id": "item-bambooshoot",
+    "machineId": "bambooshoot",
+    "number": "090",
+    "name": "Bamboo Shoot",
+    "level": 6,
+    "function": "Throw",
+    "category": null,
+    "spreadsheetName": "Item #90 Takenoko",
+    "media": "/media/items/svg/090-bambooshoot.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.bambooshoot",
+          "value": "Bamboo Shoot"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 114",
+          "value": "Item #90 Takenoko"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Bamboo Shoot\"; Items.xlsx has \"Item #90 Takenoko\"."
+      ]
+    }
+  },
+  {
+    "id": "item-thumbtack",
+    "machineId": "thumbtack",
+    "number": "091",
+    "name": "Thumbtack",
+    "level": 4,
+    "function": "Throw",
+    "category": null,
+    "spreadsheetName": "Thumbtack",
+    "media": "/media/items/svg/091-thumbtack.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.thumbtack",
+          "value": "Thumbtack"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 72",
+          "value": "Thumbtack"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-legtrap",
+    "machineId": "legtrap",
+    "number": "092",
+    "name": "Leg Trap",
+    "level": 2,
+    "function": "Throw",
+    "category": "Planting",
+    "spreadsheetName": "Bear Trap",
+    "media": "/media/items/svg/092-legtrap.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.legtrap",
+          "value": "Leg Trap"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 35",
+          "value": "Bear Trap"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Leg Trap\"; Items.xlsx has \"Bear Trap\"."
+      ]
+    }
+  },
+  {
+    "id": "item-pitfall",
+    "machineId": "pitfall",
+    "number": "093",
+    "name": "Pitfall Hoop",
+    "level": 5,
+    "function": "Throw",
+    "category": null,
+    "spreadsheetName": "Item #93 Trap Hoop",
+    "media": "/media/items/svg/093-pitfall.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.pitfall",
+          "value": "Pitfall Hoop"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 95",
+          "value": "Item #93 Trap Hoop"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Pitfall Hoop\"; Items.xlsx has \"Item #93 Trap Hoop\"."
+      ]
+    }
+  },
+  {
+    "id": "item-beehive",
+    "machineId": "beehive",
+    "number": "094",
+    "name": "Beehive",
+    "level": 5,
+    "function": "Throw",
+    "category": null,
+    "spreadsheetName": "Item #94 Beehive",
+    "media": "/media/items/svg/094-beehive.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.beehive",
+          "value": "Beehive"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 96",
+          "value": "Item #94 Beehive"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Beehive\"; Items.xlsx has \"Item #94 Beehive\"."
+      ]
+    }
+  },
+  {
+    "id": "item-stickbomb",
+    "machineId": "stickbomb",
+    "number": "095",
+    "name": "Stick Bomb",
+    "level": 4,
+    "function": "Throw",
+    "category": null,
+    "spreadsheetName": "Sticky Bomb",
+    "media": "/media/items/svg/095-stickbomb.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.stickbomb",
+          "value": "Stick Bomb"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 73",
+          "value": "Sticky Bomb"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Stick Bomb\"; Items.xlsx has \"Sticky Bomb\"."
+      ]
+    }
+  },
+  {
+    "id": "item-typhoon",
+    "machineId": "typhoon",
+    "number": "096",
+    "name": "Typhoon",
+    "level": 3,
+    "function": "Throw",
+    "category": "???",
+    "spreadsheetName": "Typhoon",
+    "media": "/media/items/svg/096-typhoon.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.typhoon",
+          "value": "Typhoon"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 51",
+          "value": "Typhoon"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-fireworks",
+    "machineId": "fireworks",
+    "number": "097",
+    "name": "Fireworks",
+    "level": 3,
+    "function": "Throw",
+    "category": "Hitting",
+    "spreadsheetName": "Fireworks Pipe",
+    "media": "/media/items/svg/097-fireworks.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.fireworks",
+          "value": "Fireworks"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 52",
+          "value": "Fireworks Pipe"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Fireworks\"; Items.xlsx has \"Fireworks Pipe\"."
+      ]
+    }
+  },
+  {
+    "id": "item-meteorite",
+    "machineId": "meteorite",
+    "number": "098",
+    "name": "Meteorite",
+    "level": 6,
+    "function": "Throw",
+    "category": null,
+    "spreadsheetName": "Item #98 Meteorite",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.meteorite",
+          "value": "Meteorite"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 115",
+          "value": "Item #98 Meteorite"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Meteorite\"; Items.xlsx has \"Item #98 Meteorite\"."
+      ]
+    }
+  },
+  {
+    "id": "item-adultmagazine",
+    "machineId": "adultmagazine",
+    "number": "099",
+    "name": "Adult Magazine",
+    "level": 7,
+    "function": "Misc",
+    "category": null,
+    "spreadsheetName": "Item #99 Adult Magazine",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.adultmagazine",
+          "value": "Adult Magazine"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 119",
+          "value": "Item #99 Adult Magazine"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Adult Magazine\"; Items.xlsx has \"Item #99 Adult Magazine\"."
+      ]
+    }
+  },
+  {
+    "id": "item-powerstonemagazine",
+    "machineId": "powerstonemagazine",
+    "number": "100",
+    "name": "Powerstone Magazine",
+    "level": 6,
+    "function": "Misc",
+    "category": null,
+    "spreadsheetName": "Item #100 Weekly Power Stone",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.powerstonemagazine",
+          "value": "Powerstone Magazine"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 116",
+          "value": "Item #100 Weekly Power Stone"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Powerstone Magazine\"; Items.xlsx has \"Item #100 Weekly Power Stone\"."
+      ]
+    }
+  },
+  {
+    "id": "item-rabbitears",
+    "machineId": "rabbitears",
+    "number": "101",
+    "name": "Rabbit Ears",
+    "level": 4,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Rabbit Ears",
+    "media": null,
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.rabbitears",
+          "value": "Rabbit Ears"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 74",
+          "value": "Rabbit Ears"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-catears",
+    "machineId": "catears",
+    "number": "102",
+    "name": "Cat Ears",
+    "level": 5,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #102 Cat Ears",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.catears",
+          "value": "Cat Ears"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 97",
+          "value": "Item #102 Cat Ears"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Cat Ears\"; Items.xlsx has \"Item #102 Cat Ears\"."
+      ]
+    }
+  },
+  {
+    "id": "item-crown",
+    "machineId": "crown",
+    "number": "103",
+    "name": "Crown",
+    "level": 6,
+    "function": "Clothing",
+    "category": "Clothing",
+    "spreadsheetName": "Item #103 Crown",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.crown",
+          "value": "Crown"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 117",
+          "value": "Item #103 Crown"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Crown\"; Items.xlsx has \"Item #103 Crown\"."
+      ]
+    }
+  },
+  {
+    "id": "item-silkhat",
+    "machineId": "silkhat",
+    "number": "104",
+    "name": "Silk Hat",
+    "level": 5,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #104 Silk Hat",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.silkhat",
+          "value": "Silk Hat"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 98",
+          "value": "Item #104 Silk Hat"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Silk Hat\"; Items.xlsx has \"Item #104 Silk Hat\"."
+      ]
+    }
+  },
+  {
+    "id": "item-strawhat",
+    "machineId": "strawhat",
+    "number": "105",
+    "name": "Straw Hat",
+    "level": 3,
+    "function": "Clothing",
+    "category": "Clothing",
+    "spreadsheetName": "Straw Hat",
+    "media": null,
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.strawhat",
+          "value": "Straw Hat"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 53",
+          "value": "Straw Hat"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-partyhat",
+    "machineId": "partyhat",
+    "number": "106",
+    "name": "Party Hat",
+    "level": 4,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Party Hat",
+    "media": "/media/items/svg/106-partyhat.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.partyhat",
+          "value": "Party Hat"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 75",
+          "value": "Party Hat"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-flower",
+    "machineId": "flower",
+    "number": "107",
+    "name": "Flower",
+    "level": 3,
+    "function": "Clothing",
+    "category": "???",
+    "spreadsheetName": "Flower",
+    "media": "/media/items/svg/107-flower.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.flower",
+          "value": "Flower"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 54",
+          "value": "Flower"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-emperorscrown",
+    "machineId": "emperorscrown",
+    "number": "108",
+    "name": "Emperor's Crown",
+    "level": 7,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #108 Emperor's Crown",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.emperorscrown",
+          "value": "Emperor's Crown"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 120",
+          "value": "Item #108 Emperor's Crown"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Emperor's Crown\"; Items.xlsx has \"Item #108 Emperor's Crown\"."
+      ]
+    }
+  },
+  {
+    "id": "item-rabbit-arm",
+    "machineId": "rabbit arm",
+    "number": "109",
+    "name": "Rabbit Arm",
+    "level": 4,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Rabbit Paws",
+    "media": "/media/items/svg/109-rabbitarm.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.rabbit arm",
+          "value": "Rabbit Arm"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 76",
+          "value": "Rabbit Paws"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Rabbit Arm\"; Items.xlsx has \"Rabbit Paws\"."
+      ]
+    }
+  },
+  {
+    "id": "item-catarm",
+    "machineId": "catarm",
+    "number": "110",
+    "name": "Cat Arm",
+    "level": 5,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #110 Cat Paws",
+    "media": "/media/items/svg/110-catarm.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.catarm",
+          "value": "Cat Arm"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 99",
+          "value": "Item #110 Cat Paws"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Cat Arm\"; Items.xlsx has \"Item #110 Cat Paws\"."
+      ]
+    }
+  },
+  {
+    "id": "item-bracelet",
+    "machineId": "bracelet",
+    "number": "111",
+    "name": "Bracelet",
+    "level": 6,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #111 Bracelet",
+    "media": "/media/items/svg/111-bracelet.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.bracelet",
+          "value": "Bracelet"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 118",
+          "value": "Item #111 Bracelet"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Bracelet\"; Items.xlsx has \"Item #111 Bracelet\"."
+      ]
+    }
+  },
+  {
+    "id": "item-punchinggloves",
+    "machineId": "punchinggloves",
+    "number": "112",
+    "name": "Punching Gloves",
+    "level": 3,
+    "function": "Clothing",
+    "category": "Hitting",
+    "spreadsheetName": "Punch Glove",
+    "media": "/media/items/svg/112-punchinggloves.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.punchinggloves",
+          "value": "Punching Gloves"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 55",
+          "value": "Punch Glove"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Punching Gloves\"; Items.xlsx has \"Punch Glove\"."
+      ]
+    }
+  },
+  {
+    "id": "item-rabbittail",
+    "machineId": "rabbittail",
+    "number": "113",
+    "name": "Rabbit Tail",
+    "level": 4,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Rabbit Tail",
+    "media": null,
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.rabbittail",
+          "value": "Rabbit Tail"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 77",
+          "value": "Rabbit Tail"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-cattail",
+    "machineId": "cattail",
+    "number": "114",
+    "name": "Cat Tail",
+    "level": 5,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #114 Cat Tail",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.cattail",
+          "value": "Cat Tail"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 100",
+          "value": "Item #114 Cat Tail"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Cat Tail\"; Items.xlsx has \"Item #114 Cat Tail\"."
+      ]
+    }
+  },
+  {
+    "id": "item-deviltail",
+    "machineId": "deviltail",
+    "number": "115",
+    "name": "Devil Tail",
+    "level": 5,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #115 Devil Tail",
+    "media": "/media/items/svg/115-deviltail.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.deviltail",
+          "value": "Devil Tail"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 101",
+          "value": "Item #115 Devil Tail"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Devil Tail\"; Items.xlsx has \"Item #115 Devil Tail\"."
+      ]
+    }
+  },
+  {
+    "id": "item-windupkey",
+    "machineId": "windupkey",
+    "number": "116",
+    "name": "Windup Key",
+    "level": 4,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Windup Key",
+    "media": "/media/items/svg/116-windupkey.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.windupkey",
+          "value": "Windup Key"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 78",
+          "value": "Windup Key"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "item-rabbitpaw",
+    "machineId": "rabbitpaw",
+    "number": "117",
+    "name": "Rabbit Paw",
+    "level": 4,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Rabbit Foot",
+    "media": "/media/items/svg/117-rabbitpaw.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.rabbitpaw",
+          "value": "Rabbit Paw"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 79",
+          "value": "Rabbit Foot"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Rabbit Paw\"; Items.xlsx has \"Rabbit Foot\"."
+      ]
+    }
+  },
+  {
+    "id": "item-catpaw",
+    "machineId": "catpaw",
+    "number": "118",
+    "name": "Cat Paw",
+    "level": 5,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Item #118 Cat Foot",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.catpaw",
+          "value": "Cat Paw"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 102",
+          "value": "Item #118 Cat Foot"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Cat Paw\"; Items.xlsx has \"Item #118 Cat Foot\"."
+      ]
+    }
+  },
+  {
+    "id": "item-shoesofachilles",
+    "machineId": "shoesofachilles",
+    "number": "119",
+    "name": "Shoes of Achilles",
+    "level": 4,
+    "function": "Clothing",
+    "category": null,
+    "spreadsheetName": "Athelete Foot",
+    "media": null,
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.shoesofachilles",
+          "value": "Shoes of Achilles"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 80",
+          "value": "Athelete Foot"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Shoes of Achilles\"; Items.xlsx has \"Athelete Foot\"."
+      ]
+    }
+  },
+  {
+    "id": "item-plaster",
+    "machineId": "plaster",
+    "number": "120",
+    "name": "Plaster",
+    "level": 3,
+    "function": "Clothing",
+    "category": "Recovery",
+    "spreadsheetName": "Bandages",
+    "media": "/media/items/svg/120-plaster.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.plaster",
+          "value": "Plaster"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 56",
+          "value": "Bandages"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Plaster\"; Items.xlsx has \"Bandages\"."
+      ]
+    }
+  },
+  {
+    "id": "item-lightstone",
+    "machineId": "lightstone",
+    "number": "121",
+    "name": "Light Stone",
+    "level": 7,
+    "function": "Unknown",
+    "category": null,
+    "spreadsheetName": "Item #121 Light Stone",
+    "media": "/media/items/svg/121-lightstone.svg",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "items.lightstone",
+          "value": "Light Stone"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Items!row 121",
+          "value": "Item #121 Light Stone"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Light Stone\"; Items.xlsx has \"Item #121 Light Stone\"."
+      ]
+    }
+  }
+]

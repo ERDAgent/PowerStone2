@@ -1,0 +1,164 @@
+[
+  {
+    "id": "essence-horror",
+    "machineId": "horror",
+    "number": "01",
+    "name": "Horror Card",
+    "media": "/media/essenses/svg/01-horrorcard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.horror",
+          "value": "Horror Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-surprise",
+    "machineId": "surprise",
+    "number": "02",
+    "name": "Surprise Card",
+    "media": "/media/essenses/svg/02-surprisecard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.surprise",
+          "value": "Surprise Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-affection",
+    "machineId": "affection",
+    "number": "03",
+    "name": "Affection Card",
+    "media": "/media/essenses/svg/03-affectioncard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.affection",
+          "value": "Affection Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-dressup",
+    "machineId": "dressup",
+    "number": "04",
+    "name": "Dress-Up Card",
+    "media": "/media/essenses/svg/04-dressupcard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.dressup",
+          "value": "Dress-Up Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-food",
+    "machineId": "food",
+    "number": "05",
+    "name": "Food Card",
+    "media": "/media/essenses/svg/05-foodcard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.food",
+          "value": "Food Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-copy",
+    "machineId": "copy",
+    "number": "06",
+    "name": "Copy Card",
+    "media": "/media/essenses/svg/06-copycard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.copy",
+          "value": "Copy Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-profit",
+    "machineId": "profit",
+    "number": "07",
+    "name": "Profit Card",
+    "media": "/media/essenses/svg/07-profitcard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.profit",
+          "value": "Profit Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-retry",
+    "machineId": "retry",
+    "number": "08",
+    "name": "Retry Card",
+    "media": "/media/essenses/svg/08-retrycard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.retry",
+          "value": "Retry Card"
+        }
+      ],
+      "notes": []
+    }
+  },
+  {
+    "id": "essence-special",
+    "machineId": "special",
+    "number": "09",
+    "name": "Special Card",
+    "media": "/media/essenses/svg/09-specialcard-essense.svg",
+    "provenance": {
+      "verification": "verified",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "essenses.special",
+          "value": "Special Card"
+        }
+      ],
+      "notes": []
+    }
+  }
+]
