@@ -65,6 +65,7 @@ img { display: block; max-width: 100%; }
 .content-section { position: relative; padding: clamp(5.5rem, 9vw, 9rem) clamp(1.2rem, 6vw, 7rem); background: #f5f0e9; color: #171126; overflow: hidden; }
 .content-section:nth-of-type(2n + 1) { background: #eee6d9; }
 .content-section--items { color: $ink; background: $arcade-blue !important; }
+.content-section--how-to-play { color: $ink; background: linear-gradient(145deg, #f4eee4, #dbeff0) !important; }
 .content-section--levels { color: #10220b; background: $level-green !important; }
 .content-section--characters { color: #211526; background: $yellow !important; }
 .content-section--bosses { color: #29131d; background: $boss-coral !important; }
@@ -83,6 +84,16 @@ img { display: block; max-width: 100%; }
 .content-section--levels .section-heading__intro,
 .content-section--characters .section-heading__intro,
 .content-section--bosses .section-heading__intro { color: #432e3e; }
+.play-guide { max-width: 1180px; display: flex; align-items: center; gap: clamp(2rem, 6vw, 6rem); }
+.play-guide__controller { flex: 0 1 340px; width: min(34vw, 340px); max-height: 300px; object-fit: contain; filter: drop-shadow(0 18px 20px rgba(25, 20, 45, .18)); }
+.play-guide__cards { flex: 1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.play-guide__cards article { padding: 1.25rem; border: 1px solid #b8afa4; background: rgba(255, 255, 255, .78); }
+.play-guide__cards span { color: #d6421e; font-family: 'Guide Display'; font-size: 1.2rem; }
+.play-guide__cards h3 { margin: .35rem 0; text-transform: uppercase; }
+.play-guide__cards p { margin: 0; color: #5c5568; font-size: .92rem; }
+.first-match { max-width: 1180px; margin-top: 1rem; padding: 1.4rem clamp(1.2rem, 3vw, 2.2rem); color: $ink; border-left: 5px solid $orange; background: $yellow; }
+.first-match p { margin: 0; }
+.first-match .eyebrow { margin-bottom: .35rem; color: #721f16; }
 .filter-bar { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 1.8rem; }
 .chip { padding: .55rem 1rem; color: $muted; border: 1px solid #4c4269; border-radius: 3rem; background: transparent; cursor: pointer; font-size: .76rem; font-weight: 800; }
 .chip--active { color: $night; border-color: $cyan; background: $cyan; }
@@ -229,6 +240,9 @@ img { display: block; max-width: 100%; }
   .hero__meta { flex-direction: column; gap: .8rem; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__media-label { right: 0; font-size: .52rem; }
+  .play-guide { align-items: stretch; flex-direction: column; }
+  .play-guide__controller { align-self: center; width: min(75vw, 300px); }
+  .play-guide__cards { grid-template-columns: 1fr; }
   .section-heading__title { font-size: clamp(2.35rem, 13vw, 4rem); }
   .item-browser__list { display: flex; }
   .item-detail { flex-direction: column; }
@@ -251,5 +265,5 @@ img { display: block; max-width: 100%; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .hero__video { display: none; }
-  .hero__media { min-height: 260px; background: url('/media/hero-video-poster-placeholder.svg') center / cover; }
+  .hero__media { min-height: 260px; background: url('/media/gameplay-loop-poster.jpg') center / cover; }
 }
