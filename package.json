@@ -1,0 +1,32 @@
+{
+  "name": "power-stone-2-field-guide",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest run"
+  },
+  "dependencies": {
+    "@vueuse/core": "^13.5.0",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.13",
+    "@tsconfig/node22": "^22.0.2",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vue/test-utils": "^2.4.6",
+    "@testing-library/vue": "^8.1.0",
+    "@vue/tsconfig": "^0.7.0",
+    "jsdom": "^26.1.0",
+    "sass": "^1.89.2",
+    "typescript": "~5.8.3",
+    "vite": "^7.0.4",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.1"
+  }
+}
