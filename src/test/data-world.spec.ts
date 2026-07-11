@@ -36,15 +36,32 @@ const expectedCharacterCopy = [
   moves: ['Core attacks — notation to verify', 'Power Stone transformation — inputs to verify', 'Mobility / item play — inputs to verify'],
 }))
 
+const expectedPspExclusiveCopy = [
+  {
+    name: 'Kraken',
+    tagline: 'A monstrous unlockable fighter added in the PSP compilation.',
+    history: 'Kraken appears as one of two fighters exclusive to Power Stone Collection on PSP, expanding the roster beyond the original Dreamcast and arcade lineup.',
+    attributes: ['Editorial read: powerful', 'Editorial read: unconventional'],
+    moves: ['Core attacks — notation to verify', 'Power Stone transformation — inputs to verify', 'Mobility / item play — inputs to verify'],
+  },
+  {
+    name: 'General Valgas',
+    tagline: 'A commanding unlockable fighter added in the PSP compilation.',
+    history: 'General Valgas joins Kraken as one of two fighters exclusive to Power Stone Collection on PSP, not part of the original Dreamcast and arcade roster.',
+    attributes: ['Editorial read: powerful', 'Editorial read: technical'],
+    moves: ['Core attacks — notation to verify', 'Power Stone transformation — inputs to verify', 'Mobility / item play — inputs to verify'],
+  },
+]
+
 const expectedLevelCopy = [
-  { name: 'Melting Pot', description: 'An airborne arena where the route itself becomes part of the scramble.', media: '/media/level-airship-cover-placeholder.svg', slides: ['/media/level-airship-slide-1-placeholder.svg', '/media/level-airship-slide-2-placeholder.svg', '/media/level-airship-slide-3-placeholder.svg'] },
-  { name: 'Blue Sky Area', description: 'A bright multi-tier battleground represented with replaceable study art.', media: '/media/level-temple-cover-placeholder.svg', slides: ['/media/level-temple-slide-1-placeholder.svg', '/media/level-temple-slide-2-placeholder.svg', '/media/level-temple-slide-3-placeholder.svg'] },
-  { name: 'Dark Castle', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/level-factory-cover-placeholder.svg', slides: ['/media/level-factory-slide-1-placeholder.svg', '/media/level-factory-slide-2-placeholder.svg', '/media/level-factory-slide-3-placeholder.svg'] },
+  { name: 'Melting Pot', description: 'An airborne arena where the route itself becomes part of the scramble.', media: '/media/placeholders/level-airship-cover-placeholder.svg', slides: ['/media/placeholders/level-airship-slide-1-placeholder.svg', '/media/placeholders/level-airship-slide-2-placeholder.svg', '/media/placeholders/level-airship-slide-3-placeholder.svg'] },
+  { name: 'Blue Sky Area', description: 'A bright multi-tier battleground represented with replaceable study art.', media: '/media/placeholders/level-temple-cover-placeholder.svg', slides: ['/media/placeholders/level-temple-slide-1-placeholder.svg', '/media/placeholders/level-temple-slide-2-placeholder.svg', '/media/placeholders/level-temple-slide-3-placeholder.svg'] },
+  { name: 'Dark Castle', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/placeholders/level-factory-cover-placeholder.svg', slides: ['/media/placeholders/level-factory-slide-1-placeholder.svg', '/media/placeholders/level-factory-slide-2-placeholder.svg', '/media/placeholders/level-factory-slide-3-placeholder.svg'] },
 ]
 
 const expectedBossCopy = [
-  { name: 'Pharaoh Walker', description: 'A large mechanical, pharaoh-styled encounter. Its scale and changing attack space reward watching hazards before committing to an approach.', status: 'Strategy details pending verification', media: '/media/boss-pharaoh-walker-placeholder.svg' },
-  { name: 'Dr. Erode', description: 'A climactic opponent associated with the game’s final stretch. This summary intentionally avoids asserting phase counts or exact patterns without verification.', status: 'Strategy details pending verification', media: '/media/boss-dr-erode-placeholder.svg' },
+  { name: 'Pharaoh Walker', description: 'A large mechanical, pharaoh-styled encounter. Its scale and changing attack space reward watching hazards before committing to an approach.', status: 'Strategy details pending verification', media: '/media/placeholders/boss-pharaoh-walker-placeholder.svg' },
+  { name: 'Dr. Erode', description: 'A climactic opponent associated with the game’s final stretch. This summary intentionally avoids asserting phase counts or exact patterns without verification.', status: 'Strategy details pending verification', media: '/media/placeholders/boss-dr-erode-placeholder.svg' },
 ]
 
 function expectSharedProvenance(provenance: DataProvenance) {
@@ -60,7 +77,9 @@ function expectSharedProvenance(provenance: DataProvenance) {
 
 describe('world data', () => {
   it('preserves expected guide coverage with unique stable IDs', () => {
-    expect(characters).toHaveLength(14)
+    expect(characters).toHaveLength(16)
+    expect(characters.filter(character => character.availability === 'dreamcast')).toHaveLength(14)
+    expect(characters.filter(character => character.availability === 'psp-exclusive').map(character => character.name)).toEqual(['Kraken', 'General Valgas'])
     expect(levels.map(level => level.name)).toEqual(['Melting Pot', 'Blue Sky Area', 'Dark Castle'])
     expect(bosses.map(boss => boss.name)).toEqual(['Pharaoh Walker', 'Dr. Erode'])
 
@@ -73,7 +92,10 @@ describe('world data', () => {
   })
 
   it('exactly preserves every displayed field from 1eca5f7', () => {
-    expect(characters.map(({ name, tagline, history, attributes, moves }) => ({ name, tagline, history, attributes, moves }))).toEqual(expectedCharacterCopy)
+    const dreamcastCharacters = characters.filter(character => character.availability === 'dreamcast')
+    const pspExclusiveCharacters = characters.filter(character => character.availability === 'psp-exclusive')
+    expect(dreamcastCharacters.map(({ name, tagline, history, attributes, moves }) => ({ name, tagline, history, attributes, moves }))).toEqual(expectedCharacterCopy)
+    expect(pspExclusiveCharacters.map(({ name, tagline, history, attributes, moves }) => ({ name, tagline, history, attributes, moves }))).toEqual(expectedPspExclusiveCopy)
     expect(levels.map(({ name, description, media, slides }) => ({ name, description, media, slides }))).toEqual(expectedLevelCopy)
     expect(bosses.map(({ name, description, status, media }) => ({ name, description, status, media }))).toEqual(expectedBossCopy)
 
@@ -82,9 +104,18 @@ describe('world data', () => {
     expect(bosses.every(boss => boss.provenance.verification === 'ambiguous')).toBe(true)
   })
 
+  it('gives every base-roster character chip art, no chip art for PSP exclusives, and every character full portrait art', () => {
+    for (const character of characters) {
+      if (character.availability === 'dreamcast') expect(character.media, character.name).not.toBeNull()
+      else expect(character.media, character.name).toBeNull()
+      expect(character.portrait, character.name).not.toBeNull()
+    }
+  })
+
   it('declares only public-root media that exist', () => {
     const paths = [
       ...characters.map(record => record.media),
+      ...characters.map(record => record.portrait),
       ...levels.flatMap(record => [record.media, ...record.slides]),
       ...bosses.map(record => record.media),
     ]

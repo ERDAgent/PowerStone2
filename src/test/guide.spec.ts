@@ -283,6 +283,40 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('renders chip art for base-roster characters and an initials fallback for PSP exclusives, badged accordingly', async () => {
+    const { wrapper } = await mountGuide()
+    const portraitButtons = wrapper.findAll('.portrait')
+    expect(portraitButtons).toHaveLength(characters.length)
+    characters.forEach((character, index) => {
+      const button = portraitButtons[index]
+      const img = button.find('img.portrait__avatar')
+      const badge = button.find('.status-tag')
+      if (character.media) {
+        expect(img.exists(), character.name).toBe(true)
+        expect(img.attributes('src')).toBe(character.media)
+      } else {
+        expect(img.exists(), character.name).toBe(false)
+        expect(button.find('span.portrait__avatar').text()).toBe(character.name.slice(0, 2).toUpperCase())
+      }
+      expect(badge.exists(), character.name).toBe(character.availability === 'psp-exclusive')
+    })
+    wrapper.unmount()
+  })
+
+  it('renders full portrait art and a PSP-exclusive badge in the fighter file for Kraken and Valgas only', async () => {
+    const { wrapper } = await mountGuide()
+    const kraken = wrapper.findAll('.portrait').find(button => button.text().includes('Kraken'))!
+    await kraken.trigger('click')
+    expect(wrapper.find('.fighter-file__hero img.fighter-file__portrait').attributes('src')).toBe('/media/characters/full/kraken-full.png')
+    expect(wrapper.find('.fighter-file__hero .status-tag').text()).toBe('PSP exclusive')
+
+    const falcon = wrapper.findAll('.portrait').find(button => button.text().includes('Falcon'))!
+    await falcon.trigger('click')
+    expect(wrapper.find('.fighter-file__hero img.fighter-file__portrait').attributes('src')).toBe('/media/characters/full/falcon-full.png')
+    expect(wrapper.find('.fighter-file__hero .status-tag').exists()).toBe(false)
+    wrapper.unmount()
+  })
+
   it('opens, advances, and closes the level dialog without console errors', async () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined)
     const { wrapper } = await mountGuide()
