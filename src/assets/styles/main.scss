@@ -69,7 +69,7 @@ img { display: block; max-width: 100%; }
 .content-section--levels { color: #10220b; background: $level-green !important; }
 .content-section--characters { color: #211526; background: $yellow !important; }
 .content-section--bosses { color: #29131d; background: $boss-coral !important; }
-.content-section--history { color: $ink; background: linear-gradient(rgba(24, 9, 46, .88), rgba(24, 9, 46, .88)), url('/media/backgrounds/map-background.png') center / cover no-repeat, $archive-purple !important; }
+.content-section--history { color: $ink; background: linear-gradient(rgba(24, 9, 46, .88), rgba(24, 9, 46, .88)), url('/media/backgrounds/map-background-upscaled-compressed.jpg') center / cover no-repeat, $archive-purple !important; }
 .section-heading { max-width: 850px; margin: 0 0 clamp(2.5rem, 5vw, 4.5rem); }
 .section-heading__kicker { color: #d6421e; }
 .content-section--items .section-heading__kicker { color: $yellow; }
