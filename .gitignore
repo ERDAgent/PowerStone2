@@ -37,3 +37,4 @@ bower_components
 .lock-wscript
 
 # Compiled binary addons (
+**/.DS_Store
