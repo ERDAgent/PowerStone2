@@ -12,7 +12,7 @@ export interface CharacterRecord extends MediaRecord {
   readonly moves: readonly string[]
   readonly color: string
   readonly portrait: string | null
-  readonly availability: 'dreamcast' | 'psp-exclusive'
+  readonly availability: readonly ('dreamcast' | 'PSP' | 'Arcade')[]
   readonly provenance: DataProvenance
 }
 
@@ -30,6 +30,7 @@ export interface BossRecord extends MediaRecord {
   readonly name: string
   readonly description: string
   readonly status: string
+  readonly arenaMedia?: string | null
   readonly provenance: DataProvenance
 }
 

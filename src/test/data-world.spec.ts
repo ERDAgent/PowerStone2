@@ -54,14 +54,21 @@ const expectedPspExclusiveCopy = [
 ]
 
 const expectedLevelCopy = [
-  { name: 'Melting Pot', description: 'An airborne arena where the route itself becomes part of the scramble.', media: '/media/placeholders/level-airship-cover-placeholder.svg', slides: ['/media/placeholders/level-airship-slide-1-placeholder.svg', '/media/placeholders/level-airship-slide-2-placeholder.svg', '/media/placeholders/level-airship-slide-3-placeholder.svg'] },
-  { name: 'Blue Sky Area', description: 'A bright multi-tier battleground represented with replaceable study art.', media: '/media/placeholders/level-temple-cover-placeholder.svg', slides: ['/media/placeholders/level-temple-slide-1-placeholder.svg', '/media/placeholders/level-temple-slide-2-placeholder.svg', '/media/placeholders/level-temple-slide-3-placeholder.svg'] },
-  { name: 'Dark Castle', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/placeholders/level-factory-cover-placeholder.svg', slides: ['/media/placeholders/level-factory-slide-1-placeholder.svg', '/media/placeholders/level-factory-slide-2-placeholder.svg', '/media/placeholders/level-factory-slide-3-placeholder.svg'] },
+  { name: 'Blue Sky Area', description: 'An airborne arena where the route itself becomes part of the scramble.', media: '/media/levels/levels-small/sky-blue-area-small.png', slides: ['/media/levels/levels-large/blue-sky-area-large.png'] },
+  { name: 'Dark Castle Area', description: 'A bright multi-tier battleground represented with replaceable study art.', media: '/media/levels/levels-small/dark-castle-area-small.png', slides: ['/media/levels/levels-large/dark-castle-area-large.png'] },
+  { name: 'Tomb Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/tomb-area-small.png', slides: ['/media/levels/levels-large/tomb-area-large.png'] },
+  { name: 'Iceberg Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/iceburg-area-small.png', slides: ['/media/levels/levels-large/iceburg-area-large.png'] },
+  { name: 'Space Station Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/space-station-area-small.png', slides: ['/media/levels/levels-large/space-station-area-large.png'] },
+  { name: 'Chaos Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/chaos-area-small.png', slides: ['/media/levels/levels-large/chaos-area-large.png'] },
+  { name: 'Desert Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/deset-area-small.png', slides: ['/media/levels/levels-large/desert-area-large.png'] },
+  { name: 'Extra Stage 1', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-large/extra-stage-1-large.png', slides: ['/media/levels/levels-large/extra-stage-1-large.png'] },
+  { name: 'Extra Stage 2', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-large/extra-stage-2-large.png', slides: ['/media/levels/levels-large/extra-stage-2-large.png'] },
+  { name: 'Extra Stage 3', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-large/extra-stage-3-large.png', slides: ['/media/levels/levels-large/extra-stage-3-large.png'] },
 ]
 
 const expectedBossCopy = [
-  { name: 'Pharaoh Walker', description: 'A large mechanical, pharaoh-styled encounter. Its scale and changing attack space reward watching hazards before committing to an approach.', status: 'Strategy details pending verification', media: '/media/placeholders/boss-pharaoh-walker-placeholder.svg' },
-  { name: 'Dr. Erode', description: 'A climactic opponent associated with the game’s final stretch. This summary intentionally avoids asserting phase counts or exact patterns without verification.', status: 'Strategy details pending verification', media: '/media/placeholders/boss-dr-erode-placeholder.svg' },
+  { name: 'Pharaoh Walker', description: 'A large mechanical, pharaoh-styled encounter. Its scale and changing attack space reward watching hazards before committing to an approach.', status: 'Strategy details pending verification', media: '/media/bosses/pharaoh-walker.png', arenaMedia: '/media/levels/levels-large/pharaoh-walker-area-large.png' },
+  { name: 'Dr. Erode', description: 'A climactic opponent associated with the game’s final stretch. This summary intentionally avoids asserting phase counts or exact patterns without verification.', status: 'Strategy details pending verification', media: '/media/bosses/dr-erode.png', arenaMedia: null },
 ]
 
 function expectSharedProvenance(provenance: DataProvenance) {
@@ -78,9 +85,9 @@ function expectSharedProvenance(provenance: DataProvenance) {
 describe('world data', () => {
   it('preserves expected guide coverage with unique stable IDs', () => {
     expect(characters).toHaveLength(16)
-    expect(characters.filter(character => character.availability === 'dreamcast')).toHaveLength(14)
-    expect(characters.filter(character => character.availability === 'psp-exclusive').map(character => character.name)).toEqual(['Kraken', 'General Valgas'])
-    expect(levels.map(level => level.name)).toEqual(['Melting Pot', 'Blue Sky Area', 'Dark Castle'])
+    expect(characters.filter(character => character.availability.includes('dreamcast'))).toHaveLength(14)
+    expect(characters.filter(character => character.availability.length === 1 && character.availability[0] === 'PSP').map(character => character.name)).toEqual(['Kraken', 'General Valgas'])
+    expect(levels.map(level => level.name)).toEqual(['Blue Sky Area', 'Dark Castle Area', 'Tomb Area', 'Iceberg Area', 'Space Station Area', 'Chaos Area', 'Desert Area', 'Extra Stage 1', 'Extra Stage 2', 'Extra Stage 3'])
     expect(bosses.map(boss => boss.name)).toEqual(['Pharaoh Walker', 'Dr. Erode'])
 
     expect(new Set(records.map(record => record.id)).size).toBe(records.length)
@@ -92,12 +99,12 @@ describe('world data', () => {
   })
 
   it('exactly preserves every displayed field from 1eca5f7', () => {
-    const dreamcastCharacters = characters.filter(character => character.availability === 'dreamcast')
-    const pspExclusiveCharacters = characters.filter(character => character.availability === 'psp-exclusive')
+    const dreamcastCharacters = characters.filter(character => character.availability.includes('dreamcast'))
+    const pspExclusiveCharacters = characters.filter(character => character.availability.length === 1 && character.availability[0] === 'PSP')
     expect(dreamcastCharacters.map(({ name, tagline, history, attributes, moves }) => ({ name, tagline, history, attributes, moves }))).toEqual(expectedCharacterCopy)
     expect(pspExclusiveCharacters.map(({ name, tagline, history, attributes, moves }) => ({ name, tagline, history, attributes, moves }))).toEqual(expectedPspExclusiveCopy)
     expect(levels.map(({ name, description, media, slides }) => ({ name, description, media, slides }))).toEqual(expectedLevelCopy)
-    expect(bosses.map(({ name, description, status, media }) => ({ name, description, status, media }))).toEqual(expectedBossCopy)
+    expect(bosses.map(({ name, description, status, media, arenaMedia }) => ({ name, description, status, media, arenaMedia }))).toEqual(expectedBossCopy)
 
     expect(characters.every(character => character.provenance.verification === 'ambiguous')).toBe(true)
     expect(levels.every(level => level.provenance.verification === 'ambiguous')).toBe(true)
@@ -106,7 +113,7 @@ describe('world data', () => {
 
   it('gives every base-roster character chip art, no chip art for PSP exclusives, and every character full portrait art', () => {
     for (const character of characters) {
-      if (character.availability === 'dreamcast') expect(character.media, character.name).not.toBeNull()
+      if (character.availability.includes('dreamcast')) expect(character.media, character.name).not.toBeNull()
       else expect(character.media, character.name).toBeNull()
       expect(character.portrait, character.name).not.toBeNull()
     }
@@ -118,6 +125,7 @@ describe('world data', () => {
       ...characters.map(record => record.portrait),
       ...levels.flatMap(record => [record.media, ...record.slides]),
       ...bosses.map(record => record.media),
+      ...bosses.map(record => record.arenaMedia ?? null),
     ]
     for (const media of paths) {
       if (media !== null) {

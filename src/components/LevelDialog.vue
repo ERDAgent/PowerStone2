@@ -39,12 +39,14 @@ onBeforeUnmount(() => document.body.classList.remove('is-dialog-open'))
           <button ref="closeButton" class="icon-button" type="button" aria-label="Close level gallery" @click="close">×</button>
         </div>
         <div class="level-dialog__stage">
-          <img :src="openLevel.slides[slideIndex]" :alt="`${openLevel.name} placeholder view ${slideIndex + 1}`" />
-          <button class="level-dialog__arrow level-dialog__arrow--previous" type="button" aria-label="Previous slide" @click="store.previousSlide">←</button>
-          <button class="level-dialog__arrow level-dialog__arrow--next" type="button" aria-label="Next slide" @click="store.nextSlide">→</button>
+          <img :src="openLevel.slides[slideIndex]" :alt="`${openLevel.name} view ${slideIndex + 1}`" />
+          <template v-if="openLevel.slides.length > 1">
+            <button class="level-dialog__arrow level-dialog__arrow--previous" type="button" aria-label="Previous slide" @click="store.previousSlide">←</button>
+            <button class="level-dialog__arrow level-dialog__arrow--next" type="button" aria-label="Next slide" @click="store.nextSlide">→</button>
+          </template>
         </div>
         <div class="level-dialog__footer">
-          <p aria-live="polite">Slide {{ slideIndex + 1 }} of {{ openLevel.slides.length }}</p>
+          <p v-if="openLevel.slides.length > 1" aria-live="polite">Slide {{ slideIndex + 1 }} of {{ openLevel.slides.length }}</p>
           <p>{{ openLevel.description }}</p>
         </div>
       </section>

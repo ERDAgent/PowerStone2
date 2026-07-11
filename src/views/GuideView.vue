@@ -19,6 +19,9 @@ const catalogTabs = [
 ] as const
 const tabElements = ref<HTMLButtonElement[]>([])
 
+function isPspExclusive(character: { availability: readonly string[] }) {
+  return !character.availability.includes('dreamcast') && !character.availability.includes('Arcade')
+}
 function entityKindLabel(entity: CatalogEntity) { return entity.kind[0].toUpperCase() + entity.kind.slice(1) }
 function entityNumberLabel(entity: CatalogEntity) { return `${entityKindLabel(entity)} ${Number(entity.record.number)}` }
 function entityContext(entity: CatalogEntity) {
@@ -143,7 +146,7 @@ const milestones = [
         <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="store.selectCharacter(character.id)">
           <img v-if="character.media" class="portrait__avatar" :src="character.media" :alt="`${character.name} chip art`" />
           <span v-else class="portrait__avatar" aria-hidden="true">{{ character.name.slice(0, 2).toUpperCase() }}</span>
-          <span v-if="character.availability === 'psp-exclusive'" class="status-tag">PSP exclusive</span>
+          <span v-if="isPspExclusive(character)" class="status-tag">PSP exclusive</span>
           <span>{{ character.name }}</span>
         </button>
       </div>
@@ -151,7 +154,7 @@ const milestones = [
         <div class="fighter-file__hero" :style="{ '--character-color': selectedCharacter.color }">
           <img v-if="selectedCharacter.portrait" class="fighter-file__portrait" :src="selectedCharacter.portrait" :alt="`${selectedCharacter.name} full character art`" />
           <span v-else aria-hidden="true">{{ selectedCharacter.name.slice(0, 2).toUpperCase() }}</span>
-          <span v-if="selectedCharacter.availability === 'psp-exclusive'" class="status-tag">PSP exclusive</span>
+          <span v-if="isPspExclusive(selectedCharacter)" class="status-tag">PSP exclusive</span>
           <small v-if="!selectedCharacter.portrait">Replaceable character art</small>
         </div>
         <div class="fighter-file__copy"><p class="eyebrow">Player file</p><h3>{{ selectedCharacter.name }}</h3><p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p><h4>Background / history</h4><p>{{ selectedCharacter.history }}</p><h4>Editorial attributes</h4><ul class="attribute-list"><li v-for="attribute in selectedCharacter.attributes" :key="attribute">{{ attribute }}</li></ul></div>
@@ -169,7 +172,7 @@ const milestones = [
     <section id="bosses" class="content-section routed-section content-section--bosses" aria-labelledby="bosses-title">
       <SectionHeading title-id="bosses-title" kicker="07 / Encounters" title="When the arena fights back." intro="Two established Power Stone 2 encounters, described cautiously and without padding the roster with uncertain names." />
       <div class="boss-grid">
-        <article v-for="(boss, index) in bosses" :key="boss.id" class="boss-card"><img v-if="boss.media" :src="boss.media" :alt="`${boss.name} replaceable boss artwork placeholder`" /><div><p class="eyebrow">Encounter {{ String(index + 1).padStart(2, '0') }}</p><h3>{{ boss.name }}</h3><p>{{ boss.description }}</p><span class="status-tag">{{ boss.status }}</span></div></article>
+        <article v-for="(boss, index) in bosses" :key="boss.id" :class="['boss-card', { 'boss-card--arena': boss.arenaMedia }]" :style="boss.arenaMedia ? { '--arena-media': `url(${boss.arenaMedia})` } : undefined"><img v-if="boss.media" :src="boss.media" :alt="`${boss.name} artwork`" /><div><p class="eyebrow">Encounter {{ String(index + 1).padStart(2, '0') }}</p><h3>{{ boss.name }}</h3><p>{{ boss.description }}</p><span class="status-tag">{{ boss.status }}</span></div></article>
       </div>
     </section>
 

@@ -298,7 +298,7 @@ describe('guide interactions', () => {
         expect(img.exists(), character.name).toBe(false)
         expect(button.find('span.portrait__avatar').text()).toBe(character.name.slice(0, 2).toUpperCase())
       }
-      expect(badge.exists(), character.name).toBe(character.availability === 'psp-exclusive')
+      expect(badge.exists(), character.name).toBe(character.availability.length === 1 && character.availability[0] === 'PSP')
     })
     wrapper.unmount()
   })
@@ -317,17 +317,15 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('opens, advances, and closes the level dialog without console errors', async () => {
+  it('opens and closes the level dialog with a single slide and no arrows or counter', async () => {
     const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined)
     const { wrapper } = await mountGuide()
     await wrapper.find('.level-card').trigger('click')
     const dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
     expect(dialog).not.toBeNull()
-    expect(dialog!.textContent).toContain('Slide 1 of 3')
-    const next = dialog!.querySelector<HTMLButtonElement>('[aria-label="Next slide"]')!
-    next.click()
-    await wrapper.vm.$nextTick()
-    expect(dialog!.textContent).toContain('Slide 2 of 3')
+    expect(dialog!.textContent).not.toContain('Slide')
+    expect(dialog!.querySelector('[aria-label="Previous slide"]')).toBeNull()
+    expect(dialog!.querySelector('[aria-label="Next slide"]')).toBeNull()
     const close = dialog!.querySelector<HTMLButtonElement>('[aria-label="Close level gallery"]')!
     close.click()
     await wrapper.vm.$nextTick()

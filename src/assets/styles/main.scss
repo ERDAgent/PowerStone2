@@ -202,6 +202,7 @@ img.portrait__avatar { object-fit: cover; }
 .callout b { margin-right: .4rem; }
 .boss-grid { display: flex; gap: 1.2rem; }
 .boss-card { flex: 1 1 0; display: flex; flex-direction: column; border: 1px solid #45385e; background: #1b1237; }
+.boss-card--arena { background: linear-gradient(rgba(27, 18, 55, .86), rgba(27, 18, 55, .86)), var(--arena-media) center / cover no-repeat, #1b1237; }
 .boss-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
 .boss-card > div { padding: clamp(1.5rem, 4vw, 3rem); }
 .boss-card p { color: $muted; }
