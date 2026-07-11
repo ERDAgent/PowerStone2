@@ -3,11 +3,9 @@
     "id": "level-blue-sky-area",
     "name": "Blue Sky Area",
     "description": "An airborne arena where the route itself becomes part of the scramble.",
-    "media": "/media/levels/levels-large/blue-sky-area-large.png",
+    "media": "/media/levels/levels-small/sky-blue-area-small.png",
     "slides": [
-      "/media/placeholders/level-airship-slide-1-placeholder.svg",
-      "/media/placeholders/level-airship-slide-2-placeholder.svg",
-      "/media/placeholders/level-airship-slide-3-placeholder.svg"
+      "/media/levels/levels-large/blue-sky-area-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -21,11 +19,9 @@
     "id": "level-dark-castle-area",
     "name": "Dark Castle Area",
     "description": "A bright multi-tier battleground represented with replaceable study art.",
-    "media": "/media/levels/levels-large/dark-castle-area-large.png",
+    "media": "/media/levels/levels-small/dark-castle-area-small.png",
     "slides": [
-      "/media/placeholders/level-temple-slide-1-placeholder.svg",
-      "/media/placeholders/level-temple-slide-2-placeholder.svg",
-      "/media/placeholders/level-temple-slide-3-placeholder.svg"
+      "/media/levels/levels-large/dark-castle-area-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -39,11 +35,9 @@
     "id": "level-tomb-area",
     "name": "Tomb Area",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/tomb-area-large.png",
+    "media": "/media/levels/levels-small/tomb-area-small.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/tomb-area-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -57,11 +51,9 @@
     "id": "level-iceburg-area",
     "name": "Iceberg Area",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/iceburg-area-large.png",
+    "media": "/media/levels/levels-small/iceburg-area-small.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/iceburg-area-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -75,11 +67,9 @@
     "id": "level-space-station-area",
     "name": "Space Station Area",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/space-station-area-large.png",
+    "media": "/media/levels/levels-small/space-station-area-small.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/space-station-area-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -93,11 +83,9 @@
     "id": "level-chaos-area",
     "name": "Chaos Area",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/chaos-area-large.png",
+    "media": "/media/levels/levels-small/chaos-area-small.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/chaos-area-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -108,14 +96,12 @@
     }
   },
   {
-    "id": "leve-desert-area",
+    "id": "level-desert-area",
     "name": "Desert Area",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/desert-area-large.png",
+    "media": "/media/levels/levels-small/deset-area-small.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/desert-area-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -131,9 +117,7 @@
     "description": "A hazardous stage concept where awareness matters as much as offense.",
     "media": "/media/levels/levels-large/extra-stage-1-large.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/extra-stage-1-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -149,9 +133,7 @@
     "description": "A hazardous stage concept where awareness matters as much as offense.",
     "media": "/media/levels/levels-large/extra-stage-2-large.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/extra-stage-2-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -167,9 +149,7 @@
     "description": "A hazardous stage concept where awareness matters as much as offense.",
     "media": "/media/levels/levels-large/extra-stage-3-large.png",
     "slides": [
-      "/media/placeholders/level-factory-slide-1-placeholder.svg",
-      "/media/placeholders/level-factory-slide-2-placeholder.svg",
-      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+      "/media/levels/levels-large/extra-stage-3-large.png"
     ],
     "provenance": {
       "verification": "ambiguous",
