@@ -111,6 +111,22 @@ describe('recipe lookup', () => {
     wrapper.unmount()
   })
 
+  it('selects an option by click without rewriting the query or narrowing the option list', async () => {
+    const wrapper = mountLookup()
+    const input = wrapper.find<HTMLInputElement>('#recipe-search')
+    input.element.focus()
+    await input.setValue('gun')
+    const optionsBefore = wrapper.findAll('.recipe-option')
+    expect(optionsBefore.length).toBeGreaterThan(1)
+    const rayGunOption = optionsBefore.find(option => option.text().includes('Ray Gun'))
+    await rayGunOption!.trigger('click')
+    expect(input.element.value).toBe('gun')
+    expect(wrapper.findAll('.recipe-option')).toHaveLength(optionsBefore.length)
+    expect(wrapper.find('.recipe-result-heading h3').text()).toBe('Ray Gun')
+    expect(document.activeElement).toBe(input.element)
+    wrapper.unmount()
+  })
+
   it('renders material and essence PNG imagery in formulas', async () => {
     const wrapper = mountLookup()
     await searchAndSelect(wrapper, 'Gun')
