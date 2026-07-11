@@ -74,11 +74,11 @@ describe('canonical item data', () => {
         expect(existsSync(`${projectRoot}/public${record.media}`), record.media).toBe(true)
       }
     }
-    expect(items.filter(record => record.media === null)).toHaveLength(24)
-    expect(materials.filter(record => record.media === null)).toHaveLength(9)
+    expect(items.filter(record => record.media === null)).toHaveLength(4)
+    expect(materials.filter(record => record.media === null)).toHaveLength(1)
     expect(essences.every(record => record.media !== null)).toBe(true)
-    expect(items.filter(record => record.media === null).map(record => record.number)).toEqual(['037', '046', '047', '051', '065', '068', '077', '078', '079', '080', '089', '098', '099', '100', '101', '102', '103', '104', '105', '108', '113', '114', '118', '119'])
-    expect(materials.filter(record => record.media === null).map(record => record.number)).toEqual(['08', '15', '16', '17', '18', '19', '20', '21', '22'])
+    expect(items.filter(record => record.media === null).map(record => record.number)).toEqual(['079', '089', '099', '108'])
+    expect(materials.filter(record => record.media === null).map(record => record.number)).toEqual(['20'])
   })
 
   it('retains source disagreements in provenance', () => {

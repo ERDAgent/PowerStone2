@@ -130,10 +130,10 @@ describe('recipe lookup', () => {
   it('renders material and essence PNG imagery in formulas', async () => {
     const wrapper = mountLookup()
     await searchAndSelect(wrapper, 'Gun')
-    expect(wrapper.findAll('.recipe-entity img').some(image => image.attributes('src').startsWith('/media/materials/png/'))).toBe(true)
+    expect(wrapper.findAll('.recipe-entity img').some(image => image.attributes('src').startsWith('/media/materials/'))).toBe(true)
     await wrapper.find('#recipe-search').setValue('Powerful Buster')
     await wrapper.find('#recipe-search').trigger('keydown', { key: 'Enter' })
-    expect(wrapper.findAll('.recipe-entity img').some(image => image.attributes('src').startsWith('/media/essenses/png/'))).toBe(true)
+    expect(wrapper.findAll('.recipe-entity img').some(image => image.attributes('src').startsWith('/media/essences/'))).toBe(true)
     wrapper.unmount()
   })
 })

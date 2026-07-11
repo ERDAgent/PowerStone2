@@ -8,7 +8,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Gun",
-    "media": "/media/items/png/001-gun.png",
+    "media": "/media/items/001-gun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -35,7 +35,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "MachineGun",
-    "media": "/media/items/png/002-machinegun.png",
+    "media": "/media/items/002-machinegun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -62,7 +62,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Bazooka",
-    "media": "/media/items/png/003-bazooka.png",
+    "media": "/media/items/003-bazooka.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -89,7 +89,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "FlameThrower",
-    "media": "/media/items/png/004-flamethrower.png",
+    "media": "/media/items/004-flamethrower.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -116,7 +116,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Ray Gun",
-    "media": "/media/items/png/005-raygun.png",
+    "media": "/media/items/005-raygun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -143,7 +143,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "SoapBubbleGun",
-    "media": "/media/items/png/006-soapbubblegun.png",
+    "media": "/media/items/006-soapbubblegun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -170,7 +170,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Tranquilizer Gun",
-    "media": "/media/items/png/007-tranquilizergun.png",
+    "media": "/media/items/007-tranquilizergun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -197,7 +197,7 @@
     "function": "Shoot",
     "category": null,
     "spreadsheetName": "Marking Missile",
-    "media": "/media/items/png/008-homingmissle.png",
+    "media": "/media/items/008-homingmissle.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -226,7 +226,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "3-WayShotgun",
-    "media": "/media/items/png/009-3wayshotgun.png",
+    "media": "/media/items/009-3wayshotgun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -253,7 +253,7 @@
     "function": "Shoot",
     "category": null,
     "spreadsheetName": "5-Way Shotgun",
-    "media": "/media/items/png/010-5wayshotgun.png",
+    "media": "/media/items/010-5wayshotgun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -280,7 +280,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Beam Gun",
-    "media": "/media/items/png/011-beamgun.png",
+    "media": "/media/items/011-beamgun.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -307,7 +307,7 @@
     "function": "Shoot",
     "category": null,
     "spreadsheetName": "Item #12 Powerful Buster",
-    "media": "/media/items/png/012-powerfulblaster.png",
+    "media": "/media/items/012-powerfulblaster.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -336,7 +336,7 @@
     "function": "Shoot",
     "category": null,
     "spreadsheetName": "Item #13 Arm Gun",
-    "media": "/media/items/png/013-armgun.png",
+    "media": "/media/items/013-armgun.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -365,7 +365,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Fire Rod",
-    "media": "/media/items/png/014-flamerod.png",
+    "media": "/media/items/014-flamerod.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -394,7 +394,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Ice Rod",
-    "media": "/media/items/png/015-icerod.png",
+    "media": "/media/items/015-icerod.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -421,7 +421,7 @@
     "function": "Shoot",
     "category": null,
     "spreadsheetName": "Thunder Rod",
-    "media": "/media/items/png/016-thunderrod.png",
+    "media": "/media/items/016-thunderrod.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -448,7 +448,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Magic Rod",
-    "media": "/media/items/png/017-magicrod.png",
+    "media": "/media/items/017-magicrod.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -475,7 +475,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Mystic Rod",
-    "media": "/media/items/png/018-mysticrod.png",
+    "media": "/media/items/018-mysticrod.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -502,7 +502,7 @@
     "function": "Shoot",
     "category": null,
     "spreadsheetName": "Strange Rod",
-    "media": "/media/items/png/019-weirdrod.png",
+    "media": "/media/items/019-weirdrod.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -531,7 +531,7 @@
     "function": "Shoot/Shield",
     "category": null,
     "spreadsheetName": "Item #20 Medusa",
-    "media": "/media/items/png/020-medusa.png",
+    "media": "/media/items/020-medusa.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -560,7 +560,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Loudspeaker",
-    "media": "/media/items/png/021-loudspeaker.png",
+    "media": "/media/items/021-loudspeaker.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -589,7 +589,7 @@
     "function": "Shoot",
     "category": null,
     "spreadsheetName": "Sticky Spray",
-    "media": "/media/items/png/022-adhesivespray.png",
+    "media": "/media/items/022-adhesivespray.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -618,7 +618,7 @@
     "function": "Shoot",
     "category": "Shooting",
     "spreadsheetName": "Trumpet",
-    "media": "/media/items/png/023-trumpet.png",
+    "media": "/media/items/023-trumpet.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -645,7 +645,7 @@
     "function": "Throw",
     "category": "Throwing",
     "spreadsheetName": "Fire-Bottle",
-    "media": "/media/items/png/024-firebottle.png",
+    "media": "/media/items/024-firebottle.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -672,7 +672,7 @@
     "function": "Throw",
     "category": "Throwing",
     "spreadsheetName": "Small Bomb",
-    "media": "/media/items/png/025-smallbomb.png",
+    "media": "/media/items/025-smallbomb.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -699,7 +699,7 @@
     "function": "Throw",
     "category": "Throwing",
     "spreadsheetName": "MediumBomb",
-    "media": "/media/items/png/026-mediumbomb.png",
+    "media": "/media/items/026-mediumbomb.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -726,7 +726,7 @@
     "function": "Throw",
     "category": "Throwing",
     "spreadsheetName": "LargeBomb",
-    "media": "/media/items/png/027-largebomb.png",
+    "media": "/media/items/027-largebomb.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -753,7 +753,7 @@
     "function": "Throw",
     "category": "Throwing",
     "spreadsheetName": "Leg Weight",
-    "media": "/media/items/png/028-legweight.png",
+    "media": "/media/items/028-legweight.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -780,7 +780,7 @@
     "function": "Throw",
     "category": "Throwing",
     "spreadsheetName": "Firecracker",
-    "media": "/media/items/png/029-firecracker.png",
+    "media": "/media/items/029-firecracker.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -807,7 +807,7 @@
     "function": "Throw",
     "category": "Throwing",
     "spreadsheetName": "Hand Grenade",
-    "media": "/media/items/png/030-handgrenade.png",
+    "media": "/media/items/030-handgrenade.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -834,7 +834,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Iron Pipe",
-    "media": "/media/items/png/031-ironpipe.png",
+    "media": "/media/items/031-ironpipe.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -861,7 +861,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Harisen",
-    "media": "/media/items/png/032-harisen.png",
+    "media": "/media/items/032-harisen.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -888,7 +888,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Frozen Tuna",
-    "media": "/media/items/png/033-frozentuna.png",
+    "media": "/media/items/033-frozentuna.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -915,7 +915,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "MetallicBat",
-    "media": "/media/items/png/034-metallicbat.png",
+    "media": "/media/items/034-metallicbat.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -942,7 +942,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #35 Giant Racket",
-    "media": "/media/items/png/035-bigracket.png",
+    "media": "/media/items/035-bigracket.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -971,7 +971,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Magic Stick",
-    "media": "/media/items/png/036-magicstick.png",
+    "media": "/media/items/036-magicstick.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -998,7 +998,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #37 Magma Lance",
-    "media": "/media/items/png/037-magmalance.png",
+    "media": "/media/items/037-magmalance.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1025,7 +1025,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "DevilSickle",
-    "media": "/media/items/png/038-devilsickle.png",
+    "media": "/media/items/038-devilsickle.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1052,7 +1052,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #39 Morning Star",
-    "media": "/media/items/png/039-morningstar.png",
+    "media": "/media/items/039-morningstar.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1081,7 +1081,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Sword",
-    "media": "/media/items/png/040-sword.png",
+    "media": "/media/items/040-sword.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1108,7 +1108,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Power Sword",
-    "media": "/media/items/png/041-powersword.png",
+    "media": "/media/items/041-powersword.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1135,7 +1135,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Flame Sword",
-    "media": "/media/items/png/042-flamesword.png",
+    "media": "/media/items/042-flamesword.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1162,7 +1162,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Ice Sword",
-    "media": "/media/items/png/043-icesword.png",
+    "media": "/media/items/043-icesword.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1189,7 +1189,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Thunder Sword",
-    "media": "/media/items/png/044-thundersword.png",
+    "media": "/media/items/044-thundersword.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1216,7 +1216,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #45 Beam Sword",
-    "media": "/media/items/png/045-beamsword.png",
+    "media": "/media/items/045-beamsword.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1245,7 +1245,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #46 Dragon Slayer Sword",
-    "media": "/media/items/png/046-dragonslayersword.png",
+    "media": "/media/items/046-dragonslayersword.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1274,7 +1274,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #47 Sword of Legend",
-    "media": "/media/items/png/047-swordoflegend.png",
+    "media": "/media/items/047-swordoflegend.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1303,7 +1303,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Hammer",
-    "media": "/media/items/png/048-hammer.png",
+    "media": "/media/items/048-hammer.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1330,7 +1330,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Toy Hammer",
-    "media": "/media/items/png/049-toyhammer.png",
+    "media": "/media/items/049-toyhammer.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1357,7 +1357,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Pickaxe",
-    "media": "/media/items/png/050-pickaxe.png",
+    "media": "/media/items/050-pickaxe.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1382,9 +1382,9 @@
     "name": "Magical Mallet",
     "level": 5,
     "function": "Melee",
-    "category": "/media/items/png/051-magicmallet.png",
+    "category": null,
     "spreadsheetName": "Item #51 Beating Mallet",
-    "media": null,
+    "media": "/media/items/051-magicmallet.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1413,7 +1413,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #52 100t Hammer",
-    "media": "/media/items/png/052-gigantichammer.png",
+    "media": "/media/items/052-gigantichammer.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1442,7 +1442,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Umbrella",
-    "media": "/media/items/png/053-umbrella.png",
+    "media": "/media/items/053-umbrella.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1469,7 +1469,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #54 Splendid Umbrella",
-    "media": "/media/items/png/054-deluxeumbrella.png",
+    "media": "/media/items/054-deluxeumbrella.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1498,7 +1498,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Straw Umbrella",
-    "media": "/media/items/png/055-cheapumbrella.png",
+    "media": "/media/items/055-cheapumbrella.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1527,7 +1527,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Spear",
-    "media": "/media/items/png/056-spear.png",
+    "media": "/media/items/056-spear.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1554,7 +1554,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #57 Splendid Spear",
-    "media": "/media/items/png/057-deluxespear.png",
+    "media": "/media/items/057-deluxespear.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1583,7 +1583,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Trident",
-    "media": "/media/items/png/058-trident.png",
+    "media": "/media/items/058-trident.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1610,7 +1610,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #59 Splendid Trident",
-    "media": "/media/items/png/059-deluxetrident.png",
+    "media": "/media/items/059-deluxetrident.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1639,7 +1639,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Fork",
-    "media": "/media/items/png/060-fork.png",
+    "media": "/media/items/060-fork.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1666,7 +1666,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Spoon",
-    "media": "/media/items/png/061-spoon.png",
+    "media": "/media/items/061-spoon.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1693,7 +1693,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Battle Axe",
-    "media": "/media/items/png/062-battlefieldaxe.png",
+    "media": "/media/items/062-battlefieldaxe.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1722,7 +1722,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Victory Axe",
-    "media": "/media/items/png/063-victoryaxe.png",
+    "media": "/media/items/063-victoryaxe.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1749,7 +1749,7 @@
     "function": "Melee",
     "category": "Hitting",
     "spreadsheetName": "Normal Axe",
-    "media": "/media/items/png/064-lumberjacksaxe.png",
+    "media": "/media/items/064-lumberjacksaxe.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1778,7 +1778,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #65 Hero Axe",
-    "media": "/media/items/png/065-heroaxe.png",
+    "media": "/media/items/065-heroaxe.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1807,7 +1807,7 @@
     "function": "Movement",
     "category": "Movement",
     "spreadsheetName": "Skateboard",
-    "media": "/media/items/png/066-skateboard.png",
+    "media": "/media/items/066-skateboard.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1834,7 +1834,7 @@
     "function": "Movement",
     "category": "Movement",
     "spreadsheetName": "In-Line Skates",
-    "media": "/media/items/png/067-inlineskate.png",
+    "media": "/media/items/067-inlineskate.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1863,7 +1863,7 @@
     "function": "Movement",
     "category": null,
     "spreadsheetName": "Item #68 Scooter",
-    "media": "/media/items/png/068-scooter.png",
+    "media": "/media/items/068-scooter.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1892,7 +1892,7 @@
     "function": "Food",
     "category": "Food",
     "spreadsheetName": "Apple",
-    "media": "/media/items/png/069-apple.png",
+    "media": "/media/items/069-apple.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1919,7 +1919,7 @@
     "function": "Food",
     "category": "Food",
     "spreadsheetName": "Shortcake",
-    "media": "/media/items/png/070-shortcake.png",
+    "media": "/media/items/070-shortcake.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1946,7 +1946,7 @@
     "function": "Food",
     "category": "Food",
     "spreadsheetName": "Meat",
-    "media": "/media/items/png/071-meat.png",
+    "media": "/media/items/071-meat.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -1973,7 +1973,7 @@
     "function": "Food",
     "category": "Food",
     "spreadsheetName": "Rice Ball",
-    "media": "/media/items/png/072-riceball.png",
+    "media": "/media/items/072-riceball.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2000,7 +2000,7 @@
     "function": "Food",
     "category": "Food",
     "spreadsheetName": "Banana",
-    "media": "/media/items/png/073-bananna.png",
+    "media": "/media/items/073-bananna.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2029,7 +2029,7 @@
     "function": "Food",
     "category": "Food",
     "spreadsheetName": "Hamburger",
-    "media": "/media/items/png/074-hamburger.png",
+    "media": "/media/items/074-hamburger.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2056,7 +2056,7 @@
     "function": "Food",
     "category": "Food",
     "spreadsheetName": "Cheese",
-    "media": "/media/items/png/075-cheese.png",
+    "media": "/media/items/075-cheese.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2083,7 +2083,7 @@
     "function": "Food",
     "category": null,
     "spreadsheetName": "Roast Chicken",
-    "media": "/media/items/png/076-roastchicken.png",
+    "media": "/media/items/076-roastchicken.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2110,7 +2110,7 @@
     "function": "Food",
     "category": null,
     "spreadsheetName": "Item #77 Roast Pig",
-    "media": "/media/items/png/077-roastpork.png",
+    "media": "/media/items/077-roastpork.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2139,7 +2139,7 @@
     "function": "Food",
     "category": null,
     "spreadsheetName": "Item #78 Wedding Cake",
-    "media": "/media/items/png/078-weddingcake.png",
+    "media": "/media/items/078-weddingcake.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2197,7 +2197,7 @@
     "function": "Unknown",
     "category": null,
     "spreadsheetName": "Item #80 Devil Wings",
-    "media": "/media/items/png/080-devilwings.png",
+    "media": "/media/items/080-devilwings.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2226,7 +2226,7 @@
     "function": "Shield",
     "category": "Defense",
     "spreadsheetName": "Power Shield",
-    "media": "/media/items/png/081-powershield.png",
+    "media": "/media/items/081-powershield.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2253,7 +2253,7 @@
     "function": "Shield",
     "category": null,
     "spreadsheetName": "Item #82 Splendid Shield",
-    "media": "/media/items/png/082-deluxeshield.png",
+    "media": "/media/items/082-deluxeshield.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2282,7 +2282,7 @@
     "function": "Drink / Throw",
     "category": "Throwing",
     "spreadsheetName": "Petrifier",
-    "media": "/media/items/png/083-petrifier.png",
+    "media": "/media/items/083-petrifier.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2309,7 +2309,7 @@
     "function": "Drink",
     "category": null,
     "spreadsheetName": "Item #84 Invisibility Potion",
-    "media": "/media/items/png/084-transparentizer.png",
+    "media": "/media/items/084-transparentizer.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2338,7 +2338,7 @@
     "function": "Pet",
     "category": "Pet",
     "spreadsheetName": "Kitten",
-    "media": "/media/items/png/085-kitten.png",
+    "media": "/media/items/085-kitten.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2365,7 +2365,7 @@
     "function": "Pet",
     "category": null,
     "spreadsheetName": "Panther",
-    "media": "/media/items/png/086-panther.png",
+    "media": "/media/items/086-panther.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2392,7 +2392,7 @@
     "function": "Pet",
     "category": null,
     "spreadsheetName": "Fire Dragon",
-    "media": "/media/items/png/087-firedragon.png",
+    "media": "/media/items/087-firedragon.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2419,7 +2419,7 @@
     "function": "Pet",
     "category": null,
     "spreadsheetName": "Item #88 Ice Dragon",
-    "media": "/media/items/png/088-icedragon.png",
+    "media": "/media/items/088-icedragon.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2477,7 +2477,7 @@
     "function": "Throw",
     "category": null,
     "spreadsheetName": "Item #90 Takenoko",
-    "media": "/media/items/png/090-bambooshoot.png",
+    "media": "/media/items/090-bambooshoot.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2506,7 +2506,7 @@
     "function": "Throw",
     "category": null,
     "spreadsheetName": "Thumbtack",
-    "media": "/media/items/png/091-thumbtack.png",
+    "media": "/media/items/091-thumbtack.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2533,7 +2533,7 @@
     "function": "Throw",
     "category": "Planting",
     "spreadsheetName": "Bear Trap",
-    "media": "/media/items/png/092-legtrap.png",
+    "media": "/media/items/092-legtrap.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2562,7 +2562,7 @@
     "function": "Throw",
     "category": null,
     "spreadsheetName": "Item #93 Trap Hoop",
-    "media": "/media/items/png/093-pitfall.png",
+    "media": "/media/items/093-pitfall.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2591,7 +2591,7 @@
     "function": "Throw",
     "category": null,
     "spreadsheetName": "Item #94 Beehive",
-    "media": "/media/items/png/094-beehive.png",
+    "media": "/media/items/094-beehive.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2620,7 +2620,7 @@
     "function": "Throw",
     "category": null,
     "spreadsheetName": "Sticky Bomb",
-    "media": "/media/items/png/095-stickbomb.png",
+    "media": "/media/items/095-stickbomb.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2649,7 +2649,7 @@
     "function": "Throw",
     "category": "???",
     "spreadsheetName": "Typhoon",
-    "media": "/media/items/png/096-typhoon.png",
+    "media": "/media/items/096-typhoon.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2676,7 +2676,7 @@
     "function": "Throw",
     "category": "Hitting",
     "spreadsheetName": "Fireworks Pipe",
-    "media": "/media/items/png/097-fireworks.png",
+    "media": "/media/items/097-fireworks.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2705,7 +2705,7 @@
     "function": "Throw",
     "category": null,
     "spreadsheetName": "Item #98 Meteorite",
-    "media": "/media/items/png/098-meteor.png",
+    "media": "/media/items/098-meteor.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2763,7 +2763,7 @@
     "function": "Misc",
     "category": null,
     "spreadsheetName": "Item #100 Weekly Power Stone",
-    "media": "/media/items/png/100-powerstonemagazine.png",
+    "media": "/media/items/100-powerstonemagazine.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2792,7 +2792,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Rabbit Ears",
-    "media": "/media/items/png/101-rabbitears.png",
+    "media": "/media/items/101-rabbitears.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2819,7 +2819,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #102 Cat Ears",
-    "media": "/media/items/png/102-catears.png",
+    "media": "/media/items/102-catears.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2848,7 +2848,7 @@
     "function": "Clothing",
     "category": "Clothing",
     "spreadsheetName": "Item #103 Crown",
-    "media": "/media/items/png/103-crown.png",
+    "media": "/media/items/103-crown.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2877,7 +2877,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #104 Silk Hat",
-    "media": "/media/items/png/104-silkhat.png",
+    "media": "/media/items/104-silkhat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2906,7 +2906,7 @@
     "function": "Clothing",
     "category": "Clothing",
     "spreadsheetName": "Straw Hat",
-    "media": "/media/items/png/105-strawhat.png",
+    "media": "/media/items/105-strawhat.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2933,7 +2933,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Party Hat",
-    "media": "/media/items/png/106-partyhat.png",
+    "media": "/media/items/106-partyhat.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2960,7 +2960,7 @@
     "function": "Clothing",
     "category": "???",
     "spreadsheetName": "Flower",
-    "media": "/media/items/png/107-flower.png",
+    "media": "/media/items/107-flower.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -3016,7 +3016,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Rabbit Paws",
-    "media": "/media/items/png/109-rabbitarm.png",
+    "media": "/media/items/109-rabbitarm.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3045,7 +3045,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #110 Cat Paws",
-    "media": "/media/items/png/110-catarm.png",
+    "media": "/media/items/110-catarm.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3074,7 +3074,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #111 Bracelet",
-    "media": "/media/items/png/111-bracelet.png",
+    "media": "/media/items/111-bracelet.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3103,7 +3103,7 @@
     "function": "Clothing",
     "category": "Hitting",
     "spreadsheetName": "Punch Glove",
-    "media": "/media/items/png/112-punchinggloves.png",
+    "media": "/media/items/112-punchinggloves.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3132,7 +3132,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Rabbit Tail",
-    "media": "/media/items/png/113-rabbittail.png",
+    "media": "/media/items/113-rabbittail.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -3159,7 +3159,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #114 Cat Tail",
-    "media": "/media/items/png/114-cattail.png",
+    "media": "/media/items/114-cattail.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3188,7 +3188,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #115 Devil Tail",
-    "media": "/media/items/png/115-deviltail.png",
+    "media": "/media/items/115-deviltail.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3217,7 +3217,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Windup Key",
-    "media": "/media/items/png/116-windupkey.png",
+    "media": "/media/items/116-windupkey.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -3244,7 +3244,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Rabbit Foot",
-    "media": "/media/items/png/117-rabbitpaw.png",
+    "media": "/media/items/117-rabbitpaw.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3273,7 +3273,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #118 Cat Foot",
-    "media": "/media/items/png/118-catpaw.png",
+    "media": "/media/items/118-catpaw.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3302,7 +3302,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Athelete Foot",
-    "media": "/media/items/png/119-shoesofachilles.png",
+    "media": "/media/items/119-shoesofachilles.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3331,7 +3331,7 @@
     "function": "Clothing",
     "category": "Recovery",
     "spreadsheetName": "Bandages",
-    "media": "/media/items/png/120-plaster.png",
+    "media": "/media/items/120-plaster.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3360,7 +3360,7 @@
     "function": "Unknown",
     "category": null,
     "spreadsheetName": "Item #121 Light Stone",
-    "media": "/media/items/png/121-lightstone.png",
+    "media": "/media/items/121-lightstone.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [

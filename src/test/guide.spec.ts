@@ -238,7 +238,7 @@ describe('guide interactions', () => {
     expect(wrapper.find('.item-tile').text()).toContain('Gun')
     await wrapper.findAll('[role="tab"]')[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(1)
-    expect(wrapper.find('.item-detail h3').text()).toBe('Oil')
+    expect(wrapper.find('.item-detail h3').text()).toBe('Flame Element')
     expect(wrapper.find('.item-detail').text()).toContain('Material 1')
     expect(wrapper.find('.filter-bar').exists()).toBe(false)
     await wrapper.find('#item-search').setValue('not present')

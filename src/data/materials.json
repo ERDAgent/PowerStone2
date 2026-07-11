@@ -1,246 +1,14 @@
 [
   {
-    "id": "material-oil",
-    "machineId": "oil",
-    "number": "01",
-    "name": "Oil",
-    "type": "basic",
-    "spreadsheetName": "Fire Material",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": "/media/materials/png/01-oil-mat.png",
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.oil",
-          "value": "Oil"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 2",
-          "value": "Fire Material"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Oil\"; Items.xlsx has \"Fire Material\"."
-      ]
-    }
-  },
-  {
-    "id": "material-chemical",
-    "machineId": "chemical",
-    "number": "02",
-    "name": "Chemical",
-    "type": "basic",
-    "spreadsheetName": "Water Material",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": "/media/materials/png/02-chemical-mat.png",
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.chemical",
-          "value": "Chemical"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 3",
-          "value": "Water Material"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Chemical\"; Items.xlsx has \"Water Material\"."
-      ]
-    }
-  },
-  {
-    "id": "material-cartwheel",
-    "machineId": "cartwheel",
-    "number": "03",
-    "name": "Cartwheel",
-    "type": "basic",
-    "spreadsheetName": "Electricity Material",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": "/media/materials/png/03-cartwheel-mat.png",
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.cartwheel",
-          "value": "Cartwheel"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 4",
-          "value": "Electricity Material"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Cartwheel\"; Items.xlsx has \"Electricity Material\"."
-      ]
-    }
-  },
-  {
-    "id": "material-wood",
-    "machineId": "wood",
-    "number": "04",
-    "name": "Wood",
-    "type": "basic",
-    "spreadsheetName": "Light Material",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": "/media/materials/png/04-wood-mat.png",
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.wood",
-          "value": "Wood"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 5",
-          "value": "Light Material"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Wood\"; Items.xlsx has \"Light Material\"."
-      ]
-    }
-  },
-  {
-    "id": "material-cloth",
-    "machineId": "cloth",
-    "number": "05",
-    "name": "Cloth",
-    "type": "basic",
-    "spreadsheetName": "Magic Material",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": "/media/materials/png/05-cloth-mat.png",
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.cloth",
-          "value": "Cloth"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 6",
-          "value": "Magic Material"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Cloth\"; Items.xlsx has \"Magic Material\"."
-      ]
-    }
-  },
-  {
-    "id": "material-gunpowder",
-    "machineId": "gunpowder",
-    "number": "06",
-    "name": "Gunpowder",
-    "type": "basic",
-    "spreadsheetName": "Trap Material",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": "/media/materials/png/06-gunpowder-mat.png",
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.gunpowder",
-          "value": "Gunpowder"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 7",
-          "value": "Trap Material"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Gunpowder\"; Items.xlsx has \"Trap Material\"."
-      ]
-    }
-  },
-  {
-    "id": "material-gold",
-    "machineId": "gold",
-    "number": "07",
-    "name": "Gold",
-    "type": "basic",
-    "spreadsheetName": "Oil",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": "/media/materials/png/07-gold-mat.png",
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.gold",
-          "value": "Gold"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 8",
-          "value": "Oil"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Gold\"; Items.xlsx has \"Oil\"."
-      ]
-    }
-  },
-  {
-    "id": "material-iron",
-    "machineId": "iron",
-    "number": "08",
-    "name": "Iron",
-    "type": "basic",
-    "spreadsheetName": "Medicine",
-    "rarity": "Common",
-    "worth": 10000,
-    "media": null,
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.iron",
-          "value": "Iron"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 9",
-          "value": "Medicine"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Iron\"; Items.xlsx has \"Medicine\"."
-      ]
-    }
-  },
-  {
     "id": "material-flame",
     "machineId": "flame",
-    "number": "09",
+    "number": "01",
     "name": "Flame Element",
     "type": "element",
     "spreadsheetName": "Wheel",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/png/09-flame-element.png",
+    "media": "/media/materials/01-flame-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -263,13 +31,13 @@
   {
     "id": "material-ice",
     "machineId": "ice",
-    "number": "10",
+    "number": "02",
     "name": "Ice Element",
     "type": "element",
     "spreadsheetName": "Wood Material",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/png/10-ice-element.png",
+    "media": "/media/materials/02-ice-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -292,13 +60,13 @@
   {
     "id": "material-thunder",
     "machineId": "thunder",
-    "number": "11",
+    "number": "03",
     "name": "Thunder Element",
     "type": "element",
     "spreadsheetName": "Cloth",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/png/11-thunder-element.png",
+    "media": "/media/materials/03-thunder-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -321,13 +89,13 @@
   {
     "id": "material-light",
     "machineId": "light",
-    "number": "12",
+    "number": "04",
     "name": "Light Element",
     "type": "element",
     "spreadsheetName": "Gunpowder",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/png/12-light-element.png",
+    "media": "/media/materials/04-light-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -350,13 +118,13 @@
   {
     "id": "material-magic",
     "machineId": "magic",
-    "number": "13",
+    "number": "05",
     "name": "Magic Element",
     "type": "element",
     "spreadsheetName": "Gold",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/png/13-magic-element.png",
+    "media": "/media/materials/05-magic-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -379,13 +147,13 @@
   {
     "id": "material-trap",
     "machineId": "trap",
-    "number": "14",
+    "number": "06",
     "name": "Trap Element",
     "type": "element",
     "spreadsheetName": "Iron",
     "rarity": "Common",
     "worth": 10000,
-    "media": "/media/materials/png/14-trap-element.png",
+    "media": "/media/materials/06-trap-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -406,15 +174,276 @@
     }
   },
   {
+    "id": "material-oil",
+    "machineId": "oil",
+    "number": "07",
+    "name": "Oil",
+    "type": "basic",
+    "spreadsheetName": "Fire Material",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/07-oil.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.oil",
+          "value": "Oil"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 2",
+          "value": "Fire Material"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Oil\"; Items.xlsx has \"Fire Material\"."
+      ]
+    }
+  },
+  {
+    "id": "material-chemical",
+    "machineId": "chemical",
+    "number": "08",
+    "name": "Chemical",
+    "type": "basic",
+    "spreadsheetName": "Water Material",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/08-chemical.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.chemical",
+          "value": "Chemical"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 3",
+          "value": "Water Material"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Chemical\"; Items.xlsx has \"Water Material\"."
+      ]
+    }
+  },
+  {
+    "id": "material-cartwheel",
+    "machineId": "cartwheel",
+    "number": "09",
+    "name": "Cartwheel",
+    "type": "basic",
+    "spreadsheetName": "Electricity Material",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/09-cartwheel.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.cartwheel",
+          "value": "Cartwheel"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 4",
+          "value": "Electricity Material"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Cartwheel\"; Items.xlsx has \"Electricity Material\"."
+      ]
+    }
+  },
+  {
+    "id": "material-wood",
+    "machineId": "wood",
+    "number": "10",
+    "name": "Wood",
+    "type": "basic",
+    "spreadsheetName": "Light Material",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/10-wood.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.wood",
+          "value": "Wood"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 5",
+          "value": "Light Material"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Wood\"; Items.xlsx has \"Light Material\"."
+      ]
+    }
+  },
+  {
+    "id": "material-cloth",
+    "machineId": "cloth",
+    "number": "11",
+    "name": "Cloth",
+    "type": "basic",
+    "spreadsheetName": "Magic Material",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/11-cloth.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.cloth",
+          "value": "Cloth"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 6",
+          "value": "Magic Material"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Cloth\"; Items.xlsx has \"Magic Material\"."
+      ]
+    }
+  },
+  {
+    "id": "material-gunpowder",
+    "machineId": "gunpowder",
+    "number": "12",
+    "name": "Gunpowder",
+    "type": "basic",
+    "spreadsheetName": "Trap Material",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/12-gunpowder.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.gunpowder",
+          "value": "Gunpowder"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 7",
+          "value": "Trap Material"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Gunpowder\"; Items.xlsx has \"Trap Material\"."
+      ]
+    }
+  },
+  {
+    "id": "material-gold",
+    "machineId": "gold",
+    "number": "13",
+    "name": "Gold",
+    "type": "basic",
+    "spreadsheetName": "Oil",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/13-gold.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.gold",
+          "value": "Gold"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 8",
+          "value": "Oil"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Gold\"; Items.xlsx has \"Oil\"."
+      ]
+    }
+  },
+  {
+    "id": "material-iron",
+    "machineId": "iron",
+    "number": "14",
+    "name": "Iron",
+    "type": "basic",
+    "spreadsheetName": "Medicine",
+    "rarity": "Common",
+    "worth": 10000,
+    "media": "/media/materials/14-iron.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.iron",
+          "value": "Iron"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 9",
+          "value": "Medicine"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Iron\"; Items.xlsx has \"Medicine\"."
+      ]
+    }
+  },
+  {
+    "id": "material-scrap",
+    "machineId": "scrap",
+    "number": "15",
+    "name": "Scrap",
+    "type": "misc",
+    "spreadsheetName": "Sand Dragon Extract",
+    "rarity": "Rare",
+    "worth": 600000,
+    "media": "/media/materials/15-scrap.png",
+    "provenance": {
+      "verification": "conflicting",
+      "evidence": [
+        {
+          "source": "gameItems.json",
+          "locator": "materials.scrap",
+          "value": "Scrap"
+        },
+        {
+          "source": "Items.xlsx",
+          "locator": "Materials!row 19",
+          "value": "Sand Dragon Extract"
+        }
+      ],
+      "notes": [
+        "Name differs: gameItems.json has \"Scrap\"; Items.xlsx has \"Sand Dragon Extract\"."
+      ]
+    }
+  },
+  {
     "id": "material-firedragon",
     "machineId": "firedragon",
-    "number": "15",
+    "number": "16",
     "name": "Fire Dragon Element",
     "type": "dragon element",
     "spreadsheetName": "Scrap",
     "rarity": "Common",
     "worth": 10000,
-    "media": null,
+    "media": "/media/materials/16-firedragon-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -437,13 +466,13 @@
   {
     "id": "material-icedragon",
     "machineId": "icedragon",
-    "number": "16",
+    "number": "17",
     "name": "Ice Dragon Element",
     "type": "dragon element",
     "spreadsheetName": "Fire Dragon Extract",
     "rarity": "Rare",
     "worth": 400000,
-    "media": null,
+    "media": "/media/materials/17-icedragon-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -466,13 +495,13 @@
   {
     "id": "material-thunderdragon",
     "machineId": "thunderdragon",
-    "number": "17",
+    "number": "18",
     "name": "Thunder Dragon Element",
     "type": "dragon element",
     "spreadsheetName": "Ice Dragon Extract",
     "rarity": "Rare",
     "worth": 500000,
-    "media": null,
+    "media": "/media/materials/18-thunderdragon-element.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -493,44 +522,15 @@
     }
   },
   {
-    "id": "material-scrap",
-    "machineId": "scrap",
-    "number": "18",
-    "name": "Scrap",
-    "type": "misc",
-    "spreadsheetName": "Sand Dragon Extract",
-    "rarity": "Rare",
-    "worth": 600000,
-    "media": null,
-    "provenance": {
-      "verification": "conflicting",
-      "evidence": [
-        {
-          "source": "gameItems.json",
-          "locator": "materials.scrap",
-          "value": "Scrap"
-        },
-        {
-          "source": "Items.xlsx",
-          "locator": "Materials!row 19",
-          "value": "Sand Dragon Extract"
-        }
-      ],
-      "notes": [
-        "Name differs: gameItems.json has \"Scrap\"; Items.xlsx has \"Sand Dragon Extract\"."
-      ]
-    }
-  },
-  {
-    "id": "material-driverslicence",
-    "machineId": "driverslicence",
+    "id": "material-driverslicense",
+    "machineId": "driverslicense",
     "number": "19",
-    "name": "Drivers Licence",
+    "name": "Driver's License",
     "type": "misc",
     "spreadsheetName": "Driver's License",
     "rarity": "Rare",
     "worth": 300000,
-    "media": null,
+    "media": "/media/materials/19-driverslicense.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -546,7 +546,8 @@
         }
       ],
       "notes": [
-        "Name differs: gameItems.json has \"Drivers Licence\"; Items.xlsx has \"Driver's License\"."
+        "Name differs: gameItems.json has \"Drivers Licence\"; Items.xlsx has \"Driver's License\".",
+        "Display name corrected to \"Driver's License\" to match the canonical material artwork filename (19-driverslicense.png); prior sources remain listed as conflicting evidence."
       ]
     }
   },
@@ -580,15 +581,15 @@
     }
   },
   {
-    "id": "material-emblemofthebrave",
-    "machineId": "emblemofthebrave",
+    "id": "material-elementofthebrave",
+    "machineId": "elementofthebrave",
     "number": "21",
-    "name": "Emblem of the Brave",
+    "name": "Element of the Brave",
     "type": "misc",
     "spreadsheetName": "Proof of a Hero",
     "rarity": "Rare",
     "worth": 900000,
-    "media": null,
+    "media": "/media/materials/21-elementofthebrave.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -604,7 +605,8 @@
         }
       ],
       "notes": [
-        "Name differs: gameItems.json has \"Emblem of the Brave\"; Items.xlsx has \"Proof of a Hero\"."
+        "Name differs: gameItems.json has \"Emblem of the Brave\"; Items.xlsx has \"Proof of a Hero\".",
+        "Display name corrected to \"Element of the Brave\" to match the canonical material artwork filename (21-elementofthebrave.png); prior sources remain listed as conflicting evidence."
       ]
     }
   },
@@ -617,7 +619,7 @@
     "spreadsheetName": "Book of Legend",
     "rarity": "Rare",
     "worth": 700000,
-    "media": null,
+    "media": "/media/materials/22-bookoflegend.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
