@@ -66,10 +66,10 @@ describe('recipe lookup', () => {
     wrapper.unmount()
   })
 
-  it('keeps the selected result note while hiding resolved source provenance', async () => {
+  it('hides the recipe note when none is recorded and always hides resolved source provenance', async () => {
     const wrapper = mountLookup()
     await searchAndSelect(wrapper, 'Homing Missile')
-    expect(wrapper.find('.recipe-result-note').text()).toContain('Marking Missile')
+    expect(wrapper.find('.recipe-result-note').exists()).toBe(false)
     expect(wrapper.text()).not.toContain('Source:')
     expect(wrapper.text()).not.toContain('item-8|')
     expect(wrapper.find('.recipe-provenance').exists()).toBe(false)

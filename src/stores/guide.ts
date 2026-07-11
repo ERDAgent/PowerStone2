@@ -1,9 +1,14 @@
 import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { essences, items, materials } from '@/data'
-import { characters, levels } from '@/data/content'
+import { bosses, characters, levels } from '@/data/content'
 import type { EntityId, EssenceRecord, ItemRecord, MaterialRecord } from '@/data/types'
-import type { CharacterRecord, LevelRecord } from '@/data/world'
+import type { BossRecord, CharacterRecord, LevelRecord } from '@/data/world'
+
+export interface LightboxImage {
+  readonly src: string
+  readonly alt: string
+}
 
 export type CatalogKind = 'all' | 'item' | 'material' | 'essence'
 export type CatalogEntity =
@@ -27,6 +32,8 @@ export const useGuideStore = defineStore('guide', () => {
   const slideIndex = ref(0)
   const selectedMoveIndex = ref(0)
   const selectedSpecialIndex = ref(0)
+  const openBossId = ref<BossRecord['id'] | null>(null)
+  const lightboxImage = ref<LightboxImage | null>(null)
 
   const selectedCharacter = computed(() => characters.find(c => c.id === selectedCharacterId.value) ?? characters[0])
   const selectedMove = computed(() => selectedCharacter.value.moveList[selectedMoveIndex.value] ?? selectedCharacter.value.moveList[0] ?? null)
@@ -42,6 +49,7 @@ export const useGuideStore = defineStore('guide', () => {
   })
   const selectedEntity = computed(() => filteredEntities.value.find(entity => entity.record.id === selectedEntityId.value) ?? null)
   const openLevel = computed(() => levels.find(l => l.id === openLevelId.value) ?? null)
+  const openBoss = computed(() => bosses.find(b => b.id === openBossId.value) ?? null)
 
   function reconcileSelection() {
     if (!filteredEntities.value.some(entity => entity.record.id === selectedEntityId.value)) selectedEntityId.value = filteredEntities.value[0]?.record.id ?? null
@@ -60,8 +68,12 @@ export const useGuideStore = defineStore('guide', () => {
   function closeLevel() { openLevelId.value = null; slideIndex.value = 0 }
   function nextSlide() { if (openLevel.value) slideIndex.value = (slideIndex.value + 1) % openLevel.value.slides.length }
   function previousSlide() { if (openLevel.value) slideIndex.value = (slideIndex.value - 1 + openLevel.value.slides.length) % openLevel.value.slides.length }
+  function showBoss(id: BossRecord['id']) { openBossId.value = id }
+  function closeBoss() { openBossId.value = null }
+  function openLightbox(image: LightboxImage) { lightboxImage.value = image }
+  function closeLightbox() { lightboxImage.value = null }
 
   watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, openLevelId, slideIndex, selectedMoveIndex, selectedSpecialIndex, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, openLevel, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, showLevel, closeLevel, nextSlide, previousSlide }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, openLevelId, slideIndex, selectedMoveIndex, selectedSpecialIndex, openBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, openLevel, openBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, showLevel, closeLevel, nextSlide, previousSlide, showBoss, closeBoss, openLightbox, closeLightbox }
 })

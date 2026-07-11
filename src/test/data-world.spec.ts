@@ -111,10 +111,9 @@ describe('world data', () => {
     expect(bosses.every(boss => boss.provenance.verification === 'ambiguous')).toBe(true)
   })
 
-  it('gives every base-roster character chip art, no chip art for PSP exclusives, and every character full portrait art', () => {
+  it('gives every character chip art and a full portrait art', () => {
     for (const character of characters) {
-      if (character.availability.includes('dreamcast')) expect(character.media, character.name).not.toBeNull()
-      else expect(character.media, character.name).toBeNull()
+      expect(character.media, character.name).not.toBeNull()
       expect(character.portrait, character.name).not.toBeNull()
     }
   })

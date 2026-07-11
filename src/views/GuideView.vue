@@ -3,6 +3,8 @@ import { computed, nextTick, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import SectionHeading from '@/components/SectionHeading.vue'
 import LevelDialog from '@/components/LevelDialog.vue'
+import BossDialog from '@/components/BossDialog.vue'
+import Lightbox from '@/components/Lightbox.vue'
 import RecipeLookup from '@/components/RecipeLookup.vue'
 import { bosses, characters, items, levels } from '@/data/content'
 import { useGuideStore } from '@/stores/guide'
@@ -25,6 +27,11 @@ const catalogTabs = [
   { kind: 'essence', label: 'Essences' },
 ] as const
 const tabElements = ref<HTMLButtonElement[]>([])
+type AboutSection = 'resources' | 'other' | 'contact'
+const openAboutSection = ref<AboutSection | null>('resources')
+function toggleAboutSection(section: AboutSection) {
+  openAboutSection.value = openAboutSection.value === section ? null : section
+}
 
 function isPspExclusive(character: { availability: readonly string[] }) {
   return !character.availability.includes('dreamcast') && !character.availability.includes('Arcade')
@@ -35,6 +42,9 @@ function entityContext(entity: CatalogEntity) {
   if (entity.kind === 'item') return entity.record.category ?? 'Uncategorized'
   if (entity.kind === 'material') return entity.record.type
   return 'Card essence'
+}
+function entityNotes(entity: CatalogEntity) {
+  return entity.kind === 'item' ? entity.record.provenance.itemNotes : entity.record.provenance.notes
 }
 function activateCatalogTab(kind: CatalogKind, index: number) {
   store.setCatalogKind(kind)
@@ -69,6 +79,7 @@ const milestones = [
   ['2010s', 'Players sustain the series through local gatherings, guides, preservation, and competitive discovery.'],
   ['Today', 'Its transforming arenas and item-driven chaos remain a distinct reference point for multiplayer action games.'],
 ]
+const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
 </script>
 
 <template>
@@ -136,7 +147,7 @@ const milestones = [
         </div>
         <article v-if="selectedEntity" class="item-detail" aria-live="polite">
           <div class="item-detail__visual"><img v-if="selectedEntity.record.media" :src="selectedEntity.record.media" :alt="`${selectedEntity.record.name} ${selectedEntity.kind} artwork`" /><span v-else class="entity-fallback" aria-hidden="true">{{ selectedEntity.record.name.slice(0, 2) }}</span></div>
-          <div class="item-detail__copy"><p class="eyebrow">{{ entityNumberLabel(selectedEntity) }} · {{ entityContext(selectedEntity) }}</p><h3>{{ selectedEntity.record.name }}</h3><dl v-if="selectedEntity.kind === 'item'"><div><dt>Function</dt><dd>{{ selectedEntity.record.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedEntity.record.level }}</dd></div></dl><dl v-else-if="selectedEntity.kind === 'material'"><div><dt>Material type</dt><dd>{{ selectedEntity.record.type }}</dd></div><div><dt>Rarity</dt><dd>{{ selectedEntity.record.rarity ?? 'Unknown' }}</dd></div><div><dt>Worth</dt><dd>{{ selectedEntity.record.worth ?? 'Unknown' }}</dd></div></dl><dl v-else><div><dt>Entity kind</dt><dd>Essence card</dd></div></dl><p v-if="selectedEntity.record.provenance.notes.length" class="data-note">{{ selectedEntity.record.provenance.notes.join(' ') }}</p></div>
+          <div class="item-detail__copy"><p class="eyebrow">{{ entityNumberLabel(selectedEntity) }} · {{ entityContext(selectedEntity) }}</p><h3>{{ selectedEntity.record.name }}</h3><dl v-if="selectedEntity.kind === 'item'"><div><dt>Function</dt><dd>{{ selectedEntity.record.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedEntity.record.level }}</dd></div></dl><dl v-else-if="selectedEntity.kind === 'material'"><div><dt>Material type</dt><dd>{{ selectedEntity.record.type }}</dd></div><div><dt>Rarity</dt><dd>{{ selectedEntity.record.rarity ?? 'Unknown' }}</dd></div><div><dt>Worth</dt><dd>{{ selectedEntity.record.worth ?? 'Unknown' }}</dd></div></dl><dl v-else><div><dt>Entity kind</dt><dd>Essence card</dd></div></dl><p v-if="entityNotes(selectedEntity).length" class="data-note">{{ entityNotes(selectedEntity).join(' ') }}</p></div>
         </article>
         <div v-else class="item-detail recipe-empty recipe-empty--detail" role="status"><div><h3>No catalog result selected</h3><p>Try another name or catalog number.</p></div></div>
       </div>
@@ -160,7 +171,7 @@ const milestones = [
       <article class="fighter-file" aria-live="polite">
         <div class="fighter-file__hero" :style="{ '--character-color': selectedCharacter.color }">
           <img v-if="selectedCharacter.portrait" class="fighter-file__portrait" :src="selectedCharacter.portrait" :alt="`${selectedCharacter.name} full character art`" />
-          <span v-else aria-hidden="true">{{ selectedCharacter.name.slice(0, 2).toUpperCase() }}</span>
+          <span v-else class="fighter-file__initials" aria-hidden="true">{{ selectedCharacter.name.slice(0, 2).toUpperCase() }}</span>
           <span v-if="isPspExclusive(selectedCharacter)" class="status-tag">PSP exclusive</span>
           <small v-if="!selectedCharacter.portrait">Replaceable character art</small>
         </div>
@@ -212,14 +223,14 @@ const milestones = [
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
       <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Open an arena file to inspect its replaceable visual study. Use the arrow keys inside the gallery to move between views." />
       <div class="level-grid">
-        <button v-for="(level, index) in levels" :key="level.id" class="level-card" type="button" @click="store.showLevel(level.id)"><img :src="level.media" :alt="`${level.name} replaceable level artwork`" /><span class="level-card__number">0{{ index + 1 }}</span><span class="level-card__copy"><b>{{ level.name }}</b><small>{{ level.description }}</small><em>Open arena file →</em></span></button>
+        <button v-for="level in levels" :key="level.id" class="level-card" type="button" @click="store.showLevel(level.id)"><img :src="level.slides[0]" :alt="`${level.name} replaceable level artwork`" /><span class="level-card__copy"><b>{{ level.name }}</b><small>{{ level.description }}</small><em>Open arena file →</em></span></button>
       </div>
     </section>
 
     <section id="bosses" class="content-section routed-section content-section--bosses" aria-labelledby="bosses-title">
       <SectionHeading title-id="bosses-title" kicker="07 / Encounters" title="When the arena fights back." intro="Two established Power Stone 2 encounters, described cautiously and without padding the roster with uncertain names." />
       <div class="boss-grid">
-        <article v-for="(boss, index) in bosses" :key="boss.id" :class="['boss-card', { 'boss-card--arena': boss.arenaMedia }]" :style="boss.arenaMedia ? { '--arena-media': `url(${boss.arenaMedia})` } : undefined"><img v-if="boss.media" :src="boss.media" :alt="`${boss.name} artwork`" /><div><p class="eyebrow">Encounter {{ String(index + 1).padStart(2, '0') }}</p><h3>{{ boss.name }}</h3><p>{{ boss.description }}</p><span class="status-tag">{{ boss.status }}</span></div></article>
+        <article v-for="(boss, index) in bosses" :key="boss.id" :class="['boss-card', { 'boss-card--arena': boss.arenaMedia }]" :style="boss.arenaMedia ? { '--arena-media': `url(${boss.arenaMedia})` } : undefined"><img v-if="boss.media" :src="boss.media" :alt="`${boss.name} artwork`" role="button" tabindex="0" @click="store.showBoss(boss.id)" @keydown.enter="store.showBoss(boss.id)" @keydown.space.prevent="store.showBoss(boss.id)" /><div><p class="eyebrow">Encounter {{ String(index + 1).padStart(2, '0') }}</p><h3 role="button" tabindex="0" @click="store.showBoss(boss.id)" @keydown.enter="store.showBoss(boss.id)" @keydown.space.prevent="store.showBoss(boss.id)">{{ boss.name }}</h3><p>{{ boss.description }}</p><span class="status-tag">{{ boss.status }}</span></div></article>
       </div>
     </section>
 
@@ -234,19 +245,60 @@ const milestones = [
 
     <section id="history" class="content-section routed-section content-section--history" aria-labelledby="history-title">
       <SectionHeading title-id="history-title" kicker="09 / Archive" title="A bright streak through arcade history." intro="From Capcom’s first 3D arena experiment to a portable compilation and an enduring multiplayer legacy." />
-      <ol class="timeline"><li v-for="(milestone, index) in milestones" :key="index"><time>{{ milestone[0] }}</time><span aria-hidden="true" /><p>{{ milestone[1] }}</p></li></ol>
+      <ol class="timeline">
+        <li v-for="(milestone, index) in milestones" :key="index">
+          <time>{{ milestone[0] }}</time>
+          <span aria-hidden="true" />
+          <div class="timeline__content">
+            <button type="button" class="timeline__thumb" @click="store.openLightbox({ src: timelineImage, alt: `${milestone[0]} milestone illustration` })">
+              <img :src="timelineImage" width="110" height="75" alt="" />
+            </button>
+            <p>{{ milestone[1] }}</p>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <section id="about" class="content-section routed-section about" aria-labelledby="about-title">
       <div class="about__mark" aria-hidden="true">PS<br />2</div>
-      <div class="about__copy"><SectionHeading title-id="about-title" kicker="10 / About Us" title="Made by fans, built to be corrected." intro="This independent, non-commercial field guide celebrates Power Stone 2 and gives players a clear, accessible place to learn. Provisional facts are visibly flagged for future verification." /><p>It is not affiliated with or endorsed by Capcom. Game names, characters, artwork, logos, music, footage, and all other related rights remain with their respective rights holders.</p>
-        <div class="about__reference">
-          <figure><img src="/media/box-art/dreamcast-box-art.jpg" alt="Original Power Stone 2 Dreamcast box art, shown for reference only." /><figcaption>Dreamcast box art</figcaption></figure>
-          <figure><img src="/media/menus/menu-items.png" alt="Screenshot of the original game's in-game menu text, shown for reference only." /><figcaption>Menu text reference</figcaption></figure>
-          <figure><img src="/media/fonts/font-sprite.png" alt="Bitmap font sprite sheet from the original game, shown for reference only." /><figcaption>Font sprite reference</figcaption></figure>
+      <div class="about__copy">
+        <SectionHeading title-id="about-title" kicker="10 / About Us" title="Made by fans, built to be corrected." intro="This independent, non-commercial field guide celebrates Power Stone 2 and gives players a clear, accessible place to learn. Provisional facts are visibly flagged for future verification." />
+        <div class="accordion">
+          <section class="accordion__item">
+            <h3 class="accordion__heading">
+              <button type="button" class="accordion__trigger" :aria-expanded="openAboutSection === 'resources'" aria-controls="about-resources-panel" @click="toggleAboutSection('resources')">Resources<span class="accordion__icon" aria-hidden="true">{{ openAboutSection === 'resources' ? '−' : '+' }}</span></button>
+            </h3>
+            <div v-show="openAboutSection === 'resources'" id="about-resources-panel" class="accordion__panel">
+              <p>It is not affiliated with or endorsed by Capcom. Game names, characters, artwork, logos, music, footage, and all other related rights remain with their respective rights holders.</p>
+              <div class="about__reference">
+                <figure><img src="/media/box-art/dreamcast-box-art.jpg" alt="Original Power Stone 2 Dreamcast box art, shown for reference only." /><figcaption>Dreamcast box art</figcaption></figure>
+                <figure><img src="/media/menus/menu-items.png" alt="Screenshot of the original game's in-game menu text, shown for reference only." /><figcaption>Menu text reference</figcaption></figure>
+                <figure><img src="/media/fonts/font-sprite.png" alt="Bitmap font sprite sheet from the original game, shown for reference only." /><figcaption>Font sprite reference</figcaption></figure>
+              </div>
+              <p class="about__promise">No hotlinked media. No invented certainty. A structure ready for sourced updates.</p>
+            </div>
+          </section>
+          <section class="accordion__item">
+            <h3 class="accordion__heading">
+              <button type="button" class="accordion__trigger" :aria-expanded="openAboutSection === 'other'" aria-controls="about-other-panel" @click="toggleAboutSection('other')">Other<span class="accordion__icon" aria-hidden="true">{{ openAboutSection === 'other' ? '−' : '+' }}</span></button>
+            </h3>
+            <div v-show="openAboutSection === 'other'" id="about-other-panel" class="accordion__panel">
+              <p>More notes and disclosures are on the way.</p>
+            </div>
+          </section>
+          <section class="accordion__item">
+            <h3 class="accordion__heading">
+              <button type="button" class="accordion__trigger" :aria-expanded="openAboutSection === 'contact'" aria-controls="about-contact-panel" @click="toggleAboutSection('contact')">Contact<span class="accordion__icon" aria-hidden="true">{{ openAboutSection === 'contact' ? '−' : '+' }}</span></button>
+            </h3>
+            <div v-show="openAboutSection === 'contact'" id="about-contact-panel" class="accordion__panel">
+              <p>A contact channel for corrections and sourcing is coming soon.</p>
+            </div>
+          </section>
         </div>
-        <p class="about__promise">No hotlinked media. No invented certainty. A structure ready for sourced updates.</p></div>
+      </div>
     </section>
   </div>
   <LevelDialog />
+  <BossDialog />
+  <Lightbox />
 </template>

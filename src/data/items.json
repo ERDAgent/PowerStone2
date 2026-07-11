@@ -23,7 +23,8 @@
           "value": "Gun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -50,7 +51,8 @@
           "value": "MachineGun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -77,7 +79,8 @@
           "value": "Bazooka"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -104,7 +107,8 @@
           "value": "FlameThrower"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -131,7 +135,8 @@
           "value": "Ray Gun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -158,7 +163,8 @@
           "value": "SoapBubbleGun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -185,7 +191,8 @@
           "value": "Tranquilizer Gun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -212,9 +219,8 @@
           "value": "Marking Missile"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Homing Missile\"; Items.xlsx has \"Marking Missile\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -241,7 +247,8 @@
           "value": "3-WayShotgun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -268,7 +275,8 @@
           "value": "5-Way Shotgun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -295,7 +303,8 @@
           "value": "Beam Gun"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -322,9 +331,8 @@
           "value": "Item #12 Powerful Buster"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Powerful Buster\"; Items.xlsx has \"Item #12 Powerful Buster\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -351,9 +359,8 @@
           "value": "Item #13 Arm Gun"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Arm Gun\"; Items.xlsx has \"Item #13 Arm Gun\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -380,9 +387,8 @@
           "value": "Fire Rod"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Flame Rod\"; Items.xlsx has \"Fire Rod\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -409,7 +415,8 @@
           "value": "Ice Rod"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -436,7 +443,8 @@
           "value": "Thunder Rod"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -463,7 +471,8 @@
           "value": "Magic Rod"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -490,7 +499,8 @@
           "value": "Mystic Rod"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -517,9 +527,8 @@
           "value": "Strange Rod"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Weird Rod\"; Items.xlsx has \"Strange Rod\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -546,9 +555,8 @@
           "value": "Item #20 Medusa"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Medusa\"; Items.xlsx has \"Item #20 Medusa\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -575,9 +583,8 @@
           "value": "Loudspeaker"
         }
       ],
-      "notes": [
-        "Level differs: gameItems.json has \"2\"; Items.xlsx has \"1\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -604,9 +611,8 @@
           "value": "Sticky Spray"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Adhesive Spray\"; Items.xlsx has \"Sticky Spray\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -633,7 +639,8 @@
           "value": "Trumpet"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -660,7 +667,8 @@
           "value": "Fire-Bottle"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -687,7 +695,8 @@
           "value": "Small Bomb"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -714,7 +723,8 @@
           "value": "MediumBomb"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -741,7 +751,8 @@
           "value": "LargeBomb"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -768,7 +779,8 @@
           "value": "Leg Weight"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -795,7 +807,8 @@
           "value": "Firecracker"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -822,7 +835,8 @@
           "value": "Hand Grenade"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -849,7 +863,8 @@
           "value": "Iron Pipe"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -876,7 +891,8 @@
           "value": "Harisen"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -903,7 +919,8 @@
           "value": "Frozen Tuna"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -930,7 +947,8 @@
           "value": "MetallicBat"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -957,9 +975,8 @@
           "value": "Item #35 Giant Racket"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Big Racket\"; Items.xlsx has \"Item #35 Giant Racket\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -986,7 +1003,8 @@
           "value": "Magic Stick"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1013,7 +1031,8 @@
           "value": "Item #37 Magma Lance"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1040,7 +1059,8 @@
           "value": "DevilSickle"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1067,9 +1087,8 @@
           "value": "Item #39 Morning Star"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Morning Star\"; Items.xlsx has \"Item #39 Morning Star\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1096,7 +1115,8 @@
           "value": "Sword"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1123,7 +1143,8 @@
           "value": "Power Sword"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1150,7 +1171,8 @@
           "value": "Flame Sword"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1177,7 +1199,8 @@
           "value": "Ice Sword"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1204,7 +1227,8 @@
           "value": "Thunder Sword"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1231,9 +1255,8 @@
           "value": "Item #45 Beam Sword"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Beam Sword\"; Items.xlsx has \"Item #45 Beam Sword\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1260,9 +1283,8 @@
           "value": "Item #46 Dragon Slayer Sword"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Dragon Slayer Sword\"; Items.xlsx has \"Item #46 Dragon Slayer Sword\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1289,9 +1311,8 @@
           "value": "Item #47 Sword of Legend"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Sword of Legend\"; Items.xlsx has \"Item #47 Sword of Legend\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1318,7 +1339,8 @@
           "value": "Hammer"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1345,7 +1367,8 @@
           "value": "Toy Hammer"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1372,7 +1395,8 @@
           "value": "Pickaxe"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1399,9 +1423,8 @@
           "value": "Item #51 Beating Mallet"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Magical Mallet\"; Items.xlsx has \"Item #51 Beating Mallet\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1428,9 +1451,8 @@
           "value": "Item #52 100t Hammer"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Gigantic Hammer\"; Items.xlsx has \"Item #52 100t Hammer\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1457,7 +1479,8 @@
           "value": "Umbrella"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1484,9 +1507,8 @@
           "value": "Item #54 Splendid Umbrella"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Deluxe Umbrella\"; Items.xlsx has \"Item #54 Splendid Umbrella\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1513,9 +1535,8 @@
           "value": "Straw Umbrella"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Cheap Umbrella\"; Items.xlsx has \"Straw Umbrella\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1542,7 +1563,8 @@
           "value": "Spear"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1569,9 +1591,8 @@
           "value": "Item #57 Splendid Spear"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Deluxe Spear\"; Items.xlsx has \"Item #57 Splendid Spear\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1598,7 +1619,8 @@
           "value": "Trident"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1625,9 +1647,8 @@
           "value": "Item #59 Splendid Trident"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Deluxe Trident\"; Items.xlsx has \"Item #59 Splendid Trident\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1654,7 +1675,8 @@
           "value": "Fork"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1681,7 +1703,8 @@
           "value": "Spoon"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1708,9 +1731,8 @@
           "value": "Battle Axe"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Battlefield Axe\"; Items.xlsx has \"Battle Axe\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1737,7 +1759,8 @@
           "value": "Victory Axe"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1764,9 +1787,8 @@
           "value": "Normal Axe"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Lumberjack's Axe\"; Items.xlsx has \"Normal Axe\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1793,9 +1815,8 @@
           "value": "Item #65 Hero Axe"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Hero Axe\"; Items.xlsx has \"Item #65 Hero Axe\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1822,7 +1843,8 @@
           "value": "Skateboard"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1849,9 +1871,8 @@
           "value": "In-Line Skates"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Inline Skate\"; Items.xlsx has \"In-Line Skates\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1878,9 +1899,8 @@
           "value": "Item #68 Scooter"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Scooter\"; Items.xlsx has \"Item #68 Scooter\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1907,7 +1927,8 @@
           "value": "Apple"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1934,7 +1955,8 @@
           "value": "Shortcake"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1961,7 +1983,8 @@
           "value": "Meat"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -1988,7 +2011,8 @@
           "value": "Rice Ball"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2015,9 +2039,8 @@
           "value": "Banana"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Bananna\"; Items.xlsx has \"Banana\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2044,7 +2067,8 @@
           "value": "Hamburger"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2071,7 +2095,8 @@
           "value": "Cheese"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2098,7 +2123,8 @@
           "value": "Roast Chicken"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2125,9 +2151,8 @@
           "value": "Item #77 Roast Pig"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Roast Pork\"; Items.xlsx has \"Item #77 Roast Pig\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2154,9 +2179,8 @@
           "value": "Item #78 Wedding Cake"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Wedding Cake\"; Items.xlsx has \"Item #78 Wedding Cake\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2183,9 +2207,8 @@
           "value": "Item #79 Angel Wings"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Angel Wings\"; Items.xlsx has \"Item #79 Angel Wings\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2212,9 +2235,8 @@
           "value": "Item #80 Devil Wings"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Devil Wings\"; Items.xlsx has \"Item #80 Devil Wings\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2241,7 +2263,8 @@
           "value": "Power Shield"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2268,9 +2291,8 @@
           "value": "Item #82 Splendid Shield"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Deluxe Shield\"; Items.xlsx has \"Item #82 Splendid Shield\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2297,7 +2319,8 @@
           "value": "Petrifier"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2324,9 +2347,8 @@
           "value": "Item #84 Invisibility Potion"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Transparentizer\"; Items.xlsx has \"Item #84 Invisibility Potion\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2353,7 +2375,8 @@
           "value": "Kitten"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2380,7 +2403,8 @@
           "value": "Panther"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2407,7 +2431,8 @@
           "value": "Fire Dragon"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2434,9 +2459,8 @@
           "value": "Item #88 Ice Dragon"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Ice Dragon\"; Items.xlsx has \"Item #88 Ice Dragon\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2463,9 +2487,8 @@
           "value": "Item #89 Sand Dragon"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Sand Dragon\"; Items.xlsx has \"Item #89 Sand Dragon\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2492,9 +2515,8 @@
           "value": "Item #90 Takenoko"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Bamboo Shoot\"; Items.xlsx has \"Item #90 Takenoko\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2521,7 +2543,8 @@
           "value": "Thumbtack"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2548,9 +2571,8 @@
           "value": "Bear Trap"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Leg Trap\"; Items.xlsx has \"Bear Trap\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2577,9 +2599,8 @@
           "value": "Item #93 Trap Hoop"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Pitfall Hoop\"; Items.xlsx has \"Item #93 Trap Hoop\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2606,9 +2627,8 @@
           "value": "Item #94 Beehive"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Beehive\"; Items.xlsx has \"Item #94 Beehive\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2635,9 +2655,8 @@
           "value": "Sticky Bomb"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Stick Bomb\"; Items.xlsx has \"Sticky Bomb\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2664,7 +2683,8 @@
           "value": "Typhoon"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2691,9 +2711,8 @@
           "value": "Fireworks Pipe"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Fireworks\"; Items.xlsx has \"Fireworks Pipe\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2720,9 +2739,8 @@
           "value": "Item #98 Meteorite"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Meteorite\"; Items.xlsx has \"Item #98 Meteorite\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2749,9 +2767,8 @@
           "value": "Item #99 Adult Magazine"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Adult Magazine\"; Items.xlsx has \"Item #99 Adult Magazine\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2778,9 +2795,8 @@
           "value": "Item #100 Weekly Power Stone"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Powerstone Magazine\"; Items.xlsx has \"Item #100 Weekly Power Stone\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2807,7 +2823,8 @@
           "value": "Rabbit Ears"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2834,9 +2851,8 @@
           "value": "Item #102 Cat Ears"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Cat Ears\"; Items.xlsx has \"Item #102 Cat Ears\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2863,9 +2879,8 @@
           "value": "Item #103 Crown"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Crown\"; Items.xlsx has \"Item #103 Crown\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2892,9 +2907,8 @@
           "value": "Item #104 Silk Hat"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Silk Hat\"; Items.xlsx has \"Item #104 Silk Hat\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2921,7 +2935,8 @@
           "value": "Straw Hat"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2948,7 +2963,8 @@
           "value": "Party Hat"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -2975,7 +2991,8 @@
           "value": "Flower"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3002,9 +3019,8 @@
           "value": "Item #108 Emperor's Crown"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Emperor's Crown\"; Items.xlsx has \"Item #108 Emperor's Crown\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3031,9 +3047,8 @@
           "value": "Rabbit Paws"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Rabbit Arm\"; Items.xlsx has \"Rabbit Paws\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3060,9 +3075,8 @@
           "value": "Item #110 Cat Paws"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Cat Arm\"; Items.xlsx has \"Item #110 Cat Paws\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3089,9 +3103,8 @@
           "value": "Item #111 Bracelet"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Bracelet\"; Items.xlsx has \"Item #111 Bracelet\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3118,9 +3131,8 @@
           "value": "Punch Glove"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Punching Gloves\"; Items.xlsx has \"Punch Glove\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3147,7 +3159,8 @@
           "value": "Rabbit Tail"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3174,9 +3187,8 @@
           "value": "Item #114 Cat Tail"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Cat Tail\"; Items.xlsx has \"Item #114 Cat Tail\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3203,9 +3215,8 @@
           "value": "Item #115 Devil Tail"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Devil Tail\"; Items.xlsx has \"Item #115 Devil Tail\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3232,7 +3243,8 @@
           "value": "Windup Key"
         }
       ],
-      "notes": []
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3259,9 +3271,8 @@
           "value": "Rabbit Foot"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Rabbit Paw\"; Items.xlsx has \"Rabbit Foot\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3288,9 +3299,8 @@
           "value": "Item #118 Cat Foot"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Cat Paw\"; Items.xlsx has \"Item #118 Cat Foot\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3317,9 +3327,8 @@
           "value": "Athelete Foot"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Shoes of Achilles\"; Items.xlsx has \"Athelete Foot\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3346,9 +3355,8 @@
           "value": "Bandages"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Plaster\"; Items.xlsx has \"Bandages\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   },
   {
@@ -3375,9 +3383,8 @@
           "value": "Item #121 Light Stone"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Light Stone\"; Items.xlsx has \"Item #121 Light Stone\"."
-      ]
+      "itemNotes": [],
+      "recipeNotes": []
     }
   }
 ]

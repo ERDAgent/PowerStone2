@@ -74,10 +74,10 @@ describe('canonical item data', () => {
         expect(existsSync(`${projectRoot}/public${record.media}`), record.media).toBe(true)
       }
     }
-    expect(items.filter(record => record.media === null)).toHaveLength(4)
+    expect(items.filter(record => record.media === null)).toHaveLength(3)
     expect(materials.filter(record => record.media === null)).toHaveLength(1)
     expect(essences.every(record => record.media !== null)).toBe(true)
-    expect(items.filter(record => record.media === null).map(record => record.number)).toEqual(['079', '089', '099', '108'])
+    expect(items.filter(record => record.media === null).map(record => record.number)).toEqual(['079', '099', '108'])
     expect(materials.filter(record => record.media === null).map(record => record.number)).toEqual(['20'])
   })
 
@@ -86,7 +86,8 @@ describe('canonical item data', () => {
     expect(homingMissile.name).toBe('Homing Missile')
     expect(homingMissile.spreadsheetName).toBe('Marking Missile')
     expect(homingMissile.provenance.verification).toBe('conflicting')
-    expect(homingMissile.provenance.notes.join(' ')).toContain('Marking Missile')
+    expect(homingMissile.provenance.itemNotes).toEqual([])
+    expect(homingMissile.provenance.recipeNotes).toEqual([])
 
     const oil = materials.find(record => record.id === 'material-oil')!
     expect(oil.name).toBe('Oil')

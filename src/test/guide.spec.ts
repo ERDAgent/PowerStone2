@@ -280,7 +280,8 @@ describe('guide interactions', () => {
   it('renders canonical boss, character, and level records', async () => {
     const { wrapper } = await mountGuide()
     expect(wrapper.findAll('.portrait').map(node => node.findAll('span').at(-1)!.text())).toEqual(characters.map(record => record.name))
-    expect(wrapper.findAll('.level-card').map(node => node.text())).toEqual(levels.map((record, index) => `0${index + 1}${record.name}${record.description}Open arena file →`))
+    expect(wrapper.findAll('.level-card').map(node => node.text())).toEqual(levels.map(record => `${record.name}${record.description}Open arena file →`))
+    expect(wrapper.findAll('.level-card img').map(node => node.attributes('src'))).toEqual(levels.map(record => record.slides[0]))
     expect(wrapper.findAll('.boss-card h3').map(node => node.text())).toEqual(bosses.map(record => record.name))
     expect(wrapper.findAll('.boss-card img').map(node => node.attributes('src'))).toEqual(bosses.map(record => record.media))
     wrapper.unmount()
@@ -397,6 +398,65 @@ describe('guide interactions', () => {
     expect(document.body.querySelector('[role="dialog"]')).toBeNull()
     expect(consoleError).not.toHaveBeenCalled()
     consoleError.mockRestore()
+    wrapper.unmount()
+  })
+
+  it('opens the boss dialog from the boss image or name and closes it', async () => {
+    const { wrapper } = await mountGuide()
+    const firstBoss = bosses[0]
+    await wrapper.find('.boss-card img[role="button"]').trigger('click')
+    let dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.textContent).toContain(firstBoss.name)
+    expect(dialog!.textContent).toContain(firstBoss.description)
+    dialog!.querySelector<HTMLButtonElement>('[aria-label="Close boss info"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('[role="dialog"]')).toBeNull()
+
+    await wrapper.find('.boss-card h3[role="button"]').trigger('click')
+    dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.textContent).toContain(firstBoss.name)
+    wrapper.unmount()
+  })
+
+  it('opens a timeline thumbnail in a near-fullscreen lightbox and closes it', async () => {
+    const { wrapper } = await mountGuide()
+    await wrapper.find('.timeline__thumb').trigger('click')
+    const dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.querySelector('img')?.getAttribute('src')).toBe('/media/placeholders/timeline-milestone-placeholder.svg')
+    dialog!.querySelector<HTMLButtonElement>('[aria-label="Close image"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('[role="dialog"]')).toBeNull()
+    wrapper.unmount()
+  })
+
+  it('opens the about accordion on Resources by default and toggles other sections exclusively', async () => {
+    const { wrapper } = await mountGuide()
+    const triggers = wrapper.findAll('.accordion__trigger')
+    expect(triggers.map(trigger => trigger.text().replace(/[+−]$/, ''))).toEqual(['Resources', 'Other', 'Contact'])
+    expect(triggers[0].attributes('aria-expanded')).toBe('true')
+    expect(wrapper.find('#about-resources-panel').isVisible()).toBe(true)
+    expect(wrapper.find('.about__reference').exists()).toBe(true)
+
+    await triggers[1].trigger('click')
+    expect(triggers[0].attributes('aria-expanded')).toBe('false')
+    expect(triggers[1].attributes('aria-expanded')).toBe('true')
+    expect(wrapper.find('#about-resources-panel').isVisible()).toBe(false)
+    expect(wrapper.find('#about-other-panel').isVisible()).toBe(true)
+
+    await triggers[1].trigger('click')
+    expect(triggers[1].attributes('aria-expanded')).toBe('false')
+    expect(wrapper.find('#about-other-panel').isVisible()).toBe(false)
+    wrapper.unmount()
+  })
+
+  it('gives every level card a fixed equal width and no number badge', async () => {
+    const { wrapper } = await mountGuide()
+    const cards = wrapper.findAll('.level-card')
+    expect(cards.length).toBeGreaterThan(1)
+    expect(wrapper.find('.level-card__number').exists()).toBe(false)
     wrapper.unmount()
   })
 })
