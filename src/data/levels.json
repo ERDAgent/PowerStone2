@@ -1,5 +1,182 @@
 [
-  {"id":"level-melting-pot","name":"Melting Pot","description":"An airborne arena where the route itself becomes part of the scramble.","media":"/media/placeholders/level-airship-cover-placeholder.svg","slides":["/media/placeholders/level-airship-slide-1-placeholder.svg","/media/placeholders/level-airship-slide-2-placeholder.svg","/media/placeholders/level-airship-slide-3-placeholder.svg"],"provenance":{"verification":"ambiguous","evidence":[],"notes":["Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."]}},
-  {"id":"level-blue-sky-area","name":"Blue Sky Area","description":"A bright multi-tier battleground represented with replaceable study art.","media":"/media/placeholders/level-temple-cover-placeholder.svg","slides":["/media/placeholders/level-temple-slide-1-placeholder.svg","/media/placeholders/level-temple-slide-2-placeholder.svg","/media/placeholders/level-temple-slide-3-placeholder.svg"],"provenance":{"verification":"ambiguous","evidence":[],"notes":["Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."]}},
-  {"id":"level-dark-castle","name":"Dark Castle","description":"A hazardous stage concept where awareness matters as much as offense.","media":"/media/placeholders/level-factory-cover-placeholder.svg","slides":["/media/placeholders/level-factory-slide-1-placeholder.svg","/media/placeholders/level-factory-slide-2-placeholder.svg","/media/placeholders/level-factory-slide-3-placeholder.svg"],"provenance":{"verification":"ambiguous","evidence":[],"notes":["Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."]}}
+  {
+    "id": "level-blue-sky-area",
+    "name": "Blue Sky Area",
+    "description": "An airborne arena where the route itself becomes part of the scramble.",
+    "media": "/media/levels/levels-large/blue-sky-area-large.png",
+    "slides": [
+      "/media/placeholders/level-airship-slide-1-placeholder.svg",
+      "/media/placeholders/level-airship-slide-2-placeholder.svg",
+      "/media/placeholders/level-airship-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-dark-castle-area",
+    "name": "Dark Castle Area",
+    "description": "A bright multi-tier battleground represented with replaceable study art.",
+    "media": "/media/levels/levels-large/dark-castle-area-large.png",
+    "slides": [
+      "/media/placeholders/level-temple-slide-1-placeholder.svg",
+      "/media/placeholders/level-temple-slide-2-placeholder.svg",
+      "/media/placeholders/level-temple-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-tomb-area",
+    "name": "Tomb Area",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/tomb-area-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-iceburg-area",
+    "name": "Iceberg Area",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/iceburg-area-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-space-station-area",
+    "name": "Space Station Area",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/space-station-area-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-chaos-area",
+    "name": "Chaos Area",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/chaos-area-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "leve-desert-area",
+    "name": "Desert Area",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/desert-area-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-extra-stage-1",
+    "name": "Extra Stage 1",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/extra-stage-1-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-extra-stage-2",
+    "name": "Extra Stage 2",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/extra-stage-2-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  },
+  {
+    "id": "level-extra-stage-3",
+    "name": "Extra Stage 3",
+    "description": "A hazardous stage concept where awareness matters as much as offense.",
+    "media": "/media/levels/levels-large/extra-stage-3-large.png",
+    "slides": [
+      "/media/placeholders/level-factory-slide-1-placeholder.svg",
+      "/media/placeholders/level-factory-slide-2-placeholder.svg",
+      "/media/placeholders/level-factory-slide-3-placeholder.svg"
+    ],
+    "provenance": {
+      "verification": "ambiguous",
+      "evidence": [],
+      "notes": [
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+      ]
+    }
+  }
 ]
