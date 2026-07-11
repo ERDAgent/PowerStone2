@@ -25,7 +25,6 @@ watch(query, () => { activeIndex.value = matches.value.length ? 0 : -1 })
 
 function select(item: ItemRecord) {
   selectedId.value = item.id
-  query.value = item.name
   activeIndex.value = matches.value.findIndex(match => match.id === item.id)
   nextTick(() => input.value?.focus())
 }
