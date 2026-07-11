@@ -123,7 +123,7 @@ describe('recipe lookup', () => {
     expect(input.element.value).toBe('gun')
     expect(wrapper.findAll('.recipe-option')).toHaveLength(optionsBefore.length)
     expect(wrapper.find('.recipe-result-heading h3').text()).toBe('Ray Gun')
-    expect(document.activeElement).toBe(input.element)
+    expect(document.activeElement).toBe(rayGunOption!.element)
     wrapper.unmount()
   })
 

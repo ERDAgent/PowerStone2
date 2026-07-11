@@ -26,7 +26,11 @@ watch(query, () => { activeIndex.value = matches.value.length ? 0 : -1 })
 function select(item: ItemRecord) {
   selectedId.value = item.id
   activeIndex.value = matches.value.findIndex(match => match.id === item.id)
-  nextTick(() => input.value?.focus())
+}
+
+function selectByClick(item: ItemRecord, event: MouseEvent) {
+  select(item)
+  ;(event.currentTarget as HTMLElement).focus()
 }
 
 function onKeydown(event: KeyboardEvent) {
@@ -38,7 +42,10 @@ function onKeydown(event: KeyboardEvent) {
   } else if (event.key === 'Enter' && activeIndex.value >= 0) {
     event.preventDefault()
     const item = matches.value[activeIndex.value]
-    if (item) select(item)
+    if (item) {
+      select(item)
+      nextTick(() => input.value?.focus())
+    }
   } else if (event.key === 'Escape') {
     query.value = ''
   }
@@ -84,7 +91,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
           :aria-selected="selected?.id === item.id"
           :class="['recipe-option', { 'recipe-option--active': activeIndex === index }]"
           @mouseenter="activeIndex = index"
-          @click="select(item)"
+          @click="selectByClick(item, $event)"
         >
           <img v-if="item.media" :src="item.media" alt="" />
           <span v-else class="entity-fallback" aria-hidden="true">{{ item.name.slice(0, 2) }}</span>
