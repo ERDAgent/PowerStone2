@@ -998,7 +998,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #37 Magma Lance",
-    "media": null,
+    "media": "/media/items/png/037-magmalance.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1013,9 +1013,7 @@
           "value": "Item #37 Magma Lance"
         }
       ],
-      "notes": [
-        "Name differs: gameItems.json has \"Magma Lance\"; Items.xlsx has \"Item #37 Magma Lance\"."
-      ]
+      "notes": []
     }
   },
   {
@@ -1247,7 +1245,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #46 Dragon Slayer Sword",
-    "media": null,
+    "media": "/media/items/png/046-dragonslayersword.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1276,7 +1274,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #47 Sword of Legend",
-    "media": null,
+    "media": "/media/items/png/047-swordoflegend.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1384,7 +1382,7 @@
     "name": "Magical Mallet",
     "level": 5,
     "function": "Melee",
-    "category": null,
+    "category": "/media/items/png/051-magicmallet.png",
     "spreadsheetName": "Item #51 Beating Mallet",
     "media": null,
     "provenance": {
@@ -1780,7 +1778,7 @@
     "function": "Melee",
     "category": null,
     "spreadsheetName": "Item #65 Hero Axe",
-    "media": null,
+    "media": "/media/items/png/065-heroaxe.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -1865,7 +1863,7 @@
     "function": "Movement",
     "category": null,
     "spreadsheetName": "Item #68 Scooter",
-    "media": null,
+    "media": "/media/items/png/068-scooter.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2112,7 +2110,7 @@
     "function": "Food",
     "category": null,
     "spreadsheetName": "Item #77 Roast Pig",
-    "media": null,
+    "media": "/media/items/png/077-roastpork.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2141,7 +2139,7 @@
     "function": "Food",
     "category": null,
     "spreadsheetName": "Item #78 Wedding Cake",
-    "media": null,
+    "media": "/media/items/png/078-weddingcake.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2199,7 +2197,7 @@
     "function": "Unknown",
     "category": null,
     "spreadsheetName": "Item #80 Devil Wings",
-    "media": null,
+    "media": "/media/items/png/080-devilwings.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2442,10 +2440,10 @@
     }
   },
   {
-    "id": "item-sanddragon",
-    "machineId": "sanddragon",
+    "id": "item-thunderdragon",
+    "machineId": "thunderdragon",
     "number": "089",
-    "name": "Sand Dragon",
+    "name": "Thunder Dragon",
     "level": 6,
     "function": "Pet",
     "category": null,
@@ -2699,15 +2697,15 @@
     }
   },
   {
-    "id": "item-meteorite",
-    "machineId": "meteorite",
+    "id": "item-meteor",
+    "machineId": "meteor",
     "number": "098",
-    "name": "Meteorite",
+    "name": "Meteor",
     "level": 6,
     "function": "Throw",
     "category": null,
     "spreadsheetName": "Item #98 Meteorite",
-    "media": null,
+    "media": "/media/items/png/098-meteor.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2765,7 +2763,7 @@
     "function": "Misc",
     "category": null,
     "spreadsheetName": "Item #100 Weekly Power Stone",
-    "media": null,
+    "media": "/media/items/png/100-powerstonemagazine.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2794,7 +2792,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Rabbit Ears",
-    "media": null,
+    "media": "/media/items/png/101-rabbitears.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -2821,7 +2819,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #102 Cat Ears",
-    "media": null,
+    "media": "/media/items/png/102-catears.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2850,7 +2848,7 @@
     "function": "Clothing",
     "category": "Clothing",
     "spreadsheetName": "Item #103 Crown",
-    "media": null,
+    "media": "/media/items/png/103-crown.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2879,7 +2877,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #104 Silk Hat",
-    "media": null,
+    "media": "/media/items/png/104-silkhat.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -2908,7 +2906,7 @@
     "function": "Clothing",
     "category": "Clothing",
     "spreadsheetName": "Straw Hat",
-    "media": null,
+    "media": "/media/items/png/105-strawhat.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -3134,7 +3132,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Rabbit Tail",
-    "media": null,
+    "media": "/media/items/png/113-rabbittail.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -3161,7 +3159,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #114 Cat Tail",
-    "media": null,
+    "media": "/media/items/png/114-cattail.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3275,7 +3273,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Item #118 Cat Foot",
-    "media": null,
+    "media": "/media/items/png/118-catpaw.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
@@ -3304,7 +3302,7 @@
     "function": "Clothing",
     "category": null,
     "spreadsheetName": "Athelete Foot",
-    "media": null,
+    "media": "/media/items/png/119-shoesofachilles.png",
     "provenance": {
       "verification": "conflicting",
       "evidence": [
