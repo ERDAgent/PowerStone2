@@ -1302,7 +1302,7 @@
       "Mobility / item play — inputs to verify"
     ],
     "color": "hsl(190 82% 46%)",
-    "media": null,
+    "media": "/media/characters/chips/kraken-chip.png",
     "portrait": "/media/characters/full/kraken-full.png",
     "availability": [
       "PSP"
@@ -1392,7 +1392,7 @@
       "Mobility / item play — inputs to verify"
     ],
     "color": "hsl(227 82% 52%)",
-    "media": null,
+    "media": "/media/characters/chips/valgas-chip.png",
     "portrait": "/media/characters/full/valgas-full.png",
     "availability": [
       "PSP"
