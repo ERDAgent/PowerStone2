@@ -9,7 +9,14 @@ import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery } = storeToRefs(store)
+const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex } = storeToRefs(store)
+const characteristicLabels = [
+  ['strength', 'Strength'],
+  ['throwDistance', 'Throw Distance'],
+  ['damage', 'Damage'],
+  ['toughness', 'Toughness'],
+  ['speed', 'Speed'],
+] as const
 const categories = computed(() => ['All', ...new Set(items.map(item => item.category ?? 'Uncategorized'))])
 const catalogTabs = [
   { kind: 'all', label: 'All' },
@@ -158,7 +165,47 @@ const milestones = [
           <small v-if="!selectedCharacter.portrait">Replaceable character art</small>
         </div>
         <div class="fighter-file__copy"><p class="eyebrow">Player file</p><h3>{{ selectedCharacter.name }}</h3><p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p><h4>Background / history</h4><p>{{ selectedCharacter.history }}</p><h4>Editorial attributes</h4><ul class="attribute-list"><li v-for="attribute in selectedCharacter.attributes" :key="attribute">{{ attribute }}</li></ul></div>
-        <div class="fighter-file__moves"><div><p class="eyebrow">Moves & play categories</p><h4>Field notes</h4></div><ol><li v-for="(move, index) in selectedCharacter.moves" :key="move"><span>0{{ index + 1 }}</span>{{ move }}</li></ol></div>
+        <div class="fighter-file__details">
+          <section class="detail-panel detail-panel--moves" aria-labelledby="detail-moves-title">
+            <p class="eyebrow">Move set</p><h4 id="detail-moves-title">Moves</h4>
+            <div class="move-nav" role="list" aria-label="Moves">
+              <button v-for="(move, index) in selectedCharacter.moveList" :key="move.name" type="button" role="listitem" :class="['move-nav__item', `move-nav__item--${move.type}`, { 'move-nav__item--active': selectedMoveIndex === index }]" :aria-pressed="selectedMoveIndex === index" @click="store.selectMove(index)">
+                <span class="move-nav__type">{{ move.type }}</span><span class="move-nav__name">{{ move.name }}</span>
+              </button>
+            </div>
+            <div v-if="selectedMove" class="move-video">
+              <video :key="selectedMove.name" class="move-video__player" autoplay muted loop playsinline :poster="selectedMove.poster">
+                <source :src="selectedMove.video" type="video/mp4" />
+              </video>
+              <span class="move-video__label">{{ selectedMove.name }}</span>
+            </div>
+          </section>
+
+          <section class="detail-panel detail-panel--characteristics" aria-labelledby="detail-characteristics-title">
+            <p class="eyebrow">Editorial ratings</p><h4 id="detail-characteristics-title">Characteristics</h4>
+            <dl class="characteristics-list">
+              <div v-for="[key, label] in characteristicLabels" :key="key">
+                <dt>{{ label }}</dt>
+                <dd><span :class="['badge', `badge--${selectedCharacter.characteristics[key]}`]">{{ selectedCharacter.characteristics[key] }}</span></dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="detail-panel detail-panel--specials" aria-labelledby="detail-specials-title">
+            <p class="eyebrow">Power Stone arsenal</p><h4 id="detail-specials-title">Specials</h4>
+            <div class="move-nav move-nav--specials" role="list" aria-label="Special moves">
+              <button v-for="(special, index) in selectedCharacter.specials" :key="special.name" type="button" role="listitem" :class="['move-nav__item', 'move-nav__item--special', { 'move-nav__item--active': selectedSpecialIndex === index }]" :aria-pressed="selectedSpecialIndex === index" @click="store.selectSpecial(index)">
+                <span class="move-nav__name">{{ special.name }}</span>
+              </button>
+            </div>
+            <div v-if="selectedSpecial" class="move-video">
+              <video :key="selectedSpecial.name" class="move-video__player" autoplay muted loop playsinline :poster="selectedSpecial.poster">
+                <source :src="selectedSpecial.video" type="video/mp4" />
+              </video>
+              <span class="move-video__label">{{ selectedSpecial.name }}</span>
+            </div>
+          </section>
+        </div>
       </article>
     </section>
 

@@ -3,6 +3,30 @@ import levelData from './levels.json'
 import bossData from './bosses.json'
 import type { DataProvenance, MediaRecord } from './types'
 
+export type MoveType = 'standard' | 'unique'
+export type CharacteristicLevel = 'low' | 'medium' | 'high'
+
+export interface MoveRecord {
+  readonly name: string
+  readonly type: MoveType
+  readonly video: string
+  readonly poster: string
+}
+
+export interface SpecialMoveRecord {
+  readonly name: string
+  readonly video: string
+  readonly poster: string
+}
+
+export interface CharacterCharacteristics {
+  readonly strength: CharacteristicLevel
+  readonly throwDistance: CharacteristicLevel
+  readonly damage: CharacteristicLevel
+  readonly toughness: CharacteristicLevel
+  readonly speed: CharacteristicLevel
+}
+
 export interface CharacterRecord extends MediaRecord {
   readonly id: `character-${string}`
   readonly name: string
@@ -10,6 +34,9 @@ export interface CharacterRecord extends MediaRecord {
   readonly history: string
   readonly attributes: readonly string[]
   readonly moves: readonly string[]
+  readonly moveList: readonly MoveRecord[]
+  readonly specials: readonly SpecialMoveRecord[]
+  readonly characteristics: CharacterCharacteristics
   readonly color: string
   readonly portrait: string | null
   readonly availability: readonly ('dreamcast' | 'PSP' | 'Arcade')[]

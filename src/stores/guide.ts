@@ -20,13 +20,17 @@ const catalog: readonly CatalogEntity[] = [
 export const useGuideStore = defineStore('guide', () => {
   const selectedCharacterId = ref(characters[0].id)
   const selectedEntityId = ref<EntityId | null>(items[0].id)
-  const catalogKind = ref<CatalogKind>('item')
+  const catalogKind = ref<CatalogKind>('all')
   const itemCategory = ref('All')
   const itemQuery = ref('')
   const openLevelId = ref<LevelRecord['id'] | null>(null)
   const slideIndex = ref(0)
+  const selectedMoveIndex = ref(0)
+  const selectedSpecialIndex = ref(0)
 
   const selectedCharacter = computed(() => characters.find(c => c.id === selectedCharacterId.value) ?? characters[0])
+  const selectedMove = computed(() => selectedCharacter.value.moveList[selectedMoveIndex.value] ?? selectedCharacter.value.moveList[0] ?? null)
+  const selectedSpecial = computed(() => selectedCharacter.value.specials[selectedSpecialIndex.value] ?? selectedCharacter.value.specials[0] ?? null)
   const filteredEntities = computed(() => {
     const query = itemQuery.value.trim().toLocaleLowerCase()
     return catalog.filter(entity => {
@@ -42,7 +46,9 @@ export const useGuideStore = defineStore('guide', () => {
   function reconcileSelection() {
     if (!filteredEntities.value.some(entity => entity.record.id === selectedEntityId.value)) selectedEntityId.value = filteredEntities.value[0]?.record.id ?? null
   }
-  function selectCharacter(id: CharacterRecord['id']) { selectedCharacterId.value = id }
+  function selectCharacter(id: CharacterRecord['id']) { selectedCharacterId.value = id; selectedMoveIndex.value = 0; selectedSpecialIndex.value = 0 }
+  function selectMove(index: number) { selectedMoveIndex.value = index }
+  function selectSpecial(index: number) { selectedSpecialIndex.value = index }
   function selectEntity(id: EntityId) { selectedEntityId.value = id }
   function setCatalogKind(kind: CatalogKind) {
     catalogKind.value = kind
@@ -57,5 +63,5 @@ export const useGuideStore = defineStore('guide', () => {
 
   watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, openLevelId, slideIndex, selectedCharacter, selectedEntity, filteredEntities, openLevel, selectCharacter, selectEntity, setCatalogKind, setCategory, setItemQuery, showLevel, closeLevel, nextSlide, previousSlide }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, openLevelId, slideIndex, selectedMoveIndex, selectedSpecialIndex, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, openLevel, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, showLevel, closeLevel, nextSlide, previousSlide }
 })
