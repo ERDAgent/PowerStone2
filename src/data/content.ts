@@ -1,7 +1,7 @@
 export const sections = [
   { id: 'overview', label: 'Overview' },
+  { id: 'game-overview', label: 'About the Game' },
   { id: 'how-to-play', label: 'How to Play' },
-  { id: 'multiplayer', label: 'Multiplayer' },
   { id: 'items', label: 'Items' },
   { id: 'combinations', label: 'Combinations' },
   { id: 'characters', label: 'Characters' },

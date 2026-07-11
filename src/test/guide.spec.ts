@@ -12,8 +12,8 @@ import { essences, items, materials } from '@/data'
 
 const expectedSections = [
   ['overview', 'Overview'],
+  ['game-overview', 'About the Game'],
   ['how-to-play', 'How to Play'],
-  ['multiplayer', 'Multiplayer'],
   ['items', 'Items'],
   ['combinations', 'Combinations'],
   ['characters', 'Characters'],
@@ -197,7 +197,7 @@ describe('guide interactions', () => {
 
   it('provides ordered catalog tabs with Items selected and exact populations', async () => {
     const { wrapper } = await mountGuide()
-    const tabs = wrapper.findAll('[role="tab"]')
+    const tabs = wrapper.findAll('.catalog-tabs [role="tab"]')
     expect(tabs.map(tab => tab.text())).toEqual(['All', 'Items', 'Materials', 'Essences'])
     expect(tabs.map(tab => tab.attributes('aria-selected'))).toEqual(['false', 'true', 'false', 'false'])
     expect(tabs.map(tab => tab.attributes('tabindex'))).toEqual(['-1', '0', '-1', '-1'])
@@ -213,19 +213,19 @@ describe('guide interactions', () => {
 
   it('supports wrapped arrow and Home/End tab activation with focus', async () => {
     const { wrapper } = await mountGuide()
-    let tabs = wrapper.findAll<HTMLButtonElement>('[role="tab"]')
+    let tabs = wrapper.findAll<HTMLButtonElement>('.catalog-tabs [role="tab"]')
     tabs[1].element.focus()
     await tabs[1].trigger('keydown', { key: 'ArrowLeft' })
-    tabs = wrapper.findAll('[role="tab"]')
+    tabs = wrapper.findAll('.catalog-tabs [role="tab"]')
     expect(tabs[0].attributes('aria-selected')).toBe('true')
     expect(document.activeElement).toBe(tabs[0].element)
     await tabs[0].trigger('keydown', { key: 'ArrowLeft' })
-    tabs = wrapper.findAll('[role="tab"]')
+    tabs = wrapper.findAll('.catalog-tabs [role="tab"]')
     expect(tabs[3].attributes('aria-selected')).toBe('true')
     await tabs[3].trigger('keydown', { key: 'Home' })
-    expect(wrapper.findAll('[role="tab"]')[0].attributes('aria-selected')).toBe('true')
-    await wrapper.findAll('[role="tab"]')[0].trigger('keydown', { key: 'End' })
-    expect(wrapper.findAll('[role="tab"]')[3].attributes('aria-selected')).toBe('true')
+    expect(wrapper.findAll('.catalog-tabs [role="tab"]')[0].attributes('aria-selected')).toBe('true')
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[0].trigger('keydown', { key: 'End' })
+    expect(wrapper.findAll('.catalog-tabs [role="tab"]')[3].attributes('aria-selected')).toBe('true')
     wrapper.unmount()
   })
 
@@ -234,7 +234,7 @@ describe('guide interactions', () => {
     await wrapper.find('#item-search').setValue('1')
     expect(wrapper.findAll('.item-tile')).toHaveLength(1)
     expect(wrapper.find('.item-tile').text()).toContain('Gun')
-    await wrapper.findAll('[role="tab"]')[2].trigger('click')
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(1)
     expect(wrapper.find('.item-detail h3').text()).toBe('Oil')
     expect(wrapper.find('.item-detail').text()).toContain('Material 1')
@@ -242,7 +242,7 @@ describe('guide interactions', () => {
     await wrapper.find('#item-search').setValue('not present')
     expect(wrapper.findAll('.item-tile')).toHaveLength(0)
     expect(wrapper.find('.item-detail').text()).toContain('No catalog result selected')
-    await wrapper.findAll('[role="tab"]')[3].trigger('click')
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[3].trigger('click')
     await wrapper.find('#item-search').setValue('01')
     expect(wrapper.find('.item-detail h3').text()).toBe('Horror Card')
     expect(wrapper.find('.item-detail img').attributes('alt')).toContain('essence artwork')
@@ -253,13 +253,13 @@ describe('guide interactions', () => {
     const { wrapper } = await mountGuide()
     const category = wrapper.findAll('.chip').find(chip => chip.text() !== 'All')!
     await category.trigger('click')
-    await wrapper.findAll('[role="tab"]')[2].trigger('click')
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(materials.length)
     expect(wrapper.find('.item-detail').text()).toContain('Material type')
-    await wrapper.findAll('[role="tab"]')[3].trigger('click')
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[3].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(essences.length)
     expect(wrapper.find('.item-detail').text()).toContain('Essence card')
-    await wrapper.findAll('[role="tab"]')[1].trigger('click')
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(items.length)
     expect(wrapper.findAll('.chip')[0].classes()).toContain('chip--active')
     wrapper.unmount()
@@ -277,7 +277,7 @@ describe('guide interactions', () => {
   it('renders canonical boss, character, and level records', async () => {
     const { wrapper } = await mountGuide()
     expect(wrapper.findAll('.portrait').map(node => node.findAll('span').at(-1)!.text())).toEqual(characters.map(record => record.name))
-    expect(wrapper.findAll('.level-card').map(node => node.text())).toEqual(levels.map((record, index) => `0${index + 1}${record.name}${record.description}Open arena file →`))
+    expect(wrapper.findAll('.level-chip').map(node => node.text())).toEqual(levels.map((record, index) => `0${index + 1}${record.name}`))
     expect(wrapper.findAll('.boss-card h3').map(node => node.text())).toEqual(bosses.map(record => record.name))
     expect(wrapper.findAll('.boss-card img').map(node => node.attributes('src'))).toEqual(bosses.map(record => record.media))
     wrapper.unmount()
@@ -317,21 +317,21 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('opens and closes the level dialog with a single slide and no arrows or counter', async () => {
-    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+  it('selects a level from the nav grid and updates the level file below it, with no arrows for a single slide', async () => {
     const { wrapper } = await mountGuide()
-    await wrapper.find('.level-card').trigger('click')
-    const dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
-    expect(dialog).not.toBeNull()
-    expect(dialog!.textContent).not.toContain('Slide')
-    expect(dialog!.querySelector('[aria-label="Previous slide"]')).toBeNull()
-    expect(dialog!.querySelector('[aria-label="Next slide"]')).toBeNull()
-    const close = dialog!.querySelector<HTMLButtonElement>('[aria-label="Close level gallery"]')!
-    close.click()
-    await wrapper.vm.$nextTick()
-    expect(document.body.querySelector('[role="dialog"]')).toBeNull()
-    expect(consoleError).not.toHaveBeenCalled()
-    consoleError.mockRestore()
+    expect(wrapper.find('.level-file h3').text()).toBe(levels[0].name)
+    expect(wrapper.find('[aria-label="Previous slide"]').exists()).toBe(false)
+    expect(wrapper.find('[aria-label="Next slide"]').exists()).toBe(false)
+
+    const chips = wrapper.findAll('.level-chip')
+    expect(chips).toHaveLength(levels.length)
+    const secondLevel = levels[1]
+    const chip = chips.find(button => button.text().includes(secondLevel.name))!
+    await chip.trigger('click')
+
+    expect(wrapper.find('.level-file h3').text()).toBe(secondLevel.name)
+    expect(wrapper.findAll('.level-file__copy p').at(-1)!.text()).toBe(secondLevel.description)
+    expect(chip.attributes('aria-pressed')).toBe('true')
     wrapper.unmount()
   })
 })

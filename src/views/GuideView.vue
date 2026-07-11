@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import SectionHeading from '@/components/SectionHeading.vue'
-import LevelDialog from '@/components/LevelDialog.vue'
+import HorizontalNav from '@/components/HorizontalNav.vue'
 import RecipeLookup from '@/components/RecipeLookup.vue'
 import { bosses, characters, items, levels } from '@/data/content'
 import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery } = storeToRefs(store)
+const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery, selectedLevel, slideIndex } = storeToRefs(store)
 const categories = computed(() => ['All', ...new Set(items.map(item => item.category ?? 'Uncategorized'))])
 const catalogTabs = [
   { kind: 'all', label: 'All' },
@@ -44,15 +44,137 @@ function onTabKeydown(event: KeyboardEvent, index: number) {
   activateCatalogTab(catalogTabs[next].kind, next)
 }
 
-const multiplayerSteps = [
-  ['Prepare your game', 'Use your own legally obtained game files and confirm they launch locally before networking.'],
-  ['Get Flycast Dojo', 'Use the project’s current official documentation and release channel; avoid archived third-party bundles.'],
-  ['Match settings', 'Agree on platform/game revision, region, emulator settings, and controller mapping with every player.'],
-  ['Run a local check', 'Play offline first to catch controller, audio, performance, or file-integrity issues.'],
-  ['Configure networking', 'Follow current Dojo guidance for hosting or joining; networking requirements can change.'],
-  ['Start a test session', 'Begin with a short match and use a wired connection where practical.'],
-  ['Troubleshoot together', 'If sync fails, recheck matching files/settings, close overlays, and compare logs before retrying.'],
+const quickFacts = [
+  ['4-player arenas', 'Up to four fighters share one freely explorable 3D stage instead of a locked-off fighting-game plane.'],
+  ['Power Stone transformations', 'Collecting three stones grants a temporary, stronger form built around each character’s powered-up moves.'],
+  ['Living stages', 'Arenas shift, travel, and introduce hazards mid-match, turning positioning into its own skill.'],
+  ['A wide roster', 'Fourteen characters on arcade and Dreamcast, plus two additional PSP-exclusive fighters in the Collection release.'],
 ]
+
+const platforms = [
+  {
+    id: 'dreamcast', label: 'Dreamcast', image: '/media/consoles/dreamcast-console.svg',
+    summary: 'The 2000–2001 home console release most guides — including this one — treat as the baseline for controls and progression.',
+    notes: [
+      'Supports up to four players locally using the Dreamcast’s four native controller ports.',
+      'A VMU is required to save progress, and it can show mini-game content on its small screen.',
+      'Regional releases vary in launch date and minor content; confirm your specific disc/region before relying on version-specific notes.',
+    ],
+  },
+  {
+    id: 'arcade', label: 'Arcade (NAOMI)', image: '/media/consoles/arcade-console.svg',
+    summary: 'The original release ran in arcades on Sega’s NAOMI hardware, typically in multi-panel cabinets built for simultaneous local play.',
+    notes: [
+      'Cabinet configuration, coin/credit systems, and regional board variants are historical context here, not a home setup guide.',
+      'This guide does not apply Dreamcast save-based instructions to arcade operation.',
+    ],
+  },
+  {
+    id: 'psp', label: 'PSP · Power Stone Collection', image: '/media/consoles/psp-console.svg',
+    summary: 'A 2006 compilation that adapts both Power Stone games for handheld play.',
+    notes: [
+      'Four-player arena action is remapped onto the PSP’s single analog nub and shoulder buttons.',
+      'Ad-hoc wireless play stands in for the console versions’ local multiplayer.',
+      'Treat Dreamcast control and unlock instructions as a starting point only — confirm collection-specific details separately.',
+    ],
+  },
+] as const
+
+const modes = [
+  {
+    id: 'adventure', label: 'Adventure Mode',
+    summary: 'A story path through a series of stages and boss encounters, framed as each character’s personal quest for the Atlamillia.',
+    notes: ['Some releases allow a second player to join in on parts of the adventure.', 'Exact stage counts, branching, and unlock triggers vary by release and remain queued for verification.'],
+  },
+  {
+    id: 'vs-battle', label: 'VS Battle',
+    summary: 'The core multiplayer format: up to four fighters share a single transforming arena, racing to combine Power Stones for a temporary transformation.',
+    notes: ['This is the mode most guides and tournaments reference when discussing matchups.', 'Item spawns, hazards, and stage transitions can reshape a fight at any moment.'],
+  },
+  {
+    id: 'survival', label: 'Survival / Trial',
+    summary: 'Solo-focused challenge modes that test endurance or a specific skill outside the main story and versus formats.',
+    notes: ['Naming, structure, and availability differ across the arcade, Dreamcast, and PSP Collection releases.', 'Confirm against your specific version before relying on this guide.'],
+  },
+] as const
+
+const onlineOptions = [
+  {
+    id: 'flycast-dojo', label: 'Flycast Dojo',
+    intro: 'A version-agnostic Flycast Dojo readiness path focused on matching setups and diagnosing issues—without promising a permanent link or frozen interface.',
+    steps: [
+      ['Prepare your game', 'Use your own legally obtained game files and confirm they launch locally before networking.'],
+      ['Get Flycast Dojo', 'Use the project’s current official documentation and release channel; avoid archived third-party bundles.'],
+      ['Match settings', 'Agree on platform/game revision, region, emulator settings, and controller mapping with every player.'],
+      ['Run a local check', 'Play offline first to catch controller, audio, performance, or file-integrity issues.'],
+      ['Configure networking', 'Follow current Dojo guidance for hosting or joining; networking requirements can change.'],
+      ['Start a test session', 'Begin with a short match and use a wired connection where practical.'],
+      ['Troubleshoot together', 'If sync fails, recheck matching files/settings, close overlays, and compare logs before retrying.'],
+    ],
+  },
+  {
+    id: 'steam', label: 'Steam',
+    intro: 'No official Steam release of Power Stone 2 is currently confirmed; treat any storefront listing skeptically until verified. PC players typically reach the game through emulation.',
+    steps: [
+      ['Check for an official listing', 'Search Steam yourself before assuming availability, and prioritize the publisher’s current storefront over unofficial claims.'],
+      ['Use verified emulation on PC', 'Absent an official release, run Flycast (or another actively maintained Dreamcast emulator) and add it to Steam as a non-Steam game for a unified library entry.'],
+      ['Match Dojo settings', 'If playing online, follow the same Flycast Dojo setup used on any other PC install; Steam is a launcher, not a networking layer.'],
+      ['Watch the Steam Overlay', 'Overlay input capture can interfere with emulator hotkeys — disable it per-game if you run into issues.'],
+    ],
+  },
+  {
+    id: 'other', label: 'Other',
+    intro: 'A general fallback for platforms and frontends not covered above. Treat Flycast Dojo as the reference path and compare any alternative against it.',
+    steps: [
+      ['Confirm the source', 'Prioritize official documentation and reputable communities over unlisted third-party bundles or streams claiming to host multiplayer for this title.'],
+      ['Check platform-specific bridges', 'Some handheld or frontend builds (for example, RetroArch’s Flycast core) can reach Dojo-compatible sessions — verify netplay parity before relying on it.'],
+      ['Compare settings first', 'Only use an alternative path once you’ve confirmed it supports the same matching and networking requirements as Flycast Dojo.'],
+      ['Report inconsistencies', 'Note any divergent settings or requirements you discover instead of assuming they’re universal.'],
+    ],
+  },
+] as const
+
+const unlockPlatforms = [
+  {
+    id: 'dreamcast', label: 'Dreamcast', image: '/media/consoles/dreamcast-console.svg', platformLabel: 'Home console',
+    summary: 'Adventure play and the in-game item economy underpin the home progression loop. Character and item requirements can vary by release or source.',
+    status: 'Exact conditions to verify',
+    note: 'Before investing time, confirm your region and save context against a verified manual or gameplay record.',
+  },
+  {
+    id: 'psp', label: 'PSP · Power Stone Collection', image: '/media/consoles/psp-console.svg', platformLabel: 'Portable compilation',
+    summary: 'The compilation combines both games and includes its own portable-era presentation and progression context.',
+    status: 'Collection-specific details to verify',
+    note: 'Do not assume every Dreamcast instruction maps one-to-one to this release.',
+  },
+  {
+    id: 'arcade', label: 'Arcade (NAOMI)', image: '/media/consoles/arcade-console.svg', platformLabel: 'Hardware context',
+    summary: 'The arcade release is historical and hardware context here—not a home unlock path. This guide does not apply Dreamcast save-based instructions to arcade operation.',
+    status: 'Not a home unlock path',
+    note: 'Full unlock checklists for this platform are queued for a future update.',
+  },
+] as const
+
+const characterSlides = [
+  '/media/placeholders/character-slideshow-slide-1-placeholder.svg',
+  '/media/placeholders/character-slideshow-slide-2-placeholder.svg',
+  '/media/placeholders/character-slideshow-slide-3-placeholder.svg',
+]
+
+const selectedPlatform = ref<typeof platforms[number]['id']>(platforms[0].id)
+const selectedMode = ref<typeof modes[number]['id']>(modes[0].id)
+const selectedOnline = ref<typeof onlineOptions[number]['id']>(onlineOptions[0].id)
+const selectedUnlockPlatform = ref<typeof unlockPlatforms[number]['id']>(unlockPlatforms[0].id)
+const activePlatform = computed(() => platforms.find(platform => platform.id === selectedPlatform.value) ?? platforms[0])
+const activeMode = computed(() => modes.find(mode => mode.id === selectedMode.value) ?? modes[0])
+const activeOnline = computed(() => onlineOptions.find(option => option.id === selectedOnline.value) ?? onlineOptions[0])
+const activeUnlockPlatform = computed(() => unlockPlatforms.find(platform => platform.id === selectedUnlockPlatform.value) ?? unlockPlatforms[0])
+
+const characterSlideIndex = ref(0)
+watch(selectedCharacter, () => { characterSlideIndex.value = 0 })
+function nextCharacterSlide() { characterSlideIndex.value = (characterSlideIndex.value + 1) % characterSlides.length }
+function previousCharacterSlide() { characterSlideIndex.value = (characterSlideIndex.value - 1 + characterSlides.length) % characterSlides.length }
+
 const milestones = [
   ['1999', 'Power Stone arrives in arcades and on Dreamcast, establishing the transforming 3D arena formula.'],
   ['Early 2000', 'Power Stone 2 reaches Japanese arcades on Sega NAOMI hardware.'],
@@ -86,11 +208,21 @@ const milestones = [
         </video>
         <span class="hero__media-label">Power Stone 2 in motion</span>
       </div>
-      <a class="hero__scroll" href="#how-to-play">How to play <span aria-hidden="true">↓</span></a>
+      <a class="hero__scroll" href="#game-overview">How to play <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section id="game-overview" class="content-section routed-section content-section--game-overview" aria-labelledby="game-overview-title">
+      <SectionHeading title-id="game-overview-title" kicker="01 / About the game" title="A transforming arena brawler." intro="Power Stone 2 sends up to four fighters into a single free-roaming stage, racing to combine stones into a temporary transformation while the arena itself keeps changing shape underfoot." />
+      <div class="game-overview">
+        <p class="game-overview__lede">Capcom’s 2000 sequel expands the original Power Stone into full four-player chaos: any object in reach can become a weapon, any stage can shift or crumble mid-fight, and a well-timed transformation can flip a losing match in seconds. The sections below walk through how to play, on which platform, and how to get a match running with friends.</p>
+        <dl class="game-overview__facts">
+          <div v-for="fact in quickFacts" :key="fact[0]"><dt>{{ fact[0] }}</dt><dd>{{ fact[1] }}</dd></div>
+        </dl>
+      </div>
     </section>
 
     <section id="how-to-play" class="content-section routed-section content-section--how-to-play" aria-labelledby="how-to-play-title">
-      <SectionHeading title-id="how-to-play-title" kicker="01 / Field briefing" title="Learn the scramble." intro="Power Stone 2 is a free-moving arena fight: outlast the opposition while adapting to items, transformations, hazards, and stages that refuse to sit still." />
+      <SectionHeading title-id="how-to-play-title" kicker="02 / Field briefing" title="Learn the scramble." intro="Power Stone 2 is a free-moving arena fight: outlast the opposition while adapting to items, transformations, hazards, and stages that refuse to sit still." />
       <div class="play-guide">
         <img class="play-guide__controller" src="/media/hardware/dreamcast-controller.svg" alt="Dreamcast controller" />
         <div class="play-guide__cards">
@@ -101,14 +233,36 @@ const milestones = [
         </div>
       </div>
       <aside class="first-match"><p class="eyebrow">First-match plan</p><p>Keep moving, learn the arena before chasing every pickup, and secure loose Power Stones when the route is safe. Save an item for space-making, then pressure a transformed rival from a distance until their advantage fades.</p></aside>
-    </section>
 
-    <section id="multiplayer" class="content-section routed-section" aria-labelledby="multiplayer-title">
-      <SectionHeading title-id="multiplayer-title" kicker="02 / Network bench" title="Bring the couch online." intro="A version-agnostic Flycast Dojo readiness path focused on matching setups and diagnosing issues—without promising a permanent link or frozen interface." />
-      <ol class="steps">
-        <li v-for="(step, index) in multiplayerSteps" :key="step[0]"><span class="steps__number">{{ String(index + 1).padStart(2, '0') }}</span><div><h3>{{ step[0] }}</h3><p>{{ step[1] }}</p></div></li>
-      </ol>
-      <aside class="callout"><b>Keep it legitimate and current.</b> Supply your own game files, consult Flycast Dojo’s current official documentation, and expect networking screens or requirements to evolve.</aside>
+      <div class="subsection">
+        <h3 class="subsection__title">Select a platform</h3>
+        <HorizontalNav :items="platforms" v-model="selectedPlatform" nav-label="Select a platform" />
+        <article class="subsection__panel" aria-live="polite">
+          <p>{{ activePlatform.summary }}</p>
+          <ul><li v-for="note in activePlatform.notes" :key="note">{{ note }}</li></ul>
+        </article>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">Select a mode</h3>
+        <HorizontalNav :items="modes" v-model="selectedMode" nav-label="Select a mode" />
+        <article class="subsection__panel" aria-live="polite">
+          <p>{{ activeMode.summary }}</p>
+          <ul><li v-for="note in activeMode.notes" :key="note">{{ note }}</li></ul>
+        </article>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">Play online</h3>
+        <HorizontalNav :items="onlineOptions" v-model="selectedOnline" nav-label="Play online" />
+        <article class="subsection__panel" aria-live="polite">
+          <p>{{ activeOnline.intro }}</p>
+          <ol class="steps">
+            <li v-for="(step, index) in activeOnline.steps" :key="step[0]"><span class="steps__number">{{ String(index + 1).padStart(2, '0') }}</span><div><h4>{{ step[0] }}</h4><p>{{ step[1] }}</p></div></li>
+          </ol>
+        </article>
+        <aside class="callout"><b>Keep it legitimate and current.</b> Supply your own game files, consult each project’s current official documentation, and expect networking screens or requirements to evolve.</aside>
+      </div>
     </section>
 
     <section id="items" class="content-section routed-section content-section--items" aria-labelledby="items-title">
@@ -157,16 +311,52 @@ const milestones = [
           <span v-if="isPspExclusive(selectedCharacter)" class="status-tag">PSP exclusive</span>
           <small v-if="!selectedCharacter.portrait">Replaceable character art</small>
         </div>
-        <div class="fighter-file__copy"><p class="eyebrow">Player file</p><h3>{{ selectedCharacter.name }}</h3><p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p><h4>Background / history</h4><p>{{ selectedCharacter.history }}</p><h4>Editorial attributes</h4><ul class="attribute-list"><li v-for="attribute in selectedCharacter.attributes" :key="attribute">{{ attribute }}</li></ul></div>
-        <div class="fighter-file__moves"><div><p class="eyebrow">Moves & play categories</p><h4>Field notes</h4></div><ol><li v-for="(move, index) in selectedCharacter.moves" :key="move"><span>0{{ index + 1 }}</span>{{ move }}</li></ol></div>
+        <div class="fighter-file__details">
+          <p class="eyebrow">Player file</p>
+          <h3>{{ selectedCharacter.name }}</h3>
+          <p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p>
+          <h4>Background / history</h4>
+          <p>{{ selectedCharacter.history }}</p>
+          <h4>Characteristics</h4>
+          <ul class="characteristics-list"><li v-for="attribute in selectedCharacter.attributes" :key="attribute">{{ attribute }}</li></ul>
+          <div class="character-slideshow">
+            <div class="character-slideshow__stage">
+              <img :src="characterSlides[characterSlideIndex]" :alt="`${selectedCharacter.name} placeholder slideshow image ${characterSlideIndex + 1}`" />
+              <button class="character-slideshow__arrow character-slideshow__arrow--previous" type="button" aria-label="Previous slideshow image" @click="previousCharacterSlide">←</button>
+              <button class="character-slideshow__arrow character-slideshow__arrow--next" type="button" aria-label="Next slideshow image" @click="nextCharacterSlide">→</button>
+            </div>
+            <p class="character-slideshow__caption" aria-live="polite">Image {{ characterSlideIndex + 1 }} of {{ characterSlides.length }} · replaceable character slideshow</p>
+          </div>
+          <h4>Moves &amp; play categories</h4>
+          <ol class="moves-list"><li v-for="(move, index) in selectedCharacter.moves" :key="move"><span>0{{ index + 1 }}</span>{{ move }}</li></ol>
+        </div>
       </article>
     </section>
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
-      <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Open an arena file to inspect its replaceable visual study. Use the arrow keys inside the gallery to move between views." />
-      <div class="level-grid">
-        <button v-for="(level, index) in levels" :key="level.id" class="level-card" type="button" @click="store.showLevel(level.id)"><img :src="level.media" :alt="`${level.name} replaceable level artwork`" /><span class="level-card__number">0{{ index + 1 }}</span><span class="level-card__copy"><b>{{ level.name }}</b><small>{{ level.description }}</small><em>Open arena file →</em></span></button>
+      <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Choose an arena file to inspect its replaceable visual study. Use the arrow keys inside the gallery to move between views." />
+      <div class="level-select" role="list" aria-label="Playable arenas">
+        <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="store.selectLevel(level.id)">
+          <img class="level-chip__thumb" :src="level.media" :alt="`${level.name} replaceable level artwork`" />
+          <span class="level-chip__number">0{{ index + 1 }}</span>
+          <span>{{ level.name }}</span>
+        </button>
       </div>
+      <article class="level-file" aria-live="polite">
+        <div class="level-file__stage">
+          <img :src="selectedLevel.slides[slideIndex]" :alt="`${selectedLevel.name} view ${slideIndex + 1}`" />
+          <template v-if="selectedLevel.slides.length > 1">
+            <button class="level-file__arrow level-file__arrow--previous" type="button" aria-label="Previous slide" @click="store.previousSlide">←</button>
+            <button class="level-file__arrow level-file__arrow--next" type="button" aria-label="Next slide" @click="store.nextSlide">→</button>
+          </template>
+        </div>
+        <div class="level-file__copy">
+          <p class="eyebrow">Arena file</p>
+          <h3>{{ selectedLevel.name }}</h3>
+          <p v-if="selectedLevel.slides.length > 1" aria-live="polite">Slide {{ slideIndex + 1 }} of {{ selectedLevel.slides.length }}</p>
+          <p>{{ selectedLevel.description }}</p>
+        </div>
+      </article>
     </section>
 
     <section id="bosses" class="content-section routed-section content-section--bosses" aria-labelledby="bosses-title">
@@ -176,13 +366,16 @@ const milestones = [
       </div>
     </section>
 
-    <section id="unlocks" class="content-section routed-section content-section--split" aria-labelledby="unlocks-title">
+    <section id="unlocks" class="content-section routed-section content-section--unlocks" aria-labelledby="unlocks-title">
       <SectionHeading title-id="unlocks-title" kicker="08 / Progress" title="Know which version you’re playing." intro="Progress systems differ across releases. Treat the notes below as a safe orientation, not a substitute for a version-specific verified checklist." />
-      <div class="unlock-grid">
-        <article><p class="platform-label">Home console</p><h3>Dreamcast</h3><p>Adventure play and the in-game item economy underpin the home progression loop. Character and item requirements can vary by release or source.</p><span class="status-tag">Exact conditions to verify</span><p>Before investing time, confirm your region and save context against a verified manual or gameplay record.</p></article>
-        <article><p class="platform-label">Portable compilation</p><h3>PSP · Power Stone Collection</h3><p>The compilation combines both games and includes its own portable-era presentation and progression context.</p><span class="status-tag">Collection-specific details to verify</span><p>Do not assume every Dreamcast instruction maps one-to-one to this release.</p></article>
-        <article class="unlock-grid__context"><p class="platform-label">Hardware context</p><h3>Arcade / NAOMI</h3><p>The arcade release is historical and hardware context here—not a home unlock path. This guide does not apply Dreamcast save-based instructions to arcade operation.</p></article>
-      </div>
+      <HorizontalNav :items="unlockPlatforms" v-model="selectedUnlockPlatform" nav-label="Select a platform for unlock notes" />
+      <article class="unlock-detail">
+        <p class="platform-label">{{ activeUnlockPlatform.platformLabel }}</p>
+        <h3>{{ activeUnlockPlatform.label }}</h3>
+        <p>{{ activeUnlockPlatform.summary }}</p>
+        <span class="status-tag">{{ activeUnlockPlatform.status }}</span>
+        <p class="unlock-detail__pending">{{ activeUnlockPlatform.note }}</p>
+      </article>
     </section>
 
     <section id="history" class="content-section routed-section content-section--history" aria-labelledby="history-title">
@@ -201,5 +394,4 @@ const milestones = [
         <p class="about__promise">No hotlinked media. No invented certainty. A structure ready for sourced updates.</p></div>
     </section>
   </div>
-  <LevelDialog />
 </template>

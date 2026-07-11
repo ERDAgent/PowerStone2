@@ -23,7 +23,7 @@ export const useGuideStore = defineStore('guide', () => {
   const catalogKind = ref<CatalogKind>('item')
   const itemCategory = ref('All')
   const itemQuery = ref('')
-  const openLevelId = ref<LevelRecord['id'] | null>(null)
+  const selectedLevelId = ref<LevelRecord['id']>(levels[0].id)
   const slideIndex = ref(0)
 
   const selectedCharacter = computed(() => characters.find(c => c.id === selectedCharacterId.value) ?? characters[0])
@@ -37,7 +37,7 @@ export const useGuideStore = defineStore('guide', () => {
     })
   })
   const selectedEntity = computed(() => filteredEntities.value.find(entity => entity.record.id === selectedEntityId.value) ?? null)
-  const openLevel = computed(() => levels.find(l => l.id === openLevelId.value) ?? null)
+  const selectedLevel = computed(() => levels.find(l => l.id === selectedLevelId.value) ?? levels[0])
 
   function reconcileSelection() {
     if (!filteredEntities.value.some(entity => entity.record.id === selectedEntityId.value)) selectedEntityId.value = filteredEntities.value[0]?.record.id ?? null
@@ -50,12 +50,11 @@ export const useGuideStore = defineStore('guide', () => {
   }
   function setCategory(category: string) { itemCategory.value = category }
   function setItemQuery(query: string) { itemQuery.value = query }
-  function showLevel(id: LevelRecord['id']) { openLevelId.value = id; slideIndex.value = 0 }
-  function closeLevel() { openLevelId.value = null; slideIndex.value = 0 }
-  function nextSlide() { if (openLevel.value) slideIndex.value = (slideIndex.value + 1) % openLevel.value.slides.length }
-  function previousSlide() { if (openLevel.value) slideIndex.value = (slideIndex.value - 1 + openLevel.value.slides.length) % openLevel.value.slides.length }
+  function selectLevel(id: LevelRecord['id']) { selectedLevelId.value = id; slideIndex.value = 0 }
+  function nextSlide() { slideIndex.value = (slideIndex.value + 1) % selectedLevel.value.slides.length }
+  function previousSlide() { slideIndex.value = (slideIndex.value - 1 + selectedLevel.value.slides.length) % selectedLevel.value.slides.length }
 
   watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, openLevelId, slideIndex, selectedCharacter, selectedEntity, filteredEntities, openLevel, selectCharacter, selectEntity, setCatalogKind, setCategory, setItemQuery, showLevel, closeLevel, nextSlide, previousSlide }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, slideIndex, selectedCharacter, selectedEntity, filteredEntities, selectedLevel, selectCharacter, selectEntity, setCatalogKind, setCategory, setItemQuery, selectLevel, nextSlide, previousSlide }
 })
