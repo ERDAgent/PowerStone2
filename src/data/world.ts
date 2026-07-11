@@ -11,6 +11,8 @@ export interface CharacterRecord extends MediaRecord {
   readonly attributes: readonly string[]
   readonly moves: readonly string[]
   readonly color: string
+  readonly portrait: string | null
+  readonly availability: 'dreamcast' | 'psp-exclusive'
   readonly provenance: DataProvenance
 }
 

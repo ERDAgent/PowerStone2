@@ -67,7 +67,7 @@ const milestones = [
       <div class="hero__orbits" aria-hidden="true"><i /><i /><i /></div>
       <div class="hero__content">
         <p class="hero__kicker">The world’s yours for the taking</p>
-        <img class="hero__logo" src="/media/power-stone-2-logo.png" alt="Power Stone 2" />
+        <img class="hero__logo" src="/media/logos/power-stone-2-logo.png" alt="Power Stone 2" />
         <h1 id="overview-title" class="sr-only">Power Stone 2 Field Guide</h1>
         <p class="hero__lede">A fast, tactile field guide to Capcom’s shape-shifting four-player arena adventure.</p>
         <dl class="hero__meta">
@@ -78,8 +78,8 @@ const milestones = [
         <div class="hero__actions"><RouterLink class="button button--primary" to="/items">Explore items</RouterLink><RouterLink class="button button--ghost" to="/characters">Meet the roster</RouterLink></div>
       </div>
       <div class="hero__media">
-        <video class="hero__video" autoplay muted loop playsinline poster="/media/gameplay-loop-poster.jpg" aria-hidden="true">
-          <source src="/media/gameplay-loop.mp4" type="video/mp4" />
+        <video class="hero__video" autoplay muted loop playsinline poster="/media/videos/gameplay-loop-poster.jpg" aria-hidden="true">
+          <source src="/media/videos/gameplay-loop.mp4" type="video/mp4" />
         </video>
         <span class="hero__media-label">Power Stone 2 in motion</span>
       </div>
@@ -89,7 +89,7 @@ const milestones = [
     <section id="how-to-play" class="content-section routed-section content-section--how-to-play" aria-labelledby="how-to-play-title">
       <SectionHeading title-id="how-to-play-title" kicker="01 / Field briefing" title="Learn the scramble." intro="Power Stone 2 is a free-moving arena fight: outlast the opposition while adapting to items, transformations, hazards, and stages that refuse to sit still." />
       <div class="play-guide">
-        <img class="play-guide__controller" src="/media/dreamcast-controller.svg" alt="Dreamcast controller" />
+        <img class="play-guide__controller" src="/media/hardware/dreamcast-controller.svg" alt="Dreamcast controller" />
         <div class="play-guide__cards">
           <article><span>01</span><h3>Move, fight, interact</h3><p>Run freely around the 3D space, jump between elevations, attack nearby rivals, and use the game’s context-sensitive action to pick up items or interact with arena features. Check your version’s control settings for the exact mapping.</p></article>
           <article><span>02</span><h3>Claim three Power Stones</h3><p>Collect three stones before your opponents to transform. The powered-up form is temporary, so use its stronger attacks decisively while watching for stones knocked loose in the fight.</p></article>
@@ -138,12 +138,22 @@ const milestones = [
     </section>
 
     <section id="characters" class="content-section routed-section content-section--characters" aria-labelledby="characters-title">
-      <SectionHeading title-id="characters-title" kicker="05 / Select player" title="Fourteen ways into the fray." intro="Choose a portrait to update the player file. Attributes are editorial impressions; move notation remains queued for gameplay verification." />
+      <SectionHeading title-id="characters-title" kicker="05 / Select player" title="Fourteen ways into the fray, plus two PSP exclusives." intro="Choose a portrait to update the player file. The base Dreamcast and arcade roster numbers fourteen; Kraken and General Valgas are marked PSP exclusive, unlocked only in the Power Stone Collection release. Attributes are editorial impressions; move notation remains queued for gameplay verification." />
       <div class="character-select" role="list" aria-label="Playable characters">
-        <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="store.selectCharacter(character.id)"><span class="portrait__avatar" aria-hidden="true">{{ character.name.slice(0, 2).toUpperCase() }}</span><span>{{ character.name }}</span></button>
+        <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="store.selectCharacter(character.id)">
+          <img v-if="character.media" class="portrait__avatar" :src="character.media" :alt="`${character.name} chip art`" />
+          <span v-else class="portrait__avatar" aria-hidden="true">{{ character.name.slice(0, 2).toUpperCase() }}</span>
+          <span v-if="character.availability === 'psp-exclusive'" class="status-tag">PSP exclusive</span>
+          <span>{{ character.name }}</span>
+        </button>
       </div>
       <article class="fighter-file" aria-live="polite">
-        <div class="fighter-file__hero" :style="{ '--character-color': selectedCharacter.color }"><span aria-hidden="true">{{ selectedCharacter.name.slice(0, 2).toUpperCase() }}</span><small>Replaceable character art</small></div>
+        <div class="fighter-file__hero" :style="{ '--character-color': selectedCharacter.color }">
+          <img v-if="selectedCharacter.portrait" class="fighter-file__portrait" :src="selectedCharacter.portrait" :alt="`${selectedCharacter.name} full character art`" />
+          <span v-else aria-hidden="true">{{ selectedCharacter.name.slice(0, 2).toUpperCase() }}</span>
+          <span v-if="selectedCharacter.availability === 'psp-exclusive'" class="status-tag">PSP exclusive</span>
+          <small v-if="!selectedCharacter.portrait">Replaceable character art</small>
+        </div>
         <div class="fighter-file__copy"><p class="eyebrow">Player file</p><h3>{{ selectedCharacter.name }}</h3><p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p><h4>Background / history</h4><p>{{ selectedCharacter.history }}</p><h4>Editorial attributes</h4><ul class="attribute-list"><li v-for="attribute in selectedCharacter.attributes" :key="attribute">{{ attribute }}</li></ul></div>
         <div class="fighter-file__moves"><div><p class="eyebrow">Moves & play categories</p><h4>Field notes</h4></div><ol><li v-for="(move, index) in selectedCharacter.moves" :key="move"><span>0{{ index + 1 }}</span>{{ move }}</li></ol></div>
       </article>
@@ -179,7 +189,13 @@ const milestones = [
 
     <section id="about" class="content-section routed-section about" aria-labelledby="about-title">
       <div class="about__mark" aria-hidden="true">PS<br />2</div>
-      <div class="about__copy"><SectionHeading title-id="about-title" kicker="10 / About Us" title="Made by fans, built to be corrected." intro="This independent, non-commercial field guide celebrates Power Stone 2 and gives players a clear, accessible place to learn. Provisional facts are visibly flagged for future verification." /><p>It is not affiliated with or endorsed by Capcom. Game names, characters, artwork, logos, music, footage, and all other related rights remain with their respective rights holders.</p><p class="about__promise">No hotlinked media. No invented certainty. A structure ready for sourced updates.</p></div>
+      <div class="about__copy"><SectionHeading title-id="about-title" kicker="10 / About Us" title="Made by fans, built to be corrected." intro="This independent, non-commercial field guide celebrates Power Stone 2 and gives players a clear, accessible place to learn. Provisional facts are visibly flagged for future verification." /><p>It is not affiliated with or endorsed by Capcom. Game names, characters, artwork, logos, music, footage, and all other related rights remain with their respective rights holders.</p>
+        <div class="about__reference">
+          <figure><img src="/media/box-art/dreamcast-box-art.jpg" alt="Original Power Stone 2 Dreamcast box art, shown for reference only." /><figcaption>Dreamcast box art</figcaption></figure>
+          <figure><img src="/media/menus/menu-items.png" alt="Screenshot of the original game's in-game menu text, shown for reference only." /><figcaption>Menu text reference</figcaption></figure>
+          <figure><img src="/media/fonts/font-sprite.png" alt="Bitmap font sprite sheet from the original game, shown for reference only." /><figcaption>Font sprite reference</figcaption></figure>
+        </div>
+        <p class="about__promise">No hotlinked media. No invented certainty. A structure ready for sourced updates.</p></div>
     </section>
   </div>
   <LevelDialog />
