@@ -3,7 +3,7 @@ export const sections = [
   { id: 'game-overview', label: 'About the Game' },
   { id: 'how-to-play', label: 'How to Play' },
   { id: 'items', label: 'Items' },
-  { id: 'combinations', label: 'Combinations' },
+  { id: 'recipes', label: 'Recipes' },
   { id: 'characters', label: 'Characters' },
   { id: 'levels', label: 'Levels' },
   { id: 'enemies', label: 'Enemies' },

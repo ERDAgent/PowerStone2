@@ -15,7 +15,7 @@ const expectedSections = [
   ['game-overview', 'About the Game'],
   ['how-to-play', 'How to Play'],
   ['items', 'Items'],
-  ['combinations', 'Combinations'],
+  ['recipes', 'Recipes'],
   ['characters', 'Characters'],
   ['levels', 'Levels'],
   ['enemies', 'Enemies'],
