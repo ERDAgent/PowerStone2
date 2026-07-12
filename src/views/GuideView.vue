@@ -420,8 +420,9 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
         <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="store.selectCharacter(character.id)">
           <img v-if="character.media" class="portrait__avatar" :src="character.media" :alt="`${character.name} chip art`" />
           <span v-else class="portrait__avatar" aria-hidden="true">{{ character.name.slice(0, 2).toUpperCase() }}</span>
-          <span v-if="isPspExclusive(character)" class="status-tag">PSP exclusive</span>
-          <span>{{ character.name }}</span>
+          <span v-if="isPspExclusive(character)" class="status-tag status-tag--psp">PSP exclusive</span>
+          <span class="sr-only">{{ character.name }}</span>
+          <span class="portrait__details-bar">{{ character.name }}</span>
         </button>
       </div>
       <article class="fighter-file" aria-live="polite">
@@ -432,7 +433,7 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
         <div class="fighter-file__hero" :style="{ '--character-color': selectedCharacter.color }">
           <img v-if="selectedCharacter.portrait" class="fighter-file__portrait" :src="selectedCharacter.portrait" :alt="`${selectedCharacter.name} full character art`" />
           <span v-else class="fighter-file__initials" aria-hidden="true">{{ selectedCharacter.name.slice(0, 2).toUpperCase() }}</span>
-          <span v-if="isPspExclusive(selectedCharacter)" class="status-tag">PSP exclusive</span>
+          <span v-if="isPspExclusive(selectedCharacter)" class="status-tag status-tag--psp">PSP exclusive</span>
           <small v-if="!selectedCharacter.portrait">Replaceable character art</small>
         </div>
         <div class="fighter-file__copy"><p class="eyebrow">Player file</p><h3>{{ selectedCharacter.name }}</h3><p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p><h4>Background / history</h4><p>{{ selectedCharacter.history }}</p><h4>Editorial attributes</h4><ul class="attribute-list"><li v-for="attribute in selectedCharacter.attributes" :key="attribute">{{ attribute }}</li></ul></div>
