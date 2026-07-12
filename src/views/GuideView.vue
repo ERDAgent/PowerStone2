@@ -207,7 +207,11 @@ const levelVideos = [
   { video: '/media/videos/gameplay-loop.mp4', poster: '/media/placeholders/level-video-poster-2-placeholder.svg', label: 'Placeholder clip 2' },
   { video: '/media/videos/gameplay-loop.mp4', poster: '/media/placeholders/level-video-poster-3-placeholder.svg', label: 'Placeholder clip 3' },
 ]
-const levelPictureItems = computed<GalleryItem[]>(() => selectedLevel.value.slides.map((src, index) => ({ kind: 'image', src, label: `${selectedLevel.value.name} — image ${index + 1}` })))
+function stageFromPath(path: string): number | undefined {
+  const match = path.match(/stage(\d+)-\d+/i)
+  return match ? Number(match[1]) : undefined
+}
+const levelPictureItems = computed<GalleryItem[]>(() => selectedLevel.value.slides.map((src, index) => ({ kind: 'image', src, label: `${selectedLevel.value.name} — image ${index + 1}`, stage: stageFromPath(src) })))
 const levelVideoItems = computed<GalleryItem[]>(() => levelVideos.map(clip => ({ kind: 'video', src: clip.video, poster: clip.poster, label: clip.label })))
 type GalleryKind = 'pictures' | 'video'
 const openGallery = ref<{ kind: GalleryKind; index: number } | null>(null)

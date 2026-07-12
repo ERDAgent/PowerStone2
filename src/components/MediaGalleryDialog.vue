@@ -6,6 +6,7 @@ export interface GalleryItem {
   readonly src: string
   readonly poster?: string
   readonly label: string
+  readonly stage?: number
 }
 
 const props = defineProps<{
@@ -45,7 +46,7 @@ onBeforeUnmount(() => document.body.classList.remove('is-dialog-open'))
       <div class="level-dialog__backdrop" aria-hidden="true" @click="close" />
       <section ref="dialog" class="level-dialog__panel" role="dialog" aria-modal="true" aria-labelledby="media-gallery-title">
         <div class="level-dialog__header">
-          <div><p class="eyebrow">{{ title }}</p><h2 id="media-gallery-title">{{ items[activeIndex]?.label }}</h2></div>
+          <div><p class="eyebrow">{{ title }}</p><h2 id="media-gallery-title">{{ items[activeIndex]?.label }}</h2><span v-if="items[activeIndex]?.stage" class="status-tag">Stage {{ items[activeIndex]?.stage }}</span></div>
           <button ref="closeButton" class="icon-button" type="button" aria-label="Close gallery" @click="close">×</button>
         </div>
         <div class="level-dialog__stage">

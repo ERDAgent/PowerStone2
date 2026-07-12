@@ -455,6 +455,33 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('tags each level picture with a "Stage N" badge parsed from its stageN-M filename', async () => {
+    const { wrapper } = await mountGuide()
+    expect(levels[0].slides).toEqual([
+      '/media/levels/levels-gallery/blue-sky-area/stage1-1-compressed.jpg',
+      '/media/levels/levels-gallery/blue-sky-area/stage1-2-compressed.jpg',
+      '/media/levels/levels-gallery/blue-sky-area/stage2-1-compressed.jpg',
+      '/media/levels/levels-gallery/blue-sky-area/stage3-1-compressed.jpg',
+    ])
+
+    await wrapper.findAll('.detail-panel--pictures .thumb-grid__item')[0].trigger('click')
+    const stageTag = () => document.body.querySelector('[role="dialog"] .status-tag')
+    expect(stageTag()?.textContent).toBe('Stage 1')
+
+    document.body.querySelector<HTMLButtonElement>('[aria-label="Next"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(stageTag()?.textContent).toBe('Stage 1')
+
+    document.body.querySelector<HTMLButtonElement>('[aria-label="Next"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(stageTag()?.textContent).toBe('Stage 2')
+
+    document.body.querySelector<HTMLButtonElement>('[aria-label="Next"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(stageTag()?.textContent).toBe('Stage 3')
+    wrapper.unmount()
+  })
+
   it('opens a video thumbnail in the gallery dialog and navigates between clips', async () => {
     const { wrapper } = await mountGuide()
     const videoThumbs = wrapper.findAll('.detail-panel--video .thumb-grid__item')
@@ -464,6 +491,7 @@ describe('guide interactions', () => {
     expect(dialog!.querySelector('video')).not.toBeNull()
     expect(dialog!.textContent).toContain('Placeholder clip 1')
     expect(dialog!.textContent).toContain('1 of 3')
+    expect(dialog!.querySelector('.status-tag')).toBeNull()
 
     dialog!.querySelector<HTMLButtonElement>('[aria-label="Next"]')!.click()
     await wrapper.vm.$nextTick()
