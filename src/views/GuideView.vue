@@ -448,11 +448,18 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
             </dl>
             <div class="character-slideshow">
               <div class="character-slideshow__stage">
-                <img :src="characterSlides[characterSlideIndex]" :alt="`${selectedCharacter.name} placeholder slideshow image ${characterSlideIndex + 1}`" />
+                <img
+                  v-for="(slide, index) in characterSlides"
+                  :key="slide"
+                  :src="slide"
+                  :class="['character-slideshow__image', { active: index === characterSlideIndex }]"
+                  :alt="`${selectedCharacter.name} placeholder slideshow image ${index + 1}`"
+                />
                 <button class="character-slideshow__arrow character-slideshow__arrow--previous" type="button" aria-label="Previous slideshow image" @click="previousCharacterSlide">←</button>
                 <button class="character-slideshow__arrow character-slideshow__arrow--next" type="button" aria-label="Next slideshow image" @click="nextCharacterSlide">→</button>
               </div>
               <p class="character-slideshow__caption" aria-live="polite">Image {{ characterSlideIndex + 1 }} of {{ characterSlides.length }} · replaceable character slideshow</p>
+              <p class="character-slideshow__caption character-slideshow__caption--tablet" aria-live="polite">All {{ characterSlides.length }} character slideshow images · replaceable</p>
             </div>
           </section>
 
