@@ -407,8 +407,8 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
       </div>
     </section>
 
-    <section id="combinations" class="content-section routed-section" aria-labelledby="combinations-title">
-      <SectionHeading title-id="combinations-title" kicker="04 / Workshop" title="Build beyond the pickup." intro="Look up every resolved alternative recorded in the recipe database. Ambiguous source formulas stay visibly quarantined." />
+    <section id="recipes" class="content-section routed-section" aria-labelledby="recipes-title">
+      <SectionHeading title-id="recipes-title" kicker="04 / Workshop" title="Build beyond the pickup." intro="Look up every resolved alternative recorded in the recipe database. Ambiguous source formulas stay visibly quarantined." />
       <RecipeLookup />
     </section>
 
