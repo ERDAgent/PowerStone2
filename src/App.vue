@@ -99,8 +99,7 @@ onBeforeUnmount(() => {
   <a class="skip-link" href="#main-content">Skip to field guide</a>
   <header class="site-header">
     <RouterLink class="site-header__brand" to="/home" aria-label="Power Stone 2 field guide home">
-      <span class="site-header__gem" aria-hidden="true">◆</span>
-      <span>PS2 <b>Field Guide</b></span>
+      <img class="site-header__logo" src="/media/logos/power-stone-2-logo.png" alt="" />
     </RouterLink>
     <button class="site-header__toggle" type="button" :aria-expanded="menuOpen" aria-controls="primary-navigation" @click="menuOpen = !menuOpen">
       <span aria-hidden="true">{{ menuOpen ? '×' : '☰' }}</span><span class="sr-only">Toggle navigation</span>
