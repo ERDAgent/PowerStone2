@@ -127,7 +127,7 @@ const modes = [
 
 const onlineOptions = [
   {
-    id: 'capcom-fighting-collection-2', label: 'Capcom Fighting Collection 2',
+    id: 'capcom-fighting-collection-2', label: 'Capcom Fighting Collection 2', image: '/media/logos/fighting-collection-2-small-compressed.png',
     intro: 'Capcom Fighting Collection 2 (2025) bundles Power Stone and Power Stone 2 alongside several other Capcom fighting games on modern platforms — the most direct, officially licensed way to play today.',
     steps: [
       ['Get the collection', 'Purchase Capcom Fighting Collection 2 from an official storefront (Steam, PlayStation Store, Xbox, Nintendo eShop) for your platform of choice.'],
@@ -137,7 +137,7 @@ const onlineOptions = [
     ],
   },
   {
-    id: 'flycast-dojo', label: 'Flycast Dojo',
+    id: 'flycast-dojo', label: 'Flycast Dojo', image: '/media/logos/flycast-dojo-logo-compressed.png',
     intro: 'A version-agnostic Flycast Dojo readiness path focused on matching setups and diagnosing issues—without promising a permanent link or frozen interface.',
     steps: [
       ['Prepare your game', 'Use your own legally obtained game files and confirm they launch locally before networking.'],
