@@ -104,7 +104,7 @@ img { display: block; max-width: 100%; }
 .game-overview__facts dt { color: #d6421e; font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .game-overview__facts dd { margin: .4rem 0 0; color: #5c5568; font-size: .84rem; }
 .section-divider { position: relative; z-index: 1; height: 0; }
-.section-divider__mark { position: absolute; z-index: 2; top: 0; left: 50%; width: 52px; height: 52px; object-fit: contain; transform: translate(-50%, -50%) rotate(10deg); filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .5)); }
+.section-divider__mark { position: absolute; z-index: 2; top: 0; left: 50%; width: 52px; height: 52px; object-fit: contain; transform: translate(-50%, -50%); filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .5)); }
 .subsection { max-width: 1180px; margin-top: clamp(3rem, 6vw, 4.5rem); }
 .subsection__title { margin: 0 0 1rem; font-family: 'Guide Display', Impact, sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); text-transform: uppercase; letter-spacing: -.01em; }
 .subsection__panel { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid #b8afa4; background: rgba(255, 255, 255, .78); }
