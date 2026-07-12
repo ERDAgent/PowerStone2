@@ -115,19 +115,19 @@ const platforms = [
 
 const modes = [
   {
-    id: 'adventure', label: 'Adventure Mode',
-    summary: 'A story path through a series of stages and boss encounters, framed as each character’s personal quest for the Atlamillia.',
-    notes: ['Some releases allow a second player to join in on parts of the adventure.', 'Exact stage counts, branching, and unlock triggers vary by release and remain queued for verification.'],
+    id: 'team-battle', label: 'Team Battle', image: '/media/menus/mode-teambattle-compressed.png',
+    summary: 'A versus variant that splits fighters into two sides instead of a free-for-all, sharing the same transforming arenas and Power Stone system as the core match format.',
+    notes: ['Exact team-size limits and scoring rules are not confirmed here and vary by release.', 'Confirm against your specific version before relying on this guide.'],
   },
   {
-    id: 'vs-battle', label: 'VS Battle',
-    summary: 'The core multiplayer format: up to four fighters share a single transforming arena, racing to combine Power Stones for a temporary transformation.',
+    id: '3team-battle', label: '3 Team Battle', image: '/media/menus/mode-3teambattle-compressed.png',
+    summary: 'A team-based versus variant built around three sides rather than two, using the same living arenas and Power Stone transformations as the rest of versus play.',
+    notes: ['How players are distributed across the three teams, and any related scoring differences, are unverified as of this writing.', 'Naming and availability may differ across the arcade, Dreamcast, and PSP Collection releases.'],
+  },
+  {
+    id: 'battle-royal', label: 'Battle Royal', image: '/media/menus/mode-battleroyal-compressed.png',
+    summary: 'The free-for-all versus format: up to four fighters share a single transforming arena, racing to combine Power Stones for a temporary transformation.',
     notes: ['This is the mode most guides and tournaments reference when discussing matchups.', 'Item spawns, hazards, and stage transitions can reshape a fight at any moment.'],
-  },
-  {
-    id: 'survival', label: 'Survival / Trial',
-    summary: 'Solo-focused challenge modes that test endurance or a specific skill outside the main story and versus formats.',
-    notes: ['Naming, structure, and availability differ across the arcade, Dreamcast, and PSP Collection releases.', 'Confirm against your specific version before relying on this guide.'],
   },
 ] as const
 
