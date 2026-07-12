@@ -5,13 +5,15 @@ import SectionHeading from '@/components/SectionHeading.vue'
 import HorizontalNav from '@/components/HorizontalNav.vue'
 import BossDialog from '@/components/BossDialog.vue'
 import Lightbox from '@/components/Lightbox.vue'
+import MediaGalleryDialog from '@/components/MediaGalleryDialog.vue'
+import type { GalleryItem } from '@/components/MediaGalleryDialog.vue'
 import RecipeLookup from '@/components/RecipeLookup.vue'
 import { bosses, characters, items, levels } from '@/data/content'
 import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery, selectedLevel, slideIndex, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex } = storeToRefs(store)
+const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex } = storeToRefs(store)
 const characteristicLabels = [
   ['strength', 'Strength'],
   ['throwDistance', 'Throw Distance'],
@@ -191,6 +193,25 @@ const characterSlideIndex = ref(0)
 watch(selectedCharacter, () => { characterSlideIndex.value = 0 })
 function nextCharacterSlide() { characterSlideIndex.value = (characterSlideIndex.value + 1) % characterSlides.length }
 function previousCharacterSlide() { characterSlideIndex.value = (characterSlideIndex.value - 1 + characterSlides.length) % characterSlides.length }
+
+const levelVideos = [
+  { video: '/media/videos/gameplay-loop.mp4', poster: '/media/placeholders/level-video-poster-1-placeholder.svg', label: 'Placeholder clip 1' },
+  { video: '/media/videos/gameplay-loop.mp4', poster: '/media/placeholders/level-video-poster-2-placeholder.svg', label: 'Placeholder clip 2' },
+  { video: '/media/videos/gameplay-loop.mp4', poster: '/media/placeholders/level-video-poster-3-placeholder.svg', label: 'Placeholder clip 3' },
+]
+const levelPictureItems = computed<GalleryItem[]>(() => selectedLevel.value.slides.map((src, index) => ({ kind: 'image', src, label: `${selectedLevel.value.name} — image ${index + 1}` })))
+const levelVideoItems = computed<GalleryItem[]>(() => levelVideos.map(clip => ({ kind: 'video', src: clip.video, poster: clip.poster, label: clip.label })))
+type GalleryKind = 'pictures' | 'video'
+const openGallery = ref<{ kind: GalleryKind; index: number } | null>(null)
+const galleryItems = computed(() => {
+  if (!openGallery.value) return []
+  return openGallery.value.kind === 'pictures' ? levelPictureItems.value : levelVideoItems.value
+})
+watch(selectedLevel, () => { openGallery.value = null })
+function openLevelGallery(kind: GalleryKind, index: number) { openGallery.value = { kind, index } }
+function closeLevelGallery() { openGallery.value = null }
+function nextGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index + 1) % galleryItems.value.length } }
+function previousGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index - 1 + galleryItems.value.length) % galleryItems.value.length } }
 
 const milestones = [
   ['1999', 'Power Stone arrives in arcades and on Dreamcast, establishing the transforming 3D arena formula.'],
@@ -383,7 +404,7 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
     </section>
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
-      <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Choose an arena file to inspect its replaceable visual study. Use the arrow keys inside the gallery to move between views." />
+      <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Choose an arena file to inspect its replaceable visual study, browse its pictures, and preview a placeholder video pass." />
       <div class="level-select" role="list" aria-label="Playable arenas">
         <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="store.selectLevel(level.id)">
           <img class="level-chip__thumb" :src="level.media" :alt="`${level.name} replaceable level artwork`" />
@@ -392,18 +413,39 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
         </button>
       </div>
       <article class="level-file" aria-live="polite">
-        <div class="level-file__stage">
-          <img :src="selectedLevel.slides[slideIndex]" :alt="`${selectedLevel.name} view ${slideIndex + 1}`" />
-          <template v-if="selectedLevel.slides.length > 1">
-            <button class="level-file__arrow level-file__arrow--previous" type="button" aria-label="Previous slide" @click="store.previousSlide">←</button>
-            <button class="level-file__arrow level-file__arrow--next" type="button" aria-label="Next slide" @click="store.nextSlide">→</button>
-          </template>
+        <div class="level-file__hero">
+          <img :src="selectedLevel.slides[0]" :alt="`${selectedLevel.name} arena artwork`" />
         </div>
         <div class="level-file__copy">
           <p class="eyebrow">Arena file</p>
           <h3>{{ selectedLevel.name }}</h3>
-          <p v-if="selectedLevel.slides.length > 1" aria-live="polite">Slide {{ slideIndex + 1 }} of {{ selectedLevel.slides.length }}</p>
           <p>{{ selectedLevel.description }}</p>
+        </div>
+        <div class="level-file__details">
+          <section class="detail-panel detail-panel--details" aria-labelledby="level-detail-details-title">
+            <p class="eyebrow">Field notes</p><h4 id="level-detail-details-title">Details</h4>
+            <p>{{ selectedLevel.description }}</p>
+            <p>Extended arena notes — environmental hazards, transformation triggers, and traversal tips — are queued for a future update.</p>
+          </section>
+
+          <section class="detail-panel detail-panel--pictures" aria-labelledby="level-detail-pictures-title">
+            <p class="eyebrow">Visual study</p><h4 id="level-detail-pictures-title">Pictures</h4>
+            <div class="thumb-grid" role="list" aria-label="Arena pictures">
+              <button v-for="(picture, index) in levelPictureItems" :key="picture.src" type="button" class="thumb-grid__item" role="listitem" @click="openLevelGallery('pictures', index)">
+                <img :src="picture.src" :alt="picture.label" />
+              </button>
+            </div>
+          </section>
+
+          <section class="detail-panel detail-panel--video" aria-labelledby="level-detail-video-title">
+            <p class="eyebrow">Motion study</p><h4 id="level-detail-video-title">Video</h4>
+            <div class="thumb-grid" role="list" aria-label="Arena video clips">
+              <button v-for="(clip, index) in levelVideoItems" :key="clip.label" type="button" class="thumb-grid__item thumb-grid__item--video" role="listitem" @click="openLevelGallery('video', index)">
+                <img :src="clip.poster" :alt="clip.label" />
+                <span class="thumb-grid__play" aria-hidden="true">▶</span>
+              </button>
+            </div>
+          </section>
         </div>
       </article>
     </section>
@@ -484,4 +526,5 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
   </div>
   <BossDialog />
   <Lightbox />
+  <MediaGalleryDialog :title="selectedLevel.name" :items="galleryItems" :active-index="openGallery?.index ?? null" @close="closeLevelGallery" @next="nextGalleryItem" @previous="previousGalleryItem" />
 </template>

@@ -186,14 +186,15 @@ img { display: block; max-width: 100%; }
 .level-chip--active { color: #fff; border-color: #10220b; background: #10220b; transform: translateY(-5px); box-shadow: 0 5px 0 $level-green; }
 .level-chip--active .level-chip__number { color: $level-green; }
 .level-file { display: flex; flex-wrap: wrap; color: $ink; background: #17102e; }
-.level-file__stage { position: relative; flex: 1 1 55%; min-height: 420px; background: #090617; }
-.level-file__stage img { width: 100%; height: 100%; max-height: 560px; object-fit: cover; }
-.level-file__arrow { position: absolute; top: 50%; width: 50px; height: 50px; border: 1px solid white; background: rgba(10,5,28,.8); cursor: pointer; transform: translateY(-50%); }
-.level-file__arrow--previous { left: 1rem; }
-.level-file__arrow--next { right: 1rem; }
-.level-file__copy { flex: 1 1 40%; align-self: center; padding: clamp(2rem, 5vw, 4rem); }
+.level-file__hero { position: relative; flex: 1 1 38%; min-height: 480px; overflow: hidden; background: #090617; }
+.level-file__hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.level-file__copy { flex: 1 1 45%; padding: clamp(2rem, 5vw, 4rem); }
 .level-file__copy p { color: $muted; }
-.level-file__copy p[aria-live] { color: $cyan; font-weight: 900; }
+.thumb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: .6rem; margin-top: .8rem; }
+.thumb-grid__item { position: relative; padding: 0; border: 1px solid #393052; background: #18102f; cursor: pointer; aspect-ratio: 4 / 3; overflow: hidden; }
+.thumb-grid__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.thumb-grid__item:hover img { transform: scale(1.08); }
+.thumb-grid__play { position: absolute; inset: 0; display: grid; place-items: center; color: $ink; background: rgba(10,5,28,.4); font-size: 1.2rem; }
 
 .character-select { display: flex; flex-wrap: wrap; gap: .65rem; margin-bottom: 2rem; }
 .portrait { position: relative; flex: 0 1 155px; padding: .5rem; border: 1px solid #baad9b; background: #fffaf1; cursor: pointer; font-size: .72rem; font-weight: 900; text-transform: uppercase; }
@@ -213,7 +214,7 @@ img.portrait__avatar { object-fit: cover; }
 .fighter-file__copy h4, .detail-panel h4 { margin: 1.5rem 0 .3rem; text-transform: uppercase; letter-spacing: .08em; }
 .attribute-list { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
 .attribute-list li { padding: .4rem .6rem; border: 1px solid #51436c; color: $muted; font-size: .72rem; }
-.fighter-file__details { flex: 1 0 100%; padding: 1.5rem clamp(1.5rem, 4vw, 3rem) 2.5rem; display: flex; gap: clamp(1.5rem, 3vw, 3rem); border-top: 1px solid #49395e; }
+.fighter-file__details, .level-file__details { flex: 1 0 100%; padding: 1.5rem clamp(1.5rem, 4vw, 3rem) 2.5rem; display: flex; gap: clamp(1.5rem, 3vw, 3rem); border-top: 1px solid #49395e; }
 .detail-panel { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
 .detail-panel h4 { margin-top: 0; }
 .move-nav { display: flex; flex-direction: column; gap: .5rem; max-height: 260px; margin: .8rem 0; overflow: auto; }
@@ -308,7 +309,7 @@ img.portrait__avatar { object-fit: cover; }
 .level-dialog__header .eyebrow { margin: 0; }
 .icon-button { flex: 0 0 auto; width: 46px; height: 46px; border: 1px solid #716589; background: transparent; cursor: pointer; font-size: 1.7rem; }
 .level-dialog__stage { position: relative; background: #090617; }
-.level-dialog__stage img { width: 100%; max-height: 65svh; aspect-ratio: 16 / 9; object-fit: contain; }
+.level-dialog__stage img, .level-dialog__stage video { width: 100%; max-height: 65svh; aspect-ratio: 16 / 9; object-fit: contain; }
 .level-dialog__arrow { position: absolute; top: 50%; width: 50px; height: 50px; border: 1px solid white; background: rgba(10,5,28,.8); cursor: pointer; transform: translateY(-50%); }
 .level-dialog__arrow--previous { left: 1rem; }
 .level-dialog__arrow--next { right: 1rem; }
@@ -342,7 +343,7 @@ img.portrait__avatar { object-fit: cover; }
   .item-browser__list { flex-basis: auto; display: grid; grid-template-columns: repeat(2, 1fr); }
   .item-tile--active { transform: translateY(-3px); }
   .recipe-lookup { grid-template-columns: 1fr; }
-  .fighter-file__details { flex-direction: column; gap: 2rem; }
+  .fighter-file__details, .level-file__details { flex-direction: column; gap: 2rem; }
   .about { align-items: flex-start; }
   .about__mark { font-size: 9rem; }
 }
@@ -365,10 +366,10 @@ img.portrait__avatar { object-fit: cover; }
   .recipe-search-controls { flex-wrap: wrap; }
   .recipe-clear { flex: 1 0 100%; }
   .level-chip { flex-basis: calc(50% - .325rem); }
-  .level-file__stage { min-height: 260px; }
+  .level-file__hero { min-height: 260px; }
   .portrait { flex-basis: calc(33.333% - .65rem); max-width: none; }
   .portrait__avatar { height: 68px; }
-  .fighter-file__hero, .fighter-file__copy, .fighter-file__details { flex-basis: 100%; }
+  .fighter-file__hero, .fighter-file__copy, .fighter-file__details, .level-file__hero, .level-file__copy, .level-file__details { flex-basis: 100%; }
   .fighter-file__hero { min-height: 330px; }
   .move-nav { max-height: 220px; }
   .boss-grid { flex-direction: column; }

@@ -382,11 +382,9 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('selects a level from the nav grid and updates the level file below it, with no arrows for a single slide', async () => {
+  it('selects a level from the nav grid and updates the level file below it', async () => {
     const { wrapper } = await mountGuide()
     expect(wrapper.find('.level-file h3').text()).toBe(levels[0].name)
-    expect(wrapper.find('[aria-label="Previous slide"]').exists()).toBe(false)
-    expect(wrapper.find('[aria-label="Next slide"]').exists()).toBe(false)
 
     const chips = wrapper.findAll('.level-chip')
     expect(chips).toHaveLength(levels.length)
@@ -397,6 +395,56 @@ describe('guide interactions', () => {
     expect(wrapper.find('.level-file h3').text()).toBe(secondLevel.name)
     expect(wrapper.findAll('.level-file__copy p').at(-1)!.text()).toBe(secondLevel.description)
     expect(chip.attributes('aria-pressed')).toBe('true')
+    wrapper.unmount()
+  })
+
+  it('lays out the level file like the fighter file, with Details, Pictures, and Video panels', async () => {
+    const { wrapper } = await mountGuide()
+    const panelTitles = wrapper.findAll('.level-file__details .detail-panel h4').map(node => node.text())
+    expect(panelTitles).toEqual(['Details', 'Pictures', 'Video'])
+
+    const detailsParagraphs = wrapper.findAll('.detail-panel--details p:not(.eyebrow)')
+    expect(detailsParagraphs).toHaveLength(2)
+    expect(detailsParagraphs[0].text()).toBe(levels[0].description)
+
+    const pictureThumbs = wrapper.findAll('.detail-panel--pictures .thumb-grid__item')
+    expect(pictureThumbs).toHaveLength(levels[0].slides.length)
+    const videoThumbs = wrapper.findAll('.detail-panel--video .thumb-grid__item')
+    expect(videoThumbs).toHaveLength(3)
+    wrapper.unmount()
+  })
+
+  it('opens a picture thumbnail in the near-fullscreen gallery dialog and closes it', async () => {
+    const { wrapper } = await mountGuide()
+    await wrapper.find('.detail-panel--pictures .thumb-grid__item').trigger('click')
+    const dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.querySelector('img')).not.toBeNull()
+    expect(dialog!.querySelector('video')).toBeNull()
+
+    dialog!.querySelector<HTMLButtonElement>('[aria-label="Close gallery"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('[role="dialog"]')).toBeNull()
+    wrapper.unmount()
+  })
+
+  it('opens a video thumbnail in the gallery dialog and navigates between clips', async () => {
+    const { wrapper } = await mountGuide()
+    const videoThumbs = wrapper.findAll('.detail-panel--video .thumb-grid__item')
+    await videoThumbs[0].trigger('click')
+    const dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.querySelector('video')).not.toBeNull()
+    expect(dialog!.textContent).toContain('Placeholder clip 1')
+    expect(dialog!.textContent).toContain('1 of 3')
+
+    dialog!.querySelector<HTMLButtonElement>('[aria-label="Next"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('[role="dialog"]')!.textContent).toContain('Placeholder clip 2')
+
+    document.body.querySelector<HTMLButtonElement>('[aria-label="Previous"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('[role="dialog"]')!.textContent).toContain('Placeholder clip 1')
     wrapper.unmount()
   })
 

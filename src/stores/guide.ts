@@ -29,7 +29,6 @@ export const useGuideStore = defineStore('guide', () => {
   const itemCategory = ref('All')
   const itemQuery = ref('')
   const selectedLevelId = ref<LevelRecord['id']>(levels[0].id)
-  const slideIndex = ref(0)
   const selectedMoveIndex = ref(0)
   const selectedSpecialIndex = ref(0)
   const openBossId = ref<BossRecord['id'] | null>(null)
@@ -64,9 +63,7 @@ export const useGuideStore = defineStore('guide', () => {
   }
   function setCategory(category: string) { itemCategory.value = category }
   function setItemQuery(query: string) { itemQuery.value = query }
-  function selectLevel(id: LevelRecord['id']) { selectedLevelId.value = id; slideIndex.value = 0 }
-  function nextSlide() { slideIndex.value = (slideIndex.value + 1) % selectedLevel.value.slides.length }
-  function previousSlide() { slideIndex.value = (slideIndex.value - 1 + selectedLevel.value.slides.length) % selectedLevel.value.slides.length }
+  function selectLevel(id: LevelRecord['id']) { selectedLevelId.value = id }
   function showBoss(id: BossRecord['id']) { openBossId.value = id }
   function closeBoss() { openBossId.value = null }
   function openLightbox(image: LightboxImage) { lightboxImage.value = image }
@@ -74,5 +71,5 @@ export const useGuideStore = defineStore('guide', () => {
 
   watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, slideIndex, selectedMoveIndex, selectedSpecialIndex, openBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, openBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, selectLevel, nextSlide, previousSlide, showBoss, closeBoss, openLightbox, closeLightbox }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, openBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, openBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, selectLevel, showBoss, closeBoss, openLightbox, closeLightbox }
 })
