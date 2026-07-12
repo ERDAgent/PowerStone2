@@ -29,9 +29,16 @@
     "id": "level-dark-castle-area",
     "name": "Dark Castle Area",
     "description": "A bright multi-tier battleground represented with replaceable study art.",
-    "media": "/media/levels/levels-small/dark-castle-area-small.png",
+    "media": "/media/levels/levels-gallery/dark-castle-area/stage1-1-compressed.jpg",
     "slides": [
-      "/media/levels/levels-large/dark-castle-area-large.png"
+      "/media/levels/levels-gallery/dark-castle-area/stage1-1-compressed.jpg",
+      "/media/levels/levels-gallery/dark-castle-area/stage1-2-compressed.jpg",
+      "/media/levels/levels-gallery/dark-castle-area/stage1-3-compressed.jpg",
+      "/media/levels/levels-gallery/dark-castle-area/stage1-4-compressed.jpg",
+      "/media/levels/levels-gallery/dark-castle-area/stage2-1-compressed.jpg",
+      "/media/levels/levels-gallery/dark-castle-area/stage2-2-compressed.jpg",
+      "/media/levels/levels-gallery/dark-castle-area/stage2-3-compressed.jpg",
+      "/media/levels/levels-gallery/dark-castle-area/stage3-1-compressed.jpg"
     ],
     "stageCount": 3,
     "modes": [
@@ -43,7 +50,8 @@
       "evidence": [],
       "notes": [
         "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
-        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification.",
+        "Gallery imagery replaced with real stage photography organized by stage (1-3); the three-folder grouping corroborates the editorial stage count above."
       ]
     }
   },
