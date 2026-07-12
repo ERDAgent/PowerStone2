@@ -96,6 +96,15 @@ const platforms = [
       'Treat Dreamcast control and unlock instructions as a starting point only — confirm collection-specific details separately.',
     ],
   },
+  {
+    id: 'pc', label: 'PC', image: '/media/consoles/pc-small-withshadow-compressed.png',
+    summary: 'No official PC release of Power Stone 2 is confirmed; PC players currently reach the game through emulation rather than a native port.',
+    notes: [
+      'Flycast (or another actively maintained Dreamcast emulator) is the primary path — see Play Online below for setup and Dojo networking notes.',
+      'Performance and control mapping vary by emulator build and input hardware; a wired controller is recommended for four-player local play.',
+      'Treat any storefront listing claiming a native PC release skeptically until verified.',
+    ],
+  },
 ] as const
 
 const modes = [
