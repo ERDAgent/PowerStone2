@@ -252,11 +252,13 @@ img.portrait__avatar { object-fit: cover; }
 .badge--high { color: $night; background: $level-green; }
 .character-slideshow { margin-top: 1.2rem; }
 .character-slideshow__stage { position: relative; background: #0f0921; }
-.character-slideshow__stage img { width: 100%; max-height: 260px; aspect-ratio: 16 / 9; object-fit: cover; }
+.character-slideshow__image { display: none; width: 100%; max-height: 260px; aspect-ratio: 16 / 9; object-fit: cover; }
+.character-slideshow__image.active { display: block; }
 .character-slideshow__arrow { position: absolute; top: 50%; width: 40px; height: 40px; border: 1px solid white; background: rgba(10,5,28,.8); cursor: pointer; transform: translateY(-50%); }
 .character-slideshow__arrow--previous { left: .6rem; }
 .character-slideshow__arrow--next { right: .6rem; }
 .character-slideshow__caption { margin: .5rem 0 0; color: $muted; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+.character-slideshow__caption--tablet { display: none; }
 
 .unlock-detail { padding: clamp(1.5rem, 3vw, 2.5rem); border: 1px solid #c7b8a5; background: #fffaf2; }
 .unlock-detail h3 { margin: 0; font-family: 'Guide Display'; font-size: 2.2rem; text-transform: uppercase; }
@@ -359,6 +361,11 @@ img.portrait__avatar { object-fit: cover; }
   .fighter-file__details, .level-file__details, .entity-file__details { flex-direction: column; gap: 2rem; }
   .about { align-items: flex-start; }
   .about__mark { font-size: 9rem; }
+  .character-slideshow__stage { display: flex; gap: .4rem; background: none; }
+  .character-slideshow__image { display: block; width: auto; flex: 1 1 0; min-width: 0; }
+  .character-slideshow__arrow { display: none; }
+  .character-slideshow__caption { display: none; }
+  .character-slideshow__caption--tablet { display: block; }
 }
 
 @media (max-width: 680px) {
@@ -391,6 +398,12 @@ img.portrait__avatar { object-fit: cover; }
   .timeline time { font-size: 1rem; }
   .about__mark { display: none; }
   .game-overview__facts { grid-template-columns: 1fr; }
+  .character-slideshow__stage { display: block; gap: 0; background: #0f0921; }
+  .character-slideshow__image { display: none; }
+  .character-slideshow__image.active { display: block; }
+  .character-slideshow__arrow { display: block; }
+  .character-slideshow__caption { display: block; }
+  .character-slideshow__caption--tablet { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
