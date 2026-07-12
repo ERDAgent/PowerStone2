@@ -181,11 +181,17 @@ img { display: block; max-width: 100%; }
 .recipe-entity { min-width: 110px; flex: 1 1 110px; display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .65rem; border: 1px dashed #9f8e78; text-align: center; }
 .recipe-entity--result { color: $ink; border-style: solid; background: #251447; }
 .formula-symbol { flex: 0 0 auto; color: #a63518; font-size: 1.4rem; font-weight: 900; }
-.recipe-empty { margin: 0; padding: 1rem; color: #51475b; }
-.recipe-empty--detail { flex: 1; display: flex; flex-direction: column; justify-content: center; border: 1px dashed #9f8e78; background: rgba(255,255,255,.45); }
-.recipe-empty h3 { margin: 0 0 .3rem; }
+.recipe-empty { margin: 0; padding: 1.4rem 1.2rem; border: 1px solid #c9bca9; background: rgba(255,255,255,.55); color: #51475b; text-align: center; }
+.recipe-empty--detail { position: relative; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; padding: 2.2rem 1.5rem; border: 1px dashed #9f8e78; background: rgba(255,255,255,.45); }
+.recipe-empty--detail::before { content: ''; width: 2.4rem; height: 2px; margin-bottom: .6rem; background: #a63518; }
+.recipe-empty h3 { margin: 0 0 .3rem; font-family: 'Guide Display', Impact, sans-serif; font-size: 1.05rem; letter-spacing: .04em; text-transform: uppercase; color: inherit; }
 .recipe-empty p { margin: 0; }
 .recipe-empty--detail h3, .recipe-empty--detail p { text-align: center; }
+
+.item-browser__list .recipe-empty { border-color: #393052; background: #18102f; color: $muted; }
+.item-detail.recipe-empty--detail { border-color: #55486f; background: rgba(255,255,255,.04); color: $muted; }
+.item-detail.recipe-empty--detail::before { background: $orange; }
+.item-detail.recipe-empty--detail h3 { color: $ink; }
 
 .level-select { display: flex; flex-wrap: wrap; gap: .65rem; margin-bottom: 2rem; }
 .level-chip { position: relative; flex: 0 1 150px; padding: .5rem; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border: 1px solid #2f5d1f; background: #f2ffe0; color: #17390d; cursor: pointer; font-size: .72rem; font-weight: 900; text-transform: uppercase; }
