@@ -239,6 +239,37 @@ function nextLevel() {
   store.selectLevel(levels[(index + 1) % levels.length].id)
 }
 
+function previousEntity() {
+  const list = filteredEntities.value
+  if (!list.length) return
+  const index = list.findIndex(entity => entity.record.id === selectedEntity.value?.record.id)
+  store.selectEntity(list[(index - 1 + list.length) % list.length].record.id)
+}
+function nextEntity() {
+  const list = filteredEntities.value
+  if (!list.length) return
+  const index = list.findIndex(entity => entity.record.id === selectedEntity.value?.record.id)
+  store.selectEntity(list[(index + 1) % list.length].record.id)
+}
+
+function previousCharacter() {
+  const index = characters.findIndex(character => character.id === selectedCharacter.value.id)
+  store.selectCharacter(characters[(index - 1 + characters.length) % characters.length].id)
+}
+function nextCharacter() {
+  const index = characters.findIndex(character => character.id === selectedCharacter.value.id)
+  store.selectCharacter(characters[(index + 1) % characters.length].id)
+}
+
+function previousBoss() {
+  const index = bosses.findIndex(boss => boss.id === selectedBoss.value.id)
+  store.selectBoss(bosses[(index - 1 + bosses.length) % bosses.length].id)
+}
+function nextBoss() {
+  const index = bosses.findIndex(boss => boss.id === selectedBoss.value.id)
+  store.selectBoss(bosses[(index + 1) % bosses.length].id)
+}
+
 const placeholderEnemies = [
   { id: 'enemy-placeholder-1', name: 'Enemy 01' },
   { id: 'enemy-placeholder-2', name: 'Enemy 02' },
@@ -246,6 +277,14 @@ const placeholderEnemies = [
 ] as const
 const selectedEnemyId = ref<typeof placeholderEnemies[number]['id']>(placeholderEnemies[0].id)
 const selectedEnemy = computed(() => placeholderEnemies.find(enemy => enemy.id === selectedEnemyId.value) ?? placeholderEnemies[0])
+function previousEnemy() {
+  const index = placeholderEnemies.findIndex(enemy => enemy.id === selectedEnemy.value.id)
+  selectedEnemyId.value = placeholderEnemies[(index - 1 + placeholderEnemies.length) % placeholderEnemies.length].id
+}
+function nextEnemy() {
+  const index = placeholderEnemies.findIndex(enemy => enemy.id === selectedEnemy.value.id)
+  selectedEnemyId.value = placeholderEnemies[(index + 1) % placeholderEnemies.length].id
+}
 
 const milestones = [
   ['1999', 'Power Stone arrives in arcades and on Dreamcast, establishing the transforming 3D arena formula.'],
@@ -357,6 +396,10 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
           <p v-if="!filteredEntities.length" class="recipe-empty" role="status">No catalog entities match this search.</p>
         </div>
         <article v-if="selectedEntity" class="item-detail" aria-live="polite">
+          <div class="detail-nav">
+            <button type="button" class="detail-nav__arrow" aria-label="Previous catalog entity" @click="previousEntity">←</button>
+            <button type="button" class="detail-nav__arrow" aria-label="Next catalog entity" @click="nextEntity">→</button>
+          </div>
           <div class="item-detail__visual"><img v-if="selectedEntity.record.media" :src="selectedEntity.record.media" :alt="`${selectedEntity.record.name} ${selectedEntity.kind} artwork`" /><span v-else class="entity-fallback" aria-hidden="true">{{ selectedEntity.record.name.slice(0, 2) }}</span></div>
           <div class="item-detail__copy"><p class="eyebrow">{{ entityNumberLabel(selectedEntity) }} · {{ entityContext(selectedEntity) }}</p><h3>{{ selectedEntity.record.name }}</h3><dl v-if="selectedEntity.kind === 'item'"><div><dt>Function</dt><dd>{{ selectedEntity.record.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedEntity.record.level }}</dd></div></dl><dl v-else-if="selectedEntity.kind === 'material'"><div><dt>Material type</dt><dd>{{ selectedEntity.record.type }}</dd></div><div><dt>Rarity</dt><dd>{{ selectedEntity.record.rarity ?? 'Unknown' }}</dd></div><div><dt>Worth</dt><dd>{{ selectedEntity.record.worth ?? 'Unknown' }}</dd></div></dl><dl v-else><div><dt>Entity kind</dt><dd>Essence card</dd></div></dl><p v-if="entityNotes(selectedEntity).length" class="data-note">{{ entityNotes(selectedEntity).join(' ') }}</p></div>
         </article>
@@ -380,6 +423,10 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
         </button>
       </div>
       <article class="fighter-file" aria-live="polite">
+        <div class="detail-nav">
+          <button type="button" class="detail-nav__arrow" aria-label="Previous character" @click="previousCharacter">←</button>
+          <button type="button" class="detail-nav__arrow" aria-label="Next character" @click="nextCharacter">→</button>
+        </div>
         <div class="fighter-file__hero" :style="{ '--character-color': selectedCharacter.color }">
           <img v-if="selectedCharacter.portrait" class="fighter-file__portrait" :src="selectedCharacter.portrait" :alt="`${selectedCharacter.name} full character art`" />
           <span v-else class="fighter-file__initials" aria-hidden="true">{{ selectedCharacter.name.slice(0, 2).toUpperCase() }}</span>
@@ -453,9 +500,9 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
         </button>
       </div>
       <article ref="levelFile" class="level-file" aria-live="polite">
-        <div class="level-file__nav">
-          <button type="button" class="level-file__nav-arrow" aria-label="Previous arena" @click="previousLevel">←</button>
-          <button type="button" class="level-file__nav-arrow" aria-label="Next arena" @click="nextLevel">→</button>
+        <div class="detail-nav">
+          <button type="button" class="detail-nav__arrow" aria-label="Previous arena" @click="previousLevel">←</button>
+          <button type="button" class="detail-nav__arrow" aria-label="Next arena" @click="nextLevel">→</button>
         </div>
         <div class="level-file__hero">
           <img :src="selectedLevel.slides[0]" :alt="`${selectedLevel.name} arena artwork`" />
@@ -506,6 +553,10 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
           </button>
         </div>
         <article class="entity-file" aria-live="polite">
+          <div class="detail-nav">
+            <button type="button" class="detail-nav__arrow" aria-label="Previous enemy" @click="previousEnemy">←</button>
+            <button type="button" class="detail-nav__arrow" aria-label="Next enemy" @click="nextEnemy">→</button>
+          </div>
           <div class="entity-file__hero"><span aria-hidden="true">?</span></div>
           <div class="entity-file__copy">
             <p class="eyebrow">Encounter file</p>
@@ -545,6 +596,10 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
           </button>
         </div>
         <article class="entity-file" aria-live="polite">
+          <div class="detail-nav">
+            <button type="button" class="detail-nav__arrow" aria-label="Previous boss" @click="previousBoss">←</button>
+            <button type="button" class="detail-nav__arrow" aria-label="Next boss" @click="nextBoss">→</button>
+          </div>
           <div class="entity-file__hero" :class="{ 'entity-file__hero--arena': selectedBoss.arenaMedia }" :style="selectedBoss.arenaMedia ? { '--arena-media': `url(${selectedBoss.arenaMedia})` } : undefined">
             <img v-if="selectedBoss.media" class="entity-file__portrait" :src="selectedBoss.media" :alt="`${selectedBoss.name} artwork`" />
             <span v-else aria-hidden="true">{{ selectedBoss.name.slice(0, 2).toUpperCase() }}</span>

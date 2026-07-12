@@ -182,6 +182,21 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('steps back and forth through characters with the big corner arrows on the fighter file, wrapping at the ends', async () => {
+    const { wrapper } = await mountGuide()
+    expect(wrapper.find('.fighter-file h3').text()).toBe(characters[0].name)
+
+    await wrapper.find('[aria-label="Previous character"]').trigger('click')
+    expect(wrapper.find('.fighter-file h3').text()).toBe(characters[characters.length - 1].name)
+
+    await wrapper.find('[aria-label="Next character"]').trigger('click')
+    expect(wrapper.find('.fighter-file h3').text()).toBe(characters[0].name)
+
+    await wrapper.find('[aria-label="Next character"]').trigger('click')
+    expect(wrapper.find('.fighter-file h3').text()).toBe(characters[1].name)
+    wrapper.unmount()
+  })
+
   it('renders and synchronously filters the full canonical item catalog', async () => {
     const { wrapper } = await mountGuide()
     await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
@@ -193,6 +208,24 @@ describe('guide interactions', () => {
     await machineGun!.trigger('click')
     expect(wrapper.find('.item-detail h3').text()).toBe('Machine Gun')
     expect(wrapper.find('.item-detail').text()).toContain('Item 2')
+    wrapper.unmount()
+  })
+
+  it('steps back and forth through the catalog with the big corner arrows on the item detail, wrapping at the ends', async () => {
+    const { wrapper } = await mountGuide()
+    const firstName = wrapper.find('.item-detail h3').text()
+
+    await wrapper.find('[aria-label="Next catalog entity"]').trigger('click')
+    const secondName = wrapper.find('.item-detail h3').text()
+    expect(secondName).not.toBe(firstName)
+
+    await wrapper.find('[aria-label="Previous catalog entity"]').trigger('click')
+    expect(wrapper.find('.item-detail h3').text()).toBe(firstName)
+
+    await wrapper.find('[aria-label="Previous catalog entity"]').trigger('click')
+    expect(wrapper.find('.item-detail h3').text()).not.toBe(firstName)
+    await wrapper.find('[aria-label="Next catalog entity"]').trigger('click')
+    expect(wrapper.find('.item-detail h3').text()).toBe(firstName)
     wrapper.unmount()
   })
 
@@ -518,6 +551,19 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('steps back and forth through bosses with the big corner arrows on the entity file, wrapping at the ends', async () => {
+    const { wrapper } = await mountGuide()
+    const bossSubsection = wrapper.find('#enemies').findAll('.subsection')[1]
+    expect(bossSubsection.find('.entity-file h3').text()).toBe(bosses[0].name)
+
+    await bossSubsection.find('[aria-label="Previous boss"]').trigger('click')
+    expect(bossSubsection.find('.entity-file h3').text()).toBe(bosses[bosses.length - 1].name)
+
+    await bossSubsection.find('[aria-label="Next boss"]').trigger('click')
+    expect(bossSubsection.find('.entity-file h3').text()).toBe(bosses[0].name)
+    wrapper.unmount()
+  })
+
   it('gives every entity-file a Clip/Characteristics details row with a looping video on the left', async () => {
     const { wrapper } = await mountGuide()
     for (const entityFile of wrapper.find('#enemies').findAll('.entity-file')) {
@@ -549,6 +595,20 @@ describe('guide interactions', () => {
 
     await chips[1].trigger('click')
     expect(enemySubsection.find('.entity-file h3').text()).toBe(chipNames[1])
+    wrapper.unmount()
+  })
+
+  it('steps back and forth through placeholder enemies with the big corner arrows on the entity file, wrapping at the ends', async () => {
+    const { wrapper } = await mountGuide()
+    const enemySubsection = wrapper.find('#enemies').findAll('.subsection')[0]
+    const firstName = enemySubsection.find('.entity-file h3').text()
+
+    await enemySubsection.find('[aria-label="Previous enemy"]').trigger('click')
+    const lastName = enemySubsection.find('.entity-file h3').text()
+    expect(lastName).not.toBe(firstName)
+
+    await enemySubsection.find('[aria-label="Next enemy"]').trigger('click')
+    expect(enemySubsection.find('.entity-file h3').text()).toBe(firstName)
     wrapper.unmount()
   })
 

@@ -134,7 +134,7 @@ img { display: block; max-width: 100%; }
 .item-tile span { flex: 1; display: flex; flex-direction: column; font-weight: 900; }
 .item-tile small { color: $cyan; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; }
 .item-tile--active { border-color: $orange; background: #291542; transform: translateX(.5rem); }
-.item-detail { flex: 1; min-width: 0; display: flex; border: 1px solid #453865; background: #1b1237; }
+.item-detail { position: relative; flex: 1; min-width: 0; display: flex; border: 1px solid #453865; background: #1b1237; }
 .item-detail__visual { position: relative; flex: 1 1 52%; min-height: 420px; display: grid; place-items: center; background: radial-gradient(circle, #38226a, #130d29 70%); }
 .item-detail__visual img { width: 75%; max-height: 360px; object-fit: contain; }
 .item-detail__visual > span { position: absolute; bottom: 1rem; font-size: .6rem; letter-spacing: .15em; color: #847b9d; }
@@ -192,8 +192,8 @@ img { display: block; max-width: 100%; }
 .level-chip--active .level-chip__number { color: $level-green; }
 .level-chip--active .level-chip__mode-badge { border-color: rgba(255, 255, 255, .5); }
 .level-file { position: relative; display: flex; flex-wrap: wrap; color: $ink; background: #17102e; scroll-margin-top: 88px; }
-.level-file__nav { position: absolute; z-index: 3; top: 1rem; right: 1rem; display: flex; gap: .6rem; }
-.level-file__nav-arrow { width: 58px; height: 58px; border: 1px solid white; background: rgba(10,5,28,.8); color: $ink; font-size: 1.8rem; cursor: pointer; }
+.detail-nav { position: absolute; z-index: 3; top: 1rem; right: 1rem; display: flex; gap: .6rem; }
+.detail-nav__arrow { width: 58px; height: 58px; border: 1px solid white; background: rgba(10,5,28,.8); color: $ink; font-size: 1.8rem; cursor: pointer; }
 .level-file__hero { position: relative; flex: 1 1 38%; min-height: 480px; overflow: hidden; background: #090617; }
 .level-file__hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .level-file__copy { flex: 1 1 45%; padding: clamp(2rem, 5vw, 4rem); }
@@ -211,7 +211,7 @@ img.portrait__avatar { object-fit: cover; }
 .portrait .status-tag { position: absolute; top: .4rem; right: .4rem; margin: 0; }
 .portrait--active { color: #fff; border-color: #241041; background: #241041; transform: translateY(-5px); box-shadow: 0 5px 0 var(--character-color); }
 .portrait--active .status-tag { top: -.25rem; right: -.5rem; border: 1px solid #7fd7ff; }
-.fighter-file { display: flex; flex-wrap: wrap; color: $ink; background: #17102e; }
+.fighter-file { position: relative; display: flex; flex-wrap: wrap; color: $ink; background: #17102e; }
 .fighter-file__hero { position: relative; flex: 1 1 38%; min-height: 480px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .6rem; background: radial-gradient(circle at 50% 35%, var(--character-color), #2a174b 55%, #0f0921); }
 .fighter-file__initials { font-family: 'Guide Display'; font-size: clamp(7rem, 15vw, 14rem); line-height: 1; opacity: .86; }
 .fighter-file__hero .status-tag { position: absolute; top: 1rem; right: 1rem; margin: 0; }
@@ -269,7 +269,7 @@ img.portrait__avatar { object-fit: cover; }
 .entity-chip__thumb { width: 100%; height: 90px; margin-bottom: .45rem; object-fit: cover; }
 .entity-chip__thumb--fallback { display: grid; place-items: center; color: #fff; background: linear-gradient(145deg, $boss-coral, #4a1810); font-family: 'Guide Display'; font-size: 1.6rem; }
 .entity-chip--active { color: #fff; border-color: #29131d; background: #29131d; transform: translateY(-5px); box-shadow: 0 5px 0 $boss-coral; }
-.entity-file { display: flex; flex-wrap: wrap; color: $ink; background: #1b1237; }
+.entity-file { position: relative; display: flex; flex-wrap: wrap; color: $ink; background: #1b1237; }
 .entity-file__hero { position: relative; flex: 1 1 38%; min-height: 420px; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 35%, $boss-coral, #2a174b 55%, #0f0921); }
 .entity-file__hero--arena { background: linear-gradient(rgba(27, 18, 55, .78), rgba(27, 18, 55, .78)), var(--arena-media) center / cover no-repeat; }
 .entity-file__hero > span { font-family: 'Guide Display'; font-size: clamp(5rem, 12vw, 9rem); line-height: 1; opacity: .5; color: $ink; }
@@ -373,7 +373,7 @@ img.portrait__avatar { object-fit: cover; }
   .recipe-clear { flex: 1 0 100%; }
   .level-chip { flex-basis: calc(50% - .325rem); }
   .level-file__hero { min-height: 260px; }
-  .level-file__nav-arrow { width: 44px; height: 44px; font-size: 1.3rem; }
+  .detail-nav__arrow { width: 44px; height: 44px; font-size: 1.3rem; }
   .portrait { flex-basis: calc(33.333% - .65rem); max-width: none; }
   .portrait__avatar { height: 68px; }
   .entity-chip { flex-basis: calc(50% - .325rem); }
