@@ -137,7 +137,7 @@ img { display: block; max-width: 100%; }
 .item-detail__visual img { width: 75%; max-height: 360px; object-fit: contain; }
 .item-detail__visual > span { position: absolute; bottom: 1rem; font-size: .6rem; letter-spacing: .15em; color: #847b9d; }
 .item-detail__copy { flex: 1 1 48%; align-self: center; padding: clamp(1.5rem, 4vw, 3.5rem); }
-.item-detail__copy h3, .fighter-file__details h3, .level-file__copy h3, .boss-card h3 { margin: 0 0 1rem; font-family: 'Guide Display', Impact, sans-serif; font-size: clamp(2rem, 4vw, 4.2rem); line-height: .95; text-transform: uppercase; }
+.item-detail__copy h3, .fighter-file__copy h3, .level-file__copy h3, .boss-card h3 { margin: 0 0 1rem; font-family: 'Guide Display', Impact, sans-serif; font-size: clamp(2rem, 4vw, 4.2rem); line-height: .95; text-transform: uppercase; }
 .item-detail__copy dl div { margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid #453865; }
 .item-detail__copy dt { color: $cyan; font-size: .68rem; font-weight: 900; text-transform: uppercase; letter-spacing: .12em; }
 .item-detail__copy dd { margin: .35rem 0 0; color: $muted; }
@@ -208,6 +208,7 @@ img.portrait__avatar { object-fit: cover; }
 .fighter-file__hero .status-tag { position: absolute; top: 1rem; right: 1rem; margin: 0; }
 .fighter-file__hero small { color: #d8d0e6; letter-spacing: .13em; text-transform: uppercase; }
 .fighter-file__portrait { max-width: min(70%, 340px); max-height: 420px; object-fit: contain; filter: drop-shadow(0 18px 24px rgba(0,0,0,.35)); }
+.fighter-file__copy { flex: 1 1 45%; padding: clamp(2rem, 5vw, 4rem); }
 .fighter-file__tagline { color: $cyan; font-size: 1.15rem; }
 .fighter-file__copy h4, .detail-panel h4 { margin: 1.5rem 0 .3rem; text-transform: uppercase; letter-spacing: .08em; }
 .attribute-list { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
@@ -367,7 +368,7 @@ img.portrait__avatar { object-fit: cover; }
   .level-file__stage { min-height: 260px; }
   .portrait { flex-basis: calc(33.333% - .65rem); max-width: none; }
   .portrait__avatar { height: 68px; }
-  .fighter-file__hero, .fighter-file__details { flex-basis: 100%; }
+  .fighter-file__hero, .fighter-file__copy, .fighter-file__details { flex-basis: 100%; }
   .fighter-file__hero { min-height: 330px; }
   .move-nav { max-height: 220px; }
   .boss-grid { flex-direction: column; }
