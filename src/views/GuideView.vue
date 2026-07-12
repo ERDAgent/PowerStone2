@@ -188,10 +188,10 @@ const unlockPlatforms = [
   },
 ] as const
 
-const characterSlides = [
-  '/media/placeholders/character-slideshow-slide-1-placeholder.svg',
-  '/media/placeholders/character-slideshow-slide-2-placeholder.svg',
-  '/media/placeholders/character-slideshow-slide-3-placeholder.svg',
+const characterSlides: GalleryItem[] = [
+  { kind: 'image', src: '/media/placeholders/character-slideshow-slide-1-placeholder.svg', label: 'Placeholder slide 1' },
+  { kind: 'image', src: '/media/placeholders/character-slideshow-slide-2-placeholder.svg', label: 'Placeholder slide 2' },
+  { kind: 'video', src: '/media/videos/gameplay-loop.mp4', poster: '/media/placeholders/entity-clip-poster-placeholder.svg', label: 'Placeholder clip' },
 ]
 
 const selectedPlatform = ref<typeof platforms[number]['id']>(platforms[0].id)
@@ -478,18 +478,30 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
             </dl>
             <div class="character-slideshow">
               <div class="character-slideshow__stage">
-                <img
-                  v-for="(slide, index) in characterSlides"
-                  :key="slide"
-                  :src="slide"
-                  :class="['character-slideshow__image', { active: index === characterSlideIndex }]"
-                  :alt="`${selectedCharacter.name} placeholder slideshow image ${index + 1}`"
-                />
+                <template v-for="(slide, index) in characterSlides" :key="slide.src + index">
+                  <img
+                    v-if="slide.kind === 'image'"
+                    :src="slide.src"
+                    :class="['character-slideshow__image', { active: index === characterSlideIndex }]"
+                    :alt="`${selectedCharacter.name} placeholder slideshow image ${index + 1}`"
+                  />
+                  <video
+                    v-else
+                    :class="['character-slideshow__image', { active: index === characterSlideIndex }]"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    :poster="slide.poster"
+                  >
+                    <source :src="slide.src" type="video/mp4" />
+                  </video>
+                </template>
                 <button class="character-slideshow__arrow character-slideshow__arrow--previous" type="button" aria-label="Previous slideshow image" @click="previousCharacterSlide">←</button>
                 <button class="character-slideshow__arrow character-slideshow__arrow--next" type="button" aria-label="Next slideshow image" @click="nextCharacterSlide">→</button>
               </div>
-              <p class="character-slideshow__caption" aria-live="polite">Image {{ characterSlideIndex + 1 }} of {{ characterSlides.length }} · replaceable character slideshow</p>
-              <p class="character-slideshow__caption character-slideshow__caption--tablet" aria-live="polite">All {{ characterSlides.length }} character slideshow images · replaceable</p>
+              <p class="character-slideshow__caption" aria-live="polite">Slide {{ characterSlideIndex + 1 }} of {{ characterSlides.length }} · replaceable character slideshow</p>
+              <p class="character-slideshow__caption character-slideshow__caption--tablet" aria-live="polite">All {{ characterSlides.length }} character slideshow slides · replaceable</p>
             </div>
           </section>
 
