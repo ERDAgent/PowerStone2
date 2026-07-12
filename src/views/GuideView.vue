@@ -62,6 +62,12 @@ function onTabKeydown(event: KeyboardEvent, index: number) {
   activateCatalogTab(catalogTabs[next].kind, next)
 }
 
+const highlights = [
+  ['The Sleeper Hit: Retro 3D Fighter', 'The perfect mix of depth and simplicity from a bygone era.'],
+  ['Deep Replayability', 'Amazing combat, easy to learn/hard to master, crafting and gambling, ahead of its time.'],
+  ['Competitive Spirit', 'This game is meant to be played against someone else for hours on end. It’s competitive multiplayer is its shining achievement.'],
+]
+
 const quickFacts = [
   ['4-player arenas', 'Up to four fighters share one freely explorable 3D stage instead of a locked-off fighting-game plane.'],
   ['Power Stone transformations', 'Collecting three stones grants a temporary, stronger form built around each character’s powered-up moves.'],
@@ -326,6 +332,12 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
     <section id="game-overview" class="content-section routed-section content-section--game-overview" aria-labelledby="game-overview-title">
       <SectionHeading title-id="game-overview-title" kicker="01 / About the game" title="A transforming arena brawler." intro="Power Stone 2 sends up to four fighters into a single free-roaming stage, racing to combine stones into a temporary transformation while the arena itself keeps changing shape underfoot." />
       <div class="game-overview">
+        <div class="game-overview__highlights">
+          <article v-for="highlight in highlights" :key="highlight[0]" class="game-overview__highlight">
+            <h3>{{ highlight[0] }}</h3>
+            <p>{{ highlight[1] }}</p>
+          </article>
+        </div>
         <p class="game-overview__lede">Capcom’s 2000 sequel expands the original Power Stone into full four-player chaos: any object in reach can become a weapon, any stage can shift or crumble mid-fight, and a well-timed transformation can flip a losing match in seconds. The sections below walk through how to play, on which platform, and how to get a match running with friends.</p>
         <dl class="game-overview__facts">
           <div v-for="fact in quickFacts" :key="fact[0]"><dt>{{ fact[0] }}</dt><dd>{{ fact[1] }}</dd></div>
