@@ -75,10 +75,10 @@ describe('canonical item data', () => {
       }
     }
     expect(items.filter(record => record.media === null)).toHaveLength(3)
-    expect(materials.filter(record => record.media === null)).toHaveLength(1)
+    expect(materials.filter(record => record.media === null)).toHaveLength(0)
     expect(essences.every(record => record.media !== null)).toBe(true)
     expect(items.filter(record => record.media === null).map(record => record.number)).toEqual(['079', '099', '108'])
-    expect(materials.filter(record => record.media === null).map(record => record.number)).toEqual(['20'])
+    expect(materials.filter(record => record.media === null).map(record => record.number)).toEqual([])
   })
 
   it('retains source disagreements in provenance', () => {
