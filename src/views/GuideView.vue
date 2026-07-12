@@ -127,6 +127,16 @@ const modes = [
 
 const onlineOptions = [
   {
+    id: 'capcom-fighting-collection-2', label: 'Capcom Fighting Collection 2',
+    intro: 'Capcom Fighting Collection 2 (2025) bundles Power Stone and Power Stone 2 alongside several other Capcom fighting games on modern platforms — the most direct, officially licensed way to play today.',
+    steps: [
+      ['Get the collection', 'Purchase Capcom Fighting Collection 2 from an official storefront (Steam, PlayStation Store, Xbox, Nintendo eShop) for your platform of choice.'],
+      ['Launch Power Stone 2 from the collection menu', 'The collection bundles multiple games — select Power Stone 2 specifically from its in-collection menu.'],
+      ['Check the collection’s online options', 'Confirm what online or local multiplayer features the collection offers for Power Stone 2 before planning a match; specifics vary by platform and can change with updates.'],
+      ['Fall back to Flycast Dojo if needed', 'If the collection doesn’t cover the setup you want, the Flycast Dojo tab remains available for the original Dreamcast release.'],
+    ],
+  },
+  {
     id: 'flycast-dojo', label: 'Flycast Dojo',
     intro: 'A version-agnostic Flycast Dojo readiness path focused on matching setups and diagnosing issues—without promising a permanent link or frozen interface.',
     steps: [
@@ -137,16 +147,6 @@ const onlineOptions = [
       ['Configure networking', 'Follow current Dojo guidance for hosting or joining; networking requirements can change.'],
       ['Start a test session', 'Begin with a short match and use a wired connection where practical.'],
       ['Troubleshoot together', 'If sync fails, recheck matching files/settings, close overlays, and compare logs before retrying.'],
-    ],
-  },
-  {
-    id: 'steam', label: 'Steam',
-    intro: 'No official Steam release of Power Stone 2 is currently confirmed; treat any storefront listing skeptically until verified. PC players typically reach the game through emulation.',
-    steps: [
-      ['Check for an official listing', 'Search Steam yourself before assuming availability, and prioritize the publisher’s current storefront over unofficial claims.'],
-      ['Use verified emulation on PC', 'Absent an official release, run Flycast (or another actively maintained Dreamcast emulator) and add it to Steam as a non-Steam game for a unified library entry.'],
-      ['Match Dojo settings', 'If playing online, follow the same Flycast Dojo setup used on any other PC install; Steam is a launcher, not a networking layer.'],
-      ['Watch the Steam Overlay', 'Overlay input capture can interfere with emulator hotkeys — disable it per-game if you run into issues.'],
     ],
   },
   {
