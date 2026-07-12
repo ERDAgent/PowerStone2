@@ -18,7 +18,7 @@ const expectedSections = [
   ['combinations', 'Combinations'],
   ['characters', 'Characters'],
   ['levels', 'Levels'],
-  ['bosses', 'Bosses'],
+  ['enemies', 'Enemies'],
   ['unlocks', 'Unlocks'],
   ['history', 'History'],
   ['about', 'About Us'],
@@ -280,9 +280,10 @@ describe('guide interactions', () => {
   it('renders canonical boss, character, and level records', async () => {
     const { wrapper } = await mountGuide()
     expect(wrapper.findAll('.portrait').map(node => node.findAll('span').at(-1)!.text())).toEqual(characters.map(record => record.name))
-    expect(wrapper.findAll('.level-chip').map(node => node.text())).toEqual(levels.map((record, index) => `0${index + 1}${record.name}`))
-    expect(wrapper.findAll('.boss-card h3').map(node => node.text())).toEqual(bosses.map(record => record.name))
-    expect(wrapper.findAll('.boss-card img').map(node => node.attributes('src'))).toEqual(bosses.map(record => record.media))
+    expect(wrapper.findAll('.level-chip').map(node => node.text())).toEqual(levels.map((record, index) => `${record.stageCount}-Stage0${index + 1}${record.name}${record.modes.join('')}`))
+    expect(wrapper.findAll('.entity-select')[0].findAll('.entity-chip').map(node => node.text())).toEqual(bosses.map(record => record.name))
+    const bossDetailImages = wrapper.findAll('.entity-file')[0].findAll('.entity-file__portrait')
+    expect(bossDetailImages[0].attributes('src')).toBe(bosses[0].media)
     wrapper.unmount()
   })
 
@@ -448,22 +449,33 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('opens the boss dialog from the boss image or name and closes it', async () => {
+  it('selects a boss from the nav grid and updates the details below it, like the characters and levels sections', async () => {
     const { wrapper } = await mountGuide()
-    const firstBoss = bosses[0]
-    await wrapper.find('.boss-card img[role="button"]').trigger('click')
-    let dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
-    expect(dialog).not.toBeNull()
-    expect(dialog!.textContent).toContain(firstBoss.name)
-    expect(dialog!.textContent).toContain(firstBoss.description)
-    dialog!.querySelector<HTMLButtonElement>('[aria-label="Close boss info"]')!.click()
-    await wrapper.vm.$nextTick()
-    expect(document.body.querySelector('[role="dialog"]')).toBeNull()
+    const bossSubsection = wrapper.find('#enemies').findAll('.subsection')[0]
+    expect(bossSubsection.find('.subsection__title').text()).toBe('Bosses')
+    expect(bossSubsection.find('.entity-file h3').text()).toBe(bosses[0].name)
 
-    await wrapper.find('.boss-card h3[role="button"]').trigger('click')
-    dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
-    expect(dialog).not.toBeNull()
-    expect(dialog!.textContent).toContain(firstBoss.name)
+    const secondBoss = bosses[1]
+    const chip = bossSubsection.findAll('.entity-chip').find(button => button.text().includes(secondBoss.name))!
+    await chip.trigger('click')
+    expect(bossSubsection.find('.entity-file h3').text()).toBe(secondBoss.name)
+    expect(bossSubsection.find('.entity-file').text()).toContain(secondBoss.description)
+    expect(chip.attributes('aria-pressed')).toBe('true')
+    wrapper.unmount()
+  })
+
+  it('gives the Enemies subsection the same nav-plus-details pattern with placeholder entries', async () => {
+    const { wrapper } = await mountGuide()
+    const enemySubsection = wrapper.find('#enemies').findAll('.subsection')[1]
+    expect(enemySubsection.find('.subsection__title').text()).toBe('Enemies')
+    const chips = enemySubsection.findAll('.entity-chip')
+    expect(chips.length).toBeGreaterThan(1)
+    const chipNames = chips.map(chip => chip.findAll('span').at(-1)!.text())
+    expect(enemySubsection.find('.entity-file h3').text()).toBe(chipNames[0])
+    expect(enemySubsection.find('.entity-file').text()).toContain('Coming soon')
+
+    await chips[1].trigger('click')
+    expect(enemySubsection.find('.entity-file h3').text()).toBe(chipNames[1])
     wrapper.unmount()
   })
 

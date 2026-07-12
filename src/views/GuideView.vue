@@ -3,7 +3,6 @@ import { computed, nextTick, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import SectionHeading from '@/components/SectionHeading.vue'
 import HorizontalNav from '@/components/HorizontalNav.vue'
-import BossDialog from '@/components/BossDialog.vue'
 import Lightbox from '@/components/Lightbox.vue'
 import MediaGalleryDialog from '@/components/MediaGalleryDialog.vue'
 import type { GalleryItem } from '@/components/MediaGalleryDialog.vue'
@@ -13,7 +12,7 @@ import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex } = storeToRefs(store)
+const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
 const characteristicLabels = [
   ['strength', 'Strength'],
   ['throwDistance', 'Throw Distance'],
@@ -213,6 +212,14 @@ function closeLevelGallery() { openGallery.value = null }
 function nextGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index + 1) % galleryItems.value.length } }
 function previousGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index - 1 + galleryItems.value.length) % galleryItems.value.length } }
 
+const placeholderEnemies = [
+  { id: 'enemy-placeholder-1', name: 'Enemy 01' },
+  { id: 'enemy-placeholder-2', name: 'Enemy 02' },
+  { id: 'enemy-placeholder-3', name: 'Enemy 03' },
+] as const
+const selectedEnemyId = ref<typeof placeholderEnemies[number]['id']>(placeholderEnemies[0].id)
+const selectedEnemy = computed(() => placeholderEnemies.find(enemy => enemy.id === selectedEnemyId.value) ?? placeholderEnemies[0])
+
 const milestones = [
   ['1999', 'Power Stone arrives in arcades and on Dreamcast, establishing the transforming 3D arena formula.'],
   ['Early 2000', 'Power Stone 2 reaches Japanese arcades on Sega NAOMI hardware.'],
@@ -407,9 +414,13 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
       <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Choose an arena file to inspect its replaceable visual study, browse its pictures, and preview a placeholder video pass." />
       <div class="level-select" role="list" aria-label="Playable arenas">
         <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="store.selectLevel(level.id)">
+          <span class="status-tag">{{ level.stageCount }}-Stage</span>
           <img class="level-chip__thumb" :src="level.media" :alt="`${level.name} replaceable level artwork`" />
           <span class="level-chip__number">0{{ index + 1 }}</span>
           <span>{{ level.name }}</span>
+          <span class="level-chip__modes">
+            <span v-for="mode in level.modes" :key="mode" class="level-chip__mode-badge">{{ mode }}</span>
+          </span>
         </button>
       </div>
       <article class="level-file" aria-live="polite">
@@ -450,10 +461,49 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
       </article>
     </section>
 
-    <section id="bosses" class="content-section routed-section content-section--bosses" aria-labelledby="bosses-title">
-      <SectionHeading title-id="bosses-title" kicker="07 / Encounters" title="When the arena fights back." intro="Two established Power Stone 2 encounters, described cautiously and without padding the roster with uncertain names." />
-      <div class="boss-grid">
-        <article v-for="(boss, index) in bosses" :key="boss.id" :class="['boss-card', { 'boss-card--arena': boss.arenaMedia }]" :style="boss.arenaMedia ? { '--arena-media': `url(${boss.arenaMedia})` } : undefined"><img v-if="boss.media" :src="boss.media" :alt="`${boss.name} artwork`" role="button" tabindex="0" @click="store.showBoss(boss.id)" @keydown.enter="store.showBoss(boss.id)" @keydown.space.prevent="store.showBoss(boss.id)" /><div><p class="eyebrow">Encounter {{ String(index + 1).padStart(2, '0') }}</p><h3 role="button" tabindex="0" @click="store.showBoss(boss.id)" @keydown.enter="store.showBoss(boss.id)" @keydown.space.prevent="store.showBoss(boss.id)">{{ boss.name }}</h3><p>{{ boss.description }}</p><span class="status-tag">{{ boss.status }}</span></div></article>
+    <section id="enemies" class="content-section routed-section content-section--enemies" aria-labelledby="enemies-title">
+      <SectionHeading title-id="enemies-title" kicker="07 / Threats" title="Who's standing in your way." intro="Two encounter types make up the opposition: story bosses that anchor the fight, and the wider cast of enemies met along the way. The enemy roster is queued for a future update." />
+
+      <div class="subsection">
+        <h3 class="subsection__title">Bosses</h3>
+        <div class="entity-select" role="list" aria-label="Boss encounters">
+          <button v-for="boss in bosses" :key="boss.id" type="button" :aria-pressed="selectedBoss.id === boss.id" :class="['entity-chip', { 'entity-chip--active': selectedBoss.id === boss.id }]" @click="store.selectBoss(boss.id)">
+            <img v-if="boss.media" class="entity-chip__thumb" :src="boss.media" :alt="`${boss.name} chip art`" />
+            <span v-else class="entity-chip__thumb entity-chip__thumb--fallback" aria-hidden="true">{{ boss.name.slice(0, 2) }}</span>
+            <span>{{ boss.name }}</span>
+          </button>
+        </div>
+        <article class="entity-file" aria-live="polite">
+          <div class="entity-file__hero" :class="{ 'entity-file__hero--arena': selectedBoss.arenaMedia }" :style="selectedBoss.arenaMedia ? { '--arena-media': `url(${selectedBoss.arenaMedia})` } : undefined">
+            <img v-if="selectedBoss.media" class="entity-file__portrait" :src="selectedBoss.media" :alt="`${selectedBoss.name} artwork`" />
+            <span v-else aria-hidden="true">{{ selectedBoss.name.slice(0, 2).toUpperCase() }}</span>
+          </div>
+          <div class="entity-file__copy">
+            <p class="eyebrow">Encounter file</p>
+            <h3>{{ selectedBoss.name }}</h3>
+            <span class="status-tag">{{ selectedBoss.status }}</span>
+            <p>{{ selectedBoss.description }}</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="subsection">
+        <h3 class="subsection__title">Enemies</h3>
+        <div class="entity-select" role="list" aria-label="Enemy roster">
+          <button v-for="enemy in placeholderEnemies" :key="enemy.id" type="button" :aria-pressed="selectedEnemy.id === enemy.id" :class="['entity-chip', { 'entity-chip--active': selectedEnemy.id === enemy.id }]" @click="selectedEnemyId = enemy.id">
+            <span class="entity-chip__thumb entity-chip__thumb--fallback" aria-hidden="true">{{ enemy.name.slice(0, 2) }}</span>
+            <span>{{ enemy.name }}</span>
+          </button>
+        </div>
+        <article class="entity-file" aria-live="polite">
+          <div class="entity-file__hero"><span aria-hidden="true">?</span></div>
+          <div class="entity-file__copy">
+            <p class="eyebrow">Encounter file</p>
+            <h3>{{ selectedEnemy.name }}</h3>
+            <span class="status-tag">Coming soon</span>
+            <p>Regular enemy encounters are being catalogued and will appear here in a future update.</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -524,7 +574,6 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
       </div>
     </section>
   </div>
-  <BossDialog />
   <Lightbox />
   <MediaGalleryDialog :title="selectedLevel.name" :items="galleryItems" :active-index="openGallery?.index ?? null" @close="closeLevelGallery" @next="nextGalleryItem" @previous="previousGalleryItem" />
 </template>

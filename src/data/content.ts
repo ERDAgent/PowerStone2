@@ -6,7 +6,7 @@ export const sections = [
   { id: 'combinations', label: 'Combinations' },
   { id: 'characters', label: 'Characters' },
   { id: 'levels', label: 'Levels' },
-  { id: 'bosses', label: 'Bosses' },
+  { id: 'enemies', label: 'Enemies' },
   { id: 'unlocks', label: 'Unlocks' },
   { id: 'history', label: 'History' },
   { id: 'about', label: 'About Us' },

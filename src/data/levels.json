@@ -7,11 +7,17 @@
     "slides": [
       "/media/levels/levels-large/blue-sky-area-large.png"
     ],
+    "stageCount": 3,
+    "modes": [
+      "PVP",
+      "PVE"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -23,11 +29,17 @@
     "slides": [
       "/media/levels/levels-large/dark-castle-area-large.png"
     ],
+    "stageCount": 3,
+    "modes": [
+      "PVP",
+      "PVE"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -39,11 +51,17 @@
     "slides": [
       "/media/levels/levels-large/tomb-area-large.png"
     ],
+    "stageCount": 1,
+    "modes": [
+      "PVP",
+      "PVE"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -55,11 +73,17 @@
     "slides": [
       "/media/levels/levels-large/iceburg-area-large.png"
     ],
+    "stageCount": 3,
+    "modes": [
+      "PVP",
+      "PVE"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -71,11 +95,17 @@
     "slides": [
       "/media/levels/levels-large/space-station-area-large.png"
     ],
+    "stageCount": 4,
+    "modes": [
+      "PVP",
+      "PVE"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -87,11 +117,17 @@
     "slides": [
       "/media/levels/levels-large/chaos-area-large.png"
     ],
+    "stageCount": 4,
+    "modes": [
+      "PVP",
+      "PVE"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -103,11 +139,17 @@
     "slides": [
       "/media/levels/levels-large/desert-area-large.png"
     ],
+    "stageCount": 1,
+    "modes": [
+      "PVP",
+      "PVE"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -119,11 +161,16 @@
     "slides": [
       "/media/levels/levels-large/extra-stage-1-large.png"
     ],
+    "stageCount": 1,
+    "modes": [
+      "PVP"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -135,11 +182,16 @@
     "slides": [
       "/media/levels/levels-large/extra-stage-2-large.png"
     ],
+    "stageCount": 1,
+    "modes": [
+      "PVP"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   },
@@ -151,11 +203,16 @@
     "slides": [
       "/media/levels/levels-large/extra-stage-3-large.png"
     ],
+    "stageCount": 1,
+    "modes": [
+      "PVP"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
-        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial."
+        "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
       ]
     }
   }

@@ -43,12 +43,17 @@ export interface CharacterRecord extends MediaRecord {
   readonly provenance: DataProvenance
 }
 
+export type LevelStageCount = 1 | 3 | 4
+export type LevelMode = 'PVP' | 'PVE'
+
 export interface LevelRecord {
   readonly id: `level-${string}`
   readonly name: string
   readonly description: string
   readonly media: string
   readonly slides: readonly string[]
+  readonly stageCount: LevelStageCount
+  readonly modes: readonly LevelMode[]
   readonly provenance: DataProvenance
 }
 

@@ -31,7 +31,7 @@ export const useGuideStore = defineStore('guide', () => {
   const selectedLevelId = ref<LevelRecord['id']>(levels[0].id)
   const selectedMoveIndex = ref(0)
   const selectedSpecialIndex = ref(0)
-  const openBossId = ref<BossRecord['id'] | null>(null)
+  const selectedBossId = ref<BossRecord['id']>(bosses[0].id)
   const lightboxImage = ref<LightboxImage | null>(null)
 
   const selectedCharacter = computed(() => characters.find(c => c.id === selectedCharacterId.value) ?? characters[0])
@@ -48,7 +48,7 @@ export const useGuideStore = defineStore('guide', () => {
   })
   const selectedEntity = computed(() => filteredEntities.value.find(entity => entity.record.id === selectedEntityId.value) ?? null)
   const selectedLevel = computed(() => levels.find(l => l.id === selectedLevelId.value) ?? levels[0])
-  const openBoss = computed(() => bosses.find(b => b.id === openBossId.value) ?? null)
+  const selectedBoss = computed(() => bosses.find(b => b.id === selectedBossId.value) ?? bosses[0])
 
   function reconcileSelection() {
     if (!filteredEntities.value.some(entity => entity.record.id === selectedEntityId.value)) selectedEntityId.value = filteredEntities.value[0]?.record.id ?? null
@@ -64,12 +64,11 @@ export const useGuideStore = defineStore('guide', () => {
   function setCategory(category: string) { itemCategory.value = category }
   function setItemQuery(query: string) { itemQuery.value = query }
   function selectLevel(id: LevelRecord['id']) { selectedLevelId.value = id }
-  function showBoss(id: BossRecord['id']) { openBossId.value = id }
-  function closeBoss() { openBossId.value = null }
+  function selectBoss(id: BossRecord['id']) { selectedBossId.value = id }
   function openLightbox(image: LightboxImage) { lightboxImage.value = image }
   function closeLightbox() { lightboxImage.value = null }
 
   watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, openBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, openBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, selectLevel, showBoss, closeBoss, openLightbox, closeLightbox }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, selectedBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, selectedBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, selectLevel, selectBoss, openLightbox, closeLightbox }
 })
