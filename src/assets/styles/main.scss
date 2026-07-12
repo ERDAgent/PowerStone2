@@ -100,9 +100,8 @@ img { display: block; max-width: 100%; }
 .game-overview__facts div { padding: 1rem; border: 1px solid #b8afa4; background: rgba(255, 255, 255, .6); }
 .game-overview__facts dt { color: #d6421e; font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .game-overview__facts dd { margin: .4rem 0 0; color: #5c5568; font-size: .84rem; }
-.section-divider { position: relative; z-index: 1; height: 3.25rem; background: $night; overflow: hidden; }
-.section-divider::before { content: ''; position: absolute; inset: 0; opacity: .15; background-image: linear-gradient(135deg, rgba(255,255,255,.5) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.5) 50%, rgba(255,255,255,.5) 75%, transparent 75%, transparent); background-size: 22px 22px; }
-.section-divider__mark { position: absolute; z-index: 2; top: 50%; left: 50%; display: grid; place-items: center; width: 38px; height: 38px; color: $yellow; border: 1px solid $orange; background: $night; transform: translate(-50%, -50%) rotate(10deg); }
+.section-divider { position: relative; z-index: 1; height: 0; }
+.section-divider__mark { position: absolute; z-index: 2; top: 0; left: 50%; display: grid; place-items: center; width: 38px; height: 38px; color: $yellow; border: 1px solid $orange; background: $night; transform: translate(-50%, -50%) rotate(10deg); }
 .subsection { max-width: 1180px; margin-top: clamp(3rem, 6vw, 4.5rem); }
 .subsection__title { margin: 0 0 1rem; font-family: 'Guide Display', Impact, sans-serif; font-size: clamp(1.4rem, 3vw, 2rem); text-transform: uppercase; letter-spacing: -.01em; }
 .subsection__panel { padding: clamp(1.2rem, 3vw, 2rem); border: 1px solid #b8afa4; background: rgba(255, 255, 255, .78); }
