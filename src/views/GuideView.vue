@@ -258,6 +258,11 @@ function nextEntity() {
   store.selectEntity(list[(index + 1) % list.length].record.id)
 }
 
+const fighterFile = ref<HTMLElement | null>(null)
+function selectCharacterAndScroll(id: (typeof characters)[number]['id']) {
+  store.selectCharacter(id)
+  nextTick(() => fighterFile.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+}
 function previousCharacter() {
   const index = characters.findIndex(character => character.id === selectedCharacter.value.id)
   store.selectCharacter(characters[(index - 1 + characters.length) % characters.length].id)
@@ -267,6 +272,11 @@ function nextCharacter() {
   store.selectCharacter(characters[(index + 1) % characters.length].id)
 }
 
+const bossFile = ref<HTMLElement | null>(null)
+function selectBossAndScroll(id: (typeof bosses)[number]['id']) {
+  store.selectBoss(id)
+  nextTick(() => bossFile.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+}
 function previousBoss() {
   const index = bosses.findIndex(boss => boss.id === selectedBoss.value.id)
   store.selectBoss(bosses[(index - 1 + bosses.length) % bosses.length].id)
@@ -283,6 +293,11 @@ const placeholderEnemies = [
 ] as const
 const selectedEnemyId = ref<typeof placeholderEnemies[number]['id']>(placeholderEnemies[0].id)
 const selectedEnemy = computed(() => placeholderEnemies.find(enemy => enemy.id === selectedEnemyId.value) ?? placeholderEnemies[0])
+const enemyFile = ref<HTMLElement | null>(null)
+function selectEnemyAndScroll(id: (typeof placeholderEnemies)[number]['id']) {
+  selectedEnemyId.value = id
+  nextTick(() => enemyFile.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+}
 function previousEnemy() {
   const index = placeholderEnemies.findIndex(enemy => enemy.id === selectedEnemy.value.id)
   selectedEnemyId.value = placeholderEnemies[(index - 1 + placeholderEnemies.length) % placeholderEnemies.length].id
@@ -432,7 +447,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     <section id="characters" class="content-section routed-section content-section--characters" aria-labelledby="characters-title">
       <SectionHeading title-id="characters-title" kicker="05 / Select player" title="Fourteen ways into the fray, plus two PSP exclusives." intro="Choose a portrait to update the player file. The base Dreamcast and arcade roster numbers fourteen; Kraken and General Valgas are marked PSP exclusive, unlocked only in the Power Stone Collection release. Attributes are editorial impressions; move notation remains queued for gameplay verification." />
       <div class="character-select" role="list" aria-label="Playable characters">
-        <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="store.selectCharacter(character.id)">
+        <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="selectCharacterAndScroll(character.id)">
           <img v-if="character.media" class="portrait__avatar" :src="character.media" :alt="`${character.name} chip art`" />
           <span v-else class="portrait__avatar" aria-hidden="true">{{ character.name.slice(0, 2).toUpperCase() }}</span>
           <span v-if="isPspExclusive(character)" class="status-tag status-tag--psp">PSP exclusive</span>
@@ -440,7 +455,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
           <span class="portrait__details-bar">{{ character.name }}</span>
         </button>
       </div>
-      <article class="fighter-file" aria-live="polite">
+      <article ref="fighterFile" class="fighter-file" aria-live="polite">
         <div class="detail-nav">
           <button type="button" class="detail-nav__arrow" aria-label="Previous character" @click="previousCharacter">←</button>
           <button type="button" class="detail-nav__arrow" aria-label="Next character" @click="nextCharacter">→</button>
@@ -572,12 +587,12 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       <div class="subsection">
         <h3 class="subsection__title">Enemies</h3>
         <div class="entity-select" role="list" aria-label="Enemy roster">
-          <button v-for="enemy in placeholderEnemies" :key="enemy.id" type="button" :aria-pressed="selectedEnemy.id === enemy.id" :class="['entity-chip', { 'entity-chip--active': selectedEnemy.id === enemy.id }]" @click="selectedEnemyId = enemy.id">
+          <button v-for="enemy in placeholderEnemies" :key="enemy.id" type="button" :aria-pressed="selectedEnemy.id === enemy.id" :class="['entity-chip', { 'entity-chip--active': selectedEnemy.id === enemy.id }]" @click="selectEnemyAndScroll(enemy.id)">
             <span class="entity-chip__thumb entity-chip__thumb--fallback" aria-hidden="true">{{ enemy.name.slice(0, 2) }}</span>
             <span>{{ enemy.name }}</span>
           </button>
         </div>
-        <article class="entity-file" aria-live="polite">
+        <article ref="enemyFile" class="entity-file" aria-live="polite">
           <div class="detail-nav">
             <button type="button" class="detail-nav__arrow" aria-label="Previous enemy" @click="previousEnemy">←</button>
             <button type="button" class="detail-nav__arrow" aria-label="Next enemy" @click="nextEnemy">→</button>
@@ -614,13 +629,13 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       <div class="subsection">
         <h3 class="subsection__title">Bosses</h3>
         <div class="entity-select" role="list" aria-label="Boss encounters">
-          <button v-for="boss in bosses" :key="boss.id" type="button" :aria-pressed="selectedBoss.id === boss.id" :class="['entity-chip', { 'entity-chip--active': selectedBoss.id === boss.id }]" @click="store.selectBoss(boss.id)">
+          <button v-for="boss in bosses" :key="boss.id" type="button" :aria-pressed="selectedBoss.id === boss.id" :class="['entity-chip', { 'entity-chip--active': selectedBoss.id === boss.id }]" @click="selectBossAndScroll(boss.id)">
             <img v-if="boss.media" class="entity-chip__thumb" :src="boss.media" :alt="`${boss.name} chip art`" />
             <span v-else class="entity-chip__thumb entity-chip__thumb--fallback" aria-hidden="true">{{ boss.name.slice(0, 2) }}</span>
             <span>{{ boss.name }}</span>
           </button>
         </div>
-        <article class="entity-file" aria-live="polite">
+        <article ref="bossFile" class="entity-file" aria-live="polite">
           <div class="detail-nav">
             <button type="button" class="detail-nav__arrow" aria-label="Previous boss" @click="previousBoss">←</button>
             <button type="button" class="detail-nav__arrow" aria-label="Next boss" @click="nextBoss">→</button>
