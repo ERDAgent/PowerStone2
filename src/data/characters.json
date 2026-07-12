@@ -4,7 +4,10 @@
     "name": "Falcon",
     "tagline": "A daring aerial adventurer and the guide’s default fighter.",
     "history": "Falcon returns to the hunt with a bold, mobile style and a taste for treasure.",
-    "attributes": ["Editorial read: approachable", "Editorial read: powerful"],
+    "attributes": [
+      "Editorial read: approachable",
+      "Editorial read: powerful"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -20,14 +23,83 @@
       ]
     },
     "portrait": "/media/characters/full/falcon-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Falcon Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Falcon Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Falcon's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "low",
+      "throwDistance": "medium",
+      "damage": "low",
+      "toughness": "medium",
+      "speed": "low"
+    }
   },
   {
     "id": "character-wang-tang",
     "name": "Wang-Tang",
     "tagline": "An energetic martial artist built around direct momentum.",
     "history": "Wang-Tang brings disciplined training and irrepressible confidence to the fray.",
-    "attributes": ["Editorial read: technical", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: technical",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -43,14 +115,83 @@
       ]
     },
     "portrait": "/media/characters/full/wang-tang-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Wang-Tang Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Wang-Tang Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Wang-Tang's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "high",
+      "throwDistance": "low",
+      "damage": "high",
+      "toughness": "low",
+      "speed": "low"
+    }
   },
   {
     "id": "character-ryoma",
     "name": "Ryoma",
     "tagline": "A wandering swordsman with measured reach.",
     "history": "Ryoma’s traditional bearing contrasts with the chaos of transforming arenas.",
-    "attributes": ["Editorial read: approachable", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: approachable",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -66,14 +207,83 @@
       ]
     },
     "portrait": "/media/characters/full/ryoma-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Ryoma Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Ryoma Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Ryoma's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "medium",
+      "throwDistance": "low",
+      "damage": "high",
+      "toughness": "low",
+      "speed": "high"
+    }
   },
   {
     "id": "character-rouge",
     "name": "Rouge",
     "tagline": "A fortune-teller whose presentation leans into fire and mystery.",
     "history": "Rouge enters the contest with poise, spectacle, and an enigmatic past.",
-    "attributes": ["Editorial read: technical", "Editorial read: powerful"],
+    "attributes": [
+      "Editorial read: technical",
+      "Editorial read: powerful"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -89,14 +299,83 @@
       ]
     },
     "portrait": "/media/characters/full/rouge-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rouge Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rouge Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rouge's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "high",
+      "throwDistance": "high",
+      "damage": "high",
+      "toughness": "low",
+      "speed": "high"
+    }
   },
   {
     "id": "character-ayame",
     "name": "Ayame",
     "tagline": "A nimble performer with a fast, evasive identity.",
     "history": "Ayame balances her stagecraft with the agility needed for the stone hunt.",
-    "attributes": ["Editorial read: approachable", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: approachable",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -112,14 +391,83 @@
       ]
     },
     "portrait": "/media/characters/full/ayame-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Ayame Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Ayame Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Ayame's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "low",
+      "throwDistance": "low",
+      "damage": "medium",
+      "toughness": "low",
+      "speed": "medium"
+    }
   },
   {
     "id": "character-gunrock",
     "name": "Gunrock",
     "tagline": "A huge miner whose identity emphasizes raw force.",
     "history": "Gunrock’s working-life roots and massive frame make him an imposing contender.",
-    "attributes": ["Editorial read: technical", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: technical",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -135,14 +483,83 @@
       ]
     },
     "portrait": "/media/characters/full/gunrock-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Gunrock Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Gunrock Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Gunrock's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "high",
+      "throwDistance": "medium",
+      "damage": "high",
+      "toughness": "high",
+      "speed": "low"
+    }
   },
   {
     "id": "character-galuda",
     "name": "Galuda",
     "tagline": "A proud warrior whose identity emphasizes strength and duty.",
     "history": "Galuda carries a protective spirit into every arena.",
-    "attributes": ["Editorial read: approachable", "Editorial read: powerful"],
+    "attributes": [
+      "Editorial read: approachable",
+      "Editorial read: powerful"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -158,14 +575,83 @@
       ]
     },
     "portrait": "/media/characters/full/galuda-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Galuda Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Galuda Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Galuda's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "low",
+      "throwDistance": "low",
+      "damage": "high",
+      "toughness": "medium",
+      "speed": "medium"
+    }
   },
   {
     "id": "character-jack",
     "name": "Jack",
     "tagline": "A mysterious, bladed combatant with an unsettling silhouette.",
     "history": "Jack’s motives and identity remain deliberately obscure.",
-    "attributes": ["Editorial read: technical", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: technical",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -181,14 +667,83 @@
       ]
     },
     "portrait": "/media/characters/full/jack-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Jack Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Jack Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Jack's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "high",
+      "throwDistance": "low",
+      "damage": "medium",
+      "toughness": "low",
+      "speed": "low"
+    }
   },
   {
     "id": "character-accel",
     "name": "Accel",
     "tagline": "A cool-headed gunslinger introduced in Power Stone 2.",
     "history": "Accel brings a frontier-inspired style to the expanded roster.",
-    "attributes": ["Editorial read: approachable", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: approachable",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -204,14 +759,83 @@
       ]
     },
     "portrait": "/media/characters/full/accel-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Accel Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Accel Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Accel's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "medium",
+      "throwDistance": "high",
+      "damage": "medium",
+      "toughness": "high",
+      "speed": "medium"
+    }
   },
   {
     "id": "character-julia",
     "name": "Julia",
     "tagline": "An adventurous newcomer with an elegant, spirited presence.",
     "history": "Julia joins the treasure chase on her own terms.",
-    "attributes": ["Editorial read: technical", "Editorial read: powerful"],
+    "attributes": [
+      "Editorial read: technical",
+      "Editorial read: powerful"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -227,14 +851,83 @@
       ]
     },
     "portrait": "/media/characters/full/julia-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Julia Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Julia Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Julia's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "medium",
+      "throwDistance": "low",
+      "damage": "low",
+      "toughness": "high",
+      "speed": "medium"
+    }
   },
   {
     "id": "character-pete",
     "name": "Pete",
     "tagline": "A compact mechanical fighter with playful movement.",
     "history": "Pete adds a bright retro-future personality to the roster.",
-    "attributes": ["Editorial read: approachable", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: approachable",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -250,14 +943,83 @@
       ]
     },
     "portrait": "/media/characters/full/pete-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Pete Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Pete Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Pete's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "low",
+      "throwDistance": "high",
+      "damage": "medium",
+      "toughness": "high",
+      "speed": "medium"
+    }
   },
   {
     "id": "character-gourmand",
     "name": "Gourmand",
     "tagline": "A chef-themed competitor with an eccentric fighting identity.",
     "history": "Gourmand turns culinary flair into arena spectacle.",
-    "attributes": ["Editorial read: technical", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: technical",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -273,14 +1035,83 @@
       ]
     },
     "portrait": "/media/characters/full/gourmand-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Gourmand Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Gourmand Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Gourmand's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "medium",
+      "throwDistance": "low",
+      "damage": "medium",
+      "toughness": "high",
+      "speed": "low"
+    }
   },
   {
     "id": "character-pride",
     "name": "Pride",
     "tagline": "A composed swordsman presented as an unlockable fighter.",
     "history": "Pride’s connection to Falcon gives his appearance extra narrative weight.",
-    "attributes": ["Editorial read: approachable", "Editorial read: powerful"],
+    "attributes": [
+      "Editorial read: approachable",
+      "Editorial read: powerful"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -296,14 +1127,83 @@
       ]
     },
     "portrait": "/media/characters/full/pride-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Pride Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Pride Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Pride's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "medium",
+      "throwDistance": "low",
+      "damage": "high",
+      "toughness": "medium",
+      "speed": "high"
+    }
   },
   {
     "id": "character-mel",
     "name": "Mel",
     "tagline": "A poised adventurer presented as an unlockable fighter.",
     "history": "Mel’s role ties the wider adventure and item systems together.",
-    "attributes": ["Editorial read: technical", "Editorial read: mobile"],
+    "attributes": [
+      "Editorial read: technical",
+      "Editorial read: mobile"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
@@ -319,7 +1219,73 @@
       ]
     },
     "portrait": "/media/characters/full/mel-full.png",
-    "availability": ["dreamcast","PSP","Arcade"]
+    "availability": [
+      "dreamcast",
+      "PSP",
+      "Arcade"
+    ],
+    "moveList": [
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Mel Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Mel Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Mel's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "high",
+      "throwDistance": "medium",
+      "damage": "high",
+      "toughness": "high",
+      "speed": "high"
+    }
   },
   {
     "id": "character-kraken",
@@ -336,15 +1302,79 @@
       "Mobility / item play — inputs to verify"
     ],
     "color": "hsl(190 82% 46%)",
-    "media": null,
+    "media": "/media/characters/chips/kraken-chip.png",
     "portrait": "/media/characters/full/kraken-full.png",
-    "availability": ["PSP"],
+    "availability": [
+      "PSP"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
         "Kraken is an unlockable playable character exclusive to the PSP Power Stone Collection release, not the original Dreamcast roster; move lists and stats are unverified and not asserted here."
       ]
+    },
+    "moveList": [
+      {
+        "name": "Rising Kick",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Spin Slash",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Kraken Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Kraken Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Kraken's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "high",
+      "throwDistance": "low",
+      "damage": "medium",
+      "toughness": "high",
+      "speed": "medium"
     }
   },
   {
@@ -352,22 +1382,89 @@
     "name": "General Valgas",
     "tagline": "A commanding unlockable fighter added in the PSP compilation.",
     "history": "General Valgas joins Kraken as one of two fighters exclusive to Power Stone Collection on PSP, not part of the original Dreamcast and arcade roster.",
-    "attributes": ["Editorial read: powerful", "Editorial read: technical"],
+    "attributes": [
+      "Editorial read: powerful",
+      "Editorial read: technical"
+    ],
     "moves": [
       "Core attacks — notation to verify",
       "Power Stone transformation — inputs to verify",
       "Mobility / item play — inputs to verify"
     ],
     "color": "hsl(227 82% 52%)",
-    "media": null,
+    "media": "/media/characters/chips/valgas-chip.png",
     "portrait": "/media/characters/full/valgas-full.png",
-    "availability": ["PSP"],
+    "availability": [
+      "PSP"
+    ],
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
       "notes": [
         "General Valgas is an unlockable playable character exclusive to the PSP Power Stone Collection release, not the original Dreamcast roster; move lists and stats are unverified and not asserted here."
       ]
+    },
+    "moveList": [
+      {
+        "name": "Low Sweep",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Body Blow",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Cross Combo",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Straight Jab",
+        "type": "standard",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "General Valgas Rush",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "General Valgas Counter",
+        "type": "unique",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "specials": [
+      {
+        "name": "Power Stone Overdrive",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "General Valgas's Arena Finisher",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Desperation Blast",
+        "video": "/media/videos/gameplay-loop.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      }
+    ],
+    "characteristics": {
+      "strength": "low",
+      "throwDistance": "low",
+      "damage": "medium",
+      "toughness": "medium",
+      "speed": "high"
     }
   }
 ]

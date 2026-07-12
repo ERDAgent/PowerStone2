@@ -1,9 +1,14 @@
 import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { essences, items, materials } from '@/data'
-import { characters, levels } from '@/data/content'
+import { bosses, characters, levels } from '@/data/content'
 import type { EntityId, EssenceRecord, ItemRecord, MaterialRecord } from '@/data/types'
-import type { CharacterRecord, LevelRecord } from '@/data/world'
+import type { BossRecord, CharacterRecord, LevelRecord } from '@/data/world'
+
+export interface LightboxImage {
+  readonly src: string
+  readonly alt: string
+}
 
 export type CatalogKind = 'all' | 'item' | 'material' | 'essence'
 export type CatalogEntity =
@@ -20,13 +25,19 @@ const catalog: readonly CatalogEntity[] = [
 export const useGuideStore = defineStore('guide', () => {
   const selectedCharacterId = ref(characters[0].id)
   const selectedEntityId = ref<EntityId | null>(items[0].id)
-  const catalogKind = ref<CatalogKind>('item')
+  const catalogKind = ref<CatalogKind>('all')
   const itemCategory = ref('All')
   const itemQuery = ref('')
   const selectedLevelId = ref<LevelRecord['id']>(levels[0].id)
   const slideIndex = ref(0)
+  const selectedMoveIndex = ref(0)
+  const selectedSpecialIndex = ref(0)
+  const openBossId = ref<BossRecord['id'] | null>(null)
+  const lightboxImage = ref<LightboxImage | null>(null)
 
   const selectedCharacter = computed(() => characters.find(c => c.id === selectedCharacterId.value) ?? characters[0])
+  const selectedMove = computed(() => selectedCharacter.value.moveList[selectedMoveIndex.value] ?? selectedCharacter.value.moveList[0] ?? null)
+  const selectedSpecial = computed(() => selectedCharacter.value.specials[selectedSpecialIndex.value] ?? selectedCharacter.value.specials[0] ?? null)
   const filteredEntities = computed(() => {
     const query = itemQuery.value.trim().toLocaleLowerCase()
     return catalog.filter(entity => {
@@ -38,11 +49,14 @@ export const useGuideStore = defineStore('guide', () => {
   })
   const selectedEntity = computed(() => filteredEntities.value.find(entity => entity.record.id === selectedEntityId.value) ?? null)
   const selectedLevel = computed(() => levels.find(l => l.id === selectedLevelId.value) ?? levels[0])
+  const openBoss = computed(() => bosses.find(b => b.id === openBossId.value) ?? null)
 
   function reconcileSelection() {
     if (!filteredEntities.value.some(entity => entity.record.id === selectedEntityId.value)) selectedEntityId.value = filteredEntities.value[0]?.record.id ?? null
   }
-  function selectCharacter(id: CharacterRecord['id']) { selectedCharacterId.value = id }
+  function selectCharacter(id: CharacterRecord['id']) { selectedCharacterId.value = id; selectedMoveIndex.value = 0; selectedSpecialIndex.value = 0 }
+  function selectMove(index: number) { selectedMoveIndex.value = index }
+  function selectSpecial(index: number) { selectedSpecialIndex.value = index }
   function selectEntity(id: EntityId) { selectedEntityId.value = id }
   function setCatalogKind(kind: CatalogKind) {
     catalogKind.value = kind
@@ -53,8 +67,12 @@ export const useGuideStore = defineStore('guide', () => {
   function selectLevel(id: LevelRecord['id']) { selectedLevelId.value = id; slideIndex.value = 0 }
   function nextSlide() { slideIndex.value = (slideIndex.value + 1) % selectedLevel.value.slides.length }
   function previousSlide() { slideIndex.value = (slideIndex.value - 1 + selectedLevel.value.slides.length) % selectedLevel.value.slides.length }
+  function showBoss(id: BossRecord['id']) { openBossId.value = id }
+  function closeBoss() { openBossId.value = null }
+  function openLightbox(image: LightboxImage) { lightboxImage.value = image }
+  function closeLightbox() { lightboxImage.value = null }
 
   watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, slideIndex, selectedCharacter, selectedEntity, filteredEntities, selectedLevel, selectCharacter, selectEntity, setCatalogKind, setCategory, setItemQuery, selectLevel, nextSlide, previousSlide }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, slideIndex, selectedMoveIndex, selectedSpecialIndex, openBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, openBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, selectLevel, nextSlide, previousSlide, showBoss, closeBoss, openLightbox, closeLightbox }
 })

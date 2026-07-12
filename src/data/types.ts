@@ -13,6 +13,13 @@ export interface DataProvenance {
   readonly notes: readonly string[]
 }
 
+export interface ItemProvenance {
+  readonly verification: VerificationStatus
+  readonly evidence: readonly SourceEvidence[]
+  readonly itemNotes: readonly string[]
+  readonly recipeNotes: readonly string[]
+}
+
 export interface MediaRecord {
   readonly media: string | null
 }
@@ -26,7 +33,7 @@ export interface ItemRecord extends MediaRecord {
   readonly function: string
   readonly category: string | null
   readonly spreadsheetName: string | null
-  readonly provenance: DataProvenance
+  readonly provenance: ItemProvenance
 }
 
 export interface MaterialRecord extends MediaRecord {

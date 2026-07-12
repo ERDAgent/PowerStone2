@@ -112,7 +112,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
           <span v-else class="entity-fallback" aria-hidden="true">{{ selected.name.slice(0, 2) }}</span>
           <div><p class="eyebrow">{{ selected.category ?? 'Item' }} · #{{ selected.number }}</p><h3>{{ selected.name }}</h3></div>
         </header>
-        <p v-if="selected.provenance.notes.length" class="data-note recipe-result-note">{{ selected.provenance.notes.join(' ') }}</p>
+        <p v-if="selected.provenance.recipeNotes.length" class="data-note recipe-result-note">{{ selected.provenance.recipeNotes.join(' ') }}</p>
         <aside v-if="ambiguousRows.length" class="recipe-warning" role="note">
           {{ ambiguousRows.length }} additional {{ ambiguousRows.length === 1 ? 'formula is' : 'formulas are' }} ambiguous in the extraction manifest and {{ ambiguousRows.length === 1 ? 'is' : 'are' }} not shown as valid recipes.
         </aside>

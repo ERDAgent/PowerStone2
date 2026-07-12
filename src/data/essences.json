@@ -4,7 +4,7 @@
     "machineId": "horror",
     "number": "01",
     "name": "Horror Card",
-    "media": "/media/essenses/png/01-horrorcard-essense.png",
+    "media": "/media/essences/01-horrorcard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -22,7 +22,7 @@
     "machineId": "surprise",
     "number": "02",
     "name": "Surprise Card",
-    "media": "/media/essenses/png/02-surprisecard-essense.png",
+    "media": "/media/essences/02-surprisecard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -40,7 +40,7 @@
     "machineId": "affection",
     "number": "03",
     "name": "Affection Card",
-    "media": "/media/essenses/png/03-affectioncard-essense.png",
+    "media": "/media/essences/03-affectioncard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -58,7 +58,7 @@
     "machineId": "dressup",
     "number": "04",
     "name": "Dress-Up Card",
-    "media": "/media/essenses/png/04-dressupcard-essense.png",
+    "media": "/media/essences/04-dressupcard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -76,7 +76,7 @@
     "machineId": "food",
     "number": "05",
     "name": "Food Card",
-    "media": "/media/essenses/png/05-foodcard-essense.png",
+    "media": "/media/essences/05-foodcard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -94,7 +94,7 @@
     "machineId": "copy",
     "number": "06",
     "name": "Copy Card",
-    "media": "/media/essenses/png/06-copycard-essense.png",
+    "media": "/media/essences/06-copycard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -112,7 +112,7 @@
     "machineId": "profit",
     "number": "07",
     "name": "Profit Card",
-    "media": "/media/essenses/png/07-profitcard-essense.png",
+    "media": "/media/essences/07-profitcard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -130,7 +130,7 @@
     "machineId": "retry",
     "number": "08",
     "name": "Retry Card",
-    "media": "/media/essenses/png/08-retrycard-essense.png",
+    "media": "/media/essences/08-retrycard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [
@@ -148,7 +148,7 @@
     "machineId": "special",
     "number": "09",
     "name": "Special Card",
-    "media": "/media/essenses/png/09-specialcard-essense.png",
+    "media": "/media/essences/09-specialcard-essense.png",
     "provenance": {
       "verification": "verified",
       "evidence": [

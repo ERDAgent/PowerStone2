@@ -184,6 +184,7 @@ describe('guide interactions', () => {
 
   it('renders and synchronously filters the full canonical item catalog', async () => {
     const { wrapper } = await mountGuide()
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
     expect(wrapper.find('.item-detail h3').text()).toBe('Gun')
     expect(wrapper.findAll('.item-tile')).toHaveLength(items.length)
     await wrapper.find('#item-search').setValue('mAcHiNe GuN')
@@ -195,15 +196,15 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('provides ordered catalog tabs with Items selected and exact populations', async () => {
+  it('provides ordered catalog tabs with All selected and exact populations', async () => {
     const { wrapper } = await mountGuide()
     const tabs = wrapper.findAll('.catalog-tabs [role="tab"]')
     expect(tabs.map(tab => tab.text())).toEqual(['All', 'Items', 'Materials', 'Essences'])
-    expect(tabs.map(tab => tab.attributes('aria-selected'))).toEqual(['false', 'true', 'false', 'false'])
-    expect(tabs.map(tab => tab.attributes('tabindex'))).toEqual(['-1', '0', '-1', '-1'])
-    expect(wrapper.findAll('.item-tile')).toHaveLength(121)
-    await tabs[0].trigger('click')
+    expect(tabs.map(tab => tab.attributes('aria-selected'))).toEqual(['true', 'false', 'false', 'false'])
+    expect(tabs.map(tab => tab.attributes('tabindex'))).toEqual(['0', '-1', '-1', '-1'])
     expect(wrapper.findAll('.item-tile')).toHaveLength(152)
+    await tabs[1].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(121)
     await tabs[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(22)
     await tabs[3].trigger('click')
@@ -231,12 +232,13 @@ describe('guide interactions', () => {
 
   it('searches padded and numeric numbers within each kind and clears stale selection', async () => {
     const { wrapper } = await mountGuide()
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
     await wrapper.find('#item-search').setValue('1')
     expect(wrapper.findAll('.item-tile')).toHaveLength(1)
     expect(wrapper.find('.item-tile').text()).toContain('Gun')
     await wrapper.findAll('.catalog-tabs [role="tab"]')[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(1)
-    expect(wrapper.find('.item-detail h3').text()).toBe('Oil')
+    expect(wrapper.find('.item-detail h3').text()).toBe('Flame Element')
     expect(wrapper.find('.item-detail').text()).toContain('Material 1')
     expect(wrapper.find('.filter-bar').exists()).toBe(false)
     await wrapper.find('#item-search').setValue('not present')
@@ -251,6 +253,7 @@ describe('guide interactions', () => {
 
   it('resets category when leaving Items and renders kind-specific detail fields', async () => {
     const { wrapper } = await mountGuide()
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
     const category = wrapper.findAll('.chip').find(chip => chip.text() !== 'All')!
     await category.trigger('click')
     await wrapper.findAll('.catalog-tabs [role="tab"]')[2].trigger('click')
@@ -317,6 +320,68 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('selects the first move by default, orders standard before unique, and switches the clip on selection', async () => {
+    const { wrapper } = await mountGuide()
+    const falcon = characters.find(character => character.name === 'Falcon')!
+    const moveButtons = wrapper.findAll('.move-nav__item--standard, .move-nav__item--unique')
+    expect(moveButtons.map(button => button.find('.move-nav__name').text())).toEqual(falcon.moveList.map(move => move.name))
+    expect(moveButtons.map(button => button.find('.move-nav__type').text())).toEqual(falcon.moveList.map(move => move.type))
+    expect(moveButtons[0].classes()).toContain('move-nav__item--active')
+    expect(wrapper.find('.detail-panel--moves .move-video__label').text()).toBe(falcon.moveList[0].name)
+    expect(wrapper.find('.detail-panel--moves .move-video__player source').attributes('src')).toBe(falcon.moveList[0].video)
+
+    const lastMove = moveButtons.at(-1)!
+    await lastMove.trigger('click')
+    expect(lastMove.classes()).toContain('move-nav__item--active')
+    expect(wrapper.find('.detail-panel--moves .move-video__label').text()).toBe(falcon.moveList.at(-1)!.name)
+    wrapper.unmount()
+  })
+
+  it('resets the selected move and special to the first entry when switching characters', async () => {
+    const { wrapper } = await mountGuide()
+    const wangTang = characters.find(character => character.name === 'Wang-Tang')!
+    await wrapper.findAll('.move-nav__item--standard, .move-nav__item--unique').at(-1)!.trigger('click')
+    await wrapper.findAll('.detail-panel--specials .move-nav__item').at(-1)!.trigger('click')
+
+    await wrapper.findAll('.portrait').find(button => button.text().includes('Wang-Tang'))!.trigger('click')
+    expect(wrapper.find('.detail-panel--moves .move-video__label').text()).toBe(wangTang.moveList[0].name)
+    expect(wrapper.find('.detail-panel--specials .move-video__label').text()).toBe(wangTang.specials[0].name)
+    wrapper.unmount()
+  })
+
+  it('renders a special moves list styled apart from the standard moves list and switches its clip independently', async () => {
+    const { wrapper } = await mountGuide()
+    const falcon = characters.find(character => character.name === 'Falcon')!
+    const specialButtons = wrapper.findAll('.detail-panel--specials .move-nav__item')
+    expect(specialButtons).toHaveLength(falcon.specials.length)
+    specialButtons.forEach(button => expect(button.classes()).toContain('move-nav__item--special'))
+    expect(specialButtons[0].classes()).toContain('move-nav__item--active')
+    expect(wrapper.find('.detail-panel--specials .move-video__label').text()).toBe(falcon.specials[0].name)
+
+    await specialButtons[1].trigger('click')
+    expect(specialButtons[1].classes()).toContain('move-nav__item--active')
+    expect(wrapper.find('.detail-panel--specials .move-video__label').text()).toBe(falcon.specials[1].name)
+    expect(wrapper.find('.detail-panel--moves .move-video__label').text()).toBe(falcon.moveList[0].name)
+    wrapper.unmount()
+  })
+
+  it('lists the five editorial characteristics as key-value badges', async () => {
+    const { wrapper } = await mountGuide()
+    const falcon = characters.find(character => character.name === 'Falcon')!
+    const rows = wrapper.findAll('.characteristics-list > div')
+    expect(rows.map(row => row.find('dt').text())).toEqual(['Strength', 'Throw Distance', 'Damage', 'Toughness', 'Speed'])
+    const badges = rows.map(row => row.find('.badge'))
+    expect(badges.map(badge => badge.text())).toEqual([
+      falcon.characteristics.strength,
+      falcon.characteristics.throwDistance,
+      falcon.characteristics.damage,
+      falcon.characteristics.toughness,
+      falcon.characteristics.speed,
+    ])
+    badges.forEach(badge => expect(['low', 'medium', 'high']).toContain(badge.text()))
+    wrapper.unmount()
+  })
+
   it('selects a level from the nav grid and updates the level file below it, with no arrows for a single slide', async () => {
     const { wrapper } = await mountGuide()
     expect(wrapper.find('.level-file h3').text()).toBe(levels[0].name)
@@ -332,6 +397,57 @@ describe('guide interactions', () => {
     expect(wrapper.find('.level-file h3').text()).toBe(secondLevel.name)
     expect(wrapper.findAll('.level-file__copy p').at(-1)!.text()).toBe(secondLevel.description)
     expect(chip.attributes('aria-pressed')).toBe('true')
+    wrapper.unmount()
+  })
+
+  it('opens the boss dialog from the boss image or name and closes it', async () => {
+    const { wrapper } = await mountGuide()
+    const firstBoss = bosses[0]
+    await wrapper.find('.boss-card img[role="button"]').trigger('click')
+    let dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.textContent).toContain(firstBoss.name)
+    expect(dialog!.textContent).toContain(firstBoss.description)
+    dialog!.querySelector<HTMLButtonElement>('[aria-label="Close boss info"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('[role="dialog"]')).toBeNull()
+
+    await wrapper.find('.boss-card h3[role="button"]').trigger('click')
+    dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.textContent).toContain(firstBoss.name)
+    wrapper.unmount()
+  })
+
+  it('opens a timeline thumbnail in a near-fullscreen lightbox and closes it', async () => {
+    const { wrapper } = await mountGuide()
+    await wrapper.find('.timeline__thumb').trigger('click')
+    const dialog = document.body.querySelector<HTMLElement>('[role="dialog"]')
+    expect(dialog).not.toBeNull()
+    expect(dialog!.querySelector('img')?.getAttribute('src')).toBe('/media/placeholders/timeline-milestone-placeholder.svg')
+    dialog!.querySelector<HTMLButtonElement>('[aria-label="Close image"]')!.click()
+    await wrapper.vm.$nextTick()
+    expect(document.body.querySelector('[role="dialog"]')).toBeNull()
+    wrapper.unmount()
+  })
+
+  it('opens the about accordion on Resources by default and toggles other sections exclusively', async () => {
+    const { wrapper } = await mountGuide()
+    const triggers = wrapper.findAll('.accordion__trigger')
+    expect(triggers.map(trigger => trigger.text().replace(/[+−]$/, ''))).toEqual(['Resources', 'Other', 'Contact'])
+    expect(triggers[0].attributes('aria-expanded')).toBe('true')
+    expect(wrapper.find('#about-resources-panel').isVisible()).toBe(true)
+    expect(wrapper.find('.about__reference').exists()).toBe(true)
+
+    await triggers[1].trigger('click')
+    expect(triggers[0].attributes('aria-expanded')).toBe('false')
+    expect(triggers[1].attributes('aria-expanded')).toBe('true')
+    expect(wrapper.find('#about-resources-panel').isVisible()).toBe(false)
+    expect(wrapper.find('#about-other-panel').isVisible()).toBe(true)
+
+    await triggers[1].trigger('click')
+    expect(triggers[1].attributes('aria-expanded')).toBe('false')
+    expect(wrapper.find('#about-other-panel').isVisible()).toBe(false)
     wrapper.unmount()
   })
 })

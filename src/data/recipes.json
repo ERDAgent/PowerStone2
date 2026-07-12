@@ -1325,7 +1325,7 @@
         "quantity": 1
       },
       {
-        "id": "material-driverslicence",
+        "id": "material-driverslicense",
         "kind": "material",
         "quantity": 1
       }
@@ -4425,7 +4425,7 @@
     "resultId": "item-magmalance",
     "ingredients": [
       {
-        "id": "item-meteorite",
+        "id": "item-meteor",
         "kind": "item",
         "quantity": 1
       },
@@ -4486,7 +4486,7 @@
         "quantity": 1
       },
       {
-        "id": "item-meteorite",
+        "id": "item-meteor",
         "kind": "item",
         "quantity": 1
       }
@@ -5550,7 +5550,7 @@
         "quantity": 1
       },
       {
-        "id": "material-emblemofthebrave",
+        "id": "material-elementofthebrave",
         "kind": "material",
         "quantity": 1
       }
@@ -5751,7 +5751,7 @@
         "quantity": 1
       },
       {
-        "id": "item-meteorite",
+        "id": "item-meteor",
         "kind": "item",
         "quantity": 1
       }
@@ -6766,7 +6766,7 @@
         "quantity": 1
       },
       {
-        "id": "item-meteorite",
+        "id": "item-meteor",
         "kind": "item",
         "quantity": 1
       }
@@ -7130,7 +7130,7 @@
         "quantity": 1
       },
       {
-        "id": "item-meteorite",
+        "id": "item-meteor",
         "kind": "item",
         "quantity": 1
       }
@@ -7853,7 +7853,7 @@
     "resultId": "item-heroaxe",
     "ingredients": [
       {
-        "id": "material-emblemofthebrave",
+        "id": "material-elementofthebrave",
         "kind": "material",
         "quantity": 1
       },
@@ -7881,7 +7881,7 @@
     "resultId": "item-heroaxe",
     "ingredients": [
       {
-        "id": "material-emblemofthebrave",
+        "id": "material-elementofthebrave",
         "kind": "material",
         "quantity": 1
       },
@@ -7909,7 +7909,7 @@
     "resultId": "item-heroaxe",
     "ingredients": [
       {
-        "id": "material-emblemofthebrave",
+        "id": "material-elementofthebrave",
         "kind": "material",
         "quantity": 1
       },
@@ -8250,7 +8250,7 @@
     "resultId": "item-scooter",
     "ingredients": [
       {
-        "id": "material-driverslicence",
+        "id": "material-driverslicense",
         "kind": "material",
         "quantity": 1
       },
@@ -8306,7 +8306,7 @@
     "resultId": "item-scooter",
     "ingredients": [
       {
-        "id": "material-driverslicence",
+        "id": "material-driverslicense",
         "kind": "material",
         "quantity": 1
       },
@@ -9520,7 +9520,7 @@
         "quantity": 1
       },
       {
-        "id": "item-meteorite",
+        "id": "item-meteor",
         "kind": "item",
         "quantity": 1
       }
@@ -10352,7 +10352,7 @@
   },
   {
     "id": "recipe-089-01-01",
-    "resultId": "item-sanddragon",
+    "resultId": "item-thunderdragon",
     "ingredients": [
       {
         "id": "material-thunderdragon",
@@ -10380,7 +10380,7 @@
   },
   {
     "id": "recipe-089-02-01",
-    "resultId": "item-sanddragon",
+    "resultId": "item-thunderdragon",
     "ingredients": [
       {
         "id": "material-thunderdragon",
@@ -10408,7 +10408,7 @@
   },
   {
     "id": "recipe-089-03-01",
-    "resultId": "item-sanddragon",
+    "resultId": "item-thunderdragon",
     "ingredients": [
       {
         "id": "material-thunderdragon",
@@ -10436,7 +10436,7 @@
   },
   {
     "id": "recipe-089-04-01",
-    "resultId": "item-sanddragon",
+    "resultId": "item-thunderdragon",
     "ingredients": [
       {
         "id": "material-thunderdragon",
@@ -10464,7 +10464,7 @@
   },
   {
     "id": "recipe-089-05-01",
-    "resultId": "item-sanddragon",
+    "resultId": "item-thunderdragon",
     "ingredients": [
       {
         "id": "item-angelwings",
@@ -10492,7 +10492,7 @@
   },
   {
     "id": "recipe-089-06-01",
-    "resultId": "item-sanddragon",
+    "resultId": "item-thunderdragon",
     "ingredients": [
       {
         "id": "item-transparentizer",
@@ -11393,7 +11393,7 @@
   },
   {
     "id": "recipe-098-01-01",
-    "resultId": "item-meteorite",
+    "resultId": "item-meteor",
     "ingredients": [
       {
         "id": "item-stickbomb",
@@ -11421,7 +11421,7 @@
   },
   {
     "id": "recipe-098-02-01",
-    "resultId": "item-meteorite",
+    "resultId": "item-meteor",
     "ingredients": [
       {
         "id": "item-firedragon",
@@ -11449,7 +11449,7 @@
   },
   {
     "id": "recipe-098-03-01",
-    "resultId": "item-meteorite",
+    "resultId": "item-meteor",
     "ingredients": [
       {
         "id": "item-magmalance",
@@ -11477,7 +11477,7 @@
   },
   {
     "id": "recipe-098-04-01",
-    "resultId": "item-meteorite",
+    "resultId": "item-meteor",
     "ingredients": [
       {
         "id": "item-pitfall",
@@ -11541,7 +11541,7 @@
         "quantity": 1
       },
       {
-        "id": "material-emblemofthebrave",
+        "id": "material-elementofthebrave",
         "kind": "material",
         "quantity": 1
       }
