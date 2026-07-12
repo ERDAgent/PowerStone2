@@ -54,7 +54,7 @@ const expectedPspExclusiveCopy = [
 ]
 
 const expectedLevelCopy = [
-  { name: 'Blue Sky Area', description: 'An airborne arena where the route itself becomes part of the scramble.', media: '/media/levels/levels-small/sky-blue-area-small.png', slides: ['/media/levels/levels-large/blue-sky-area-large.png'] },
+  { name: 'Blue Sky Area', description: 'An airborne arena where the route itself becomes part of the scramble.', media: '/media/levels/levels-gallery/blue-sky-area/stage1-1-compressed.jpg', slides: ['/media/levels/levels-gallery/blue-sky-area/stage1-1-compressed.jpg', '/media/levels/levels-gallery/blue-sky-area/stage1-2-compressed.jpg', '/media/levels/levels-gallery/blue-sky-area/stage2-1-compressed.jpg', '/media/levels/levels-gallery/blue-sky-area/stage3-1-compressed.jpg'] },
   { name: 'Dark Castle Area', description: 'A bright multi-tier battleground represented with replaceable study art.', media: '/media/levels/levels-small/dark-castle-area-small.png', slides: ['/media/levels/levels-large/dark-castle-area-large.png'] },
   { name: 'Tomb Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/tomb-area-small.png', slides: ['/media/levels/levels-large/tomb-area-large.png'] },
   { name: 'Iceberg Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/iceburg-area-small.png', slides: ['/media/levels/levels-large/iceburg-area-large.png'] },

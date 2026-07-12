@@ -3,9 +3,12 @@
     "id": "level-blue-sky-area",
     "name": "Blue Sky Area",
     "description": "An airborne arena where the route itself becomes part of the scramble.",
-    "media": "/media/levels/levels-small/sky-blue-area-small.png",
+    "media": "/media/levels/levels-gallery/blue-sky-area/stage1-1-compressed.jpg",
     "slides": [
-      "/media/levels/levels-large/blue-sky-area-large.png"
+      "/media/levels/levels-gallery/blue-sky-area/stage1-1-compressed.jpg",
+      "/media/levels/levels-gallery/blue-sky-area/stage1-2-compressed.jpg",
+      "/media/levels/levels-gallery/blue-sky-area/stage2-1-compressed.jpg",
+      "/media/levels/levels-gallery/blue-sky-area/stage3-1-compressed.jpg"
     ],
     "stageCount": 3,
     "modes": [
@@ -17,7 +20,8 @@
       "evidence": [],
       "notes": [
         "Display copy and placeholder association migrated from src/data/content.ts at 1eca5f7; gameplay details remain editorial.",
-        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification."
+        "Stage count and PVP/PVE mode tags are an editorial first pass pending gameplay verification.",
+        "Gallery imagery replaced with real stage photography organized by stage (1-3); the three-folder grouping corroborates the editorial stage count above."
       ]
     }
   },
