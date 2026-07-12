@@ -248,12 +248,12 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
 
 <template>
   <div class="guide">
-    <section id="overview" class="hero routed-section" aria-labelledby="overview-title">
+    <section id="home" class="hero routed-section" aria-labelledby="home-title">
       <div class="hero__orbits" aria-hidden="true"><i /><i /><i /></div>
       <div class="hero__content">
         <p class="hero__kicker">The world’s yours for the taking</p>
         <img class="hero__logo" src="/media/logos/power-stone-2-logo.png" alt="Power Stone 2" />
-        <h1 id="overview-title" class="sr-only">Power Stone 2 Field Guide</h1>
+        <h1 id="home-title" class="sr-only">Power Stone 2 Field Guide</h1>
         <p class="hero__lede">A fast, tactile field guide to Capcom’s shape-shifting four-player arena adventure.</p>
         <dl class="hero__meta">
           <div><dt>Release era</dt><dd>Arcade 2000 · Dreamcast 2000–2001</dd></div>

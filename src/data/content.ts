@@ -1,5 +1,5 @@
 export const sections = [
-  { id: 'overview', label: 'Overview' },
+  { id: 'home', label: 'Home' },
   { id: 'game-overview', label: 'About the Game' },
   { id: 'how-to-play', label: 'How to Play' },
   { id: 'items', label: 'Items' },

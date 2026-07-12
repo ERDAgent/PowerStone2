@@ -11,7 +11,7 @@ import { bosses, characters, levels } from '@/data/world'
 import { essences, items, materials } from '@/data'
 
 const expectedSections = [
-  ['overview', 'Overview'],
+  ['home', 'Home'],
   ['game-overview', 'About the Game'],
   ['how-to-play', 'How to Play'],
   ['items', 'Items'],
@@ -41,7 +41,7 @@ async function mountAppAt(path: string) {
 
 async function mountGuide() {
   const router = testRouter()
-  await router.push('/overview')
+  await router.push('/home')
   await router.isReady()
   const pinia = createPinia()
   setActivePinia(pinia)
@@ -66,7 +66,7 @@ describe('section routing', () => {
     expect(sections.map(section => [section.id, section.label])).toEqual(expectedSections)
     expect(routes.slice(0, expectedSections.length).map(route => route.path)).toEqual(expectedSections.map(([id]) => `/${id}`))
 
-    const { wrapper } = await mountAppAt('/overview')
+    const { wrapper } = await mountAppAt('/home')
     expect(wrapper.findAll('#primary-navigation a').map(link => link.text())).toEqual(expectedSections.map(([, label]) => label))
     expect(wrapper.findAll('.site-footer__nav a').map(link => link.text())).toEqual(expectedSections.map(([, label]) => label))
     expect(wrapper.findAll('.routed-section').map(section => section.attributes('id'))).toEqual(expectedSections.map(([id]) => id))
@@ -96,7 +96,7 @@ describe('section routing', () => {
   })
 
   it('holds route feedback at the old viewport until the target reaches the header anchor', async () => {
-    const { wrapper, router } = await mountAppAt('/overview')
+    const { wrapper, router } = await mountAppAt('/home')
     setSectionPositions(0)
     window.dispatchEvent(new Event('scroll'))
     await wrapper.vm.$nextTick()
@@ -121,7 +121,7 @@ describe('section routing', () => {
   })
 
   it('tracks manual scrolling across section boundaries without routing or history writes', async () => {
-    const { wrapper, router } = await mountAppAt('/overview')
+    const { wrapper, router } = await mountAppAt('/home')
     const push = vi.spyOn(router, 'push')
     const replace = vi.spyOn(router, 'replace')
     const historyPush = vi.spyOn(window.history, 'pushState')
@@ -144,11 +144,11 @@ describe('section routing', () => {
   it('activates the first and final sections at page boundaries and cleans up listeners', async () => {
     const add = vi.spyOn(window, 'addEventListener')
     const remove = vi.spyOn(window, 'removeEventListener')
-    const { wrapper } = await mountAppAt('/overview')
+    const { wrapper } = await mountAppAt('/home')
     setSectionPositions(0)
     window.dispatchEvent(new Event('scroll'))
     await wrapper.vm.$nextTick()
-    expect(currentLinks(wrapper)[0].text()).toBe('Overview')
+    expect(currentLinks(wrapper)[0].text()).toBe('Home')
 
     Object.defineProperty(document.documentElement, 'scrollHeight', { value: 4000, configurable: true })
     Object.defineProperty(window, 'innerHeight', { value: 800, configurable: true })
@@ -162,10 +162,10 @@ describe('section routing', () => {
     expect(remove).toHaveBeenCalledWith('resize', expect.any(Function))
   })
 
-  it('recovers an unknown path to the overview route', async () => {
+  it('recovers an unknown path to the home route', async () => {
     const { wrapper, router } = await mountAppAt('/not-a-real-section')
-    expect(router.currentRoute.value.path).toBe('/overview')
-    expect(wrapper.find('#primary-navigation a[aria-current="page"]').text()).toBe('Overview')
+    expect(router.currentRoute.value.path).toBe('/home')
+    expect(wrapper.find('#primary-navigation a[aria-current="page"]').text()).toBe('Home')
     wrapper.unmount()
   })
 })

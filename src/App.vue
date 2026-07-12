@@ -98,7 +98,7 @@ onBeforeUnmount(() => {
 <template>
   <a class="skip-link" href="#main-content">Skip to field guide</a>
   <header class="site-header">
-    <RouterLink class="site-header__brand" to="/overview" aria-label="Power Stone 2 field guide home">
+    <RouterLink class="site-header__brand" to="/home" aria-label="Power Stone 2 field guide home">
       <span class="site-header__gem" aria-hidden="true">◆</span>
       <span>PS2 <b>Field Guide</b></span>
     </RouterLink>

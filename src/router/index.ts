@@ -5,8 +5,8 @@ import { sections } from '@/data/content'
 
 export const routes = [
   ...sections.map(section => ({ path: `/${section.id}`, name: section.id, component: GuideView, meta: { section: section.id } })),
-  { path: '/', redirect: '/overview' },
-  { path: '/:pathMatch(.*)*', redirect: '/overview' },
+  { path: '/', redirect: '/home' },
+  { path: '/:pathMatch(.*)*', redirect: '/home' },
 ]
 
 export const scrollBehavior: RouterScrollBehavior = (to) => {
