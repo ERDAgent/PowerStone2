@@ -189,7 +189,9 @@ img { display: block; max-width: 100%; }
 .level-chip--active { color: #fff; border-color: #10220b; background: #10220b; transform: translateY(-5px); box-shadow: 0 5px 0 $level-green; }
 .level-chip--active .level-chip__number { color: $level-green; }
 .level-chip--active .level-chip__mode-badge { border-color: rgba(255, 255, 255, .5); }
-.level-file { display: flex; flex-wrap: wrap; color: $ink; background: #17102e; }
+.level-file { position: relative; display: flex; flex-wrap: wrap; color: $ink; background: #17102e; scroll-margin-top: 88px; }
+.level-file__nav { position: absolute; z-index: 3; top: 1rem; right: 1rem; display: flex; gap: .6rem; }
+.level-file__nav-arrow { width: 58px; height: 58px; border: 1px solid white; background: rgba(10,5,28,.8); color: $ink; font-size: 1.8rem; cursor: pointer; }
 .level-file__hero { position: relative; flex: 1 1 38%; min-height: 480px; overflow: hidden; background: #090617; }
 .level-file__hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .level-file__copy { flex: 1 1 45%; padding: clamp(2rem, 5vw, 4rem); }
@@ -369,6 +371,7 @@ img.portrait__avatar { object-fit: cover; }
   .recipe-clear { flex: 1 0 100%; }
   .level-chip { flex-basis: calc(50% - .325rem); }
   .level-file__hero { min-height: 260px; }
+  .level-file__nav-arrow { width: 44px; height: 44px; font-size: 1.3rem; }
   .portrait { flex-basis: calc(33.333% - .65rem); max-width: none; }
   .portrait__avatar { height: 68px; }
   .entity-chip { flex-basis: calc(50% - .325rem); }

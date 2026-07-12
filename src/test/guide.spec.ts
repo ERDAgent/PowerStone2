@@ -281,9 +281,9 @@ describe('guide interactions', () => {
     const { wrapper } = await mountGuide()
     expect(wrapper.findAll('.portrait').map(node => node.findAll('span').at(-1)!.text())).toEqual(characters.map(record => record.name))
     expect(wrapper.findAll('.level-chip').map(node => node.text())).toEqual(levels.map((record, index) => `${record.stageCount}-Stage0${index + 1}${record.name}${record.modes.join('')}`))
-    expect(wrapper.findAll('.entity-select')[0].findAll('.entity-chip').map(node => node.text())).toEqual(bosses.map(record => record.name))
-    const bossDetailImages = wrapper.findAll('.entity-file')[0].findAll('.entity-file__portrait')
-    expect(bossDetailImages[0].attributes('src')).toBe(bosses[0].media)
+    expect(wrapper.find('[aria-label="Boss encounters"]').findAll('.entity-chip').map(node => node.text())).toEqual(bosses.map(record => record.name))
+    const bossDetailImage = wrapper.find('#enemies').findAll('.entity-file__portrait')[0]
+    expect(bossDetailImage.attributes('src')).toBe(bosses[0].media)
     wrapper.unmount()
   })
 
@@ -399,6 +399,32 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('scrolls the level file into view when a level chip is selected', async () => {
+    const scrollIntoView = vi.spyOn(Element.prototype, 'scrollIntoView')
+    const { wrapper } = await mountGuide()
+    const secondLevel = levels[1]
+    const chip = wrapper.findAll('.level-chip').find(button => button.text().includes(secondLevel.name))!
+    await chip.trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth', block: 'start' })
+    wrapper.unmount()
+  })
+
+  it('steps back and forth through levels with the big corner arrows on the level file, wrapping at the ends', async () => {
+    const { wrapper } = await mountGuide()
+    expect(wrapper.find('.level-file h3').text()).toBe(levels[0].name)
+
+    await wrapper.find('[aria-label="Previous arena"]').trigger('click')
+    expect(wrapper.find('.level-file h3').text()).toBe(levels[levels.length - 1].name)
+
+    await wrapper.find('[aria-label="Next arena"]').trigger('click')
+    expect(wrapper.find('.level-file h3').text()).toBe(levels[0].name)
+
+    await wrapper.find('[aria-label="Next arena"]').trigger('click')
+    expect(wrapper.find('.level-file h3').text()).toBe(levels[1].name)
+    wrapper.unmount()
+  })
+
   it('lays out the level file like the fighter file, with Details, Pictures, and Video panels', async () => {
     const { wrapper } = await mountGuide()
     const panelTitles = wrapper.findAll('.level-file__details .detail-panel h4').map(node => node.text())
@@ -451,7 +477,7 @@ describe('guide interactions', () => {
 
   it('selects a boss from the nav grid and updates the details below it, like the characters and levels sections', async () => {
     const { wrapper } = await mountGuide()
-    const bossSubsection = wrapper.find('#enemies').findAll('.subsection')[0]
+    const bossSubsection = wrapper.find('#enemies').findAll('.subsection')[1]
     expect(bossSubsection.find('.subsection__title').text()).toBe('Bosses')
     expect(bossSubsection.find('.entity-file h3').text()).toBe(bosses[0].name)
 
@@ -466,7 +492,7 @@ describe('guide interactions', () => {
 
   it('gives the Enemies subsection the same nav-plus-details pattern with placeholder entries', async () => {
     const { wrapper } = await mountGuide()
-    const enemySubsection = wrapper.find('#enemies').findAll('.subsection')[1]
+    const enemySubsection = wrapper.find('#enemies').findAll('.subsection')[0]
     expect(enemySubsection.find('.subsection__title').text()).toBe('Enemies')
     const chips = enemySubsection.findAll('.entity-chip')
     expect(chips.length).toBeGreaterThan(1)

@@ -212,6 +212,20 @@ function closeLevelGallery() { openGallery.value = null }
 function nextGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index + 1) % galleryItems.value.length } }
 function previousGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index - 1 + galleryItems.value.length) % galleryItems.value.length } }
 
+const levelFile = ref<HTMLElement | null>(null)
+function selectLevelAndScroll(id: (typeof levels)[number]['id']) {
+  store.selectLevel(id)
+  nextTick(() => levelFile.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+}
+function previousLevel() {
+  const index = levels.findIndex(level => level.id === selectedLevel.value.id)
+  store.selectLevel(levels[(index - 1 + levels.length) % levels.length].id)
+}
+function nextLevel() {
+  const index = levels.findIndex(level => level.id === selectedLevel.value.id)
+  store.selectLevel(levels[(index + 1) % levels.length].id)
+}
+
 const placeholderEnemies = [
   { id: 'enemy-placeholder-1', name: 'Enemy 01' },
   { id: 'enemy-placeholder-2', name: 'Enemy 02' },
@@ -413,7 +427,7 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
       <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Choose an arena file to inspect its replaceable visual study, browse its pictures, and preview a placeholder video pass." />
       <div class="level-select" role="list" aria-label="Playable arenas">
-        <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="store.selectLevel(level.id)">
+        <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="selectLevelAndScroll(level.id)">
           <span class="status-tag">{{ level.stageCount }}-Stage</span>
           <img class="level-chip__thumb" :src="level.media" :alt="`${level.name} replaceable level artwork`" />
           <span class="level-chip__number">0{{ index + 1 }}</span>
@@ -423,7 +437,11 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
           </span>
         </button>
       </div>
-      <article class="level-file" aria-live="polite">
+      <article ref="levelFile" class="level-file" aria-live="polite">
+        <div class="level-file__nav">
+          <button type="button" class="level-file__nav-arrow" aria-label="Previous arena" @click="previousLevel">←</button>
+          <button type="button" class="level-file__nav-arrow" aria-label="Next arena" @click="nextLevel">→</button>
+        </div>
         <div class="level-file__hero">
           <img :src="selectedLevel.slides[0]" :alt="`${selectedLevel.name} arena artwork`" />
         </div>
@@ -462,7 +480,26 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
     </section>
 
     <section id="enemies" class="content-section routed-section content-section--enemies" aria-labelledby="enemies-title">
-      <SectionHeading title-id="enemies-title" kicker="07 / Threats" title="Who's standing in your way." intro="Two encounter types make up the opposition: story bosses that anchor the fight, and the wider cast of enemies met along the way. The enemy roster is queued for a future update." />
+      <SectionHeading title-id="enemies-title" kicker="07 / Threats" title="Who's standing in your way." intro="Two encounter types make up the opposition: the wider cast of enemies met along the way, and the story bosses that anchor the fight. The enemy roster is queued for a future update." />
+
+      <div class="subsection">
+        <h3 class="subsection__title">Enemies</h3>
+        <div class="entity-select" role="list" aria-label="Enemy roster">
+          <button v-for="enemy in placeholderEnemies" :key="enemy.id" type="button" :aria-pressed="selectedEnemy.id === enemy.id" :class="['entity-chip', { 'entity-chip--active': selectedEnemy.id === enemy.id }]" @click="selectedEnemyId = enemy.id">
+            <span class="entity-chip__thumb entity-chip__thumb--fallback" aria-hidden="true">{{ enemy.name.slice(0, 2) }}</span>
+            <span>{{ enemy.name }}</span>
+          </button>
+        </div>
+        <article class="entity-file" aria-live="polite">
+          <div class="entity-file__hero"><span aria-hidden="true">?</span></div>
+          <div class="entity-file__copy">
+            <p class="eyebrow">Encounter file</p>
+            <h3>{{ selectedEnemy.name }}</h3>
+            <span class="status-tag">Coming soon</span>
+            <p>Regular enemy encounters are being catalogued and will appear here in a future update.</p>
+          </div>
+        </article>
+      </div>
 
       <div class="subsection">
         <h3 class="subsection__title">Bosses</h3>
@@ -483,25 +520,6 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
             <h3>{{ selectedBoss.name }}</h3>
             <span class="status-tag">{{ selectedBoss.status }}</span>
             <p>{{ selectedBoss.description }}</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="subsection">
-        <h3 class="subsection__title">Enemies</h3>
-        <div class="entity-select" role="list" aria-label="Enemy roster">
-          <button v-for="enemy in placeholderEnemies" :key="enemy.id" type="button" :aria-pressed="selectedEnemy.id === enemy.id" :class="['entity-chip', { 'entity-chip--active': selectedEnemy.id === enemy.id }]" @click="selectedEnemyId = enemy.id">
-            <span class="entity-chip__thumb entity-chip__thumb--fallback" aria-hidden="true">{{ enemy.name.slice(0, 2) }}</span>
-            <span>{{ enemy.name }}</span>
-          </button>
-        </div>
-        <article class="entity-file" aria-live="polite">
-          <div class="entity-file__hero"><span aria-hidden="true">?</span></div>
-          <div class="entity-file__copy">
-            <p class="eyebrow">Encounter file</p>
-            <h3>{{ selectedEnemy.name }}</h3>
-            <span class="status-tag">Coming soon</span>
-            <p>Regular enemy encounters are being catalogued and will appear here in a future update.</p>
           </div>
         </article>
       </div>
