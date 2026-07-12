@@ -513,6 +513,25 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
             <span class="status-tag">Coming soon</span>
             <p>Regular enemy encounters are being catalogued and will appear here in a future update.</p>
           </div>
+          <div class="entity-file__details">
+            <section class="detail-panel detail-panel--clip" aria-labelledby="enemy-clip-title">
+              <p class="eyebrow">Motion study</p><h4 id="enemy-clip-title">Clip</h4>
+              <div class="move-video">
+                <video class="move-video__player" autoplay muted loop playsinline poster="/media/placeholders/entity-clip-poster-placeholder.svg">
+                  <source src="/media/videos/gameplay-loop.mp4" type="video/mp4" />
+                </video>
+                <span class="move-video__label">Placeholder clip</span>
+              </div>
+            </section>
+            <section class="detail-panel detail-panel--characteristics" aria-labelledby="enemy-characteristics-title">
+              <p class="eyebrow">Editorial notes</p><h4 id="enemy-characteristics-title">Characteristics</h4>
+              <ul class="attribute-list">
+                <li>Threat profile — to verify</li>
+                <li>Preferred range — to verify</li>
+                <li>Recommended approach — to verify</li>
+              </ul>
+            </section>
+          </div>
         </article>
       </div>
 
@@ -535,6 +554,25 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
             <h3>{{ selectedBoss.name }}</h3>
             <span class="status-tag">{{ selectedBoss.status }}</span>
             <p>{{ selectedBoss.description }}</p>
+          </div>
+          <div class="entity-file__details">
+            <section class="detail-panel detail-panel--clip" aria-labelledby="boss-clip-title">
+              <p class="eyebrow">Motion study</p><h4 id="boss-clip-title">Clip</h4>
+              <div class="move-video">
+                <video :key="selectedBoss.id" class="move-video__player" autoplay muted loop playsinline poster="/media/placeholders/entity-clip-poster-placeholder.svg">
+                  <source src="/media/videos/gameplay-loop.mp4" type="video/mp4" />
+                </video>
+                <span class="move-video__label">{{ selectedBoss.name }} — placeholder clip</span>
+              </div>
+            </section>
+            <section class="detail-panel detail-panel--characteristics" aria-labelledby="boss-characteristics-title">
+              <p class="eyebrow">Editorial notes</p><h4 id="boss-characteristics-title">Characteristics</h4>
+              <ul class="attribute-list">
+                <li>Threat profile — to verify</li>
+                <li>Preferred range — to verify</li>
+                <li>Recommended approach — to verify</li>
+              </ul>
+            </section>
           </div>
         </article>
       </div>

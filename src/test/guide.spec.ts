@@ -518,6 +518,25 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('gives every entity-file a Clip/Characteristics details row with a looping video on the left', async () => {
+    const { wrapper } = await mountGuide()
+    for (const entityFile of wrapper.find('#enemies').findAll('.entity-file')) {
+      const panels = entityFile.findAll('.entity-file__details .detail-panel')
+      expect(panels).toHaveLength(2)
+      expect(panels[0].classes()).toContain('detail-panel--clip')
+      expect(panels[1].classes()).toContain('detail-panel--characteristics')
+
+      const video = panels[0].find('video')
+      expect(video.exists()).toBe(true)
+      expect(video.attributes('loop')).toBeDefined()
+      expect(video.attributes('autoplay')).toBeDefined()
+      expect(video.find('source').attributes('src')).toBe('/media/videos/gameplay-loop.mp4')
+
+      expect(panels[1].findAll('.attribute-list li').length).toBeGreaterThan(0)
+    }
+    wrapper.unmount()
+  })
+
   it('gives the Enemies subsection the same nav-plus-details pattern with placeholder entries', async () => {
     const { wrapper } = await mountGuide()
     const enemySubsection = wrapper.find('#enemies').findAll('.subsection')[0]
