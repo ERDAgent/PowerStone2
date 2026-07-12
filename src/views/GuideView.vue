@@ -281,6 +281,8 @@ const timelineImage = '/media/placeholders/timeline-milestone-placeholder.svg'
       </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"><span class="section-divider__mark">◆</span></div>
+
     <section id="how-to-play" class="content-section routed-section content-section--how-to-play" aria-labelledby="how-to-play-title">
       <SectionHeading title-id="how-to-play-title" kicker="02 / Field briefing" title="Learn the scramble." intro="Power Stone 2 is a free-moving arena fight: outlast the opposition while adapting to items, transformations, hazards, and stages that refuse to sit still." />
       <div class="play-guide">
