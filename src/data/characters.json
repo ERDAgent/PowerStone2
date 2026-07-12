@@ -30,56 +30,67 @@
     ],
     "moveList": [
       {
-        "name": "Rising Kick",
+        "name": "Light Attack",
         "type": "standard",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "video": "/media/videos/characters/falcon/falcon-light-attack-single.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "Straight Jab",
+        "name": "Light Attack 2",
         "type": "standard",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "video": "/media/videos/characters/falcon/falcon-light-attack-double.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "Cross Combo",
+        "name": "Light Attack 3",
         "type": "standard",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "video": "/media/videos/characters/falcon/falcon-light-attack-triple.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "Low Sweep",
+        "name": "Light Attack 4",
         "type": "standard",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "video": "/media/videos/characters/falcon/falcon-light-attack-quad.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "Falcon Rush",
-        "type": "unique",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "name": "Heavy Attack",
+        "type": "standard",
+        "video": "/media/videos/characters/falcon/falcon-heavy-attack.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "Falcon Counter",
-        "type": "unique",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "name": "Light + Heavy Attack",
+        "type": "standard",
+        "video": "/media/videos/characters/falcon/falcon-light-plus-heavy-attack.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Jump Attack",
+        "type": "standard",
+        "video": "/media/videos/characters/falcon/falcon-jump-attack.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       }
     ],
     "specials": [
       {
-        "name": "Power Stone Overdrive",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "name": "Transform Ground Attack",
+        "video": "/media/videos/characters/falcon/falcon-transform-ground-attack.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "Falcon's Arena Finisher",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "name": "Transform Air Attack",
+        "video": "/media/videos/characters/falcon/falcon-transform-air-attack.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "Desperation Blast",
-        "video": "/media/videos/gameplay-loop.mp4",
+        "name": "Transform Special 1",
+        "video": "/media/videos/characters/falcon/falcon-transform-special-1.mp4",
+        "poster": "/media/videos/gameplay-loop-poster.jpg"
+      },
+      {
+        "name": "Transform Special 2",
+        "video": "/media/videos/characters/falcon/falcon-transform-special-2.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       }
     ],
