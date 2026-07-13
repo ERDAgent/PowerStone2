@@ -8,11 +8,12 @@ import MediaGalleryDialog from '@/components/MediaGalleryDialog.vue'
 import type { GalleryItem } from '@/components/MediaGalleryDialog.vue'
 import RecipeLookup from '@/components/RecipeLookup.vue'
 import { bosses, characters, items, levels } from '@/data/content'
+import { materials } from '@/data'
 import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemLevel, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
+const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemLevel, materialRarity, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
 const characteristicLabels = [
   ['strength', 'Strength'],
   ['throwDistance', 'Throw Distance'],
@@ -22,6 +23,7 @@ const characteristicLabels = [
 ] as const
 const categories = computed(() => ['All Functions', ...new Set(items.map(item => item.category ?? 'Uncategorized'))])
 const itemLevels = computed(() => ['All Levels' as const, ...[...new Set(items.map(item => item.level))].sort((a, b) => a - b)])
+const materialRarities = computed(() => ['All Rarities' as const, ...new Set(materials.map(m => m.rarity).filter((r): r is string => r !== null))])
 const catalogTabs = [
   { kind: 'all', label: 'All' },
   { kind: 'item', label: 'Items' },
@@ -422,6 +424,9 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
         </div>
         <div v-if="catalogKind === 'item'" class="filter-bar" aria-label="Filter items by level">
           <button v-for="level in itemLevels" :key="level" type="button" :class="['chip', { 'chip--active': itemLevel === level }]" @click="store.setItemLevel(level)">{{ level === 'All Levels' ? 'All Levels' : `Level ${level}` }}</button>
+        </div>
+        <div v-if="catalogKind === 'material'" class="filter-bar" aria-label="Filter materials by rarity">
+          <button v-for="rarity in materialRarities" :key="rarity" type="button" :class="['chip', { 'chip--active': materialRarity === rarity }]" @click="store.setMaterialRarity(rarity)">{{ rarity }}</button>
         </div>
         <div class="item-browser">
           <div class="item-browser__list" role="list" :aria-label="`${catalogTabs.find(tab => tab.kind === catalogKind)?.label} catalog`">

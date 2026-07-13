@@ -28,6 +28,7 @@ export const useGuideStore = defineStore('guide', () => {
   const catalogKind = ref<CatalogKind>('all')
   const itemCategory = ref('All Functions')
   const itemLevel = ref<number | 'All Levels'>('All Levels')
+  const materialRarity = ref<string | 'All Rarities'>('All Rarities')
   const itemQuery = ref('')
   const selectedLevelId = ref<LevelRecord['id']>(levels[0].id)
   const selectedMoveIndex = ref(0)
@@ -44,6 +45,7 @@ export const useGuideStore = defineStore('guide', () => {
       if (catalogKind.value !== 'all' && entity.kind !== catalogKind.value) return false
       if (entity.kind === 'item' && catalogKind.value === 'item' && itemCategory.value !== 'All Functions' && (entity.record.category ?? 'Uncategorized') !== itemCategory.value) return false
       if (entity.kind === 'item' && catalogKind.value === 'item' && itemLevel.value !== 'All Levels' && entity.record.level !== itemLevel.value) return false
+      if (entity.kind === 'material' && catalogKind.value === 'material' && materialRarity.value !== 'All Rarities' && entity.record.rarity !== materialRarity.value) return false
       const numericNumber = String(Number(entity.record.number))
       return !query || entity.record.name.toLocaleLowerCase().includes(query) || entity.record.number === query || numericNumber === query
     })
@@ -65,16 +67,20 @@ export const useGuideStore = defineStore('guide', () => {
       itemCategory.value = 'All Functions'
       itemLevel.value = 'All Levels'
     }
+    if (kind !== 'material') {
+      materialRarity.value = 'All Rarities'
+    }
   }
   function setCategory(category: string) { itemCategory.value = category }
   function setItemLevel(level: number | 'All Levels') { itemLevel.value = level }
+  function setMaterialRarity(rarity: string | 'All Rarities') { materialRarity.value = rarity }
   function setItemQuery(query: string) { itemQuery.value = query }
   function selectLevel(id: LevelRecord['id']) { selectedLevelId.value = id }
   function selectBoss(id: BossRecord['id']) { selectedBossId.value = id }
   function openLightbox(image: LightboxImage) { lightboxImage.value = image }
   function closeLightbox() { lightboxImage.value = null }
 
-  watch([catalogKind, itemCategory, itemLevel, itemQuery], reconcileSelection, { flush: 'sync' })
+  watch([catalogKind, itemCategory, itemLevel, materialRarity, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemLevel, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, selectedBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, selectedBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemLevel, setItemQuery, selectLevel, selectBoss, openLightbox, closeLightbox }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemLevel, materialRarity, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, selectedBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, selectedBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemLevel, setMaterialRarity, setItemQuery, selectLevel, selectBoss, openLightbox, closeLightbox }
 })
