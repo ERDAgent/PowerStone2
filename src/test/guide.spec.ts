@@ -287,7 +287,7 @@ describe('guide interactions', () => {
   it('resets category when leaving Items and renders kind-specific detail fields', async () => {
     const { wrapper } = await mountGuide()
     await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
-    const category = wrapper.findAll('.chip').find(chip => chip.text() !== 'All')!
+    const category = wrapper.find('.filter-bar').findAll('.chip').find(chip => chip.text() !== 'All Functions')!
     await category.trigger('click')
     await wrapper.findAll('.catalog-tabs [role="tab"]')[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(materials.length)

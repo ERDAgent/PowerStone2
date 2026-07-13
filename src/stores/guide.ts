@@ -26,7 +26,8 @@ export const useGuideStore = defineStore('guide', () => {
   const selectedCharacterId = ref(characters[0].id)
   const selectedEntityId = ref<EntityId | null>(items[0].id)
   const catalogKind = ref<CatalogKind>('all')
-  const itemCategory = ref('All')
+  const itemCategory = ref('All Functions')
+  const itemLevel = ref<number | 'All Levels'>('All Levels')
   const itemQuery = ref('')
   const selectedLevelId = ref<LevelRecord['id']>(levels[0].id)
   const selectedMoveIndex = ref(0)
@@ -41,7 +42,8 @@ export const useGuideStore = defineStore('guide', () => {
     const query = itemQuery.value.trim().toLocaleLowerCase()
     return catalog.filter(entity => {
       if (catalogKind.value !== 'all' && entity.kind !== catalogKind.value) return false
-      if (entity.kind === 'item' && catalogKind.value === 'item' && itemCategory.value !== 'All' && (entity.record.category ?? 'Uncategorized') !== itemCategory.value) return false
+      if (entity.kind === 'item' && catalogKind.value === 'item' && itemCategory.value !== 'All Functions' && (entity.record.category ?? 'Uncategorized') !== itemCategory.value) return false
+      if (entity.kind === 'item' && catalogKind.value === 'item' && itemLevel.value !== 'All Levels' && entity.record.level !== itemLevel.value) return false
       const numericNumber = String(Number(entity.record.number))
       return !query || entity.record.name.toLocaleLowerCase().includes(query) || entity.record.number === query || numericNumber === query
     })
@@ -59,16 +61,20 @@ export const useGuideStore = defineStore('guide', () => {
   function selectEntity(id: EntityId) { selectedEntityId.value = id }
   function setCatalogKind(kind: CatalogKind) {
     catalogKind.value = kind
-    if (kind !== 'item') itemCategory.value = 'All'
+    if (kind !== 'item') {
+      itemCategory.value = 'All Functions'
+      itemLevel.value = 'All Levels'
+    }
   }
   function setCategory(category: string) { itemCategory.value = category }
+  function setItemLevel(level: number | 'All Levels') { itemLevel.value = level }
   function setItemQuery(query: string) { itemQuery.value = query }
   function selectLevel(id: LevelRecord['id']) { selectedLevelId.value = id }
   function selectBoss(id: BossRecord['id']) { selectedBossId.value = id }
   function openLightbox(image: LightboxImage) { lightboxImage.value = image }
   function closeLightbox() { lightboxImage.value = null }
 
-  watch([catalogKind, itemCategory, itemQuery], reconcileSelection, { flush: 'sync' })
+  watch([catalogKind, itemCategory, itemLevel, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, selectedBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, selectedBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemQuery, selectLevel, selectBoss, openLightbox, closeLightbox }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemLevel, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, selectedBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, selectedBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemLevel, setItemQuery, selectLevel, selectBoss, openLightbox, closeLightbox }
 })
