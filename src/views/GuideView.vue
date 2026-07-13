@@ -11,6 +11,7 @@ import { bosses, characters, items, levels } from '@/data/content'
 import { materials } from '@/data'
 import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
+import { a } from 'vitest/dist/chunks/suite.d.FvehnV49.js'
 
 const store = useGuideStore()
 const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemLevel, materialRarity, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
@@ -31,7 +32,7 @@ const catalogTabs = [
   { kind: 'essence', label: 'Essences' },
 ] as const
 const tabElements = ref<HTMLButtonElement[]>([])
-type AboutSection = 'resources' | 'other' | 'contact'
+type AboutSection = 'resources' | 'links' | 'contact'
 const openAboutSection = ref<AboutSection | null>('resources')
 function toggleAboutSection(section: AboutSection) {
   openAboutSection.value = openAboutSection.value === section ? null : section
@@ -89,7 +90,7 @@ const platforms = [
     ],
   },
   {
-    id: 'arcade', label: 'Arcade (NAOMI)', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png',
+    id: 'arcade', label: 'Arcade', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png',
     summary: 'The original release ran in arcades on Sega’s NAOMI hardware, typically in multi-panel cabinets built for simultaneous local play.',
     notes: [
       'Cabinet configuration, coin/credit systems, and regional board variants are historical context here, not a home setup guide.',
@@ -97,7 +98,7 @@ const platforms = [
     ],
   },
   {
-    id: 'psp', label: 'PSP · Power Stone Collection', image: '/media/consoles/psp-console-small-withshadow-compressed.png',
+    id: 'psp', label: 'PSP', image: '/media/consoles/psp-console-small-withshadow-compressed.png',
     summary: 'A 2006 compilation that adapts both Power Stone games for handheld play.',
     notes: [
       'Four-player arena action is remapped onto the PSP’s single analog nub and shoulder buttons.',
@@ -178,16 +179,22 @@ const unlockPlatforms = [
     note: 'Before investing time, confirm your region and save context against a verified manual or gameplay record.',
   },
   {
-    id: 'psp', label: 'PSP · Power Stone Collection', image: '/media/consoles/psp-console-small-withshadow-compressed.png', platformLabel: 'Portable compilation',
+    id: 'arcade', label: 'Arcade', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png', platformLabel: 'Hardware context',
+    summary: 'The arcade release is historical and hardware context here—not a home unlock path. This guide does not apply Dreamcast save-based instructions to arcade operation.',
+    status: 'Not a home unlock path',
+    note: 'Full unlock checklists for this platform are queued for a future update.',
+  },
+  {
+    id: 'psp', label: 'PSP', image: '/media/consoles/psp-console-small-withshadow-compressed.png', platformLabel: 'Portable compilation',
     summary: 'The compilation combines both games and includes its own portable-era presentation and progression context.',
     status: 'Collection-specific details to verify',
     note: 'Do not assume every Dreamcast instruction maps one-to-one to this release.',
   },
   {
-    id: 'arcade', label: 'Arcade (NAOMI)', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png', platformLabel: 'Hardware context',
-    summary: 'The arcade release is historical and hardware context here—not a home unlock path. This guide does not apply Dreamcast save-based instructions to arcade operation.',
-    status: 'Not a home unlock path',
-    note: 'Full unlock checklists for this platform are queued for a future update.',
+    id: 'pc', label: 'PC', image: '/media/consoles/pc-small-withshadow-compressed.png', platformLabel: 'Home computer',
+    summary: 'Home computer summary',
+    status: 'CHome computer status',
+    note: 'Home computer note',
   },
 ] as const
 
@@ -330,16 +337,22 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     <section id="home" class="hero routed-section" aria-labelledby="home-title">
       <div class="hero__orbits" aria-hidden="true"><i /><i /><i /></div>
       <div class="hero__content">
-        <p class="hero__kicker">The world’s yours for the taking</p>
+        <p class="hero__kicker">Unofficial Field Guide For The Game</p>
         <img class="hero__logo" src="/media/logos/power-stone-2-logo.png" alt="Power Stone 2" />
         <h1 id="home-title" class="sr-only">Power Stone 2 Field Guide</h1>
-        <p class="hero__lede">A fast, tactile field guide to Capcom’s shape-shifting four-player arena adventure.</p>
+        <p class="hero__lede">A multiplayer fighting game developed and published by <a href="https://www.capcom.com/" target="_blank">Capcom</a>, and one of the greatest fighting games ever made.</p>
+        <p class="hero__availability">Available on</p>
         <dl class="hero__meta">
-          <div><dt>Release era</dt><dd>Arcade 2000 · Dreamcast 2000–2001</dd></div>
-          <div><dt>Platforms</dt><dd>Arcade (NAOMI) · Dreamcast · later PSP collection</dd></div>
-          <div><dt>Developer / publisher</dt><dd>Capcom</dd></div>
+          <div><dt>Arcade</dt><dd>August, 2000</dd></div>
+          <div><dt>Dreamcast</dt><dd>August 23rd, 2000</dd></div>
+          <div><dt>PSP</dt><dd>October 31st, 2006</dd></div>
+          <div><dt>PC</dt><dd>May 16th, 2025</dd></div>
         </dl>
-        <div class="hero__actions"><RouterLink class="button button--primary" to="/items">Explore items</RouterLink><RouterLink class="button button--ghost" to="/characters">Meet the roster</RouterLink></div>
+        <div class="hero__actions">
+            <RouterLink class="button button--primary" to="/how-to-play">Play Online</RouterLink>
+            <RouterLink class="button button--ghost" to="/characters">Meet the Characters</RouterLink>
+            <RouterLink class="button button--ghost" to="/items">Explore Items</RouterLink>
+        </div>
       </div>
       <div class="hero__media">
         <video class="hero__video" autoplay muted loop playsinline poster="/media/videos/gameplay-loop-poster.jpg" aria-hidden="true">
@@ -351,7 +364,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="game-overview" class="content-section routed-section content-section--game-overview" aria-labelledby="game-overview-title">
-      <SectionHeading title-id="game-overview-title" kicker="01 / About the game" title="A transforming arena brawler." intro="Power Stone 2 sends up to four fighters into a single free-roaming stage, racing to combine stones into a temporary transformation while the arena itself keeps changing shape underfoot." />
+      <SectionHeading title-id="game-overview-title" kicker="01 / About the game" title="The Sleeper Hit You Probably Missed" intro="Power Stone 2 hit arcades and consoles in 2000, the PSP in 2006, and PC in 2025." />
       <div class="game-overview">
         <div class="game-overview__highlights">
           <article v-for="highlight in highlights" :key="highlight[0]" class="game-overview__highlight">
@@ -369,8 +382,8 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     <div class="section-divider" aria-hidden="true"><img class="section-divider__mark" :src="dividerStone" alt="" /></div>
 
     <section id="how-to-play" class="content-section routed-section content-section--how-to-play" aria-labelledby="how-to-play-title">
-      <SectionHeading title-id="how-to-play-title" kicker="02 / Field briefing" title="Learn the scramble." intro="Power Stone 2 is a free-moving arena fight: outlast the opposition while adapting to items, transformations, hazards, and stages that refuse to sit still." />
-      <div class="play-guide">
+      <SectionHeading title-id="how-to-play-title" kicker="02 / How To Play" title="Getting Started" intro="We'll walk you through everything you'll need to get started. Select a platform, find the mode that's right for you, and play either couch co-op with friends or online over the internet." />
+      <!-- <div class="play-guide">
         <img class="play-guide__controller" src="/media/hardware/dreamcast-controller.svg" alt="Dreamcast controller" />
         <div class="play-guide__cards">
           <article><span>01</span><h3>Move, fight, interact</h3><p>Run freely around the 3D space, jump between elevations, attack nearby rivals, and use the game’s context-sensitive action to pick up items or interact with arena features. Check your version’s control settings for the exact mapping.</p></article>
@@ -379,7 +392,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
           <article><span>04</span><h3>Watch the stage</h3><p>Arenas change, travel, and introduce hazards as a match unfolds. Follow the group’s movement, heed visual warnings, and treat a safe route or platform as part of your strategy.</p></article>
         </div>
       </div>
-      <aside class="first-match"><p class="eyebrow">First-match plan</p><p>Keep moving, learn the arena before chasing every pickup, and secure loose Power Stones when the route is safe. Save an item for space-making, then pressure a transformed rival from a distance until their advantage fades.</p></aside>
+      <aside class="first-match"><p class="eyebrow">First-match plan</p><p>Keep moving, learn the arena before chasing every pickup, and secure loose Power Stones when the route is safe. Save an item for space-making, then pressure a transformed rival from a distance until their advantage fades.</p></aside> -->
 
       <div class="subsection">
         <h3 class="subsection__title">Select a platform</h3>
@@ -413,7 +426,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="items" class="content-section routed-section content-section--items" aria-labelledby="items-title">
-      <SectionHeading title-id="items-title" kicker="03 / Arsenal" title="Pick it up. Change the match." intro="Browse items, crafting materials, and card essences in one canonical catalog." />
+      <SectionHeading title-id="items-title" kicker="03 / Items" title="Browse Items" intro="Browse all items, material cards, and essences cards in one place." />
       <div class="catalog-tabs" role="tablist" aria-label="Catalog entity kind">
         <button v-for="(tab, index) in catalogTabs" :key="tab.kind" :ref="element => { if (element) tabElements[index] = element as HTMLButtonElement }" type="button" role="tab" :aria-selected="catalogKind === tab.kind" :tabindex="catalogKind === tab.kind ? 0 : -1" @click="activateCatalogTab(tab.kind, index)" @keydown="onTabKeydown($event, index)">{{ tab.label }}</button>
       </div>
@@ -449,12 +462,12 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="recipes" class="content-section routed-section" aria-labelledby="recipes-title">
-      <SectionHeading title-id="recipes-title" kicker="04 / Workshop" title="Build beyond the pickup." intro="Look up every resolved alternative recorded in the recipe database. Ambiguous source formulas stay visibly quarantined." />
+      <SectionHeading title-id="recipes-title" kicker="04 / Recipies" title="Items Cookbook" intro="Look up every combination to make and item. Don't forget, some items cannot be made. See essence cards for combination buffs." />
       <RecipeLookup />
     </section>
 
     <section id="characters" class="content-section routed-section content-section--characters" aria-labelledby="characters-title">
-      <SectionHeading title-id="characters-title" kicker="05 / Select player" title="Fourteen ways into the fray, plus two PSP exclusives." intro="Choose a portrait to update the player file. The base Dreamcast and arcade roster numbers fourteen; Kraken and General Valgas are marked PSP exclusive, unlocked only in the Power Stone Collection release. Attributes are editorial impressions; move notation remains queued for gameplay verification." />
+      <SectionHeading title-id="characters-title" kicker="05 / Characters" title="Choose Your Adventurer" intro="The Arcade and Dreamcast versions have 14 characters, Kraken and General Valgas are PSP exclusives. Some characters must be unlocked." />
       <div class="character-select" role="list" aria-label="Playable characters">
         <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="selectCharacterAndScroll(character.id)">
           <img v-if="character.media" class="portrait__avatar" :src="character.media" :alt="`${character.name} chip art`" />
@@ -548,7 +561,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
-      <SectionHeading title-id="levels-title" kicker="06 / Arenas" title="Every stage is in motion." intro="Choose an arena file to inspect its replaceable visual study, browse its pictures, and preview a placeholder video pass." />
+      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels" intro="Select a level to learn more about it. Desert Area is the standard competetive map." />
       <div class="level-select" role="list" aria-label="Playable arenas">
         <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="selectLevelAndScroll(level.id)">
           <span class="status-tag">{{ level.stageCount }}-Stage</span>
@@ -562,7 +575,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       </div>
       <article ref="levelFile" class="level-file" aria-live="polite">
         <div class="detail-nav">
-          <button type="button" class="detail-nav__arrow" aria-label="Previous arena" @click="previousLevel">←</button>
+          <button type="button" class="detail-nav__arrow detail-nav__arrow--solid" aria-label="Previous arena" @click="previousLevel">←</button>
           <button type="button" class="detail-nav__arrow" aria-label="Next arena" @click="nextLevel">→</button>
         </div>
         <div class="level-file__hero">
@@ -603,7 +616,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="enemies" class="content-section routed-section content-section--enemies" aria-labelledby="enemies-title">
-      <SectionHeading title-id="enemies-title" kicker="07 / Threats" title="Who's standing in your way." intro="Two encounter types make up the opposition: the wider cast of enemies met along the way, and the story bosses that anchor the fight. The enemy roster is queued for a future update." />
+      <SectionHeading title-id="enemies-title" kicker="07 / Enemies" title="Enemies & Bosses" intro="All versions have 3 enemy types and 2 boss types." />
 
       <div class="subsection">
         <h3 class="subsection__title">Enemies</h3>
@@ -695,7 +708,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="unlocks" class="content-section routed-section content-section--unlocks" aria-labelledby="unlocks-title">
-      <SectionHeading title-id="unlocks-title" kicker="08 / Progress" title="Know which version you’re playing." intro="Progress systems differ across releases. Treat the notes below as a safe orientation, not a substitute for a version-specific verified checklist." />
+      <SectionHeading title-id="unlocks-title" kicker="08 / Unlocks" title="Unlock All Content" intro="Progress differs between versions. Select a platform to get a guide for that specific version." />
       <HorizontalNav :items="unlockPlatforms" v-model="selectedUnlockPlatform" nav-label="Select a platform for unlock notes" />
       <article class="unlock-detail">
         <p class="platform-label">{{ activeUnlockPlatform.platformLabel }}</p>
@@ -707,7 +720,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="history" class="content-section routed-section content-section--history" aria-labelledby="history-title">
-      <SectionHeading title-id="history-title" kicker="09 / Archive" title="A bright streak through arcade history." intro="From Capcom’s first 3D arena experiment to a portable compilation and an enduring multiplayer legacy." />
+      <SectionHeading title-id="history-title" kicker="09 / History" title="A bright streak through fighting history" intro="From Capcom’s first 3D arena experiment to a portable compilation and an enduring multiplayer legacy." />
       <ol class="timeline">
         <li v-for="(milestone, index) in milestones" :key="index">
           <time>{{ milestone[0] }}</time>
@@ -725,28 +738,28 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     <section id="about" class="content-section routed-section about" aria-labelledby="about-title">
       <div class="about__mark" aria-hidden="true">PS<br />2</div>
       <div class="about__copy">
-        <SectionHeading title-id="about-title" kicker="10 / About Us" title="Made by fans, built to be corrected." intro="This independent, non-commercial field guide celebrates Power Stone 2 and gives players a clear, accessible place to learn. Provisional facts are visibly flagged for future verification." />
+        <SectionHeading title-id="about-title" kicker="10 / About Us" title="This site is made by fans" intro="This independent, non-commercial, non-affiliated guide celebrates Power Stone 2 and gives players a clear, accessible place to learn. All game content, imagery, and related intellectual property are owned by Capcom Co., Ltd. and all rights remain with their respective rights holders." />
         <div class="accordion">
           <section class="accordion__item">
             <h3 class="accordion__heading">
               <button type="button" class="accordion__trigger" :aria-expanded="openAboutSection === 'resources'" aria-controls="about-resources-panel" @click="toggleAboutSection('resources')">Resources<span class="accordion__icon" aria-hidden="true">{{ openAboutSection === 'resources' ? '−' : '+' }}</span></button>
             </h3>
             <div v-show="openAboutSection === 'resources'" id="about-resources-panel" class="accordion__panel">
-              <p>It is not affiliated with or endorsed by Capcom. Game names, characters, artwork, logos, music, footage, and all other related rights remain with their respective rights holders.</p>
+              <p>Here are some other resources you might find interesting.</p>
               <div class="about__reference">
                 <figure><img src="/media/box-art/dreamcast-box-art.jpg" alt="Original Power Stone 2 Dreamcast box art, shown for reference only." /><figcaption>Dreamcast box art</figcaption></figure>
                 <figure><img src="/media/menus/menu-items.png" alt="Screenshot of the original game's in-game menu text, shown for reference only." /><figcaption>Menu text reference</figcaption></figure>
                 <figure><img src="/media/fonts/font-sprite.png" alt="Bitmap font sprite sheet from the original game, shown for reference only." /><figcaption>Font sprite reference</figcaption></figure>
               </div>
-              <p class="about__promise">No hotlinked media. No invented certainty. A structure ready for sourced updates.</p>
+              <p class="about__promise">You can copy this website on <a href="https://github.com/ERDAgent/PowerStone2" target="_blank">github</a>. It was made by <a href="https://github.com/ERDAgent" target="_blank">ERDAgent</a>, with help from <a href="https://github.com/EricRoseDev" target="_blank">EricRoseDev</a></p>
             </div>
           </section>
           <section class="accordion__item">
             <h3 class="accordion__heading">
-              <button type="button" class="accordion__trigger" :aria-expanded="openAboutSection === 'other'" aria-controls="about-other-panel" @click="toggleAboutSection('other')">Other<span class="accordion__icon" aria-hidden="true">{{ openAboutSection === 'other' ? '−' : '+' }}</span></button>
+              <button type="button" class="accordion__trigger" :aria-expanded="openAboutSection === 'links'" aria-controls="about-links-panel" @click="toggleAboutSection('links')">Links<span class="accordion__icon" aria-hidden="true">{{ openAboutSection === 'links' ? '−' : '+' }}</span></button>
             </h3>
-            <div v-show="openAboutSection === 'other'" id="about-other-panel" class="accordion__panel">
-              <p>More notes and disclosures are on the way.</p>
+            <div v-show="openAboutSection === 'links'" id="about-links-panel" class="accordion__panel">
+                <a href="#">Links</a>
             </div>
           </section>
           <section class="accordion__item">
@@ -754,7 +767,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
               <button type="button" class="accordion__trigger" :aria-expanded="openAboutSection === 'contact'" aria-controls="about-contact-panel" @click="toggleAboutSection('contact')">Contact<span class="accordion__icon" aria-hidden="true">{{ openAboutSection === 'contact' ? '−' : '+' }}</span></button>
             </h3>
             <div v-show="openAboutSection === 'contact'" id="about-contact-panel" class="accordion__panel">
-              <p>A contact channel for corrections and sourcing is coming soon.</p>
+              <p>Contact info here</p>
             </div>
           </section>
         </div>

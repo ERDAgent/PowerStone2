@@ -169,9 +169,9 @@
     "id": "level-extra-stage-1",
     "name": "Extra Stage 1",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/extra-stage-1-large.png",
+    "media": "/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg",
     "slides": [
-      "/media/levels/levels-large/extra-stage-1-large.png"
+      "/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg"
     ],
     "stageCount": 1,
     "modes": [
@@ -190,9 +190,9 @@
     "id": "level-extra-stage-2",
     "name": "Extra Stage 2",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/extra-stage-2-large.png",
+    "media": "/media/levels/levels-gallery/extra-stage-2/stage1-1.jpg",
     "slides": [
-      "/media/levels/levels-large/extra-stage-2-large.png"
+      "/media/levels/levels-gallery/extra-stage-2/stage1-1.jpg"
     ],
     "stageCount": 1,
     "modes": [
@@ -211,9 +211,9 @@
     "id": "level-extra-stage-3",
     "name": "Extra Stage 3",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-large/extra-stage-3-large.png",
+    "media": "/media/levels/levels-gallery/extra-stage-3/stage1-1.jpg",
     "slides": [
-      "/media/levels/levels-large/extra-stage-3-large.png"
+      "/media/levels/levels-gallery/extra-stage-3/stage1-1.jpg"
     ],
     "stageCount": 1,
     "modes": [

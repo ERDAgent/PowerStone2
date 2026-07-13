@@ -39,7 +39,23 @@ function onKeydown(event: KeyboardEvent, index: number) {
       @click="activate(item.id, index)"
       @keydown="onKeydown($event, index)"
     >
-      <img v-if="item.image" class="horizontal-nav__icon" :src="item.image" alt="" />
+      <img
+        v-if="item.image"
+        class="horizontal-nav__icon"
+        :style="[
+            item.label === 'Dreamcast' && { width: '80px' },
+            item.label === 'Arcade' && { width: '64px' },
+            item.label === 'PSP' && { width: '124px' },
+            item.label === 'PC' && { width: '101px' },
+            item.label === 'Team Battle' && { width: '130px' },
+            item.label === '3 Team Battle' && { width: '130px' },
+            item.label === 'Battle Royal' && { width: '130px' },
+            item.label === 'Capcom Fighting Collection 2' && { width: '150px' },
+            item.label === 'Flycast Dojo' && { width: '50px' }
+        ]"
+        :src="item.image"
+        alt=""
+      />
       <span>{{ item.label }}</span>
     </button>
   </div>

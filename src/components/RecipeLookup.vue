@@ -72,7 +72,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
 <template>
   <div class="recipe-lookup">
     <div ref="searchPanel" class="recipe-lookup__search">
-      <label for="recipe-search">Find an item result</label>
+      <label for="recipe-search">Search Items</label>
       <div class="recipe-search-controls">
         <input
           id="recipe-search"

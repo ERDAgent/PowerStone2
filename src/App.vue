@@ -113,6 +113,5 @@ onBeforeUnmount(() => {
     <nav class="site-footer__nav" aria-label="Footer navigation">
       <RouterLink v-for="section in sections" :key="section.id" :to="`/${section.id}`">{{ section.label }}</RouterLink>
     </nav>
-    <p>Independent, non-commercial fan guide. Game names, characters, artwork, and all related rights remain with their respective rights holders.</p>
   </footer>
 </template>
