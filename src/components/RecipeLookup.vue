@@ -8,6 +8,7 @@ const selectedId = ref<ItemRecord['id'] | null>(null)
 const activeIndex = ref(-1)
 const input = ref<HTMLInputElement | null>(null)
 const detailPanel = ref<HTMLElement | null>(null)
+const searchPanel = ref<HTMLElement | null>(null)
 
 const matches = computed(() => {
   const term = query.value.trim().toLocaleLowerCase()
@@ -35,6 +36,10 @@ function selectByClick(item: ItemRecord, event: MouseEvent) {
   if (typeof window.matchMedia === 'function' && window.matchMedia('(max-width: 980px)').matches) {
     nextTick(() => detailPanel.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
   }
+}
+
+function scrollToSearch() {
+  searchPanel.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 function onKeydown(event: KeyboardEvent) {
@@ -66,7 +71,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
 
 <template>
   <div class="recipe-lookup">
-    <div class="recipe-lookup__search">
+    <div ref="searchPanel" class="recipe-lookup__search">
       <label for="recipe-search">Find an item result</label>
       <div class="recipe-search-controls">
         <input
@@ -106,6 +111,12 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
     </div>
 
     <div ref="detailPanel" class="recipe-lookup__detail" aria-live="polite">
+      <button
+        type="button"
+        class="icon-button recipe-lookup__back-to-search"
+        aria-label="Back to recipe search"
+        @click="scrollToSearch"
+      >↑</button>
       <div v-if="!selected" class="recipe-empty recipe-empty--detail">
         <h3>Choose an item result</h3>
         <p>Search the canonical item catalog to see its documented alternatives.</p>
