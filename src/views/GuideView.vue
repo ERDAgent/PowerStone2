@@ -12,7 +12,7 @@ import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 
 const store = useGuideStore()
-const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
+const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemLevel, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
 const characteristicLabels = [
   ['strength', 'Strength'],
   ['throwDistance', 'Throw Distance'],
@@ -20,7 +20,8 @@ const characteristicLabels = [
   ['toughness', 'Toughness'],
   ['speed', 'Speed'],
 ] as const
-const categories = computed(() => ['All', ...new Set(items.map(item => item.category ?? 'Uncategorized'))])
+const categories = computed(() => ['All Functions', ...new Set(items.map(item => item.category ?? 'Uncategorized'))])
+const itemLevels = computed(() => ['All Levels' as const, ...[...new Set(items.map(item => item.level))].sort((a, b) => a - b)])
 const catalogTabs = [
   { kind: 'all', label: 'All' },
   { kind: 'item', label: 'Items' },
@@ -418,6 +419,9 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
         <label class="item-search" for="item-search">Search {{ catalogTabs.find(tab => tab.kind === catalogKind)?.label.toLowerCase() }} <input id="item-search" :value="itemQuery" type="search" placeholder="Name or catalog number" @input="store.setItemQuery(($event.target as HTMLInputElement).value)" /></label>
         <div v-if="catalogKind === 'item'" class="filter-bar" aria-label="Filter items by category">
           <button v-for="category in categories" :key="category" type="button" :class="['chip', { 'chip--active': itemCategory === category }]" @click="store.setCategory(category)">{{ category }}</button>
+        </div>
+        <div v-if="catalogKind === 'item'" class="filter-bar" aria-label="Filter items by level">
+          <button v-for="level in itemLevels" :key="level" type="button" :class="['chip', { 'chip--active': itemLevel === level }]" @click="store.setItemLevel(level)">{{ level === 'All Levels' ? 'All Levels' : `Level ${level}` }}</button>
         </div>
         <div class="item-browser">
           <div class="item-browser__list" role="list" :aria-label="`${catalogTabs.find(tab => tab.kind === catalogKind)?.label} catalog`">
