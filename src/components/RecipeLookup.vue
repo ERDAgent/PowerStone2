@@ -7,6 +7,7 @@ const query = ref('')
 const selectedId = ref<ItemRecord['id'] | null>(null)
 const activeIndex = ref(-1)
 const input = ref<HTMLInputElement | null>(null)
+const detailPanel = ref<HTMLElement | null>(null)
 
 const matches = computed(() => {
   const term = query.value.trim().toLocaleLowerCase()
@@ -31,6 +32,9 @@ function select(item: ItemRecord) {
 function selectByClick(item: ItemRecord, event: MouseEvent) {
   select(item)
   ;(event.currentTarget as HTMLElement).focus()
+  if (typeof window.matchMedia === 'function' && window.matchMedia('(max-width: 980px)').matches) {
+    nextTick(() => detailPanel.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+  }
 }
 
 function onKeydown(event: KeyboardEvent) {
@@ -101,7 +105,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
       </div>
     </div>
 
-    <div class="recipe-lookup__detail" aria-live="polite">
+    <div ref="detailPanel" class="recipe-lookup__detail" aria-live="polite">
       <div v-if="!selected" class="recipe-empty recipe-empty--detail">
         <h3>Choose an item result</h3>
         <p>Search the canonical item catalog to see its documented alternatives.</p>
