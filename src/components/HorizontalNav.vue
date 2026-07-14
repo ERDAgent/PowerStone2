@@ -33,7 +33,7 @@ function onKeydown(event: KeyboardEvent, index: number) {
       :ref="element => { if (element) tabElements[index] = element as HTMLButtonElement }"
       type="button"
       role="tab"
-      class="horizontal-nav__tab"
+      class="horizontal-nav__tab gradient-border"
       :aria-selected="modelValue === item.id"
       :tabindex="modelValue === item.id ? 0 : -1"
       @click="activate(item.id, index)"
@@ -42,17 +42,18 @@ function onKeydown(event: KeyboardEvent, index: number) {
       <img
         v-if="item.image"
         class="horizontal-nav__icon"
-        :style="[
-            item.label === 'Dreamcast' && { width: '80px' },
-            item.label === 'Arcade' && { width: '64px' },
-            item.label === 'PSP' && { width: '124px' },
-            item.label === 'PC' && { width: '101px' },
-            item.label === 'Team Battle' && { width: '130px' },
-            item.label === '3 Team Battle' && { width: '130px' },
-            item.label === 'Battle Royal' && { width: '130px' },
-            item.label === 'Capcom Fighting Collection 2' && { width: '150px' },
-            item.label === 'Flycast Dojo' && { width: '50px' }
-        ]"
+        :style="{
+          width: item.label === 'Dreamcast' ? '80px' :
+                 item.label === 'Arcade' ? '64px' :
+                 item.label === 'PSP' ? '124px' :
+                 item.label === 'PC' ? '101px' :
+                 ['Team Battle', '3 Team Battle', 'Battle Royal'].includes(item.label) ? '130px' :
+                 item.label === 'Capcom Fighting Collection 2' ? '150px' :
+                 item.label === 'Flycast Dojo' ? '50px' : '',
+          margin: item.label === 'Team Battle' ? '0.75rem 0.25rem 0 0.5rem' :
+                  item.label === 'Flycast Dojo' ? '0 0.5rem 0 0.25rem' :
+                  item.label === 'Capcom Fighting Collection 2' ? '1rem 0.25rem 0 0.5rem' : ''
+        }"
         :src="item.image"
         alt=""
       />

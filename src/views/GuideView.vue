@@ -382,22 +382,12 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     <div class="section-divider" aria-hidden="true"><img class="section-divider__mark" :src="dividerStone" alt="" /></div>
 
     <section id="how-to-play" class="content-section routed-section content-section--how-to-play" aria-labelledby="how-to-play-title">
-      <SectionHeading title-id="how-to-play-title" kicker="02 / How To Play" title="Getting Started" intro="We'll walk you through everything you'll need to get started. Select a platform, find the mode that's right for you, and play either couch co-op with friends or online over the internet." />
-      <!-- <div class="play-guide">
-        <img class="play-guide__controller" src="/media/hardware/dreamcast-controller.svg" alt="Dreamcast controller" />
-        <div class="play-guide__cards">
-          <article><span>01</span><h3>Move, fight, interact</h3><p>Run freely around the 3D space, jump between elevations, attack nearby rivals, and use the game’s context-sensitive action to pick up items or interact with arena features. Check your version’s control settings for the exact mapping.</p></article>
-          <article><span>02</span><h3>Claim three Power Stones</h3><p>Collect three stones before your opponents to transform. The powered-up form is temporary, so use its stronger attacks decisively while watching for stones knocked loose in the fight.</p></article>
-          <article><span>03</span><h3>Use what the arena gives you</h3><p>Grab weapons, ranged tools, defenses, and mobility items, then aim for open space before committing. Pickups can interrupt a plan just as easily as they can create one.</p></article>
-          <article><span>04</span><h3>Watch the stage</h3><p>Arenas change, travel, and introduce hazards as a match unfolds. Follow the group’s movement, heed visual warnings, and treat a safe route or platform as part of your strategy.</p></article>
-        </div>
-      </div>
-      <aside class="first-match"><p class="eyebrow">First-match plan</p><p>Keep moving, learn the arena before chasing every pickup, and secure loose Power Stones when the route is safe. Save an item for space-making, then pressure a transformed rival from a distance until their advantage fades.</p></aside> -->
+        <SectionHeading title-id="how-to-play-title" style="margin-bottom: 2rem;" kicker="02 / How To Play" title="Getting Started" intro="We'll walk you through everything you'll need to get started. Select a platform, find the mode that's right for you, and play either couch co-op with friends or online over the internet." />
 
-      <div class="subsection">
+      <div class="subsection" style="margin-top: 0;">
         <h3 class="subsection__title">Select a platform</h3>
-        <HorizontalNav :items="platforms" v-model="selectedPlatform" nav-label="Select a platform" />
-        <article class="subsection__panel" aria-live="polite">
+        <HorizontalNav :items="platforms" v-model="selectedPlatform" nav-label="Select a platform" style="position: relative; z-index: 2;"/>
+        <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
           <p>{{ activePlatform.summary }}</p>
           <ul><li v-for="note in activePlatform.notes" :key="note">{{ note }}</li></ul>
         </article>
@@ -405,8 +395,8 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
 
       <div class="subsection">
         <h3 class="subsection__title">Select a mode</h3>
-        <HorizontalNav :items="modes" v-model="selectedMode" nav-label="Select a mode" />
-        <article class="subsection__panel" aria-live="polite">
+        <HorizontalNav :items="modes" v-model="selectedMode" nav-label="Select a mode" style="position: relative; z-index: 2;"/>
+        <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
           <p>{{ activeMode.summary }}</p>
           <ul><li v-for="note in activeMode.notes" :key="note">{{ note }}</li></ul>
         </article>
@@ -414,14 +404,14 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
 
       <div class="subsection">
         <h3 class="subsection__title">Play online</h3>
-        <HorizontalNav :items="onlineOptions" v-model="selectedOnline" nav-label="Play online" />
-        <article class="subsection__panel" aria-live="polite">
+        <HorizontalNav :items="onlineOptions" v-model="selectedOnline" nav-label="Play online" style="position: relative; z-index: 2;"/>
+        <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
           <p>{{ activeOnline.intro }}</p>
           <ol class="steps">
             <li v-for="(step, index) in activeOnline.steps" :key="step[0]"><span class="steps__number">{{ String(index + 1).padStart(2, '0') }}</span><div><h4>{{ step[0] }}</h4><p>{{ step[1] }}</p></div></li>
           </ol>
         </article>
-        <aside class="callout"><b>Keep it legitimate and current.</b> Supply your own game files, consult each project’s current official documentation, and expect networking screens or requirements to evolve.</aside>
+        <aside class="callout gradient-border"><b>Keep it legitimate and current.</b> Supply your own game files, consult each project’s current official documentation, and expect networking screens or requirements to evolve.</aside>
       </div>
     </section>
 
