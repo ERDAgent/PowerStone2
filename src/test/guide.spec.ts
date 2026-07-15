@@ -5,7 +5,7 @@ import { createPinia, setActivePinia } from 'pinia'
 import { createMemoryHistory, createRouter } from 'vue-router'
 import App from '@/App.vue'
 import GuideView from '@/views/GuideView.vue'
-import { routes } from '@/router'
+import { routes, scrollBehavior } from '@/router'
 import { sections } from '@/data/content'
 import { bosses, characters, levels } from '@/data/world'
 import { essences, items, materials } from '@/data'
@@ -168,6 +168,14 @@ describe('section routing', () => {
     expect(wrapper.find('#primary-navigation a[aria-current="page"]').text()).toBe('Home')
     wrapper.unmount()
   })
+
+  it('prefers a target hash over the section id, offset for the fixed header, so links can point past a section to a specific element', async () => {
+    const target = { meta: { section: 'recipes' }, hash: '#recipe-lookup' } as Parameters<typeof scrollBehavior>[0]
+    await expect(scrollBehavior(target, target, null)).resolves.toEqual({ el: '#recipe-lookup', top: 68, behavior: 'smooth' })
+
+    const sectionOnly = { meta: { section: 'recipes' }, hash: '' } as Parameters<typeof scrollBehavior>[0]
+    await expect(scrollBehavior(sectionOnly, sectionOnly, null)).resolves.toEqual({ el: '#recipes', behavior: 'smooth' })
+  })
 })
 
 describe('guide interactions', () => {
@@ -219,6 +227,7 @@ describe('guide interactions', () => {
     await machineGun!.find('.item-tile__recipe-link').trigger('click')
     await flushPromises()
     expect(router.currentRoute.value.path).toBe('/recipes')
+    expect(router.currentRoute.value.hash).toBe('#recipe-lookup')
     expect((wrapper.find('#recipe-search').element as HTMLInputElement).value).toBe('')
     expect(wrapper.find('.recipe-result-heading h3').text()).toBe('Machine Gun')
     wrapper.unmount()
@@ -226,6 +235,7 @@ describe('guide interactions', () => {
 
   it('jumps from a recipe-entity back to the items catalog under the All filter, regardless of kind', async () => {
     const { wrapper, router } = await mountGuide()
+    const scrollSpy = vi.spyOn(Element.prototype, 'scrollIntoView')
     await wrapper.find('#recipe-search').setValue('mAcHiNe GuN')
     await wrapper.find('#recipe-search').trigger('keydown', { key: 'Enter' })
     const ingredients = wrapper.findAll('.recipe-entity')
@@ -233,9 +243,14 @@ describe('guide interactions', () => {
     await gunpowder!.trigger('click')
     await flushPromises()
     expect(router.currentRoute.value.path).toBe('/items')
+    expect(router.currentRoute.value.hash).toBe('#catalog-tabs')
     const tabs = wrapper.findAll('.catalog-tabs [role="tab"]')
     expect(tabs[0].attributes('aria-selected')).toBe('true')
     expect(wrapper.find('.item-detail h3').text().replace(/\u00AD/g, '')).toBe('Gunpowder')
+    const gunpowderTile = document.getElementById('item-tile-material-gunpowder')
+    expect(gunpowderTile).not.toBeNull()
+    expect(scrollSpy.mock.instances).toContain(gunpowderTile)
+    scrollSpy.mockRestore()
     wrapper.unmount()
   })
 

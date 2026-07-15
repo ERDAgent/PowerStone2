@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { getEntityById, items, recipeExtraction, recipes } from '@/data'
 import type { EntityId, ItemRecord } from '@/data/types'
 import { useGuideStore } from '@/stores/guide'
+import { itemTileId } from '@/utils/dom'
 import { withSoftHyphens } from '@/utils/text'
 
 const router = useRouter()
@@ -74,8 +75,11 @@ function clearInput() {
 function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
 
 function goToEntityInCatalog(id: EntityId) {
-  router.push('/items')
+  router.push('/items#catalog-tabs')
   store.viewEntityInCatalog(id)
+  nextTick(() => {
+    document.getElementById(itemTileId(id))?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  })
 }
 
 function selectItem(id: ItemRecord['id']) {
@@ -91,7 +95,7 @@ defineExpose({ selectItem })
 </script>
 
 <template>
-  <div class="recipe-lookup">
+  <div id="recipe-lookup" class="recipe-lookup">
     <div ref="searchPanel" class="recipe-lookup__search">
       <label for="recipe-search">Search Items</label>
       <div class="search-field">
@@ -105,7 +109,7 @@ defineExpose({ selectItem })
           aria-controls="recipe-results"
           :aria-activedescendant="activeIndex >= 0 && matches[activeIndex] ? optionId(matches[activeIndex]) : undefined"
           :aria-expanded="matches.length > 0"
-          placeholder="Search 121 items by name or number"
+          placeholder="Search 121 Items"
           @keydown="onKeydown"
         />
         <button v-if="query" type="button" class="search-field__clear" aria-label="Clear search" @click="clearInput">×</button>
@@ -119,7 +123,7 @@ defineExpose({ selectItem })
           type="button"
           role="option"
           :aria-selected="selected?.id === item.id"
-          :class="['recipe-option', { 'recipe-option--active': activeIndex === index }]"
+          :class="['recipe-option', { 'recipe-option--active': selected?.id === item.id }]"
           @mouseenter="activeIndex = index"
           @click="selectByClick(item, $event)"
         >

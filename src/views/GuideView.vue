@@ -14,12 +14,13 @@ import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 import type { ItemRecord } from '@/data/types'
 import { withSoftHyphens } from '@/utils/text'
+import { itemTileId } from '@/utils/dom'
 
 const store = useGuideStore()
 const router = useRouter()
 const recipeLookup = ref<InstanceType<typeof RecipeLookup> | null>(null)
 function goToItemRecipe(id: ItemRecord['id']) {
-  router.push('/recipes')
+  router.push('/recipes#recipe-lookup')
   recipeLookup.value?.selectItem(id)
 }
 const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemLevel, materialRarity, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
@@ -481,13 +482,13 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
 
     <section id="items" class="content-section routed-section content-section--items" aria-labelledby="items-title">
       <SectionHeading title-id="items-title" kicker="03 / Items" title="Browse Items" intro="Browse all items, material cards, and essences cards in one place." style="margin-bottom: 1rem;"/>
-      <div class="catalog-tabs" role="tablist" aria-label="Catalog entity kind">
+      <div id="catalog-tabs" class="catalog-tabs" role="tablist" aria-label="Catalog entity kind">
         <button v-for="(tab, index) in catalogTabs" :key="tab.kind" :ref="element => { if (element) tabElements[index] = element as HTMLButtonElement }" type="button" role="tab" :aria-selected="catalogKind === tab.kind" :tabindex="catalogKind === tab.kind ? 0 : -1" @click="activateCatalogTab(tab.kind, index)" @keydown="onTabKeydown($event, index)">{{ tab.label }}</button>
       </div>
       <div class="catalog-panel">
         <label class="item-search" for="item-search">Search {{ catalogTabs.find(tab => tab.kind === catalogKind)?.label.toLowerCase() }}
           <div class="search-field">
-            <input id="item-search" ref="itemSearchInput" :value="itemQuery" type="search" placeholder="Name or catalog number" @input="store.setItemQuery(($event.target as HTMLInputElement).value)" />
+            <input id="item-search" ref="itemSearchInput" :value="itemQuery" type="search" placeholder="Search 152 Items" @input="store.setItemQuery(($event.target as HTMLInputElement).value)" />
             <button v-if="itemQuery" type="button" class="search-field__clear" aria-label="Clear search" @click="clearItemQuery">×</button>
           </div>
         </label>
@@ -502,7 +503,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
         </div>
         <div class="item-browser">
           <div class="item-browser__list" role="list" :aria-label="`${catalogTabs.find(tab => tab.kind === catalogKind)?.label} catalog`">
-            <div v-for="entity in filteredEntities" :key="entity.record.id" :class="['item-tile', { 'item-tile--active': selectedEntity?.record.id === entity.record.id }]">
+            <div v-for="entity in filteredEntities" :id="itemTileId(entity.record.id)" :key="entity.record.id" :class="['item-tile', { 'item-tile--active': selectedEntity?.record.id === entity.record.id }]">
               <button type="button" class="item-tile__select" @click="store.selectEntity(entity.record.id)">
                 <img v-if="entity.record.media" :src="entity.record.media" alt="" />
                 <span v-else class="entity-fallback" aria-hidden="true">{{ entity.record.name.slice(0, 2) }}</span>
