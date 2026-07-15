@@ -220,8 +220,18 @@ img { display: block; max-width: 100%; }
 .search-field input[type='search']::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
 .search-field__clear { position: absolute; top: 50%; right: .4rem; transform: translateY(-50%); width: 2.1rem; height: 2.1rem; display: grid; place-items: center; border: none; background: transparent; color: #5d5274; font-size: 1.3rem; line-height: 1; cursor: pointer; }
 .search-field__clear:hover { color: #171126; }
-.chip { padding: .55rem 1rem; color: $muted; border: 1px solid #4c4269; border-radius: 3rem; background: transparent; cursor: pointer; font-size: .76rem; font-weight: 800; }
-.chip--active { color: $night; border-color: $cyan; background: $cyan; }
+.chip {
+    padding: .55rem 1rem;
+    color: $night;
+    border-radius: 3rem;
+    border: none;
+    background: rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: .76rem;
+    font-weight: 800;
+    opacity: 0.5;
+}
+.chip--active { color: #000000; border-color: $yellow; background: $yellow; opacity: 1;}
 .item-browser { display: flex; align-items: stretch; gap: 0; border-top: 3px solid $yellow; padding-top: 17px;}
 .item-browser__list { flex: 0 1 380px; max-height: 620px; padding-right: clamp(1rem, 2vw, 1.5rem); display: flex; flex-direction: column; gap: .65rem; overflow: auto; }
 .item-tile { width: 100%; padding: 0 .6rem 0 0; display: flex; align-items: center; gap: .6rem; border: 1px solid #393052; background: #18102f; }
@@ -342,8 +352,12 @@ img { display: block; max-width: 100%; }
 .item-detail.recipe-empty--detail h3 { color: $ink; }
 
 .level-select { display: flex; flex-wrap: wrap; gap: .65rem; margin-bottom: 2rem; }
+.level-stage-filter { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 2rem; }
 .level-chip { position: relative; flex: 0 1 150px; padding: .5rem; display: flex; flex-direction: column; align-items: flex-start; text-align: left; border: 1px solid #2f5d1f; background: #f2ffe0; color: #17390d; cursor: pointer; font-size: .72rem; font-weight: 900; text-transform: uppercase; }
-.level-chip .status-tag { position: absolute; top: .4rem; left: .4rem; margin: 0; }
+.level-chip .status-tag { position: absolute; top: -8px; right: -7px; margin: 0; }
+.status-tag--stages-1 { color: #4a2200; background: $yellow; }
+.status-tag--stages-3 { color: $panel; background: $level-green; }
+.status-tag--stages-4 { color: #fff; background: $boss-coral; }
 .level-chip__thumb { width: 100%; height: 90px; margin-bottom: .45rem; object-fit: cover; }
 .level-chip__number { display: block; margin-bottom: .2rem; color: #3f7a1f; font-family: 'Guide Display'; font-size: 1rem; }
 .level-chip__modes { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .4rem; }

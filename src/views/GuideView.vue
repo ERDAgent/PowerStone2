@@ -13,6 +13,7 @@ import { materials } from '@/data'
 import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 import type { ItemRecord } from '@/data/types'
+import type { LevelStageCount } from '@/data/world'
 import { withSoftHyphens } from '@/utils/text'
 import { itemTileId } from '@/utils/dom'
 
@@ -193,6 +194,16 @@ function openLevelGallery(kind: GalleryKind, index: number) { openGallery.value 
 function closeLevelGallery() { openGallery.value = null }
 function nextGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index + 1) % galleryItems.value.length } }
 function previousGalleryItem() { if (openGallery.value) openGallery.value = { ...openGallery.value, index: (openGallery.value.index - 1 + galleryItems.value.length) % galleryItems.value.length } }
+
+const levelStageOptions: LevelStageCount[] = [1, 3, 4]
+const activeLevelStages = ref<Set<LevelStageCount>>(new Set())
+function toggleLevelStageFilter(stage: LevelStageCount) {
+  const next = new Set(activeLevelStages.value)
+  if (next.has(stage)) next.delete(stage)
+  else next.add(stage)
+  activeLevelStages.value = next
+}
+const filteredLevels = computed(() => activeLevelStages.value.size === 0 ? levels : levels.filter(level => activeLevelStages.value.has(level.stageCount)))
 
 const levelFile = ref<HTMLElement | null>(null)
 function selectLevelAndScroll(id: (typeof levels)[number]['id']) {
@@ -652,9 +663,12 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
       <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. Desert Area is the standard competetive map." style="margin-bottom: 2rem" />
+      <div class="level-stage-filter" role="group" aria-label="Filter levels by stage count">
+        <button v-for="stage in levelStageOptions" :key="stage" type="button" :aria-pressed="activeLevelStages.has(stage)" :class="['chip', { 'chip--active': activeLevelStages.has(stage) }]" @click="toggleLevelStageFilter(stage)">{{ stage }} Stage</button>
+      </div>
       <div class="level-select" role="list" aria-label="Playable arenas">
-        <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="selectLevelAndScroll(level.id)">
-          <span class="status-tag">{{ level.stageCount }}-Stage</span>
+        <button v-for="(level, index) in filteredLevels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="selectLevelAndScroll(level.id)">
+          <span :class="['status-tag', `status-tag--stages-${level.stageCount}`]">{{ level.stageCount }} Stage</span>
           <img class="level-chip__thumb" :src="level.media" :alt="`${level.name} replaceable level artwork`" />
           <span class="level-chip__number">0{{ index + 1 }}</span>
           <span>{{ level.name }}</span>
