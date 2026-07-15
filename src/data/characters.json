@@ -3,11 +3,6 @@
     "id": "character-falcon",
     "name": "Falcon",
     "tagline": "A daring aerial adventurer and the guide\u2019s default fighter.",
-    "history": "Falcon returns to the hunt with a bold, mobile style and a taste for treasure.",
-    "attributes": [
-      "Editorial read: approachable",
-      "Editorial read: powerful"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -100,17 +95,17 @@
       "damage": "low",
       "toughness": "medium",
       "speed": "low"
-    }
+    },
+    "playstyle": "Falcon returns to the hunt with a bold, mobile style and a taste for treasure.",
+    "keywords": [
+      "all-rounder",
+      "aerial rushdown"
+    ]
   },
   {
     "id": "character-wang-tang",
     "name": "Wang-Tang",
     "tagline": "An energetic martial artist built around direct momentum.",
-    "history": "Wang-Tang brings disciplined training and irrepressible confidence to the fray.",
-    "attributes": [
-      "Editorial read: technical",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -192,17 +187,17 @@
       "damage": "high",
       "toughness": "low",
       "speed": "low"
-    }
+    },
+    "playstyle": "Wang-Tang brings disciplined training and irrepressible confidence to the fray.",
+    "keywords": [
+      "momentum brawler",
+      "rushdown"
+    ]
   },
   {
     "id": "character-ryoma",
     "name": "Ryoma",
     "tagline": "A wandering swordsman with measured reach.",
-    "history": "Ryoma\u2019s traditional bearing contrasts with the chaos of transforming arenas.",
-    "attributes": [
-      "Editorial read: approachable",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -284,17 +279,17 @@
       "damage": "high",
       "toughness": "low",
       "speed": "high"
-    }
+    },
+    "playstyle": "Ryoma\u2019s traditional bearing contrasts with the chaos of transforming arenas.",
+    "keywords": [
+      "poke specialist",
+      "swordsman"
+    ]
   },
   {
     "id": "character-rouge",
     "name": "Rouge",
     "tagline": "A fortune-teller whose presentation leans into fire and mystery.",
-    "history": "Rouge enters the contest with poise, spectacle, and an enigmatic past.",
-    "attributes": [
-      "Editorial read: technical",
-      "Editorial read: powerful"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -376,17 +371,17 @@
       "damage": "high",
       "toughness": "low",
       "speed": "high"
-    }
+    },
+    "playstyle": "Rouge enters the contest with poise, spectacle, and an enigmatic past.",
+    "keywords": [
+      "zoner",
+      "fire trickster"
+    ]
   },
   {
     "id": "character-ayame",
     "name": "Ayame",
     "tagline": "A nimble performer with a fast, evasive identity.",
-    "history": "Ayame balances her stagecraft with the agility needed for the stone hunt.",
-    "attributes": [
-      "Editorial read: approachable",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -468,17 +463,17 @@
       "damage": "medium",
       "toughness": "low",
       "speed": "medium"
-    }
+    },
+    "playstyle": "Ayame balances her stagecraft with the agility needed for the stone hunt.",
+    "keywords": [
+      "speedster",
+      "evasive striker"
+    ]
   },
   {
     "id": "character-gunrock",
     "name": "Gunrock",
     "tagline": "A huge miner whose identity emphasizes raw force.",
-    "history": "Gunrock\u2019s working-life roots and massive frame make him an imposing contender.",
-    "attributes": [
-      "Editorial read: technical",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -560,17 +555,17 @@
       "damage": "high",
       "toughness": "high",
       "speed": "low"
-    }
+    },
+    "playstyle": "Gunrock\u2019s working-life roots and massive frame make him an imposing contender.",
+    "keywords": [
+      "heavy hitter",
+      "grappler"
+    ]
   },
   {
     "id": "character-galuda",
     "name": "Galuda",
     "tagline": "A proud warrior whose identity emphasizes strength and duty.",
-    "history": "Galuda carries a protective spirit into every arena.",
-    "attributes": [
-      "Editorial read: approachable",
-      "Editorial read: powerful"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -652,17 +647,17 @@
       "damage": "high",
       "toughness": "medium",
       "speed": "medium"
-    }
+    },
+    "playstyle": "Galuda carries a protective spirit into every arena.",
+    "keywords": [
+      "tank",
+      "power striker"
+    ]
   },
   {
     "id": "character-jack",
     "name": "Jack",
     "tagline": "A mysterious, bladed combatant with an unsettling silhouette.",
-    "history": "Jack\u2019s motives and identity remain deliberately obscure.",
-    "attributes": [
-      "Editorial read: technical",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -744,17 +739,17 @@
       "damage": "medium",
       "toughness": "low",
       "speed": "low"
-    }
+    },
+    "playstyle": "Jack\u2019s motives and identity remain deliberately obscure.",
+    "keywords": [
+      "mixup menace",
+      "blade specialist"
+    ]
   },
   {
     "id": "character-accel",
     "name": "Accel",
     "tagline": "A cool-headed gunslinger introduced in Power Stone 2.",
-    "history": "Accel brings a frontier-inspired style to the expanded roster.",
-    "attributes": [
-      "Editorial read: approachable",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -836,17 +831,17 @@
       "damage": "medium",
       "toughness": "high",
       "speed": "medium"
-    }
+    },
+    "playstyle": "Accel brings a frontier-inspired style to the expanded roster.",
+    "keywords": [
+      "ranged nightmare",
+      "gunslinger"
+    ]
   },
   {
     "id": "character-julia",
     "name": "Julia",
     "tagline": "An adventurous newcomer with an elegant, spirited presence.",
-    "history": "Julia joins the treasure chase on her own terms.",
-    "attributes": [
-      "Editorial read: technical",
-      "Editorial read: powerful"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -928,17 +923,17 @@
       "damage": "low",
       "toughness": "high",
       "speed": "medium"
-    }
+    },
+    "playstyle": "Julia joins the treasure chase on her own terms.",
+    "keywords": [
+      "balanced fighter",
+      "technical"
+    ]
   },
   {
     "id": "character-pete",
     "name": "Pete",
     "tagline": "A compact mechanical fighter with playful movement.",
-    "history": "Pete adds a bright retro-future personality to the roster.",
-    "attributes": [
-      "Editorial read: approachable",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -1020,17 +1015,17 @@
       "damage": "medium",
       "toughness": "high",
       "speed": "medium"
-    }
+    },
+    "playstyle": "Pete adds a bright retro-future personality to the roster.",
+    "keywords": [
+      "trickster",
+      "small hitbox"
+    ]
   },
   {
     "id": "character-gourmand",
     "name": "Gourmand",
     "tagline": "A chef-themed competitor with an eccentric fighting identity.",
-    "history": "Gourmand turns culinary flair into arena spectacle.",
-    "attributes": [
-      "Editorial read: technical",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -1112,17 +1107,17 @@
       "damage": "medium",
       "toughness": "high",
       "speed": "low"
-    }
+    },
+    "playstyle": "Gourmand turns culinary flair into arena spectacle.",
+    "keywords": [
+      "unorthodox",
+      "item abuser"
+    ]
   },
   {
     "id": "character-pride",
     "name": "Pride",
     "tagline": "A composed swordsman presented as an unlockable fighter.",
-    "history": "Pride\u2019s connection to Falcon gives his appearance extra narrative weight.",
-    "attributes": [
-      "Editorial read: approachable",
-      "Editorial read: powerful"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -1204,17 +1199,17 @@
       "damage": "high",
       "toughness": "medium",
       "speed": "high"
-    }
+    },
+    "playstyle": "Pride\u2019s connection to Falcon gives his appearance extra narrative weight.",
+    "keywords": [
+      "counter specialist",
+      "swordsman"
+    ]
   },
   {
     "id": "character-mel",
     "name": "Mel",
     "tagline": "A poised adventurer presented as an unlockable fighter.",
-    "history": "Mel\u2019s role ties the wider adventure and item systems together.",
-    "attributes": [
-      "Editorial read: technical",
-      "Editorial read: mobile"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -1296,17 +1291,17 @@
       "damage": "high",
       "toughness": "high",
       "speed": "high"
-    }
+    },
+    "playstyle": "Mel\u2019s role ties the wider adventure and item systems together.",
+    "keywords": [
+      "support-style",
+      "item synergy"
+    ]
   },
   {
     "id": "character-kraken",
     "name": "Kraken",
     "tagline": "A monstrous unlockable fighter added in the PSP compilation.",
-    "history": "Kraken appears as one of two fighters exclusive to Power Stone Collection on PSP, expanding the roster beyond the original Dreamcast and arcade lineup.",
-    "attributes": [
-      "Editorial read: powerful",
-      "Editorial read: unconventional"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -1386,17 +1381,17 @@
       "damage": "medium",
       "toughness": "high",
       "speed": "medium"
-    }
+    },
+    "playstyle": "Kraken appears as one of two fighters exclusive to Power Stone Collection on PSP, expanding the roster beyond the original Dreamcast and arcade lineup.",
+    "keywords": [
+      "grappler",
+      "heavyweight"
+    ]
   },
   {
     "id": "character-valgas",
     "name": "Valgas",
     "tagline": "A commanding unlockable fighter added in the PSP compilation.",
-    "history": "General Valgas joins Kraken as one of two fighters exclusive to Power Stone Collection on PSP, not part of the original Dreamcast and arcade roster.",
-    "attributes": [
-      "Editorial read: powerful",
-      "Editorial read: technical"
-    ],
     "moves": [
       "Core attacks \u2014 notation to verify",
       "Power Stone transformation \u2014 inputs to verify",
@@ -1476,6 +1471,11 @@
       "damage": "medium",
       "toughness": "medium",
       "speed": "high"
-    }
+    },
+    "playstyle": "General Valgas joins Kraken as one of two fighters exclusive to Power Stone Collection on PSP, not part of the original Dreamcast and arcade roster.",
+    "keywords": [
+      "tank",
+      "command grabs"
+    ]
   }
 ]

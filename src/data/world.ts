@@ -31,8 +31,8 @@ export interface CharacterRecord extends MediaRecord {
   readonly id: `character-${string}`
   readonly name: string
   readonly tagline: string
-  readonly history: string
-  readonly attributes: readonly string[]
+  readonly playstyle: string
+  readonly keywords: readonly string[]
   readonly moves: readonly string[]
   readonly moveList: readonly MoveRecord[]
   readonly specials: readonly SpecialMoveRecord[]

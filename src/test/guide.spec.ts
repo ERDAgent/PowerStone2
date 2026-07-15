@@ -205,6 +205,15 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('scrolls back to the character select grid from the fighter-file\'s middle arrow', async () => {
+    const scrollIntoView = vi.spyOn(Element.prototype, 'scrollIntoView')
+    const { wrapper } = await mountGuide()
+    const characterSelect = wrapper.find('.character-select')
+    await wrapper.find('[aria-label="Back to character select"]').trigger('click')
+    expect(scrollIntoView.mock.instances).toContain(characterSelect.element)
+    wrapper.unmount()
+  })
+
   it('renders and synchronously filters the full canonical item catalog', async () => {
     const { wrapper } = await mountGuide()
     await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
@@ -333,7 +342,7 @@ describe('guide interactions', () => {
     expect(materialFilterBars[0].attributes('aria-label')).toBe('Filter materials by rarity')
     await wrapper.find('#item-search').setValue('not present')
     expect(wrapper.findAll('.item-tile')).toHaveLength(0)
-    expect(wrapper.find('.item-detail').text()).toContain('No catalog result selected')
+    expect(wrapper.find('.item-detail').text()).toContain('No Item Selected')
     await wrapper.findAll('.catalog-tabs [role="tab"]')[3].trigger('click')
     await wrapper.find('#item-search').setValue('01')
     expect(wrapper.find('.item-detail h3').text()).toBe('Horror Card')

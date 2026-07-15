@@ -222,9 +222,13 @@ function nextEntity() {
 }
 
 const fighterFile = ref<HTMLElement | null>(null)
+const characterSelect = ref<HTMLElement | null>(null)
 function selectCharacterAndScroll(id: (typeof characters)[number]['id']) {
   store.selectCharacter(id)
   nextTick(() => fighterFile.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+}
+function scrollToCharacterSelect() {
+  characterSelect.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 function previousCharacter() {
   const index = characters.findIndex(character => character.id === selectedCharacter.value.id)
@@ -538,7 +542,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
 
     <section id="characters" class="content-section routed-section content-section--characters" aria-labelledby="characters-title">
       <SectionHeading title-id="characters-title" kicker="05 / Characters" title="Choose Your Adventurer" intro="The Arcade and Dreamcast versions have 14 characters, Kraken and General Valgas are PSP exclusives. Some characters must be unlocked." style="margin-bottom: 2rem;"/>
-      <div class="character-select" role="list" aria-label="Playable characters">
+      <div ref="characterSelect" class="character-select" role="list" aria-label="Playable characters">
         <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="selectCharacterAndScroll(character.id)">
           <img v-if="character.media" class="portrait__avatar" :src="character.media" :alt="`${character.name} chip art`" />
           <span v-else class="portrait__avatar" aria-hidden="true">{{ character.name.slice(0, 2).toUpperCase() }}</span>
@@ -550,7 +554,10 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       <article ref="fighterFile" class="fighter-file" aria-live="polite">
         <div class="detail-nav">
           <button type="button" class="detail-nav__arrow" aria-label="Previous character" @click="previousCharacter">←</button>
-          <button type="button" class="detail-nav__arrow" aria-label="Next character" @click="nextCharacter">→</button>
+          <div style="display: flex; gap: 1rem;">
+            <button type="button" class="detail-nav__arrow" aria-label="Back to character select" @click="scrollToCharacterSelect">↑</button>
+            <button type="button" class="detail-nav__arrow" aria-label="Next character" @click="nextCharacter">→</button>
+          </div>
         </div>
         <div class="fighter-file__hero" :style="{ '--character-color': selectedCharacter.color }">
           <img v-if="selectedCharacter.portrait" class="fighter-file__portrait" :src="selectedCharacter.portrait" :alt="`${selectedCharacter.name} full character art`" />
@@ -558,10 +565,21 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
           <span v-if="isPspExclusive(selectedCharacter)" class="status-tag status-tag--psp">PSP exclusive</span>
           <small v-if="!selectedCharacter.portrait">Replaceable character art</small>
         </div>
-        <div class="fighter-file__copy"><p class="eyebrow">Player file</p><h3>{{ selectedCharacter.name }}</h3><p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p><h4>Background / history</h4><p>{{ selectedCharacter.history }}</p><h4>Editorial attributes</h4><ul class="attribute-list"><li v-for="attribute in selectedCharacter.attributes" :key="attribute">{{ attribute }}</li></ul></div>
+        <div class="fighter-file__copy">
+            <p class="eyebrow">Character</p>
+            <h3>{{ selectedCharacter.name }}</h3>
+            <p class="fighter-file__tagline">{{ selectedCharacter.tagline }}</p>
+            <h4>Playstyle</h4>
+            <p>{{ selectedCharacter.playstyle }}</p>
+            <h4>Keywords</h4>
+            <ul class="attribute-list">
+                <li v-for="keyword in selectedCharacter.keywords" :key="keyword">{{ keyword }}</li>
+            </ul>
+        </div>
         <div class="fighter-file__details">
           <section class="detail-panel detail-panel--characteristics" aria-labelledby="detail-characteristics-title">
-            <p class="eyebrow">Editorial ratings</p><h4 id="detail-characteristics-title">Characteristics</h4>
+            <!-- <p class="eyebrow">Overview</p> -->
+            <h4 id="detail-characteristics-title">Characteristics</h4>
             <dl class="characteristics-list">
               <div v-for="[key, label] in characteristicLabels" :key="key">
                 <dt>{{ label }}</dt>
@@ -598,7 +616,8 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
           </section>
 
           <section class="detail-panel detail-panel--moves" aria-labelledby="detail-moves-title">
-            <p class="eyebrow">Move set</p><h4 id="detail-moves-title">Moves</h4>
+            <!-- <p class="eyebrow">Eyebrow</p> -->
+            <h4 id="detail-moves-title">Moves</h4>
             <div class="move-nav" role="list" aria-label="Moves">
               <button v-for="(move, index) in selectedCharacter.moveList" :key="move.name" type="button" role="listitem" :class="['move-nav__item', `move-nav__item--${move.type}`, { 'move-nav__item--active': selectedMoveIndex === index }]" :aria-pressed="selectedMoveIndex === index" @click="store.selectMove(index)">
                 <span class="move-nav__type">{{ move.type }}</span><span class="move-nav__name">{{ move.name }}</span>
@@ -613,7 +632,8 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
           </section>
 
           <section class="detail-panel detail-panel--specials" aria-labelledby="detail-specials-title">
-            <p class="eyebrow">Power Stone arsenal</p><h4 id="detail-specials-title">Specials</h4>
+            <!-- <p class="eyebrow">Eyebrow</p> -->
+            <h4 id="detail-specials-title">Specials</h4>
             <div class="move-nav move-nav--specials" role="list" aria-label="Special moves">
               <button v-for="(special, index) in selectedCharacter.specials" :key="special.name" type="button" role="listitem" :class="['move-nav__item', 'move-nav__item--special', { 'move-nav__item--active': selectedSpecialIndex === index }]" :aria-pressed="selectedSpecialIndex === index" @click="store.selectSpecial(index)">
                 <span class="move-nav__name">{{ special.name }}</span>
