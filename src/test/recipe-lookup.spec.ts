@@ -1,9 +1,17 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { createPinia, setActivePinia } from 'pinia'
+import { createMemoryHistory, createRouter } from 'vue-router'
 import RecipeLookup from '@/components/RecipeLookup.vue'
 import { getRecipesForResult, items } from '@/data'
+import { routes } from '@/router'
 
-function mountLookup() { return mount(RecipeLookup, { attachTo: document.body }) }
+function mountLookup() {
+  const pinia = createPinia()
+  setActivePinia(pinia)
+  const router = createRouter({ history: createMemoryHistory(), routes })
+  return mount(RecipeLookup, { attachTo: document.body, global: { plugins: [pinia, router] } })
+}
 
 async function searchAndSelect(wrapper: ReturnType<typeof mountLookup>, query: string) {
   const input = wrapper.find<HTMLInputElement>('#recipe-search')

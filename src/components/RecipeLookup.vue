@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { getEntityById, items, recipeExtraction, recipes } from '@/data'
-import type { ItemRecord } from '@/data/types'
+import type { EntityId, ItemRecord } from '@/data/types'
+import { useGuideStore } from '@/stores/guide'
 import { withSoftHyphens } from '@/utils/text'
 
+const router = useRouter()
+const store = useGuideStore()
 const query = ref('')
 const selectedId = ref<ItemRecord['id'] | null>(null)
 const activeIndex = ref(-1)
@@ -68,6 +72,11 @@ function clearInput() {
 }
 
 function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
+
+function goToEntityInCatalog(id: EntityId) {
+  router.push('/items')
+  store.viewEntityInCatalog(id)
+}
 
 function selectItem(id: ItemRecord['id']) {
   const item = items.find(candidate => candidate.id === id)
@@ -149,18 +158,18 @@ defineExpose({ selectItem })
             <div class="resolved-recipe__formula">
               <template v-for="(ingredient, ingredientIndex) in recipe.ingredients" :key="`${recipe.id}-${ingredient.id}`">
                 <span v-if="ingredientIndex" class="formula-symbol" aria-hidden="true">+</span>
-                <div class="recipe-entity">
+                <button type="button" class="recipe-entity" :aria-label="`View ${getEntityById(ingredient.id)?.name} in the items catalog`" @click="goToEntityInCatalog(ingredient.id)">
                   <img v-if="getEntityById(ingredient.id)?.media" :src="getEntityById(ingredient.id)!.media!" alt="" />
                   <span v-else class="entity-fallback" aria-hidden="true">{{ getEntityById(ingredient.id)?.name.slice(0, 2) }}</span>
                   <b>{{ getEntityById(ingredient.id)?.name }}</b><small v-if="ingredient.quantity > 1">×{{ ingredient.quantity }}</small>
-                </div>
+                </button>
               </template>
               <span class="formula-symbol" aria-hidden="true">→</span>
-              <div class="recipe-entity recipe-entity--result">
+              <button type="button" class="recipe-entity recipe-entity--result" :aria-label="`View ${selected.name} in the items catalog`" @click="goToEntityInCatalog(selected.id)">
                 <img v-if="selected.media" :src="selected.media" alt="" />
                 <span v-else class="entity-fallback" aria-hidden="true">{{ selected.name.slice(0, 2) }}</span>
                 <b>{{ selected.name }}</b>
-              </div>
+              </button>
             </div>
           </article>
         </div>

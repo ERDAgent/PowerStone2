@@ -224,6 +224,21 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('jumps from a recipe-entity back to the items catalog under the All filter, regardless of kind', async () => {
+    const { wrapper, router } = await mountGuide()
+    await wrapper.find('#recipe-search').setValue('mAcHiNe GuN')
+    await wrapper.find('#recipe-search').trigger('keydown', { key: 'Enter' })
+    const ingredients = wrapper.findAll('.recipe-entity')
+    const gunpowder = ingredients.find(entity => entity.text().includes('Gunpowder'))
+    await gunpowder!.trigger('click')
+    await flushPromises()
+    expect(router.currentRoute.value.path).toBe('/items')
+    const tabs = wrapper.findAll('.catalog-tabs [role="tab"]')
+    expect(tabs[0].attributes('aria-selected')).toBe('true')
+    expect(wrapper.find('.item-detail h3').text().replace(/\u00AD/g, '')).toBe('Gunpowder')
+    wrapper.unmount()
+  })
+
   it('steps back and forth through the catalog with the big corner arrows on the item detail, wrapping at the ends', async () => {
     const { wrapper } = await mountGuide()
     const firstName = wrapper.find('.item-detail h3').text()

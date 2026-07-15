@@ -266,7 +266,8 @@ img { display: block; max-width: 100%; }
 .resolved-recipe { min-width: 0; padding: 1rem; border: 1px solid #c9bca9; background: #fffaf3; }
 .resolved-recipe h4 { margin: 0 0 .8rem; text-transform: uppercase; }
 .resolved-recipe__formula { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
-.recipe-entity { min-width: 110px; flex: 1 1 110px; display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .65rem; border: 1px dashed #9f8e78; text-align: center; }
+.recipe-entity { min-width: 110px; flex: 1 1 110px; display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .65rem; border: 1px dashed #9f8e78; background: none; text-align: center; cursor: pointer; }
+.recipe-entity:hover { border-color: $cyan; }
 .recipe-entity--result { color: $ink; border-style: solid; background: #251447; }
 .formula-symbol { flex: 0 0 auto; color: #a63518; font-size: 1.4rem; font-weight: 900; }
 .recipe-empty { margin: 0; padding: 1.4rem 1.2rem; border: 1px solid #c9bca9; background: rgba(255,255,255,.55); color: #51475b; text-align: center; }

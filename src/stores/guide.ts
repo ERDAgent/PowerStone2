@@ -61,6 +61,15 @@ export const useGuideStore = defineStore('guide', () => {
   function selectMove(index: number) { selectedMoveIndex.value = index }
   function selectSpecial(index: number) { selectedSpecialIndex.value = index }
   function selectEntity(id: EntityId) { selectedEntityId.value = id }
+  function viewEntityInCatalog(id: EntityId) {
+    if (!catalog.some(candidate => candidate.record.id === id)) return
+    catalogKind.value = 'all'
+    itemCategory.value = 'All Functions'
+    itemLevel.value = 'All Levels'
+    materialRarity.value = 'All Rarities'
+    itemQuery.value = ''
+    selectedEntityId.value = id
+  }
   function setCatalogKind(kind: CatalogKind) {
     catalogKind.value = kind
     if (kind !== 'item') {
@@ -82,5 +91,5 @@ export const useGuideStore = defineStore('guide', () => {
 
   watch([catalogKind, itemCategory, itemLevel, materialRarity, itemQuery], reconcileSelection, { flush: 'sync' })
 
-  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemLevel, materialRarity, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, selectedBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, selectedBoss, selectCharacter, selectEntity, selectMove, selectSpecial, setCatalogKind, setCategory, setItemLevel, setMaterialRarity, setItemQuery, selectLevel, selectBoss, openLightbox, closeLightbox }
+  return { selectedCharacterId, selectedEntityId, catalogKind, itemCategory, itemLevel, materialRarity, itemQuery, selectedLevelId, selectedMoveIndex, selectedSpecialIndex, selectedBossId, lightboxImage, selectedCharacter, selectedEntity, selectedMove, selectedSpecial, filteredEntities, selectedLevel, selectedBoss, selectCharacter, selectEntity, viewEntityInCatalog, selectMove, selectSpecial, setCatalogKind, setCategory, setItemLevel, setMaterialRarity, setItemQuery, selectLevel, selectBoss, openLightbox, closeLightbox }
 })
