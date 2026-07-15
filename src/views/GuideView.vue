@@ -679,7 +679,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
-      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. Desert Area is the standard competetive map." style="margin-bottom: 2rem">
+      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. Desert Area is the standard competetive map." style="margin-bottom: 1rem">
         <template #intro>Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. <button type="button" class="text-link" @click="selectLevelAndScroll(desertArea.id)">Desert Area</button> is the standard competetive map.</template>
       </SectionHeading>
       <div ref="levelStageFilter" class="level-filters">
