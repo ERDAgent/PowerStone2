@@ -240,7 +240,7 @@ describe('guide interactions', () => {
     await wrapper.find('#recipe-search').trigger('keydown', { key: 'Enter' })
     const ingredients = wrapper.findAll('.recipe-entity')
     const gunpowder = ingredients.find(entity => entity.text().includes('Gunpowder'))
-    await gunpowder!.trigger('click')
+    await gunpowder!.find('.recipe-entity__link--catalog').trigger('click')
     await flushPromises()
     expect(router.currentRoute.value.path).toBe('/items')
     expect(router.currentRoute.value.hash).toBe('#catalog-tabs')

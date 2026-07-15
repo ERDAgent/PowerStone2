@@ -144,4 +144,17 @@ describe('recipe lookup', () => {
     expect(wrapper.findAll('.recipe-entity img').some(image => image.attributes('src').startsWith('/media/essences/'))).toBe(true)
     wrapper.unmount()
   })
+
+  it('selects an ingredient in the results list via its recipe-entity book icon, but only offers that link for items', async () => {
+    const wrapper = mountLookup()
+    await searchAndSelect(wrapper, 'Machine Gun')
+    const gunEntity = wrapper.findAll('.recipe-entity').find(entity => entity.text().includes('Gun') && !entity.text().includes('Gunpowder'))!
+    const gunpowderEntity = wrapper.findAll('.recipe-entity').find(entity => entity.text().includes('Gunpowder'))!
+    expect(gunEntity.find('.recipe-entity__link--recipe').exists()).toBe(true)
+    expect(gunpowderEntity.find('.recipe-entity__link--recipe').exists()).toBe(false)
+    await gunEntity.find('.recipe-entity__link--recipe').trigger('click')
+    expect(wrapper.find('.recipe-result-heading h3').text()).toBe('Gun')
+    expect((wrapper.find('#recipe-search').element as HTMLInputElement).value).toBe('Machine Gun')
+    wrapper.unmount()
+  })
 })

@@ -162,18 +162,30 @@ defineExpose({ selectItem })
             <div class="resolved-recipe__formula">
               <template v-for="(ingredient, ingredientIndex) in recipe.ingredients" :key="`${recipe.id}-${ingredient.id}`">
                 <span v-if="ingredientIndex" class="formula-symbol" aria-hidden="true">+</span>
-                <button type="button" class="recipe-entity" :aria-label="`View ${getEntityById(ingredient.id)?.name} in the items catalog`" @click="goToEntityInCatalog(ingredient.id)">
+                <div class="recipe-entity">
+                  <button v-if="ingredient.kind === 'item'" type="button" class="recipe-entity__link recipe-entity__link--recipe" :aria-label="`Select ${getEntityById(ingredient.id)?.name} in the recipe results list`" @click="selectItem(ingredient.id as ItemRecord['id'])">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
+                  </button>
+                  <button type="button" class="recipe-entity__link recipe-entity__link--catalog" :aria-label="`View ${getEntityById(ingredient.id)?.name} in the items catalog`" @click="goToEntityInCatalog(ingredient.id)">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+                  </button>
                   <img v-if="getEntityById(ingredient.id)?.media" :src="getEntityById(ingredient.id)!.media!" alt="" />
                   <span v-else class="entity-fallback" aria-hidden="true">{{ getEntityById(ingredient.id)?.name.slice(0, 2) }}</span>
                   <b>{{ getEntityById(ingredient.id)?.name }}</b><small v-if="ingredient.quantity > 1">×{{ ingredient.quantity }}</small>
-                </button>
+                </div>
               </template>
               <span class="formula-symbol" aria-hidden="true">→</span>
-              <button type="button" class="recipe-entity recipe-entity--result" :aria-label="`View ${selected.name} in the items catalog`" @click="goToEntityInCatalog(selected.id)">
+              <div class="recipe-entity recipe-entity--result">
+                <button type="button" class="recipe-entity__link recipe-entity__link--recipe" :aria-label="`Select ${selected.name} in the recipe results list`" @click="selectItem(selected.id)">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
+                </button>
+                <button type="button" class="recipe-entity__link recipe-entity__link--catalog" :aria-label="`View ${selected.name} in the items catalog`" @click="goToEntityInCatalog(selected.id)">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+                </button>
                 <img v-if="selected.media" :src="selected.media" alt="" />
                 <span v-else class="entity-fallback" aria-hidden="true">{{ selected.name.slice(0, 2) }}</span>
                 <b>{{ selected.name }}</b>
-              </button>
+              </div>
             </div>
           </article>
         </div>
