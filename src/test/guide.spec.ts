@@ -228,12 +228,11 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('jumps from an item tile to its recipe entry without writing to the recipe search input', async () => {
+  it('jumps from the item detail panel to its recipe entry without writing to the recipe search input', async () => {
     const { wrapper, router } = await mountGuide()
     await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
     await wrapper.find('#item-search').setValue('mAcHiNe GuN')
-    const machineGun = wrapper.findAll('.item-tile').find(tile => tile.text().includes('Machine Gun'))
-    await machineGun!.find('.item-tile__recipe-link').trigger('click')
+    await wrapper.find('.item-detail__recipe-link').trigger('click')
     await flushPromises()
     expect(router.currentRoute.value.path).toBe('/recipes')
     expect(router.currentRoute.value.hash).toBe('#recipe-lookup')
@@ -358,11 +357,11 @@ describe('guide interactions', () => {
     await wrapper.findAll('.catalog-tabs [role="tab"]')[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(materials.length)
     expect(wrapper.find('.item-detail').text()).toContain('Material type')
-    expect(wrapper.findAll('.item-tile__recipe-link')).toHaveLength(0)
+    expect(wrapper.findAll('.item-detail__recipe-link')).toHaveLength(0)
     await wrapper.findAll('.catalog-tabs [role="tab"]')[3].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(essences.length)
     expect(wrapper.find('.item-detail').text()).toContain('Essence card')
-    expect(wrapper.findAll('.item-tile__recipe-link')).toHaveLength(0)
+    expect(wrapper.findAll('.item-detail__recipe-link')).toHaveLength(0)
     await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(items.length)
     expect(wrapper.findAll('.chip')[0].classes()).toContain('chip--active')

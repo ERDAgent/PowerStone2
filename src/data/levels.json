@@ -12,8 +12,7 @@
     ],
     "stageCount": 3,
     "modes": [
-      "PVP",
-      "PVE"
+      "PVP"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -42,8 +41,7 @@
     ],
     "stageCount": 3,
     "modes": [
-      "PVP",
-      "PVE"
+      "PVP"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -63,10 +61,9 @@
     "slides": [
       "/media/levels/levels-large/tomb-area-large.png"
     ],
-    "stageCount": 1,
+    "stageCount": 3,
     "modes": [
-      "PVP",
-      "PVE"
+      "PVP"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -87,8 +84,7 @@
     ],
     "stageCount": 3,
     "modes": [
-      "PVP",
-      "PVE"
+      "PVP"
     ],
     "provenance": {
       "verification": "ambiguous",
@@ -107,7 +103,7 @@
     "slides": [
       "/media/levels/levels-large/space-station-area-large.png"
     ],
-    "stageCount": 4,
+    "stageCount": 3,
     "modes": [
       "PVP",
       "PVE"
@@ -131,7 +127,6 @@
     ],
     "stageCount": 4,
     "modes": [
-      "PVP",
       "PVE"
     ],
     "provenance": {

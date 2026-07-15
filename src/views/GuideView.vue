@@ -13,7 +13,7 @@ import { materials } from '@/data'
 import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
 import type { ItemRecord } from '@/data/types'
-import type { LevelStageCount } from '@/data/world'
+import type { LevelStageCount, LevelMode } from '@/data/world'
 import { withSoftHyphens } from '@/utils/text'
 import { itemTileId } from '@/utils/dom'
 
@@ -203,12 +203,27 @@ function toggleLevelStageFilter(stage: LevelStageCount) {
   else next.add(stage)
   activeLevelStages.value = next
 }
-const filteredLevels = computed(() => activeLevelStages.value.size === 0 ? levels : levels.filter(level => activeLevelStages.value.has(level.stageCount)))
+const levelModeOptions: LevelMode[] = ['PVP', 'PVE']
+const activeLevelModes = ref<Set<LevelMode>>(new Set())
+function toggleLevelModeFilter(mode: LevelMode) {
+  const next = new Set(activeLevelModes.value)
+  if (next.has(mode)) next.delete(mode)
+  else next.add(mode)
+  activeLevelModes.value = next
+}
+const filteredLevels = computed(() => levels
+  .filter(level => activeLevelStages.value.size === 0 || activeLevelStages.value.has(level.stageCount))
+  .filter(level => activeLevelModes.value.size === 0 || level.modes.some(mode => activeLevelModes.value.has(mode))))
 
+const desertArea = levels.find(level => level.name === 'Desert Area')!
 const levelFile = ref<HTMLElement | null>(null)
+const levelStageFilter = ref<HTMLElement | null>(null)
 function selectLevelAndScroll(id: (typeof levels)[number]['id']) {
   store.selectLevel(id)
   nextTick(() => levelFile.value?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+}
+function scrollToLevelSelect() {
+  levelStageFilter.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 function previousLevel() {
   const index = levels.findIndex(level => level.id === selectedLevel.value.id)
@@ -527,16 +542,18 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
                     {{ entity.record.name }}
                 </span>
               </button>
-              <button v-if="entity.kind === 'item'" type="button" class="item-tile__recipe-link" :aria-label="`View ${entity.record.name} in the recipe cookbook`" @click="goToItemRecipe(entity.record.id)">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
-              </button>
             </div>
             <p v-if="!filteredEntities.length" class="recipe-empty" role="status">No Items Found</p>
           </div>
           <article v-if="selectedEntity" class="item-detail" aria-live="polite">
             <div class="detail-nav">
               <button type="button" class="detail-nav__arrow" aria-label="Previous catalog entity" @click="previousEntity">←</button>
-              <button type="button" class="detail-nav__arrow" aria-label="Next catalog entity" @click="nextEntity">→</button>
+              <div style="display: flex; gap: 1rem;">
+                <button v-if="selectedEntity.kind === 'item'" type="button" class="detail-nav__arrow item-detail__recipe-link" :aria-label="`View ${selectedEntity.record.name} in the recipe cookbook`" @click="goToItemRecipe(selectedEntity.record.id)">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
+                </button>
+                <button type="button" class="detail-nav__arrow" aria-label="Next catalog entity" @click="nextEntity">→</button>
+              </div>
             </div>
             <div class="item-detail__visual"><img v-if="selectedEntity.record.media" :src="selectedEntity.record.media" :alt="`${selectedEntity.record.name} ${selectedEntity.kind} artwork`" /><span v-else class="entity-fallback" aria-hidden="true">{{ selectedEntity.record.name.slice(0, 2) }}</span></div>
             <div class="item-detail__copy"><p class="eyebrow">{{ entityNumberLabel(selectedEntity) }} · {{ entityContext(selectedEntity) }}</p><h3>{{ withSoftHyphens(selectedEntity.record.name) }}</h3><dl v-if="selectedEntity.kind === 'item'"><div><dt>Function</dt><dd>{{ selectedEntity.record.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedEntity.record.level }}</dd></div></dl><dl v-else-if="selectedEntity.kind === 'material'"><div><dt>Material type</dt><dd>{{ selectedEntity.record.type }}</dd></div><div><dt>Rarity</dt><dd>{{ selectedEntity.record.rarity ?? 'Unknown' }}</dd></div><div><dt>Worth</dt><dd>{{ selectedEntity.record.worth ?? 'Unknown' }}</dd></div></dl><dl v-else><div><dt>Entity kind</dt><dd>Essence card</dd></div></dl><p v-if="entityNotes(selectedEntity).length" class="data-note">{{ entityNotes(selectedEntity).join(' ') }}</p></div>
@@ -662,9 +679,16 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
-      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. Desert Area is the standard competetive map." style="margin-bottom: 2rem" />
-      <div class="level-stage-filter" role="group" aria-label="Filter levels by stage count">
-        <button v-for="stage in levelStageOptions" :key="stage" type="button" :aria-pressed="activeLevelStages.has(stage)" :class="['chip', { 'chip--active': activeLevelStages.has(stage) }]" @click="toggleLevelStageFilter(stage)">{{ stage }} Stage</button>
+      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. Desert Area is the standard competetive map." style="margin-bottom: 2rem">
+        <template #intro>Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. <button type="button" class="text-link" @click="selectLevelAndScroll(desertArea.id)">Desert Area</button> is the standard competetive map.</template>
+      </SectionHeading>
+      <div ref="levelStageFilter" class="level-filters">
+        <div class="level-filter-group" role="group" aria-label="Filter levels by stage count">
+          <button v-for="stage in levelStageOptions" :key="stage" type="button" :aria-pressed="activeLevelStages.has(stage)" :class="['chip', { 'chip--active': activeLevelStages.has(stage) }]" @click="toggleLevelStageFilter(stage)">{{ stage }} Stage</button>
+        </div>
+        <div class="level-filter-group" role="group" aria-label="Filter levels by mode">
+          <button v-for="mode in levelModeOptions" :key="mode" type="button" :aria-pressed="activeLevelModes.has(mode)" :class="['chip', { 'chip--active': activeLevelModes.has(mode) }]" @click="toggleLevelModeFilter(mode)">{{ mode }}</button>
+        </div>
       </div>
       <div class="level-select" role="list" aria-label="Playable arenas">
         <button v-for="(level, index) in filteredLevels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="selectLevelAndScroll(level.id)">
@@ -680,25 +704,33 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       <article ref="levelFile" class="level-file" aria-live="polite">
         <div class="detail-nav">
           <button type="button" class="detail-nav__arrow detail-nav__arrow--solid" aria-label="Previous arena" @click="previousLevel">←</button>
-          <button type="button" class="detail-nav__arrow" aria-label="Next arena" @click="nextLevel">→</button>
+          <div style="display: flex; gap: 1rem;">
+            <button type="button" class="detail-nav__arrow" aria-label="Back to level select" @click="scrollToLevelSelect">↑</button>
+            <button type="button" class="detail-nav__arrow" aria-label="Next arena" @click="nextLevel">→</button>
+          </div>
         </div>
         <div class="level-file__hero">
           <img :src="selectedLevel.slides[0]" :alt="`${selectedLevel.name} arena artwork`" />
         </div>
         <div class="level-file__copy">
-          <p class="eyebrow">Arena file</p>
+          <div class="level-file__modes" aria-label="Supported modes">
+              <!-- can also use this class .level-file__mode-badge -->
+            <span class="eyebrow" style="margin-bottom: 0;">{{ selectedLevel.modes.join(', ') }}</span>
+          </div>
           <h3>{{ selectedLevel.name }}</h3>
           <p>{{ selectedLevel.description }}</p>
         </div>
         <div class="level-file__details">
           <section class="detail-panel detail-panel--details" aria-labelledby="level-detail-details-title">
-            <p class="eyebrow">Field notes</p><h4 id="level-detail-details-title">Details</h4>
+            <!-- <p class="eyebrow">Field notes</p> -->
+            <h4 id="level-detail-details-title">Details</h4>
             <p>{{ selectedLevel.description }}</p>
             <p>Extended arena notes — environmental hazards, transformation triggers, and traversal tips — are queued for a future update.</p>
           </section>
 
           <section class="detail-panel detail-panel--pictures" aria-labelledby="level-detail-pictures-title">
-            <p class="eyebrow">Visual study</p><h4 id="level-detail-pictures-title">Pictures</h4>
+            <!-- <p class="eyebrow">Visual study</p> -->
+            <h4 id="level-detail-pictures-title">Pictures</h4>
             <div class="thumb-grid" role="list" aria-label="Arena pictures">
               <button v-for="(picture, index) in levelPictureItems" :key="picture.src" type="button" class="thumb-grid__item" role="listitem" @click="openLevelGallery('pictures', index)">
                 <img :src="picture.src" :alt="picture.label" />
@@ -707,7 +739,8 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
           </section>
 
           <section class="detail-panel detail-panel--video" aria-labelledby="level-detail-video-title">
-            <p class="eyebrow">Motion study</p><h4 id="level-detail-video-title">Video</h4>
+            <!-- <p class="eyebrow">Motion study</p> -->
+            <h4 id="level-detail-video-title">Video</h4>
             <div class="thumb-grid" role="list" aria-label="Arena video clips">
               <button v-for="(clip, index) in levelVideoItems" :key="clip.label" type="button" class="thumb-grid__item thumb-grid__item--video" role="listitem" @click="openLevelGallery('video', index)">
                 <img :src="clip.poster" :alt="clip.label" />
