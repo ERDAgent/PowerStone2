@@ -2,19 +2,19 @@
   {
     "id": "character-falcon",
     "name": "Falcon",
-    "tagline": "A daring aerial adventurer and the guide’s default fighter.",
+    "tagline": "A daring aerial adventurer and the guide\u2019s default fighter.",
     "history": "Falcon returns to the hunt with a bold, mobile style and a taste for treasure.",
     "attributes": [
       "Editorial read: approachable",
       "Editorial read: powerful"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(18 82% 58%)",
-    "media": "/media/characters/chips/falcon-chip.png",
+    "media": "/media/characters/small/falcon-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -112,12 +112,12 @@
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(55 82% 58%)",
-    "media": "/media/characters/chips/wang-tang-chip.png",
+    "media": "/media/characters/small/wangtang-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -198,18 +198,18 @@
     "id": "character-ryoma",
     "name": "Ryoma",
     "tagline": "A wandering swordsman with measured reach.",
-    "history": "Ryoma’s traditional bearing contrasts with the chaos of transforming arenas.",
+    "history": "Ryoma\u2019s traditional bearing contrasts with the chaos of transforming arenas.",
     "attributes": [
       "Editorial read: approachable",
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(92 82% 58%)",
-    "media": "/media/characters/chips/ryoma-chip.png",
+    "media": "/media/characters/small/ryoma-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -296,12 +296,12 @@
       "Editorial read: powerful"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(129 82% 58%)",
-    "media": "/media/characters/chips/rouge-chip.png",
+    "media": "/media/characters/small/rouge-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -388,12 +388,12 @@
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(166 82% 58%)",
-    "media": "/media/characters/chips/ayame-chip.png",
+    "media": "/media/characters/small/ayame-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -474,18 +474,18 @@
     "id": "character-gunrock",
     "name": "Gunrock",
     "tagline": "A huge miner whose identity emphasizes raw force.",
-    "history": "Gunrock’s working-life roots and massive frame make him an imposing contender.",
+    "history": "Gunrock\u2019s working-life roots and massive frame make him an imposing contender.",
     "attributes": [
       "Editorial read: technical",
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(203 82% 58%)",
-    "media": "/media/characters/chips/gunrock-chip.png",
+    "media": "/media/characters/small/gunrock-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -572,12 +572,12 @@
       "Editorial read: powerful"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(240 82% 58%)",
-    "media": "/media/characters/chips/galuda-chip.png",
+    "media": "/media/characters/small/galuda-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -658,18 +658,18 @@
     "id": "character-jack",
     "name": "Jack",
     "tagline": "A mysterious, bladed combatant with an unsettling silhouette.",
-    "history": "Jack’s motives and identity remain deliberately obscure.",
+    "history": "Jack\u2019s motives and identity remain deliberately obscure.",
     "attributes": [
       "Editorial read: technical",
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(277 82% 58%)",
-    "media": "/media/characters/chips/jack-chip.png",
+    "media": "/media/characters/small/jack-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -756,12 +756,12 @@
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(314 82% 58%)",
-    "media": "/media/characters/chips/accel-chip.png",
+    "media": "/media/characters/small/accel-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -848,12 +848,12 @@
       "Editorial read: powerful"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(351 82% 58%)",
-    "media": "/media/characters/chips/julia-chip.png",
+    "media": "/media/characters/small/julia-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -940,12 +940,12 @@
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(28 82% 58%)",
-    "media": "/media/characters/chips/pete-chip.png",
+    "media": "/media/characters/small/pete-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -1032,12 +1032,12 @@
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(65 82% 58%)",
-    "media": "/media/characters/chips/gourmand-chip.png",
+    "media": "/media/characters/small/gourmand-small-trans.png",
     "provenance": {
       "verification": "ambiguous",
       "evidence": [],
@@ -1118,15 +1118,15 @@
     "id": "character-pride",
     "name": "Pride",
     "tagline": "A composed swordsman presented as an unlockable fighter.",
-    "history": "Pride’s connection to Falcon gives his appearance extra narrative weight.",
+    "history": "Pride\u2019s connection to Falcon gives his appearance extra narrative weight.",
     "attributes": [
       "Editorial read: approachable",
       "Editorial read: powerful"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(102 82% 58%)",
     "media": "/media/characters/chips/pride-chip.png",
@@ -1210,15 +1210,15 @@
     "id": "character-mel",
     "name": "Mel",
     "tagline": "A poised adventurer presented as an unlockable fighter.",
-    "history": "Mel’s role ties the wider adventure and item systems together.",
+    "history": "Mel\u2019s role ties the wider adventure and item systems together.",
     "attributes": [
       "Editorial read: technical",
       "Editorial read: mobile"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(139 82% 58%)",
     "media": "/media/characters/chips/mel-chip.png",
@@ -1308,9 +1308,9 @@
       "Editorial read: unconventional"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(190 82% 46%)",
     "media": "/media/characters/chips/kraken-chip.png",
@@ -1390,7 +1390,7 @@
   },
   {
     "id": "character-valgas",
-    "name": "General Valgas",
+    "name": "Valgas",
     "tagline": "A commanding unlockable fighter added in the PSP compilation.",
     "history": "General Valgas joins Kraken as one of two fighters exclusive to Power Stone Collection on PSP, not part of the original Dreamcast and arcade roster.",
     "attributes": [
@@ -1398,9 +1398,9 @@
       "Editorial read: technical"
     ],
     "moves": [
-      "Core attacks — notation to verify",
-      "Power Stone transformation — inputs to verify",
-      "Mobility / item play — inputs to verify"
+      "Core attacks \u2014 notation to verify",
+      "Power Stone transformation \u2014 inputs to verify",
+      "Mobility / item play \u2014 inputs to verify"
     ],
     "color": "hsl(227 82% 52%)",
     "media": "/media/characters/chips/valgas-chip.png",
@@ -1441,13 +1441,13 @@
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "General Valgas Rush",
+        "name": "Valgas Rush",
         "type": "unique",
         "video": "/media/videos/gameplay-loop.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "General Valgas Counter",
+        "name": "Valgas Counter",
         "type": "unique",
         "video": "/media/videos/gameplay-loop.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
@@ -1460,7 +1460,7 @@
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },
       {
-        "name": "General Valgas's Arena Finisher",
+        "name": "Valgas's Arena Finisher",
         "video": "/media/videos/gameplay-loop.mp4",
         "poster": "/media/videos/gameplay-loop-poster.jpg"
       },

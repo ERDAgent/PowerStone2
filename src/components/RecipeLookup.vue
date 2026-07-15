@@ -2,6 +2,7 @@
 import { computed, nextTick, ref, watch } from 'vue'
 import { getEntityById, items, recipeExtraction, recipes } from '@/data'
 import type { ItemRecord } from '@/data/types'
+import { withSoftHyphens } from '@/utils/text'
 
 const query = ref('')
 const selectedId = ref<ItemRecord['id'] | null>(null)
@@ -67,13 +68,24 @@ function clearInput() {
 }
 
 function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
+
+function selectItem(id: ItemRecord['id']) {
+  const item = items.find(candidate => candidate.id === id)
+  if (!item) return
+  select(item)
+  nextTick(() => {
+    document.getElementById(optionId(item))?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  })
+}
+
+defineExpose({ selectItem })
 </script>
 
 <template>
   <div class="recipe-lookup">
     <div ref="searchPanel" class="recipe-lookup__search">
       <label for="recipe-search">Search Items</label>
-      <div class="recipe-search-controls">
+      <div class="search-field">
         <input
           id="recipe-search"
           ref="input"
@@ -87,7 +99,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
           placeholder="Search 121 items by name or number"
           @keydown="onKeydown"
         />
-        <button type="button" class="button button--ghost recipe-clear" @click="clearInput">Clear input</button>
+        <button v-if="query" type="button" class="search-field__clear" aria-label="Clear search" @click="clearInput">×</button>
       </div>
       <p class="recipe-lookup__hint">Use ↑ and ↓ to browse; Enter selects. Materials and cards are ingredients only.</p>
       <div id="recipe-results" class="recipe-options" role="listbox" aria-label="Matching item results">
@@ -106,7 +118,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
           <span v-else class="entity-fallback" aria-hidden="true">{{ item.name.slice(0, 2) }}</span>
           <span><b>{{ item.name }}</b><small>Item {{ Number(item.number) }} · {{ item.category ?? 'Uncategorized' }}</small></span>
         </button>
-        <p v-if="!matches.length" class="recipe-empty" role="status">No items match “{{ query }}”. Try another name or catalog number.</p>
+        <p v-if="!matches.length" class="recipe-empty" role="status">No Items Found</p>
       </div>
     </div>
 
@@ -125,7 +137,7 @@ function optionId(item: ItemRecord) { return `recipe-option-${item.id}` }
         <header class="recipe-result-heading">
           <img v-if="selected.media" :src="selected.media" :alt="`${selected.name} artwork`" />
           <span v-else class="entity-fallback" aria-hidden="true">{{ selected.name.slice(0, 2) }}</span>
-          <div><p class="eyebrow">{{ selected.category ?? 'Item' }} · #{{ selected.number }}</p><h3>{{ selected.name }}</h3></div>
+          <div class="recipe-result-heading__copy"><p class="eyebrow">{{ selected.category ?? 'Item' }} · #{{ selected.number }}</p><h3>{{ withSoftHyphens(selected.name) }}</h3></div>
         </header>
         <p v-if="selected.provenance.recipeNotes.length" class="data-note recipe-result-note">{{ selected.provenance.recipeNotes.join(' ') }}</p>
         <aside v-if="ambiguousRows.length" class="recipe-warning" role="note">

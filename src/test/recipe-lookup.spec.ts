@@ -81,7 +81,7 @@ describe('recipe lookup', () => {
     await searchAndSelect(wrapper, 'Beam Gun')
     expect(wrapper.find('.recipe-empty--detail').text()).toContain('No resolved recipe documented')
     await wrapper.find('#recipe-search').setValue('not in this catalog')
-    expect(wrapper.find('.recipe-options [role="status"]').text()).toContain('No items match')
+    expect(wrapper.find('.recipe-options [role="status"]').text()).toContain('No Items Found')
     wrapper.unmount()
   })
 
@@ -103,7 +103,7 @@ describe('recipe lookup', () => {
   it('clears query, selection, and active option while restoring input focus', async () => {
     const wrapper = mountLookup()
     const input = await searchAndSelect(wrapper, 'Gun')
-    await wrapper.find('.recipe-clear').trigger('click')
+    await wrapper.find('.search-field__clear').trigger('click')
     expect(input.element.value).toBe('')
     expect(wrapper.find('.recipe-result-heading').exists()).toBe(false)
     expect(input.attributes('aria-activedescendant')).toBeUndefined()

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, nextTick, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 import SectionHeading from '@/components/SectionHeading.vue'
 import HorizontalNav from '@/components/HorizontalNav.vue'
 import Lightbox from '@/components/Lightbox.vue'
@@ -11,9 +12,16 @@ import { bosses, characters, items, levels } from '@/data/content'
 import { materials } from '@/data'
 import { useGuideStore } from '@/stores/guide'
 import type { CatalogEntity, CatalogKind } from '@/stores/guide'
-import { a } from 'vitest/dist/chunks/suite.d.FvehnV49.js'
+import type { ItemRecord } from '@/data/types'
+import { withSoftHyphens } from '@/utils/text'
 
 const store = useGuideStore()
+const router = useRouter()
+const recipeLookup = ref<InstanceType<typeof RecipeLookup> | null>(null)
+function goToItemRecipe(id: ItemRecord['id']) {
+  router.push('/recipes')
+  recipeLookup.value?.selectItem(id)
+}
 const { selectedCharacter, selectedEntity, filteredEntities, catalogKind, itemCategory, itemLevel, materialRarity, itemQuery, selectedLevel, selectedMove, selectedSpecial, selectedMoveIndex, selectedSpecialIndex, selectedBoss } = storeToRefs(store)
 const characteristicLabels = [
   ['strength', 'Strength'],
@@ -32,6 +40,11 @@ const catalogTabs = [
   { kind: 'essence', label: 'Essences' },
 ] as const
 const tabElements = ref<HTMLButtonElement[]>([])
+const itemSearchInput = ref<HTMLInputElement | null>(null)
+function clearItemQuery() {
+  store.setItemQuery('')
+  nextTick(() => itemSearchInput.value?.focus())
+}
 type AboutSection = 'resources' | 'links' | 'contact'
 const openAboutSection = ref<AboutSection | null>('resources')
 function toggleAboutSection(section: AboutSection) {
@@ -79,96 +92,33 @@ const quickFacts = [
   ['A wide roster', 'Fourteen characters on arcade and Dreamcast, plus two additional PSP-exclusive fighters in the Collection release.'],
 ]
 
+const stepPlaceholderImage = '/media/placeholders/timeline-milestone-placeholder.svg'
+
 const platforms = [
-  {
-    id: 'dreamcast', label: 'Dreamcast', image: '/media/consoles/dc-console-small-withshadow-compressed.png',
-    summary: 'The 2000–2001 home console release most guides — including this one — treat as the baseline for controls and progression.',
-    notes: [
-      'Supports up to four players locally using the Dreamcast’s four native controller ports.',
-      'A VMU is required to save progress, and it can show mini-game content on its small screen.',
-      'Regional releases vary in launch date and minor content; confirm your specific disc/region before relying on version-specific notes.',
-    ],
-  },
-  {
-    id: 'arcade', label: 'Arcade', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png',
-    summary: 'The original release ran in arcades on Sega’s NAOMI hardware, typically in multi-panel cabinets built for simultaneous local play.',
-    notes: [
-      'Cabinet configuration, coin/credit systems, and regional board variants are historical context here, not a home setup guide.',
-      'This guide does not apply Dreamcast save-based instructions to arcade operation.',
-    ],
-  },
-  {
-    id: 'psp', label: 'PSP', image: '/media/consoles/psp-console-small-withshadow-compressed.png',
-    summary: 'A 2006 compilation that adapts both Power Stone games for handheld play.',
-    notes: [
-      'Four-player arena action is remapped onto the PSP’s single analog nub and shoulder buttons.',
-      'Ad-hoc wireless play stands in for the console versions’ local multiplayer.',
-      'Treat Dreamcast control and unlock instructions as a starting point only — confirm collection-specific details separately.',
-    ],
-  },
-  {
-    id: 'pc', label: 'PC', image: '/media/consoles/pc-small-withshadow-compressed.png',
-    summary: 'No official PC release of Power Stone 2 is confirmed; PC players currently reach the game through emulation rather than a native port.',
-    notes: [
-      'Flycast (or another actively maintained Dreamcast emulator) is the primary path — see Play Online below for setup and Dojo networking notes.',
-      'Performance and control mapping vary by emulator build and input hardware; a wired controller is recommended for four-player local play.',
-      'Treat any storefront listing claiming a native PC release skeptically until verified.',
-    ],
-  },
+  { id: 'dreamcast', label: 'Dreamcast', image: '/media/consoles/dc-console-small-withshadow-compressed.png' },
+  { id: 'arcade', label: 'Arcade', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png' },
+  { id: 'psp', label: 'PSP', image: '/media/consoles/psp-console-small-withshadow-compressed.png' },
+  { id: 'pc', label: 'PC', image: '/media/consoles/pc-small-withshadow-compressed.png' },
 ] as const
 
 const modes = [
-  {
-    id: 'team-battle', label: 'Team Battle', image: '/media/menus/mode-teambattle-compressed.png',
-    summary: 'A versus variant that splits fighters into two sides instead of a free-for-all, sharing the same transforming arenas and Power Stone system as the core match format.',
-    notes: ['Exact team-size limits and scoring rules are not confirmed here and vary by release.', 'Confirm against your specific version before relying on this guide.'],
-  },
-  {
-    id: '3team-battle', label: '3 Team Battle', image: '/media/menus/mode-3teambattle-compressed.png',
-    summary: 'A team-based versus variant built around three sides rather than two, using the same living arenas and Power Stone transformations as the rest of versus play.',
-    notes: ['How players are distributed across the three teams, and any related scoring differences, are unverified as of this writing.', 'Naming and availability may differ across the arcade, Dreamcast, and PSP Collection releases.'],
-  },
-  {
-    id: 'battle-royal', label: 'Battle Royal', image: '/media/menus/mode-battleroyal-compressed.png',
-    summary: 'The free-for-all versus format: up to four fighters share a single transforming arena, racing to combine Power Stones for a temporary transformation.',
-    notes: ['This is the mode most guides and tournaments reference when discussing matchups.', 'Item spawns, hazards, and stage transitions can reshape a fight at any moment.'],
-  },
+  { id: 'dreamcast-mode-1', label: 'Original', image: '/media/menus/dc/dc-menu-original-compressed.png', availability: ['dreamcast'] },
+  { id: 'dreamcast-mode-2', label: '1-on-1', image: '/media/menus/dc/dc-menu-1on1-compressed.png', availability: ['dreamcast'] },
+  { id: 'dreamcast-mode-3', label: 'ArcadeMode', image: '/media/menus/dc/dc-menu-arcade-compressed.png', availability: ['dreamcast'] },
+  { id: 'dreamcast-mode-4', label: 'Adventure', image: '/media/menus/dc/dc-menu-adventure-compressed.png', availability: ['dreamcast'] },
+  { id: 'team-battle', label: 'Team Battle', image: '/media/menus/mode-teambattle-compressed.png', availability: ['arcade'] },
+  { id: '3team-battle', label: '3 Team Battle', image: '/media/menus/mode-3teambattle-compressed.png', availability: ['arcade'] },
+  { id: 'battle-royal', label: 'Battle Royal', image: '/media/menus/mode-battleroyal-compressed.png', availability: ['arcade'] },
+  { id: 'psp-mode-1', label: 'Mode 1', availability: ['psp'] },
+  { id: 'psp-mode-2', label: 'Mode 2', availability: ['psp'] },
+  { id: 'pc-mode-1', label: 'Mode 1', availability: ['pc'] },
+  { id: 'pc-mode-2', label: 'Mode 2', availability: ['pc'] },
 ] as const
 
 const onlineOptions = [
-  {
-    id: 'capcom-fighting-collection-2', label: 'Capcom Fighting Collection 2', image: '/media/logos/fighting-collection-2-small-compressed.png',
-    intro: 'Capcom Fighting Collection 2 (2025) bundles Power Stone and Power Stone 2 alongside several other Capcom fighting games on modern platforms — the most direct, officially licensed way to play today.',
-    steps: [
-      ['Get the collection', 'Purchase Capcom Fighting Collection 2 from an official storefront (Steam, PlayStation Store, Xbox, Nintendo eShop) for your platform of choice.'],
-      ['Launch Power Stone 2 from the collection menu', 'The collection bundles multiple games — select Power Stone 2 specifically from its in-collection menu.'],
-      ['Check the collection’s online options', 'Confirm what online or local multiplayer features the collection offers for Power Stone 2 before planning a match; specifics vary by platform and can change with updates.'],
-      ['Fall back to Flycast Dojo if needed', 'If the collection doesn’t cover the setup you want, the Flycast Dojo tab remains available for the original Dreamcast release.'],
-    ],
-  },
-  {
-    id: 'flycast-dojo', label: 'Flycast Dojo', image: '/media/logos/flycast-dojo-logo-compressed.png',
-    intro: 'A version-agnostic Flycast Dojo readiness path focused on matching setups and diagnosing issues—without promising a permanent link or frozen interface.',
-    steps: [
-      ['Prepare your game', 'Use your own legally obtained game files and confirm they launch locally before networking.'],
-      ['Get Flycast Dojo', 'Use the project’s current official documentation and release channel; avoid archived third-party bundles.'],
-      ['Match settings', 'Agree on platform/game revision, region, emulator settings, and controller mapping with every player.'],
-      ['Run a local check', 'Play offline first to catch controller, audio, performance, or file-integrity issues.'],
-      ['Configure networking', 'Follow current Dojo guidance for hosting or joining; networking requirements can change.'],
-      ['Start a test session', 'Begin with a short match and use a wired connection where practical.'],
-      ['Troubleshoot together', 'If sync fails, recheck matching files/settings, close overlays, and compare logs before retrying.'],
-    ],
-  },
-  {
-    id: 'other', label: 'Other',
-    intro: 'A general fallback for platforms and frontends not covered above. Treat Flycast Dojo as the reference path and compare any alternative against it.',
-    steps: [
-      ['Confirm the source', 'Prioritize official documentation and reputable communities over unlisted third-party bundles or streams claiming to host multiplayer for this title.'],
-      ['Check platform-specific bridges', 'Some handheld or frontend builds (for example, RetroArch’s Flycast core) can reach Dojo-compatible sessions — verify netplay parity before relying on it.'],
-      ['Compare settings first', 'Only use an alternative path once you’ve confirmed it supports the same matching and networking requirements as Flycast Dojo.'],
-      ['Report inconsistencies', 'Note any divergent settings or requirements you discover instead of assuming they’re universal.'],
-    ],
-  },
+  { id: 'local-play', label: 'Local Play', image: '/media/consoles/couch-small-compressed.png' },
+  { id: 'capcom-fighting-collection-2', label: 'Capcom Fighting Collection 2', image: '/media/logos/fighting-collection-2-small-compressed.png' },
+  { id: 'flycast-dojo', label: 'Emulation', image: '/media/consoles/pc-small-withshadow-compressed.png' },
 ] as const
 
 const unlockPlatforms = [
@@ -205,13 +155,15 @@ const characterSlides: GalleryItem[] = [
 ]
 
 const selectedPlatform = ref<typeof platforms[number]['id']>(platforms[0].id)
-const selectedMode = ref<typeof modes[number]['id']>(modes[0].id)
+const selectedMode = ref<typeof modes[number]['id']>(modes.find(mode => (mode.availability as readonly string[]).includes(platforms[0].id))?.id ?? modes[0].id)
 const selectedOnline = ref<typeof onlineOptions[number]['id']>(onlineOptions[0].id)
 const selectedUnlockPlatform = ref<typeof unlockPlatforms[number]['id']>(unlockPlatforms[0].id)
-const activePlatform = computed(() => platforms.find(platform => platform.id === selectedPlatform.value) ?? platforms[0])
-const activeMode = computed(() => modes.find(mode => mode.id === selectedMode.value) ?? modes[0])
-const activeOnline = computed(() => onlineOptions.find(option => option.id === selectedOnline.value) ?? onlineOptions[0])
+const availableModes = computed(() => modes.filter(mode => (mode.availability as readonly string[]).includes(selectedPlatform.value)))
 const activeUnlockPlatform = computed(() => unlockPlatforms.find(platform => platform.id === selectedUnlockPlatform.value) ?? unlockPlatforms[0])
+
+watch(availableModes, modes => {
+  if (!modes.some(mode => mode.id === selectedMode.value)) selectedMode.value = modes[0]?.id ?? selectedMode.value
+})
 
 const characterSlideIndex = ref(0)
 watch(selectedCharacter, () => { characterSlideIndex.value = 0 })
@@ -364,7 +316,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="game-overview" class="content-section routed-section content-section--game-overview" aria-labelledby="game-overview-title">
-      <SectionHeading title-id="game-overview-title" kicker="01 / About the game" title="The Sleeper Hit You Probably Missed" intro="Power Stone 2 hit arcades and consoles in 2000, the PSP in 2006, and PC in 2025." />
+      <SectionHeading title-id="game-overview-title" kicker="01 / About the game" title="The Sleeper Hit You Probably Missed" intro="Power Stone 2 hit arcades and consoles in 2000, the PSP in 2006, and PC in 2025." style="margin-bottom: 2rem"/>
       <div class="game-overview">
         <div class="game-overview__highlights">
           <article v-for="highlight in highlights" :key="highlight[0]" class="game-overview__highlight">
@@ -385,43 +337,160 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
         <SectionHeading title-id="how-to-play-title" style="margin-bottom: 2rem;" kicker="02 / How To Play" title="Getting Started" intro="We'll walk you through everything you'll need to get started. Select a platform, find the mode that's right for you, and play either couch co-op with friends or online over the internet." />
 
       <div class="subsection" style="margin-top: 0;">
-        <h3 class="subsection__title">Select a platform</h3>
+        <h3 class="subsection__title">1) Select a Platform</h3>
         <HorizontalNav :items="platforms" v-model="selectedPlatform" nav-label="Select a platform" style="position: relative; z-index: 2;"/>
         <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
-          <p>{{ activePlatform.summary }}</p>
-          <ul><li v-for="note in activePlatform.notes" :key="note">{{ note }}</li></ul>
+          <div v-if="selectedPlatform === 'dreamcast'" class="panel-content panel-content--dreamcast">
+            <p>dreamcast</p>
+          </div>
+          <div v-else-if="selectedPlatform === 'arcade'" class="panel-content panel-content--arcade">
+            <p>arcade</p>
+          </div>
+          <div v-else-if="selectedPlatform === 'psp'" class="panel-content panel-content--psp">
+            <p>psp</p>
+          </div>
+          <div v-else-if="selectedPlatform === 'pc'" class="panel-content panel-content--pc">
+            <p>pc</p>
+          </div>
         </article>
       </div>
 
       <div class="subsection">
-        <h3 class="subsection__title">Select a mode</h3>
-        <HorizontalNav :items="modes" v-model="selectedMode" nav-label="Select a mode" style="position: relative; z-index: 2;"/>
+        <h3 class="subsection__title">2) Select a Mode</h3>
+        <HorizontalNav :items="availableModes" v-model="selectedMode" nav-label="Select a mode" hide-labels style="position: relative; z-index: 2;"/>
         <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
-          <p>{{ activeMode.summary }}</p>
-          <ul><li v-for="note in activeMode.notes" :key="note">{{ note }}</li></ul>
+          <div v-if="selectedMode === 'dreamcast-mode-1'" class="panel-content panel-content--dreamcast-mode-1">
+            <p>original</p>
+          </div>
+          <div v-else-if="selectedMode === 'dreamcast-mode-2'" class="panel-content panel-content--dreamcast-mode-2">
+            <p>1-on-1</p>
+          </div>
+          <div v-else-if="selectedMode === 'dreamcast-mode-3'" class="panel-content panel-content--dreamcast-mode-3">
+            <p>arcade</p>
+          </div>
+          <div v-else-if="selectedMode === 'dreamcast-mode-4'" class="panel-content panel-content--dreamcast-mode-4">
+            <p>adventure</p>
+          </div>
+          <div v-else-if="selectedMode === 'team-battle'" class="panel-content panel-content--team-battle">
+            <p>team battle</p>
+          </div>
+          <div v-else-if="selectedMode === '3team-battle'" class="panel-content panel-content--3team-battle">
+            <p>3 team battle</p>
+          </div>
+          <div v-else-if="selectedMode === 'battle-royal'" class="panel-content panel-content--battle-royal">
+            <p>battle royal</p>
+          </div>
+          <div v-else-if="selectedMode === 'psp-mode-1'" class="panel-content panel-content--psp-mode-1">
+            <p>psp mode 1</p>
+          </div>
+          <div v-else-if="selectedMode === 'psp-mode-2'" class="panel-content panel-content--psp-mode-2">
+            <p>psp mode 2</p>
+          </div>
+          <div v-else-if="selectedMode === 'pc-mode-1'" class="panel-content panel-content--pc-mode-1">
+            <p>pc mode 1</p>
+          </div>
+          <div v-else-if="selectedMode === 'pc-mode-2'" class="panel-content panel-content--pc-mode-2">
+            <p>pc mode 2</p>
+          </div>
         </article>
       </div>
 
       <div class="subsection">
-        <h3 class="subsection__title">Play online</h3>
+        <h3 class="subsection__title">3) Play Locally or Online</h3>
         <HorizontalNav :items="onlineOptions" v-model="selectedOnline" nav-label="Play online" style="position: relative; z-index: 2;"/>
         <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
-          <p>{{ activeOnline.intro }}</p>
-          <ol class="steps">
-            <li v-for="(step, index) in activeOnline.steps" :key="step[0]"><span class="steps__number">{{ String(index + 1).padStart(2, '0') }}</span><div><h4>{{ step[0] }}</h4><p>{{ step[1] }}</p></div></li>
-          </ol>
+          <div v-if="selectedOnline === 'local-play'" class="panel-content panel-content--local-play">
+            <p>local text</p>
+            <!-- <ol class="steps">
+              <li>
+                <span class="steps__number">01</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 1' })"><img :src="stepPlaceholderImage" alt="thing 1 illustration" /></button>
+                <div><h4>thing 1</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">02</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 2' })"><img :src="stepPlaceholderImage" alt="thing 2 illustration" /></button>
+                <div><h4>thing 2</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">03</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 3' })"><img :src="stepPlaceholderImage" alt="thing 3 illustration" /></button>
+                <div><h4>thing 3</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">04</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 4' })"><img :src="stepPlaceholderImage" alt="thing 4 illustration" /></button>
+                <div><h4>thing 4</h4><p>desc</p></div>
+              </li>
+            </ol> -->
+          </div>
+          <div v-else-if="selectedOnline === 'capcom-fighting-collection-2'" class="panel-content panel-content--capcom-fighting-collection-2">
+            <p>cfc2 text</p>
+            <!-- <ol class="steps">
+              <li>
+                <span class="steps__number">01</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 1' })"><img :src="stepPlaceholderImage" alt="thing 1 illustration" /></button>
+                <div><h4>thing 1</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">02</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 2' })"><img :src="stepPlaceholderImage" alt="thing 2 illustration" /></button>
+                <div><h4>thing 2</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">03</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 3' })"><img :src="stepPlaceholderImage" alt="thing 3 illustration" /></button>
+                <div><h4>thing 3</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">04</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 4' })"><img :src="stepPlaceholderImage" alt="thing 4 illustration" /></button>
+                <div><h4>thing 4</h4><p>desc</p></div>
+              </li>
+            </ol> -->
+          </div>
+          <div v-else-if="selectedOnline === 'flycast-dojo'" class="panel-content panel-content--flycast-dojo">
+            <p>emulation text</p>
+            <!-- <ol class="steps">
+              <li>
+                <span class="steps__number">01</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 1' })"><img :src="stepPlaceholderImage" alt="thing 1 illustration" /></button>
+                <div><h4>thing 1</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">02</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 2' })"><img :src="stepPlaceholderImage" alt="thing 2 illustration" /></button>
+                <div><h4>thing 2</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">03</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 3' })"><img :src="stepPlaceholderImage" alt="thing 3 illustration" /></button>
+                <div><h4>thing 3</h4><p>desc</p></div>
+              </li>
+              <li>
+                <span class="steps__number">04</span>
+                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 4' })"><img :src="stepPlaceholderImage" alt="thing 4 illustration" /></button>
+                <div><h4>thing 4</h4><p>desc</p></div>
+              </li>
+            </ol> -->
+          </div>
         </article>
-        <aside class="callout gradient-border"><b>Keep it legitimate and current.</b> Supply your own game files, consult each project’s current official documentation, and expect networking screens or requirements to evolve.</aside>
+        <aside v-if="selectedOnline === 'flycast-dojo'" class="callout gradient-border"><b>Keep it legitimate and current.</b> Supply your own game files, consult each project’s current official documentation, and expect networking screens or requirements to evolve.</aside>
       </div>
     </section>
 
     <section id="items" class="content-section routed-section content-section--items" aria-labelledby="items-title">
-      <SectionHeading title-id="items-title" kicker="03 / Items" title="Browse Items" intro="Browse all items, material cards, and essences cards in one place." />
+      <SectionHeading title-id="items-title" kicker="03 / Items" title="Browse Items" intro="Browse all items, material cards, and essences cards in one place." style="margin-bottom: 1rem;"/>
       <div class="catalog-tabs" role="tablist" aria-label="Catalog entity kind">
         <button v-for="(tab, index) in catalogTabs" :key="tab.kind" :ref="element => { if (element) tabElements[index] = element as HTMLButtonElement }" type="button" role="tab" :aria-selected="catalogKind === tab.kind" :tabindex="catalogKind === tab.kind ? 0 : -1" @click="activateCatalogTab(tab.kind, index)" @keydown="onTabKeydown($event, index)">{{ tab.label }}</button>
       </div>
       <div class="catalog-panel">
-        <label class="item-search" for="item-search">Search {{ catalogTabs.find(tab => tab.kind === catalogKind)?.label.toLowerCase() }} <input id="item-search" :value="itemQuery" type="search" placeholder="Name or catalog number" @input="store.setItemQuery(($event.target as HTMLInputElement).value)" /></label>
+        <label class="item-search" for="item-search">Search {{ catalogTabs.find(tab => tab.kind === catalogKind)?.label.toLowerCase() }}
+          <div class="search-field">
+            <input id="item-search" ref="itemSearchInput" :value="itemQuery" type="search" placeholder="Name or catalog number" @input="store.setItemQuery(($event.target as HTMLInputElement).value)" />
+            <button v-if="itemQuery" type="button" class="search-field__clear" aria-label="Clear search" @click="clearItemQuery">×</button>
+          </div>
+        </label>
         <div v-if="catalogKind === 'item'" class="filter-bar" aria-label="Filter items by category">
           <button v-for="category in categories" :key="category" type="button" :class="['chip', { 'chip--active': itemCategory === category }]" @click="store.setCategory(category)">{{ category }}</button>
         </div>
@@ -433,10 +502,20 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
         </div>
         <div class="item-browser">
           <div class="item-browser__list" role="list" :aria-label="`${catalogTabs.find(tab => tab.kind === catalogKind)?.label} catalog`">
-            <button v-for="entity in filteredEntities" :key="entity.record.id" type="button" :class="['item-tile', { 'item-tile--active': selectedEntity?.record.id === entity.record.id }]" @click="store.selectEntity(entity.record.id)">
-              <img v-if="entity.record.media" :src="entity.record.media" alt="" /><span v-else class="entity-fallback" aria-hidden="true">{{ entity.record.name.slice(0, 2) }}</span><span><small>{{ entityNumberLabel(entity) }} · {{ entityContext(entity) }}</small>{{ entity.record.name }}</span><b aria-hidden="true">↗</b>
-            </button>
-            <p v-if="!filteredEntities.length" class="recipe-empty" role="status">No catalog entities match this search.</p>
+            <div v-for="entity in filteredEntities" :key="entity.record.id" :class="['item-tile', { 'item-tile--active': selectedEntity?.record.id === entity.record.id }]">
+              <button type="button" class="item-tile__select" @click="store.selectEntity(entity.record.id)">
+                <img v-if="entity.record.media" :src="entity.record.media" alt="" />
+                <span v-else class="entity-fallback" aria-hidden="true">{{ entity.record.name.slice(0, 2) }}</span>
+                <span>
+                    <small>{{ entityNumberLabel(entity) }} · {{ entityContext(entity) }}</small>
+                    {{ entity.record.name }}
+                </span>
+              </button>
+              <button v-if="entity.kind === 'item'" type="button" class="item-tile__recipe-link" :aria-label="`View ${entity.record.name} in the recipe cookbook`" @click="goToItemRecipe(entity.record.id)">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" /></svg>
+              </button>
+            </div>
+            <p v-if="!filteredEntities.length" class="recipe-empty" role="status">No Items Found</p>
           </div>
           <article v-if="selectedEntity" class="item-detail" aria-live="polite">
             <div class="detail-nav">
@@ -444,7 +523,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
               <button type="button" class="detail-nav__arrow" aria-label="Next catalog entity" @click="nextEntity">→</button>
             </div>
             <div class="item-detail__visual"><img v-if="selectedEntity.record.media" :src="selectedEntity.record.media" :alt="`${selectedEntity.record.name} ${selectedEntity.kind} artwork`" /><span v-else class="entity-fallback" aria-hidden="true">{{ selectedEntity.record.name.slice(0, 2) }}</span></div>
-            <div class="item-detail__copy"><p class="eyebrow">{{ entityNumberLabel(selectedEntity) }} · {{ entityContext(selectedEntity) }}</p><h3>{{ selectedEntity.record.name }}</h3><dl v-if="selectedEntity.kind === 'item'"><div><dt>Function</dt><dd>{{ selectedEntity.record.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedEntity.record.level }}</dd></div></dl><dl v-else-if="selectedEntity.kind === 'material'"><div><dt>Material type</dt><dd>{{ selectedEntity.record.type }}</dd></div><div><dt>Rarity</dt><dd>{{ selectedEntity.record.rarity ?? 'Unknown' }}</dd></div><div><dt>Worth</dt><dd>{{ selectedEntity.record.worth ?? 'Unknown' }}</dd></div></dl><dl v-else><div><dt>Entity kind</dt><dd>Essence card</dd></div></dl><p v-if="entityNotes(selectedEntity).length" class="data-note">{{ entityNotes(selectedEntity).join(' ') }}</p></div>
+            <div class="item-detail__copy"><p class="eyebrow">{{ entityNumberLabel(selectedEntity) }} · {{ entityContext(selectedEntity) }}</p><h3>{{ withSoftHyphens(selectedEntity.record.name) }}</h3><dl v-if="selectedEntity.kind === 'item'"><div><dt>Function</dt><dd>{{ selectedEntity.record.function }}</dd></div><div><dt>Item level</dt><dd>{{ selectedEntity.record.level }}</dd></div></dl><dl v-else-if="selectedEntity.kind === 'material'"><div><dt>Material type</dt><dd>{{ selectedEntity.record.type }}</dd></div><div><dt>Rarity</dt><dd>{{ selectedEntity.record.rarity ?? 'Unknown' }}</dd></div><div><dt>Worth</dt><dd>{{ selectedEntity.record.worth ?? 'Unknown' }}</dd></div></dl><dl v-else><div><dt>Entity kind</dt><dd>Essence card</dd></div></dl><p v-if="entityNotes(selectedEntity).length" class="data-note">{{ entityNotes(selectedEntity).join(' ') }}</p></div>
           </article>
           <div v-else class="item-detail recipe-empty recipe-empty--detail" role="status"><div><h3>No catalog result selected</h3><p>Try another name or catalog number.</p></div></div>
         </div>
@@ -452,12 +531,12 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="recipes" class="content-section routed-section" aria-labelledby="recipes-title">
-      <SectionHeading title-id="recipes-title" kicker="04 / Recipies" title="Items Cookbook" intro="Look up every combination to make and item. Don't forget, some items cannot be made. See essence cards for combination buffs." />
-      <RecipeLookup />
+      <SectionHeading title-id="recipes-title" kicker="04 / Recipies" title="Items Cookbook" intro="Look up every combination to make any item. Some items cannot be made. See essence cards for ways to modify combinations." style="margin-bottom: 2rem"/>
+      <RecipeLookup ref="recipeLookup" />
     </section>
 
     <section id="characters" class="content-section routed-section content-section--characters" aria-labelledby="characters-title">
-      <SectionHeading title-id="characters-title" kicker="05 / Characters" title="Choose Your Adventurer" intro="The Arcade and Dreamcast versions have 14 characters, Kraken and General Valgas are PSP exclusives. Some characters must be unlocked." />
+      <SectionHeading title-id="characters-title" kicker="05 / Characters" title="Choose Your Adventurer" intro="The Arcade and Dreamcast versions have 14 characters, Kraken and General Valgas are PSP exclusives. Some characters must be unlocked." style="margin-bottom: 2rem;"/>
       <div class="character-select" role="list" aria-label="Playable characters">
         <button v-for="character in characters" :key="character.id" type="button" :aria-pressed="selectedCharacter.id === character.id" :class="['portrait', { 'portrait--active': selectedCharacter.id === character.id }]" :style="{ '--character-color': character.color }" @click="selectCharacterAndScroll(character.id)">
           <img v-if="character.media" class="portrait__avatar" :src="character.media" :alt="`${character.name} chip art`" />
@@ -551,7 +630,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
-      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels" intro="Select a level to learn more about it. Desert Area is the standard competetive map." />
+      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. Desert Area is the standard competetive map." style="margin-bottom: 2rem" />
       <div class="level-select" role="list" aria-label="Playable arenas">
         <button v-for="(level, index) in levels" :key="level.id" type="button" :aria-pressed="selectedLevel.id === level.id" :class="['level-chip', { 'level-chip--active': selectedLevel.id === level.id }]" @click="selectLevelAndScroll(level.id)">
           <span class="status-tag">{{ level.stageCount }}-Stage</span>
@@ -606,7 +685,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="enemies" class="content-section routed-section content-section--enemies" aria-labelledby="enemies-title">
-      <SectionHeading title-id="enemies-title" kicker="07 / Enemies" title="Enemies & Bosses" intro="All versions have 3 enemy types and 2 boss types." />
+      <SectionHeading title-id="enemies-title" kicker="07 / Enemies" title="Enemies & Bosses" intro="All versions have 3 enemy types and 2 boss types." style="margin-bottom: 2rem" />
 
       <div class="subsection">
         <h3 class="subsection__title">Enemies</h3>
@@ -698,7 +777,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="unlocks" class="content-section routed-section content-section--unlocks" aria-labelledby="unlocks-title">
-      <SectionHeading title-id="unlocks-title" kicker="08 / Unlocks" title="Unlock All Content" intro="Progress differs between versions. Select a platform to get a guide for that specific version." />
+      <SectionHeading title-id="unlocks-title" kicker="08 / Unlocks" title="Unlock All Content" intro="Progress differs between versions. Select a platform to get a guide for that specific version." style="margin-bottom: 2rem" />
       <HorizontalNav :items="unlockPlatforms" v-model="selectedUnlockPlatform" nav-label="Select a platform for unlock notes" />
       <article class="unlock-detail">
         <p class="platform-label">{{ activeUnlockPlatform.platformLabel }}</p>
@@ -738,7 +817,6 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
               <p>Here are some other resources you might find interesting.</p>
               <div class="about__reference">
                 <figure><img src="/media/box-art/dreamcast-box-art.jpg" alt="Original Power Stone 2 Dreamcast box art, shown for reference only." /><figcaption>Dreamcast box art</figcaption></figure>
-                <figure><img src="/media/menus/menu-items.png" alt="Screenshot of the original game's in-game menu text, shown for reference only." /><figcaption>Menu text reference</figcaption></figure>
                 <figure><img src="/media/fonts/font-sprite.png" alt="Bitmap font sprite sheet from the original game, shown for reference only." /><figcaption>Font sprite reference</figcaption></figure>
               </div>
               <p class="about__promise">You can copy this website on <a href="https://github.com/ERDAgent/PowerStone2" target="_blank">github</a>. It was made by <a href="https://github.com/ERDAgent" target="_blank">ERDAgent</a>, with help from <a href="https://github.com/EricRoseDev" target="_blank">EricRoseDev</a></p>

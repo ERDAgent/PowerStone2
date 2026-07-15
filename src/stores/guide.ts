@@ -25,7 +25,7 @@ const catalog: readonly CatalogEntity[] = [
 export const useGuideStore = defineStore('guide', () => {
   const selectedCharacterId = ref(characters[0].id)
   const selectedEntityId = ref<EntityId | null>(items[0].id)
-  const catalogKind = ref<CatalogKind>('all')
+  const catalogKind = ref<CatalogKind>('item')
   const itemCategory = ref('All Functions')
   const itemLevel = ref<number | 'All Levels'>('All Levels')
   const materialRarity = ref<string | 'All Rarities'>('All Rarities')

@@ -5,6 +5,7 @@ const props = defineProps<{
   items: readonly { id: string; label: string; image?: string | null }[]
   modelValue: string
   navLabel: string
+  hideLabels?: boolean
 }>()
 const emit = defineEmits<{ 'update:modelValue': [id: string] }>()
 const tabElements = ref<HTMLButtonElement[]>([])
@@ -48,16 +49,32 @@ function onKeydown(event: KeyboardEvent, index: number) {
                  item.label === 'PSP' ? '124px' :
                  item.label === 'PC' ? '101px' :
                  ['Team Battle', '3 Team Battle', 'Battle Royal'].includes(item.label) ? '130px' :
-                 item.label === 'Capcom Fighting Collection 2' ? '150px' :
-                 item.label === 'Flycast Dojo' ? '50px' : '',
+                 item.label === 'Capcom Fighting Collection 2' ? '130px' :
+                 item.label === 'Local Play' ? '105px' :
+                 item.label === 'Emulation' ? '101px' : '',
           margin: item.label === 'Team Battle' ? '0.75rem 0.25rem 0 0.5rem' :
-                  item.label === 'Flycast Dojo' ? '0 0.5rem 0 0.25rem' :
-                  item.label === 'Capcom Fighting Collection 2' ? '1rem 0.25rem 0 0.5rem' : ''
+                  item.label === 'Capcom Fighting Collection 2' ? '1rem 0.25rem 0 0.5rem' :
+                  item.label === 'Original' ? '1rem 0' :
+                  item.label === '1-on-1' ? '1rem 0' :
+                  item.label === 'ArcadeMode' ? '1rem 0' :
+                  item.label === 'Adventure' ? '1rem 0' : '',
+          height: item.label === 'Original' ? '20px' :
+                  item.label === '1-on-1' ? '23px' :
+                  item.label === 'ArcadeMode' ? '20px' :
+                  item.label === 'Adventure' ? '20px' :
+                  item.label === 'Dreamcast' ? '80px' :
+                  item.label === 'Arcade' ? '96px' :
+                  item.label === 'PSP' ? '54px' :
+                  item.label === 'PC' ? '81px' :
+                  ['Team Battle', '3 Team Battle', 'Battle Royal'].includes(item.label) ? '56px' :
+                  item.label === 'Capcom Fighting Collection 2' ? '57px' :
+                  item.label === 'Local Play' ? '55px' :
+                  item.label === 'Emulation' ? '81px' : '',
         }"
         :src="item.image"
         alt=""
       />
-      <span>{{ item.label }}</span>
+      <span :class="{ 'sr-only': hideLabels }">{{ item.label }}</span>
     </button>
   </div>
 </template>

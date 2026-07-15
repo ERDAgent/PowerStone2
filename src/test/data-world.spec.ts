@@ -45,7 +45,7 @@ const expectedPspExclusiveCopy = [
     moves: ['Core attacks — notation to verify', 'Power Stone transformation — inputs to verify', 'Mobility / item play — inputs to verify'],
   },
   {
-    name: 'General Valgas',
+    name: 'Valgas',
     tagline: 'A commanding unlockable fighter added in the PSP compilation.',
     history: 'General Valgas joins Kraken as one of two fighters exclusive to Power Stone Collection on PSP, not part of the original Dreamcast and arcade roster.',
     attributes: ['Editorial read: powerful', 'Editorial read: technical'],
@@ -86,7 +86,7 @@ describe('world data', () => {
   it('preserves expected guide coverage with unique stable IDs', () => {
     expect(characters).toHaveLength(16)
     expect(characters.filter(character => character.availability.includes('dreamcast'))).toHaveLength(14)
-    expect(characters.filter(character => character.availability.length === 1 && character.availability[0] === 'PSP').map(character => character.name)).toEqual(['Kraken', 'General Valgas'])
+    expect(characters.filter(character => character.availability.length === 1 && character.availability[0] === 'PSP').map(character => character.name)).toEqual(['Kraken', 'Valgas'])
     expect(levels.map(level => level.name)).toEqual(['Blue Sky Area', 'Dark Castle Area', 'Tomb Area', 'Iceberg Area', 'Space Station Area', 'Chaos Area', 'Desert Area', 'Extra Stage 1', 'Extra Stage 2', 'Extra Stage 3'])
     expect(bosses.map(boss => boss.name)).toEqual(['Pharaoh Walker', 'Dr. Erode'])
 

@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { readFileSync } from 'node:fs'
-import { mount } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
 import { createMemoryHistory, createRouter } from 'vue-router'
 import App from '@/App.vue'
@@ -205,9 +205,22 @@ describe('guide interactions', () => {
     await wrapper.find('#item-search').setValue('mAcHiNe GuN')
     expect(wrapper.findAll('.item-tile')).toHaveLength(1)
     const machineGun = wrapper.findAll('.item-tile').find(button => button.text().includes('Machine Gun'))
-    await machineGun!.trigger('click')
+    await machineGun!.find('.item-tile__select').trigger('click')
     expect(wrapper.find('.item-detail h3').text()).toBe('Machine Gun')
     expect(wrapper.find('.item-detail').text()).toContain('Item 2')
+    wrapper.unmount()
+  })
+
+  it('jumps from an item tile to its recipe entry without writing to the recipe search input', async () => {
+    const { wrapper, router } = await mountGuide()
+    await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
+    await wrapper.find('#item-search').setValue('mAcHiNe GuN')
+    const machineGun = wrapper.findAll('.item-tile').find(tile => tile.text().includes('Machine Gun'))
+    await machineGun!.find('.item-tile__recipe-link').trigger('click')
+    await flushPromises()
+    expect(router.currentRoute.value.path).toBe('/recipes')
+    expect((wrapper.find('#recipe-search').element as HTMLInputElement).value).toBe('')
+    expect(wrapper.find('.recipe-result-heading h3').text()).toBe('Machine Gun')
     wrapper.unmount()
   })
 
@@ -229,15 +242,15 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
-  it('provides ordered catalog tabs with All selected and exact populations', async () => {
+  it('provides ordered catalog tabs with Items selected by default and exact populations', async () => {
     const { wrapper } = await mountGuide()
     const tabs = wrapper.findAll('.catalog-tabs [role="tab"]')
     expect(tabs.map(tab => tab.text())).toEqual(['All', 'Items', 'Materials', 'Essences'])
-    expect(tabs.map(tab => tab.attributes('aria-selected'))).toEqual(['true', 'false', 'false', 'false'])
-    expect(tabs.map(tab => tab.attributes('tabindex'))).toEqual(['0', '-1', '-1', '-1'])
-    expect(wrapper.findAll('.item-tile')).toHaveLength(152)
-    await tabs[1].trigger('click')
+    expect(tabs.map(tab => tab.attributes('aria-selected'))).toEqual(['false', 'true', 'false', 'false'])
+    expect(tabs.map(tab => tab.attributes('tabindex'))).toEqual(['-1', '0', '-1', '-1'])
     expect(wrapper.findAll('.item-tile')).toHaveLength(121)
+    await tabs[0].trigger('click')
+    expect(wrapper.findAll('.item-tile')).toHaveLength(152)
     await tabs[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(22)
     await tabs[3].trigger('click')
@@ -294,9 +307,11 @@ describe('guide interactions', () => {
     await wrapper.findAll('.catalog-tabs [role="tab"]')[2].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(materials.length)
     expect(wrapper.find('.item-detail').text()).toContain('Material type')
+    expect(wrapper.findAll('.item-tile__recipe-link')).toHaveLength(0)
     await wrapper.findAll('.catalog-tabs [role="tab"]')[3].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(essences.length)
     expect(wrapper.find('.item-detail').text()).toContain('Essence card')
+    expect(wrapper.findAll('.item-tile__recipe-link')).toHaveLength(0)
     await wrapper.findAll('.catalog-tabs [role="tab"]')[1].trigger('click')
     expect(wrapper.findAll('.item-tile')).toHaveLength(items.length)
     expect(wrapper.findAll('.chip')[0].classes()).toContain('chip--active')
@@ -308,8 +323,7 @@ describe('guide interactions', () => {
     const mobileStyles = styles.slice(styles.indexOf('@media (max-width: 680px)'))
     expect(mobileStyles).toContain('.catalog-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }')
     expect(mobileStyles).toContain('.catalog-tabs [role="tab"] { min-width: 0; }')
-    expect(mobileStyles).toContain('.recipe-search-controls { flex-wrap: wrap; }')
-    expect(styles).toContain('.recipe-lookup__search { min-width: 0; }')
+    expect(styles).toContain('.recipe-lookup__search { min-width: 0;}')
   })
 
   it('renders canonical boss, character, and level records', async () => {
