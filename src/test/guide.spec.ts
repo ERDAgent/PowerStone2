@@ -77,7 +77,7 @@ describe('section routing', () => {
     const { wrapper, router } = await mountAppAt('/how-to-play')
     expect(router.currentRoute.value.meta.section).toBe('how-to-play')
     expect(wrapper.find('#how-to-play').attributes('aria-labelledby')).toBe('how-to-play-title')
-    expect(wrapper.find('#how-to-play-title').text()).toBe('Learn the scramble.')
+    expect(wrapper.find('#how-to-play-title').text()).toBe('Getting Started')
     expect(wrapper.find('#primary-navigation a[aria-current="page"]').text()).toBe('How to Play')
     const aboutLink = wrapper.findAll('#primary-navigation a').find(link => link.text() === 'About Us')
     expect(aboutLink?.attributes('href')).toBe('/about')
@@ -379,7 +379,7 @@ describe('guide interactions', () => {
   it('renders canonical boss, character, and level records', async () => {
     const { wrapper } = await mountGuide()
     expect(wrapper.findAll('.portrait').map(node => node.findAll('span').at(-1)!.text())).toEqual(characters.map(record => record.name))
-    expect(wrapper.findAll('.level-chip').map(node => node.text())).toEqual(levels.map((record, index) => `${record.stageCount}-Stage0${index + 1}${record.name}${record.modes.join('')}`))
+    expect(wrapper.findAll('.level-chip').map(node => node.text())).toEqual(levels.map((record, index) => `${record.stageCount} Stage0${index + 1}${record.name}${record.modes.join('')}`))
     expect(wrapper.find('[aria-label="Boss encounters"]').findAll('.entity-chip').map(node => node.text())).toEqual(bosses.map(record => record.name))
     const bossDetailImage = wrapper.find('#enemies').findAll('.entity-file__portrait')[0]
     expect(bossDetailImage.attributes('src')).toBe(bosses[0].media)
@@ -693,7 +693,7 @@ describe('guide interactions', () => {
   it('opens the about accordion on Resources by default and toggles other sections exclusively', async () => {
     const { wrapper } = await mountGuide()
     const triggers = wrapper.findAll('.accordion__trigger')
-    expect(triggers.map(trigger => trigger.text().replace(/[+−]$/, ''))).toEqual(['Resources', 'Other', 'Contact'])
+    expect(triggers.map(trigger => trigger.text().replace(/[+−]$/, ''))).toEqual(['Resources', 'Links', 'Contact'])
     expect(triggers[0].attributes('aria-expanded')).toBe('true')
     expect(wrapper.find('#about-resources-panel').isVisible()).toBe(true)
     expect(wrapper.find('.about__reference').exists()).toBe(true)
@@ -702,11 +702,11 @@ describe('guide interactions', () => {
     expect(triggers[0].attributes('aria-expanded')).toBe('false')
     expect(triggers[1].attributes('aria-expanded')).toBe('true')
     expect(wrapper.find('#about-resources-panel').isVisible()).toBe(false)
-    expect(wrapper.find('#about-other-panel').isVisible()).toBe(true)
+    expect(wrapper.find('#about-links-panel').isVisible()).toBe(true)
 
     await triggers[1].trigger('click')
     expect(triggers[1].attributes('aria-expanded')).toBe('false')
-    expect(wrapper.find('#about-other-panel').isVisible()).toBe(false)
+    expect(wrapper.find('#about-links-panel').isVisible()).toBe(false)
     wrapper.unmount()
   })
 })

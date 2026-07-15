@@ -61,9 +61,9 @@ const expectedLevelCopy = [
   { name: 'Space Station Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/space-station-area-small.png', slides: ['/media/levels/levels-large/space-station-area-large.png'] },
   { name: 'Chaos Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/chaos-area-small.png', slides: ['/media/levels/levels-large/chaos-area-large.png'] },
   { name: 'Desert Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/deset-area-small.png', slides: ['/media/levels/levels-large/desert-area-large.png'] },
-  { name: 'Extra Stage 1', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-large/extra-stage-1-large.png', slides: ['/media/levels/levels-large/extra-stage-1-large.png'] },
-  { name: 'Extra Stage 2', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-large/extra-stage-2-large.png', slides: ['/media/levels/levels-large/extra-stage-2-large.png'] },
-  { name: 'Extra Stage 3', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-large/extra-stage-3-large.png', slides: ['/media/levels/levels-large/extra-stage-3-large.png'] },
+  { name: 'Extra Stage 1', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg', slides: ['/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg'] },
+  { name: 'Extra Stage 2', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-gallery/extra-stage-2/stage1-1.jpg', slides: ['/media/levels/levels-gallery/extra-stage-2/stage1-1.jpg'] },
+  { name: 'Extra Stage 3', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-gallery/extra-stage-3/stage1-1.jpg', slides: ['/media/levels/levels-gallery/extra-stage-3/stage1-1.jpg'] },
 ]
 
 const expectedBossCopy = [
