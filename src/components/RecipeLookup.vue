@@ -143,8 +143,8 @@ defineExpose({ selectItem })
         @click="scrollToSearch"
       >↑</button>
       <div v-if="!selected" class="recipe-empty recipe-empty--detail">
-        <h3>Choose an item result</h3>
-        <p>Search the canonical item catalog to see its documented alternatives.</p>
+        <h3>No Item Selected</h3>
+        <p>Try another name or number</p>
       </div>
       <template v-else>
         <header class="recipe-result-heading">
