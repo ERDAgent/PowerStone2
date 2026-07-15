@@ -254,6 +254,18 @@ describe('guide interactions', () => {
     wrapper.unmount()
   })
 
+  it('jumps from the recipe-result-heading info button to the items catalog for the currently selected item', async () => {
+    const { wrapper, router } = await mountGuide()
+    await wrapper.find('#recipe-search').setValue('mAcHiNe GuN')
+    await wrapper.find('#recipe-search').trigger('keydown', { key: 'Enter' })
+    await wrapper.find('.recipe-result-heading__link').trigger('click')
+    await flushPromises()
+    expect(router.currentRoute.value.path).toBe('/items')
+    expect(router.currentRoute.value.hash).toBe('#catalog-tabs')
+    expect(wrapper.find('.item-detail h3').text()).toBe('Machine Gun')
+    wrapper.unmount()
+  })
+
   it('steps back and forth through the catalog with the big corner arrows on the item detail, wrapping at the ends', async () => {
     const { wrapper } = await mountGuide()
     const firstName = wrapper.find('.item-detail h3').text()
