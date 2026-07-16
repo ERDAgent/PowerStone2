@@ -94,8 +94,6 @@ const quickFacts = [
   ['A wide roster', 'Fourteen characters on arcade and Dreamcast, plus two additional PSP-exclusive fighters in the Collection release.'],
 ]
 
-const stepPlaceholderImage = '/media/placeholders/timeline-milestone-placeholder.svg'
-
 const platforms = [
   { id: 'dreamcast', label: 'Dreamcast', image: '/media/consoles/dc-console-small-withshadow-compressed.png' },
   { id: 'arcade', label: 'Arcade', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png' },
@@ -124,30 +122,10 @@ const onlineOptions = [
 ] as const
 
 const unlockPlatforms = [
-  {
-    id: 'dreamcast', label: 'Dreamcast', image: '/media/consoles/dc-console-small-withshadow-compressed.png', platformLabel: 'Home console',
-    summary: 'Adventure play and the in-game item economy underpin the home progression loop. Character and item requirements can vary by release or source.',
-    status: 'Exact conditions to verify',
-    note: 'Before investing time, confirm your region and save context against a verified manual or gameplay record.',
-  },
-  {
-    id: 'arcade', label: 'Arcade', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png', platformLabel: 'Hardware context',
-    summary: 'The arcade release is historical and hardware context here—not a home unlock path. This guide does not apply Dreamcast save-based instructions to arcade operation.',
-    status: 'Not a home unlock path',
-    note: 'Full unlock checklists for this platform are queued for a future update.',
-  },
-  {
-    id: 'psp', label: 'PSP', image: '/media/consoles/psp-console-small-withshadow-compressed.png', platformLabel: 'Portable compilation',
-    summary: 'The compilation combines both games and includes its own portable-era presentation and progression context.',
-    status: 'Collection-specific details to verify',
-    note: 'Do not assume every Dreamcast instruction maps one-to-one to this release.',
-  },
-  {
-    id: 'pc', label: 'PC', image: '/media/consoles/pc-small-withshadow-compressed.png', platformLabel: 'Home computer',
-    summary: 'Home computer summary',
-    status: 'CHome computer status',
-    note: 'Home computer note',
-  },
+  { id: 'dreamcast', label: 'Dreamcast', image: '/media/consoles/dc-console-small-withshadow-compressed.png' },
+  { id: 'arcade', label: 'Arcade', image: '/media/consoles/arcade-cabinet-small-withshadow-compressed.png' },
+  { id: 'psp', label: 'PSP', image: '/media/consoles/psp-console-small-withshadow-compressed.png' },
+  { id: 'pc', label: 'PC', image: '/media/consoles/pc-small-withshadow-compressed.png' },
 ] as const
 
 const characterSlides: GalleryItem[] = [
@@ -161,7 +139,6 @@ const selectedMode = ref<typeof modes[number]['id']>(modes.find(mode => (mode.av
 const selectedOnline = ref<typeof onlineOptions[number]['id']>(onlineOptions[0].id)
 const selectedUnlockPlatform = ref<typeof unlockPlatforms[number]['id']>(unlockPlatforms[0].id)
 const availableModes = computed(() => modes.filter(mode => (mode.availability as readonly string[]).includes(selectedPlatform.value)))
-const activeUnlockPlatform = computed(() => unlockPlatforms.find(platform => platform.id === selectedUnlockPlatform.value) ?? unlockPlatforms[0])
 
 watch(availableModes, modes => {
   if (!modes.some(mode => mode.id === selectedMode.value)) selectedMode.value = modes[0]?.id ?? selectedMode.value
@@ -370,18 +347,34 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       <div class="subsection" style="margin-top: 0;">
         <h3 class="subsection__title">1) Select a Platform</h3>
         <HorizontalNav :items="platforms" v-model="selectedPlatform" nav-label="Select a platform" style="position: relative; z-index: 2;"/>
-        <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
+        <article class="unlock-detail subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
           <div v-if="selectedPlatform === 'dreamcast'" class="panel-content panel-content--dreamcast">
-            <p>dreamcast</p>
+            <p class="platform-label">Home console</p>
+            <h3>Dreamcast</h3>
+            <p>Adventure play and the in-game item economy underpin the home progression loop. Character and item requirements can vary by release or source.</p>
+            <span class="status-tag">Exact conditions to verify</span>
+            <p class="unlock-detail__pending">Before investing time, confirm your region and save context against a verified manual or gameplay record.</p>
           </div>
           <div v-else-if="selectedPlatform === 'arcade'" class="panel-content panel-content--arcade">
-            <p>arcade</p>
+            <p class="platform-label">Hardware context</p>
+            <h3>Arcade</h3>
+            <p>The arcade release is historical and hardware context here—not a home unlock path. This guide does not apply Dreamcast save-based instructions to arcade operation.</p>
+            <span class="status-tag">Not a home unlock path</span>
+            <p class="unlock-detail__pending">Full unlock checklists for this platform are queued for a future update.</p>
           </div>
           <div v-else-if="selectedPlatform === 'psp'" class="panel-content panel-content--psp">
-            <p>psp</p>
+            <p class="platform-label">Portable compilation</p>
+            <h3>PSP</h3>
+            <p>The compilation combines both games and includes its own portable-era presentation and progression context.</p>
+            <span class="status-tag">Collection-specific details to verify</span>
+            <p class="unlock-detail__pending">Do not assume every Dreamcast instruction maps one-to-one to this release.</p>
           </div>
           <div v-else-if="selectedPlatform === 'pc'" class="panel-content panel-content--pc">
-            <p>pc</p>
+            <p class="platform-label">Home computer</p>
+            <h3>PC</h3>
+            <p>Home computer summary</p>
+            <span class="status-tag">Home computer status</span>
+            <p class="unlock-detail__pending">Home computer note</p>
           </div>
         </article>
       </div>
@@ -389,39 +382,83 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       <div class="subsection">
         <h3 class="subsection__title">2) Select a Mode</h3>
         <HorizontalNav :items="availableModes" v-model="selectedMode" nav-label="Select a mode" hide-labels style="position: relative; z-index: 2;"/>
-        <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
+        <article class="unlock-detail subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
           <div v-if="selectedMode === 'dreamcast-mode-1'" class="panel-content panel-content--dreamcast-mode-1">
-            <p>original</p>
+            <p class="platform-label">Dreamcast mode</p>
+            <h3>Original</h3>
+            <p>The default single-cart mode for the Dreamcast release, covering the core arcade-style match flow.</p>
+            <span class="status-tag">Exact rules to verify</span>
+            <p class="unlock-detail__pending">Match structure and options menu details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedMode === 'dreamcast-mode-2'" class="panel-content panel-content--dreamcast-mode-2">
-            <p>1-on-1</p>
+            <p class="platform-label">Dreamcast mode</p>
+            <h3>1-on-1</h3>
+            <p>A head-to-head mode focused on a direct matchup between two fighters.</p>
+            <span class="status-tag">Exact rules to verify</span>
+            <p class="unlock-detail__pending">Match structure and options menu details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedMode === 'dreamcast-mode-3'" class="panel-content panel-content--dreamcast-mode-3">
-            <p>arcade</p>
+            <p class="platform-label">Dreamcast mode</p>
+            <h3>Arcade Mode</h3>
+            <p>A ladder-style run through a sequence of opponents, mirroring the original arcade experience.</p>
+            <span class="status-tag">Exact rules to verify</span>
+            <p class="unlock-detail__pending">Match structure and options menu details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedMode === 'dreamcast-mode-4'" class="panel-content panel-content--dreamcast-mode-4">
-            <p>adventure</p>
+            <p class="platform-label">Dreamcast mode</p>
+            <h3>Adventure</h3>
+            <p>A story-driven single-player mode that also feeds into the game's item and unlock economy.</p>
+            <span class="status-tag">Exact rules to verify</span>
+            <p class="unlock-detail__pending">Match structure and options menu details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedMode === 'team-battle'" class="panel-content panel-content--team-battle">
-            <p>team battle</p>
+            <p class="platform-label">Arcade mode</p>
+            <h3>Team Battle</h3>
+            <p>A two-on-two format that pairs fighters together against another team.</p>
+            <span class="status-tag">Exact rules to verify</span>
+            <p class="unlock-detail__pending">Match structure and options menu details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedMode === '3team-battle'" class="panel-content panel-content--3team-battle">
-            <p>3 team battle</p>
+            <p class="platform-label">Arcade mode</p>
+            <h3>3 Team Battle</h3>
+            <p>An expanded team format that scales the Team Battle setup up to three teams.</p>
+            <span class="status-tag">Exact rules to verify</span>
+            <p class="unlock-detail__pending">Match structure and options menu details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedMode === 'battle-royal'" class="panel-content panel-content--battle-royal">
-            <p>battle royal</p>
+            <p class="platform-label">Arcade mode</p>
+            <h3>Battle Royal</h3>
+            <p>A free-for-all format with every fighter on the arena at once, matching the game's core four-player identity.</p>
+            <span class="status-tag">Exact rules to verify</span>
+            <p class="unlock-detail__pending">Match structure and options menu details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedMode === 'psp-mode-1'" class="panel-content panel-content--psp-mode-1">
-            <p>psp mode 1</p>
+            <p class="platform-label">PSP mode</p>
+            <h3>Mode 1</h3>
+            <p>A portable-compilation mode carried over from the Dreamcast and arcade releases.</p>
+            <span class="status-tag">Collection-specific details to verify</span>
+            <p class="unlock-detail__pending">Do not assume every Dreamcast instruction maps one-to-one to this release.</p>
           </div>
           <div v-else-if="selectedMode === 'psp-mode-2'" class="panel-content panel-content--psp-mode-2">
-            <p>psp mode 2</p>
+            <p class="platform-label">PSP mode</p>
+            <h3>Mode 2</h3>
+            <p>A second portable-compilation mode carried over from the Dreamcast and arcade releases.</p>
+            <span class="status-tag">Collection-specific details to verify</span>
+            <p class="unlock-detail__pending">Do not assume every Dreamcast instruction maps one-to-one to this release.</p>
           </div>
           <div v-else-if="selectedMode === 'pc-mode-1'" class="panel-content panel-content--pc-mode-1">
-            <p>pc mode 1</p>
+            <p class="platform-label">PC mode</p>
+            <h3>Mode 1</h3>
+            <p>Home computer summary</p>
+            <span class="status-tag">Home computer status</span>
+            <p class="unlock-detail__pending">Home computer note</p>
           </div>
           <div v-else-if="selectedMode === 'pc-mode-2'" class="panel-content panel-content--pc-mode-2">
-            <p>pc mode 2</p>
+            <p class="platform-label">PC mode</p>
+            <h3>Mode 2</h3>
+            <p>Home computer summary</p>
+            <span class="status-tag">Home computer status</span>
+            <p class="unlock-detail__pending">Home computer note</p>
           </div>
         </article>
       </div>
@@ -429,81 +466,27 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
       <div class="subsection">
         <h3 class="subsection__title">3) Play Locally or Online</h3>
         <HorizontalNav :items="onlineOptions" v-model="selectedOnline" nav-label="Play online" style="position: relative; z-index: 2;"/>
-        <article class="subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
+        <article class="unlock-detail subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
           <div v-if="selectedOnline === 'local-play'" class="panel-content panel-content--local-play">
-            <p>local text</p>
-            <!-- <ol class="steps">
-              <li>
-                <span class="steps__number">01</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 1' })"><img :src="stepPlaceholderImage" alt="thing 1 illustration" /></button>
-                <div><h4>thing 1</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">02</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 2' })"><img :src="stepPlaceholderImage" alt="thing 2 illustration" /></button>
-                <div><h4>thing 2</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">03</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 3' })"><img :src="stepPlaceholderImage" alt="thing 3 illustration" /></button>
-                <div><h4>thing 3</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">04</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 4' })"><img :src="stepPlaceholderImage" alt="thing 4 illustration" /></button>
-                <div><h4>thing 4</h4><p>desc</p></div>
-              </li>
-            </ol> -->
+            <p class="platform-label">Couch multiplayer</p>
+            <h3>Local Play</h3>
+            <p>Up to four fighters share one controller-connected setup, matching the game's original couch co-op design.</p>
+            <span class="status-tag">Setup steps to verify</span>
+            <p class="unlock-detail__pending">Controller and multitap requirements per platform are queued for a future update.</p>
           </div>
           <div v-else-if="selectedOnline === 'capcom-fighting-collection-2'" class="panel-content panel-content--capcom-fighting-collection-2">
-            <p>cfc2 text</p>
-            <!-- <ol class="steps">
-              <li>
-                <span class="steps__number">01</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 1' })"><img :src="stepPlaceholderImage" alt="thing 1 illustration" /></button>
-                <div><h4>thing 1</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">02</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 2' })"><img :src="stepPlaceholderImage" alt="thing 2 illustration" /></button>
-                <div><h4>thing 2</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">03</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 3' })"><img :src="stepPlaceholderImage" alt="thing 3 illustration" /></button>
-                <div><h4>thing 3</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">04</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 4' })"><img :src="stepPlaceholderImage" alt="thing 4 illustration" /></button>
-                <div><h4>thing 4</h4><p>desc</p></div>
-              </li>
-            </ol> -->
+            <p class="platform-label">Modern re-release</p>
+            <h3>Capcom Fighting Collection 2</h3>
+            <p>A current, officially supported way to play Power Stone 2 with online play built in.</p>
+            <span class="status-tag">Online options to verify</span>
+            <p class="unlock-detail__pending">Rollback netcode and lobby details are queued for a future update.</p>
           </div>
           <div v-else-if="selectedOnline === 'flycast-dojo'" class="panel-content panel-content--flycast-dojo">
-            <p>emulation text</p>
-            <!-- <ol class="steps">
-              <li>
-                <span class="steps__number">01</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 1' })"><img :src="stepPlaceholderImage" alt="thing 1 illustration" /></button>
-                <div><h4>thing 1</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">02</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 2' })"><img :src="stepPlaceholderImage" alt="thing 2 illustration" /></button>
-                <div><h4>thing 2</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">03</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 3' })"><img :src="stepPlaceholderImage" alt="thing 3 illustration" /></button>
-                <div><h4>thing 3</h4><p>desc</p></div>
-              </li>
-              <li>
-                <span class="steps__number">04</span>
-                <button type="button" class="steps__thumb" @click="store.openLightbox({ src: stepPlaceholderImage, alt: 'thing 4' })"><img :src="stepPlaceholderImage" alt="thing 4 illustration" /></button>
-                <div><h4>thing 4</h4><p>desc</p></div>
-              </li>
-            </ol> -->
+            <p class="platform-label">Community emulation</p>
+            <h3>Emulation</h3>
+            <p>A community-maintained path to online play for the original release, outside of official support.</p>
+            <span class="status-tag">Setup steps to verify</span>
+            <p class="unlock-detail__pending">Client and matchmaking specifics are queued for a future update.</p>
           </div>
         </article>
         <aside v-if="selectedOnline === 'flycast-dojo'" class="callout gradient-border"><b>Keep it legitimate and current.</b> Supply your own game files, consult each project’s current official documentation, and expect networking screens or requirements to evolve.</aside>
@@ -679,7 +662,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     </section>
 
     <section id="levels" class="content-section routed-section content-section--levels" aria-labelledby="levels-title">
-      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. Desert Area is the standard competetive map." style="margin-bottom: 1rem">
+      <SectionHeading title-id="levels-title" kicker="06 / Levels" title="Levels & Stages" intro="Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. Desert Area is the standard competetive map." style="margin-bottom: 1.25rem">
         <template #intro>Levels have one, three, of four stages. Select a level to learn more about it. All maps support up to 4 players. <button type="button" class="text-link" @click="selectLevelAndScroll(desertArea.id)">Desert Area</button> is the standard competetive map.</template>
       </SectionHeading>
       <div ref="levelStageFilter" class="level-filters">
@@ -700,6 +683,10 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
             <span v-for="mode in level.modes" :key="mode" class="level-chip__mode-badge">{{ mode }}</span>
           </span>
         </button>
+        <div v-if="!filteredLevels.length" class="level-empty" role="status">
+          <h3 class="level-empty__title">No Levels</h3>
+          <p>No levels match this filter</p>
+        </div>
       </div>
       <article ref="levelFile" class="level-file" aria-live="polite">
         <div class="detail-nav">
@@ -846,13 +833,36 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
 
     <section id="unlocks" class="content-section routed-section content-section--unlocks" aria-labelledby="unlocks-title">
       <SectionHeading title-id="unlocks-title" kicker="08 / Unlocks" title="Unlock All Content" intro="Progress differs between versions. Select a platform to get a guide for that specific version." style="margin-bottom: 2rem" />
-      <HorizontalNav :items="unlockPlatforms" v-model="selectedUnlockPlatform" nav-label="Select a platform for unlock notes" />
-      <article class="unlock-detail">
-        <p class="platform-label">{{ activeUnlockPlatform.platformLabel }}</p>
-        <h3>{{ activeUnlockPlatform.label }}</h3>
-        <p>{{ activeUnlockPlatform.summary }}</p>
-        <span class="status-tag">{{ activeUnlockPlatform.status }}</span>
-        <p class="unlock-detail__pending">{{ activeUnlockPlatform.note }}</p>
+      <HorizontalNav :items="unlockPlatforms" v-model="selectedUnlockPlatform" nav-label="Select a platform for unlock notes" style="position: relative; z-index: 2;" />
+      <article class="unlock-detail subsection__panel gradient-border" aria-live="polite" style="position: relative; z-index: 1; border: none; background: linear-gradient(180deg, rgb(249, 216, 119) 0%, rgb(255, 242, 202) 100%); border-radius: 0.5rem; border-top-left-radius: 0;">
+        <div v-if="selectedUnlockPlatform === 'dreamcast'" class="panel-content panel-content--dreamcast">
+          <p class="platform-label">Home console</p>
+          <h3>Dreamcast</h3>
+          <p>Adventure play and the in-game item economy underpin the home progression loop. Character and item requirements can vary by release or source.</p>
+          <span class="status-tag">Exact conditions to verify</span>
+          <p class="unlock-detail__pending">Before investing time, confirm your region and save context against a verified manual or gameplay record.</p>
+        </div>
+        <div v-else-if="selectedUnlockPlatform === 'arcade'" class="panel-content panel-content--arcade">
+          <p class="platform-label">Hardware context</p>
+          <h3>Arcade</h3>
+          <p>The arcade release is historical and hardware context here—not a home unlock path. This guide does not apply Dreamcast save-based instructions to arcade operation.</p>
+          <span class="status-tag">Not a home unlock path</span>
+          <p class="unlock-detail__pending">Full unlock checklists for this platform are queued for a future update.</p>
+        </div>
+        <div v-else-if="selectedUnlockPlatform === 'psp'" class="panel-content panel-content--psp">
+          <p class="platform-label">Portable compilation</p>
+          <h3>PSP</h3>
+          <p>The compilation combines both games and includes its own portable-era presentation and progression context.</p>
+          <span class="status-tag">Collection-specific details to verify</span>
+          <p class="unlock-detail__pending">Do not assume every Dreamcast instruction maps one-to-one to this release.</p>
+        </div>
+        <div v-else-if="selectedUnlockPlatform === 'pc'" class="panel-content panel-content--pc">
+          <p class="platform-label">Home computer</p>
+          <h3>PC</h3>
+          <p>Home computer summary</p>
+          <span class="status-tag">Home computer status</span>
+          <p class="unlock-detail__pending">Home computer note</p>
+        </div>
       </article>
     </section>
 
