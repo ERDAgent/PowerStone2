@@ -82,10 +82,10 @@ function onTabKeydown(event: KeyboardEvent, index: number) {
 }
 
 const highlights = [
-  ['The Sleeper Hit: Retro 3D Fighter', 'The perfect mix of depth and simplicity from a bygone era.', '/media/box-art/dreamcast-box-art.jpg'],
-  ['Deep Replayability', 'Amazing combat, easy to learn/hard to master, crafting and gambling, ahead of its time.', '/media/levels/levels-gallery/blue-sky-area/stage1-1-compressed.jpg'],
-  ['Competitive Spirit', 'This game is meant to be played against someone else for hours on end. It’s competitive multiplayer is its shining achievement.', '/media/levels/levels-gallery/dark-castle-area/stage1-1-compressed.jpg'],
-  ['A World Full of Weapons', 'Every arena is stuffed with pipes, furniture, and junk waiting to be picked up and swung.', '/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg'],
+  ['The Sleeper Hit: Retro 3D Fighter', 'The perfect mix of depth and simplicity from a bygone era.', '/media/materials/01-flame-element.png'],
+  ['Deep Replayability', 'Amazing combat, easy to learn/hard to master, crafting and gambling, ahead of its time.', '/media/materials/02-ice-element.png'],
+  ['Competitive Spirit', 'This game is meant to be played against someone else for hours on end. It’s competitive multiplayer is its shining achievement.', '/media/materials/03-thunder-element.png'],
+  ['A World Full of Weapons', 'Every arena is stuffed with pipes, furniture, and junk waiting to be picked up and swung.', '/media/materials/04-light-element.png'],
 ]
 
 const highlightsSection = ref<HTMLElement | null>(null)
