@@ -129,7 +129,10 @@ defineExpose({ selectItem })
         >
           <img v-if="item.media" :src="item.media" alt="" />
           <span v-else class="entity-fallback" aria-hidden="true">{{ item.name.slice(0, 2) }}</span>
-          <span><b>{{ item.name }}</b><small>Item {{ Number(item.number) }} · {{ item.category ?? 'Uncategorized' }}</small></span>
+          <span>
+              <small>Item {{ Number(item.number) }} · {{ item.category ?? 'Uncategorized' }}</small>
+              <b>{{ item.name }}</b>
+          </span>
         </button>
         <p v-if="!matches.length" class="recipe-empty" role="status">No Items Found</p>
       </div>

@@ -118,15 +118,16 @@
     }
   },
   {
-    "id": "level-chaos-area",
-    "name": "Chaos Area",
+    "id": "level-desert-area",
+    "name": "Desert Area",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-small/chaos-area-small.png",
+    "media": "/media/levels/levels-small/deset-area-small.png",
     "slides": [
-      "/media/levels/levels-large/chaos-area-large.png"
+      "/media/levels/levels-large/desert-area-large.png"
     ],
-    "stageCount": 4,
+    "stageCount": 1,
     "modes": [
+      "PVP",
       "PVE"
     ],
     "provenance": {
@@ -139,16 +140,15 @@
     }
   },
   {
-    "id": "level-desert-area",
-    "name": "Desert Area",
+    "id": "level-chaos-area",
+    "name": "Chaos Area",
     "description": "A hazardous stage concept where awareness matters as much as offense.",
-    "media": "/media/levels/levels-small/deset-area-small.png",
+    "media": "/media/levels/levels-small/chaos-area-small.png",
     "slides": [
-      "/media/levels/levels-large/desert-area-large.png"
+      "/media/levels/levels-large/chaos-area-large.png"
     ],
-    "stageCount": 1,
+    "stageCount": 4,
     "modes": [
-      "PVP",
       "PVE"
     ],
     "provenance": {

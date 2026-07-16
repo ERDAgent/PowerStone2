@@ -257,9 +257,9 @@ function nextBoss() {
 }
 
 const placeholderEnemies = [
-  { id: 'enemy-placeholder-1', name: 'Enemy 01' },
-  { id: 'enemy-placeholder-2', name: 'Enemy 02' },
-  { id: 'enemy-placeholder-3', name: 'Enemy 03' },
+  { id: 'enemy-small-wooden-soldier', name: 'Small Wooden Soldier', media: '/media/enemies/small-wooden-soldier-compressed.png' },
+  { id: 'enemy-large-wooden-soldier', name: 'Large Wooden Soldier', media: '/media/enemies/large-wooden-soldier-compressed.png' },
+  { id: 'enemy-pharaoh-rider', name: 'Pharaoh Rider', media: '/media/enemies/pharaoh-rider-compressed.png' },
 ] as const
 const selectedEnemyId = ref<typeof placeholderEnemies[number]['id']>(placeholderEnemies[0].id)
 const selectedEnemy = computed(() => placeholderEnemies.find(enemy => enemy.id === selectedEnemyId.value) ?? placeholderEnemies[0])
@@ -746,7 +746,7 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
         <h3 class="subsection__title">Enemies</h3>
         <div class="entity-select" role="list" aria-label="Enemy roster">
           <button v-for="enemy in placeholderEnemies" :key="enemy.id" type="button" :aria-pressed="selectedEnemy.id === enemy.id" :class="['entity-chip', { 'entity-chip--active': selectedEnemy.id === enemy.id }]" @click="selectEnemyAndScroll(enemy.id)">
-            <span class="entity-chip__thumb entity-chip__thumb--fallback" aria-hidden="true">{{ enemy.name.slice(0, 2) }}</span>
+            <img class="entity-chip__thumb" :src="enemy.media" :alt="`${enemy.name} chip art`" />
             <span>{{ enemy.name }}</span>
           </button>
         </div>
@@ -755,7 +755,9 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
             <button type="button" class="detail-nav__arrow" aria-label="Previous enemy" @click="previousEnemy">←</button>
             <button type="button" class="detail-nav__arrow" aria-label="Next enemy" @click="nextEnemy">→</button>
           </div>
-          <div class="entity-file__hero"><span aria-hidden="true">?</span></div>
+          <div class="entity-file__hero">
+            <img class="entity-file__portrait" :src="selectedEnemy.media" :alt="`${selectedEnemy.name} artwork`" />
+          </div>
           <div class="entity-file__copy">
             <p class="eyebrow">Encounter file</p>
             <h3>{{ selectedEnemy.name }}</h3>

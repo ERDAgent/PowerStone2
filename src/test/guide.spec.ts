@@ -381,7 +381,7 @@ describe('guide interactions', () => {
     expect(wrapper.findAll('.portrait').map(node => node.findAll('span').at(-1)!.text())).toEqual(characters.map(record => record.name))
     expect(wrapper.findAll('.level-chip').map(node => node.text())).toEqual(levels.map((record, index) => `${record.stageCount} Stage0${index + 1}${record.name}${record.modes.join('')}`))
     expect(wrapper.find('[aria-label="Boss encounters"]').findAll('.entity-chip').map(node => node.text())).toEqual(bosses.map(record => record.name))
-    const bossDetailImage = wrapper.find('#enemies').findAll('.entity-file__portrait')[0]
+    const bossDetailImage = wrapper.find('#enemies').findAll('.subsection')[1].find('.entity-file__portrait')
     expect(bossDetailImage.attributes('src')).toBe(bosses[0].media)
     wrapper.unmount()
   })

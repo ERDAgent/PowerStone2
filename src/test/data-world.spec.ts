@@ -59,8 +59,8 @@ const expectedLevelCopy = [
   { name: 'Tomb Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/tomb-area-small.png', slides: ['/media/levels/levels-large/tomb-area-large.png'] },
   { name: 'Iceberg Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/iceburg-area-small.png', slides: ['/media/levels/levels-large/iceburg-area-large.png'] },
   { name: 'Space Station Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/space-station-area-small.png', slides: ['/media/levels/levels-large/space-station-area-large.png'] },
-  { name: 'Chaos Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/chaos-area-small.png', slides: ['/media/levels/levels-large/chaos-area-large.png'] },
   { name: 'Desert Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/deset-area-small.png', slides: ['/media/levels/levels-large/desert-area-large.png'] },
+  { name: 'Chaos Area', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-small/chaos-area-small.png', slides: ['/media/levels/levels-large/chaos-area-large.png'] },
   { name: 'Extra Stage 1', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg', slides: ['/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg'] },
   { name: 'Extra Stage 2', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-gallery/extra-stage-2/stage1-1.jpg', slides: ['/media/levels/levels-gallery/extra-stage-2/stage1-1.jpg'] },
   { name: 'Extra Stage 3', description: 'A hazardous stage concept where awareness matters as much as offense.', media: '/media/levels/levels-gallery/extra-stage-3/stage1-1.jpg', slides: ['/media/levels/levels-gallery/extra-stage-3/stage1-1.jpg'] },
@@ -87,7 +87,7 @@ describe('world data', () => {
     expect(characters).toHaveLength(16)
     expect(characters.filter(character => character.availability.includes('dreamcast'))).toHaveLength(14)
     expect(characters.filter(character => character.availability.length === 1 && character.availability[0] === 'PSP').map(character => character.name)).toEqual(['Kraken', 'Valgas'])
-    expect(levels.map(level => level.name)).toEqual(['Blue Sky Area', 'Dark Castle Area', 'Tomb Area', 'Iceberg Area', 'Space Station Area', 'Chaos Area', 'Desert Area', 'Extra Stage 1', 'Extra Stage 2', 'Extra Stage 3'])
+    expect(levels.map(level => level.name)).toEqual(['Blue Sky Area', 'Dark Castle Area', 'Tomb Area', 'Iceberg Area', 'Space Station Area', 'Desert Area', 'Chaos Area', 'Extra Stage 1', 'Extra Stage 2', 'Extra Stage 3'])
     expect(bosses.map(boss => boss.name)).toEqual(['Pharaoh Walker', 'Dr. Erode'])
 
     expect(new Set(records.map(record => record.id)).size).toBe(records.length)
