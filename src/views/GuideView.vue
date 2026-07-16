@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import SectionHeading from '@/components/SectionHeading.vue'
@@ -82,10 +82,25 @@ function onTabKeydown(event: KeyboardEvent, index: number) {
 }
 
 const highlights = [
-  ['The Sleeper Hit: Retro 3D Fighter', 'The perfect mix of depth and simplicity from a bygone era.'],
-  ['Deep Replayability', 'Amazing combat, easy to learn/hard to master, crafting and gambling, ahead of its time.'],
-  ['Competitive Spirit', 'This game is meant to be played against someone else for hours on end. It’s competitive multiplayer is its shining achievement.'],
+  ['The Sleeper Hit: Retro 3D Fighter', 'The perfect mix of depth and simplicity from a bygone era.', '/media/box-art/dreamcast-box-art.jpg'],
+  ['Deep Replayability', 'Amazing combat, easy to learn/hard to master, crafting and gambling, ahead of its time.', '/media/levels/levels-gallery/blue-sky-area/stage1-1-compressed.jpg'],
+  ['Competitive Spirit', 'This game is meant to be played against someone else for hours on end. It’s competitive multiplayer is its shining achievement.', '/media/levels/levels-gallery/dark-castle-area/stage1-1-compressed.jpg'],
+  ['A World Full of Weapons', 'Every arena is stuffed with pipes, furniture, and junk waiting to be picked up and swung.', '/media/levels/levels-gallery/extra-stage-1/stage1-1.jpg'],
 ]
+
+const highlightsSection = ref<HTMLElement | null>(null)
+const highlightsInView = ref(false)
+let highlightsObserver: IntersectionObserver | null = null
+onMounted(() => {
+  if (!highlightsSection.value) return
+  highlightsObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return
+    highlightsInView.value = true
+    highlightsObserver?.disconnect()
+  }, { threshold: 0.3 })
+  highlightsObserver.observe(highlightsSection.value)
+})
+onBeforeUnmount(() => highlightsObserver?.disconnect())
 
 const quickFacts = [
   ['4-player arenas', 'Up to four fighters share one freely explorable 3D stage instead of a locked-off fighting-game plane.'],
@@ -326,10 +341,21 @@ const dividerStone = `/media/menus/stone-${stoneColors[Math.floor(Math.random() 
     <section id="game-overview" class="content-section routed-section content-section--game-overview" aria-labelledby="game-overview-title">
       <SectionHeading title-id="game-overview-title" kicker="01 / About the game" title="The Sleeper Hit You Probably Missed" intro="Power Stone 2 hit arcades and consoles in 2000, the PSP in 2006, and PC in 2025." style="margin-bottom: 2rem"/>
       <div class="game-overview">
-        <div class="game-overview__highlights">
-          <article v-for="highlight in highlights" :key="highlight[0]" class="game-overview__highlight">
-            <h3>{{ highlight[0] }}</h3>
-            <p>{{ highlight[1] }}</p>
+        <div ref="highlightsSection" class="game-overview__highlights">
+          <article
+            v-for="(highlight, index) in highlights"
+            :key="highlight[0]"
+            :class="['game-overview__highlight', { 'game-overview__highlight--flipped': highlightsInView }]"
+          >
+            <div class="game-overview__highlight-inner" :style="{ transitionDelay: `${index * 200}ms` }">
+              <div class="game-overview__highlight-face game-overview__highlight-face--front">
+                <img :src="highlight[2]" :alt="highlight[0]" />
+              </div>
+              <div class="game-overview__highlight-face game-overview__highlight-face--back">
+                <h3>{{ highlight[0] }}</h3>
+                <p>{{ highlight[1] }}</p>
+              </div>
+            </div>
           </article>
         </div>
         <p class="game-overview__lede">Capcom’s 2000 sequel expands the original Power Stone into full four-player chaos: any object in reach can become a weapon, any stage can shift or crumble mid-fight, and a well-timed transformation can flip a losing match in seconds. The sections below walk through how to play, on which platform, and how to get a match running with friends.</p>
